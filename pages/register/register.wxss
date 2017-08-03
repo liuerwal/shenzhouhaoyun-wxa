@@ -1,0 +1,12 @@
+/**register.wxss**/
+.radio-group{width:90%;margin: 20px auto;display: flex;}
+.radio-group .radio{margin-right:20px;display: flex;align-items: center;}
+.register{padding:10px 20px;margin:20px auto;overflow: hidden;}
+.register .section input{float: left;padding:5px 10px;font-size:16px;}
+.register .section{margin:15px 0;overflow: hidden;}
+.register .section__title{float: left;width: 80px;line-height: 38px;font-size: 16px;}
+.getcode input{width: 120px;}
+.getcode button{font-size: 14px;background: #F13D3C;color: #fff;border:none;width: 100px}
+.register-btn{font-size: 16px;background: #F13D3C;color: #fff;border:none;width: 200px}
+
+

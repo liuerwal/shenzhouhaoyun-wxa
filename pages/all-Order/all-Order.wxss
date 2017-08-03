@@ -1,0 +1,14 @@
+/**Order.wxss**/
+.swiper-tab{width: 100%;text-align: center;line-height: 80rpx;}  
+.swiper-tab-list{  font-size: 16px;display: inline-block;width: 25%;}  
+.on{color: #F13D3C;border-bottom: 2rpx solid #F13D3C;}  
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden;background: #f5f5f5; }  
+.order-box{}
+.order-box view{line-height: 30px;font-size:16px;}
+.order-box text{line-height: 30px;}
+.again{border-top:1px solid #d9d9d9;text-align: right;padding-top:10px;color: #F13D3C}
+.address{margin-bottom: 20px;}
+.cash{color: #F13D3C}
+.order-info{margin:20px 0;padding:10px 20px;background: #fff;}
+
+

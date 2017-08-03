@@ -1,0 +1,14 @@
+/**index.wxss**/
+.order-box{margin:40px 0;border-top:1px solid #d9d9d9;border-bottom:1px solid #d9d9d9;overflow: hidden;padding:20px 0;}
+.order-box .p-order,.order-box .order{width:49%;text-align: center;}
+.p-order{border-right:1px solid #d9d9d9;}
+.order-box image{width:100px;height:100px;margin-bottom: 20px;}
+.index-banner{width:100%;height: 180px;}
+.index-banner image{width: 370px;height: 180px;}
+
+
+
+/*bottom*/
+.bottom-tabbar{border-top:1px solid #d9d9d9;padding:5px 0;overflow: hidden;margin-top: 20px;position: fixed;bottom:0;width: 100%;}
+.tabbar-info{width:33.33%;float: left;text-align: center;}
+.tabbar-info image{width: 30px;height: 30px;}

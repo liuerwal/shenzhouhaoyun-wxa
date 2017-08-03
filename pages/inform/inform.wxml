@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+	<navigator url="../info-details/info-details" hover-class="none">
+		<view class="inform-box">
+			<view class="fl-left">
+				<text class="inform-title">我是标题</text>
+				<text class="inform-content">你是你是内容你是内容你是内容你是内容你是内容内容</text>
+			</view>
+			<view class="fl-right">
+				<text>2016-10-10</text>
+			</view>
+		</view>
+	</navigator>
+	<navigator url="../info-details/info-details" hover-class="none">
+		<view class="inform-box">
+			<view class="fl-left">
+				<text class="inform-title">我是标题</text>
+				<text class="inform-content">你是你是内容你是内容你是内容你是内容你是内容内容</text>
+			</view>
+			<view class="fl-right">
+				<text>2016-10-10</text>
+			</view>
+		</view>
+	</navigator>
+</view>

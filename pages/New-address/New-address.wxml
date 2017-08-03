@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="section">
+		<picker mode="region" bindchange="bindRegionChange" value="{{region}}" class="region">
+			<view class="picker">
+				当前地址 ： {{region[0]}}，{{region[1]}}，{{region[2]}}
+			</view>
+		</picker>
+		<view class="detailed-info">
+			<view>请输入详细地址：</view>
+			<input placeholder="详细地址" class=""/>
+		</view>
+	</view>
+	<button class="new-address-btn">确定</button>
+	<view></view>
+</view>

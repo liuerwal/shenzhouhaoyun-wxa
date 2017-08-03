@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="bill-info">
+		<view class="fl-left">
+			<view class="bill-title">where</view>
+			<view class="bill-time">2016-10-18</view>
+		</view>
+		<view class="fl-right bill-money">-12.00</view>
+	</view>
+	<view class="bill-info">
+		<view class="fl-left">
+			<view class="bill-title">where</view>
+			<view class="bill-time">2016-10-18</view>
+		</view>
+		<view class="fl-right bill-money">-12.00</view>
+	</view>
+</view>

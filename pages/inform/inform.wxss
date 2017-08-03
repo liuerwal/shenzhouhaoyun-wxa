@@ -1,0 +1,9 @@
+/**index.wxss**/
+.inform-box{border-bottom:1px solid #d9d9d9;padding:10px 20px ;height:60px;}
+.inform-box text{line-height: 30px;display: block;}
+.inform-content{font-size:14px;color:#9a9a9a;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+.inform-box .fl-left{width: 70%;}
+
+
+
+

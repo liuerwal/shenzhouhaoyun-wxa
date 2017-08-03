@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="voucher">
+		<view class="intro">资质说明：</view>
+		<text>a.新车购置价为**万元以上；</text>
+		<text>b.购车年限为5年以内</text>
+		<text>c.正规公司</text>
+		<text>d.具有商业保险等符合行业要求的资质</text>
+	</view>
+	<button class="upload" bindtap="upload">上传图片</button>
+	 	<image src="{{tempFilePaths }}" mode="aspecFill"/>  
+</view>

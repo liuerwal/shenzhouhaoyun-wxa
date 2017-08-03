@@ -1,0 +1,23 @@
+/**m-address.wxss**/
+.container{background: #f5f5f5;font-size:16px;}
+.m-box{background: #fff;overflow: hidden;margin-bottom: 20px;padding-bottom: 10px;}
+.m-info{border-bottom: 1px solid #ccc;}
+.m-info,.address-btn{padding:10px 20px;}
+.m-address{display: block;clear: both;line-height: 38px;}
+.add-adress{position: fixed;bottom: 0px;background: #F13D3C;color: #fff;text-align: center;width: 100%;line-height: 40px;}
+.edit{margin-right: 10px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

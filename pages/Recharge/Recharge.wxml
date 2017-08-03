@@ -1,0 +1,8 @@
+<!--Recharge.wxml-->
+<view class="container">
+	<view class="balance">余额 ：<text>￥0.00</text></view>
+	<view class="deposit">押金： <text>￥0.00</text></view>
+		<button class="Recharge">充值</button>
+		<button class="cash">提现</button>
+	
+</view>

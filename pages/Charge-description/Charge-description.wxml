@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="des">
+	<view>收费说明:</view>
+	<text>a.新车购置价为**万元以上；</text>
+	<text>b.购车年限为5年以内</text>
+	<text>c.正规公司</text>
+	<text>d.具有商业保险等符合行业要求的资质</text>
+</view>
+</view>

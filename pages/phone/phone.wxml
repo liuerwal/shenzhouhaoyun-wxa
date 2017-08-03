@@ -1,0 +1,17 @@
+<!--Forgot-password.wxml-->
+<view class="container">
+	<form bindsubmit="formSubmit" bindreset="formReset">
+		<view class="forgot">
+			<view class="section">
+				<view class="section__title">手机</view>
+				<input name="input" placeholder="手机" />
+			</view>
+			<view class="section getcode">
+				<view class="section__title">短信验证码</view>
+				<input name="input" placeholder="短信验证码" />
+				<button bindtap="getcode">获得验证码</button>
+			</view>
+		</view>
+		<button class="forgot-btn">提交</button>
+	</form>
+</view>
