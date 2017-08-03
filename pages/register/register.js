@@ -21,24 +21,7 @@ Page({
         }
     },
     
-    //发送短信验证码  
-    $(".getcode").click(function(){  
-        var countdown = 60;  
-        var _this = $(this);  
-        _this.attr("disabled", "true");  
-        _this.val(countdown + "秒");  
-        var timer = setInterval(function(){  
-            if (countdown == 0) {                  
-                clearInterval(timer);
-                _this.removeAttr("disabled"); 
-                _this.val("重新发送");  
-            }  
-            else {  
-                countdown--;  
-                _this.val(countdown + "秒");  
-            }  
-        }, 1000);  
-    }); 
+
 
 });
 
