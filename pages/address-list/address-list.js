@@ -1,8 +1,10 @@
 //index.js
 
-var CONFIG = require('../../utils/config');
+var CONFIG = require('../../asset/js/config');
 
-Page({
+var P = require('../../page');
+
+P.run({
   data: {  
         winHeight: 0,   
         address:[]

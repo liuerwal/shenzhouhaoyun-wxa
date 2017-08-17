@@ -1,14 +1,15 @@
 //login.js
 
-var api=require('../../utils/api');
+var api=require('../../asset/js/api');
+var P = require('../../page');
 
-
-var app = getApp()
-Page({
+P.run({
     data: {  
-        winHeight: 0,   
+        winHeight: 0,
     },  
-    onLoad: function() {  
+    onLoad: function() {
+
+        console.log(this);
 
         var that = this;  
         that.data.user = wx.getStorageSync('userinfo');
@@ -16,29 +17,11 @@ Page({
             success: function( res ) {  
                 that.setData( {  
                     winHeight: res.windowHeight  
-                });  
+                });
             }
         });  
 
-        // wx.checkSession({
-        //     success: function(){
-        //         if ( !wx.getStorageSync('token') ){
-        //             api.login( that.init );
-        //         }else{
-        //             that.init();
-        //         }
-        //     },
-        //     fail: function(){
-        //         //登录态过期
-        //         api.login( that.init );
-        //     }
-        // });
-
-    },  
-
-    // init: function(){
-    //     api.getUserInfo();
-    // },
+    },
 
     formSubmit:function(e){
         if(e.detail.value.phone.length==0 || e.detail.value.password.length==0 ){
@@ -61,14 +44,9 @@ Page({
 
                 wx.redirectTo({
                     url: '../boss-index/boss-index'
-                })   
+                })
             });
 
         }
     },
 });
-
-
-
-
-

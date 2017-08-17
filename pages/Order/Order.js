@@ -1,7 +1,9 @@
 //index.js
-var CONFIG = require('../../utils/config');
+var CONFIG = require('../../asset/js/config');
 
-Page({
+var P = require('../../page');
+
+P.run({
     data: {
         region: ['广东省', '广州市', '海珠区'],
         date: '2016-09-01',

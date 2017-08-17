@@ -1,6 +1,8 @@
 //logs.js
-var util = require('../../utils/util.js')
-Page({
+var util = require('../../asset/js/util.js')
+var P = require('../../page');
+
+P.run({
   data: {
     logs: []
   },

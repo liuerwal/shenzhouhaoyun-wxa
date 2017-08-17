@@ -1,9 +1,11 @@
 //Order.js
 
-var CONFIG = require('../../utils/config');
-var util = require('../../utils/util');
+var CONFIG = require('../../asset/js/config');
+var util = require('../../asset/js/util');
 
-Page( {  
+var P = require('../../page');
+
+P.run( {  
     data: {  
         winHeight: 0,   
         time: ['最近一周', '最近半个月', '最近一个月'],

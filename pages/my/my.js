@@ -1,7 +1,9 @@
 //my.js
 
 var app = getApp()
-Page({
+var P = require('../../page');
+
+P.run({
     data: {  
         winHeight: 0,   
     },  

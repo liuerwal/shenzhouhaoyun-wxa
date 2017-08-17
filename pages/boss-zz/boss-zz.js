@@ -1,7 +1,9 @@
 //index.js
 //获取应用实例
 var app = getApp()
-Page({
+var P = require('../../page');
+
+P.run({
     data: {
         region: ['广东省', '广州市', '海珠区'],
     },

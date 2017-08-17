@@ -2,15 +2,15 @@
 
 <view class="bottom-tabbar">
 	<view class="tabbar-info">
-		<view><image src="../../img/home.png"></image></view>
+		<view><image src="../../asset/img/home.png"></image></view>
 		<view>首页</view>
 	</view>
 	<view class="tabbar-info">
-		<view><image src="../../img/home.png"></image></view>
+		<view><image src="../../asset/img/home.png"></image></view>
 		<view>通知</view>
 	</view>
 	<view class="tabbar-info">
-		<view><image src="../../img/home.png"></image></view>
+		<view><image src="../../asset/img/home.png"></image></view>
 		<view>我的</view>
 	</view>
 </view>

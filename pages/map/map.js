@@ -1,7 +1,9 @@
 //index.js
 //获取应用实例
 var app = getApp()
-Page( {
+var P = require('../../page');
+
+P.run( {
 
     data: {
 //默认未获取地址

@@ -1,7 +1,7 @@
 {
   "pages":[
-        "pages/register/register",
         "pages/login/login",
+        "pages/register/register",
         "pages/boss-index/boss-index",
         "pages/inform/inform",
         "pages/waybill/waybill",

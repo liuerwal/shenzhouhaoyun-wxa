@@ -1,18 +1,18 @@
 <!--index.wxml-->
 <view class="index-banner">
-	<image src="../../img/car.jpg"></image>
+	<image src="../../asset/img/car.jpg"></image>
 </view>
 <view class="order-box">
 	<navigator url="../all-Order/all-Order" hover-class="none">
 		<view class="fl-left p-order">
-			<image src="../../img/order.png"></image>
+			<image src="../../asset/img/order.png"></image>
 			<view>订单</view>
 		</view>
 	</navigator>
 
 	<navigator url="../Order/Order" hover-class="none">
 		<view class="fl-left order">
-			<image src="../../img/p-order.png"></image>
+			<image src="../../asset/img/p-order.png"></image>
 			<view>下单</view>
 		</view>
 	</navigator>
@@ -20,15 +20,15 @@
 
 <view class="bottom-tabbar">
 	<view class="tabbar-info">
-		<view><image src="../../img/home-a.png"></image></view>
+		<view><image src="../../asset/img/home-a.png"></image></view>
 		<view class="icon-title">首页</view>
 	</view>
 	<view class="tabbar-info">
-		<view><image src="../../img/info.png"></image></view>
+		<view><image src="../../asset/img/info.png"></image></view>
 		<view class="icon-title">通知</view>
 	</view>
 	<view class="tabbar-info">
-		<view><image src="../../img/my.png"></image></view>
+		<view><image src="../../asset/img/my.png"></image></view>
 		<view class="icon-title">我的</view>
 	</view>
 </view>

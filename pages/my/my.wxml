@@ -2,7 +2,7 @@
 <view class="container" style="height:{{winHeight}}px">
 	<view class="Head">
 		<view class="Head-portrait">
-			<image src="../../img/head.jpg"></image>
+			<image src="../../asset/img/head.jpg"></image>
 		</view>
 		<view class="Head-info">
 			<view class="title">我是谁谁是我</view>

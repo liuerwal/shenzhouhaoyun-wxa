@@ -1,8 +1,10 @@
 //index.js
-var CONFIG = require('../../utils/config');
-var api = require('../../utils/api');
+var CONFIG = require('../../asset/js/config');
+var api = require('../../asset/js/api');
 
-Page({
+var P = require('../../page');
+
+P.run({
     data: {
         items:[],
         tempFilePaths:[],
