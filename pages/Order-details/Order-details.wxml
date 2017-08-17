@@ -1,18 +1,16 @@
 <!--Order details.wxml-->
 <view class="container">
 	<view class="order-box">
-		<view><text>订单号</text>:  4939403004</view>
-		<view><text>下单时间</text>：2016-10-10</view>
-		<view><text>采购方</text>：20吨</view>
-		<view><text>送达时间</text>：2018-19-18</view>
-		<view><text>油库</text>：2000吨</view>
-		<view><text>订单状态</text>:  等待备货</view>
-		<view><text>运输状态</text>：等待运输</view>
+		<view><text>订单号</text>:  {{orderdetail.order_no}}</view>
+		<view><text>下单时间</text>：{{orderdetail.created_at}}</view>
+		<view><text>送达时间</text>：{{orderdetail.updated_at}}</view>
+		<view><text>总价钱</text>：{{orderdetail.amount}}</view>
+		<view><text>油品</text>:  {{orderdetail.oil}}</view>
 	</view>
-	<view class="Driver-box">
+<!-- 	<view class="Driver-box">
 		<view><text>司机</text>：xxx</view>
 		<view><text>车牌</text>：xxx</view>
 		<view><text>司机工号</text>:  xxxx</view>
 		<view><text>司机电话</text>:  xxxxxxx</view>
-	</view> 
+	</view>  -->
 </view>

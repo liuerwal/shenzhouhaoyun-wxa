@@ -1,48 +1,32 @@
 {
   "pages":[
         "pages/register/register",
-        "pages/aa/aa",
-        "pages/my/my",
-        "pages/Order/Order",
-        "pages/map/map",
-        "pages/all-Order/all-Order",
-        "pages/index/index",
-        "pages/Certificates/Certificates",
-        "pages/info-details/info-details",
-        "pages/Forgot-password/Forgot-password",
-        "pages/phone/phone",
-        "pages/Charge-description/Charge-description",
-        "pages/bill/bill",
-        "pages/Recharge/Recharge",
-        "pages/New-address/New-address",
-        "pages/Management-address/Management-address",
+        "pages/login/login",
+        "pages/boss-index/boss-index",
         "pages/inform/inform",
-        "pages/boss-Certificates/boss-Certificates",
+        "pages/Waybill/Waybill",
+        "pages/my/my",
+        "pages/waybill-details/waybill-details",
+        "pages/all-Order/all-Order",
+        "pages/Order/Order",
+        "pages/Management-address/Management-address",
+        "pages/Edit-address/Edit-address",
+        "pages/Certificates/Certificates",
+        "pages/bill/bill",
         "pages/Order-details/Order-details",
+        "pages/phone/phone",
+        "pages/Forgot-password/Forgot-password",
+        "pages/New-address/New-address",
+        "pages/map/map",
+        "pages/aa/aa",
+        "pages/driver-index/driver-index",
+        "pages/info-details/info-details",
+        "pages/Charge-description/Charge-description",
+        "pages/Recharge/Recharge",
+        "pages/boss-Certificates/boss-Certificates",
         "pages/logs/logs"
     ],
-    "tabBar": {
-        "color": "#000",
-        "selectedColor": "#F13D3C",
-        "borderStyle": "#f5f5f5",
-        "backgroundColor": "#f5f5f5",
-        "list": [{
-            "iconPath": "img/home.png",
-            "selectedIconPath": "img/home-a.png",
-            "pagePath": "pages/all-Order/all-Order",
-            "text": "首页"
-        }, {
-            "iconPath": "img/info.png",
-            "selectedIconPath": "img/info-a.png",
-            "pagePath": "pages/inform/inform",
-            "text": "通知"
-        }, {
-            "iconPath": "img/my.png",
-            "selectedIconPath": "img/my-a.png",
-            "pagePath": "pages/my/my",
-            "text": "我的"
-        }]
-    },
+    
     "window":{
         "backgroundTextStyle":"light",
         "navigationBarBackgroundColor": "#F13D3C",

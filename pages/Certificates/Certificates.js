@@ -1,26 +1,185 @@
 //index.js
-//获取应用实例
-var app = getApp()
+var CONFIG = require('../../utils/config');
+var api = require('../../utils/api');
+
 Page({
     data: {
+        items:[],
         tempFilePaths:[],
+        path:[],
+        files : [],
     },
     onLoad: function () {
-        
+        var that = this;
+        if ( !wx.getStorageSync('token') ){
+            wx.redirectTo({
+                url: '/pages/login/login'
+            });
+        }
+
+        that.items();
     },
-    upload:function(){
+    add:function(e){
         var that=this;
+        var meta = e.currentTarget.dataset.index;
+        var path = this.data.path;
+
+        console.log(meta);
+        console.log(path)
+
         wx.chooseImage({
-            count: 9, // 默认9
-            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-            sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+            count: 9, 
+            sizeType: ['original', 'compressed'], 
+            sourceType: ['album', 'camera'], 
             success: function (res) {
-                that.setData({  
-                    tempFilePaths:res.tempFilePaths  
+
+                if ( path[meta] ){
+                    path[meta].concat(res.tempFilePaths);
+                }else{
+                    path[meta] = res.tempFilePaths;
+                }
+
+                
+                console.log(JSON.stringify(path));
+                console.log(path[meta])
+
+                console.log(res.tempFilePaths);
+                for( x in res.tempFilePaths ){
+                    console.log(res.tempFilePaths)
+                    console.log(res.tempFilePaths[x])
+                    that.upload(res.tempFilePaths[x], meta);
+                }
+
+                that.setData({
+                    path: path,
                 }) 
-                // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+                
             }
         })
+    },
+    upload:function(file, item_id){
+        var that=this;
+
+        wx.uploadFile({
+
+            url:  CONFIG.API.UPLOADPIC_URL , 
+            filePath: file,
+            name: "file",
+            method: 'POST', 
+            header: {
+                "Content-Type":"application/json",
+                Authorization: "Bearer " + wx.getStorageSync('token')
+            },
+            dataType: 'json',
+            success: function(res){
+                console.log(res)
+                if ( res.statusCode == 200 ){
+                    console.log(res)
+                    // var items = res.data.data;
+
+                    // that.setData({
+                    //     items : items
+                    // })
+                    console.log("成功")
+                    var data = JSON.parse(res.data);
+                    if ( that.data.files[item_id] ){
+                        that.data.files[item_id].push( data.data.id );
+                    }else{
+                        that.data.files[item_id]= [data.data.id]; 
+                    }
+                }else{
+                    console.log("什么")
+                }
+            },
+            fail:function(res){
+                console.log("失败")
+            },
+            complete: function(){
+                console.log("aa")
+            }
+        });
+    },
+    items:function(){
+        var that=this;
+
+        wx.request({
+
+            url:  CONFIG.API.ITEMS_URL , 
+            data: {
+
+            },
+            method: 'GET', 
+            header: {
+                "Content-Type":"application/json",
+                Authorization: "Bearer " + wx.getStorageSync('token')
+            },
+            success: function(res){
+                console.log(res.data.data)
+                if ( res.statusCode == 200 ){
+                    var items = res.data.data;
+
+                    that.setData({
+                        items : items
+                    })
+                    console.log("成功")
+
+                }else{
+                    console.log("什么")
+                }
+            },
+            fail:function(res){
+                console.log("失败")
+            },
+            complete: function(){
+                console.log("aa")
+            }
+        });
+    },
+    submit: function(){
+        var that=this;
+        var items = [];
+        var file = [];
+        // var params = new FormData;
+
+        // for( var x in this.data.items){
+        //     params[].push(this.data.items[x].id);
+        // }
+
+        console.log(items);
+        console.log(that.data.files);
+
+        wx.request({
+
+            url:  CONFIG.API.ADDITEMS_URL , 
+            method: 'POST', 
+            data: {
+                "item_id": JSON.stringify([1,2,4]),
+                "file_id[1][]": 20,
+                "file_id[2][]": 20,
+                "file_id[4][]": 20,
+            },
+            header: {
+                "Content-Type":"application/x-www-form-urlencoded",
+                Authorization: "Bearer " + wx.getStorageSync('token')
+            },
+            success: function(res){
+                console.log(res)
+                if ( res.statusCode == 200 ){
+                    console.log(res)
+                    console.log("成功")
+
+                }else{
+                    console.log("什么")
+                }
+            },
+            fail:function(res){
+                console.log("失败")
+            },
+            complete: function(){
+                console.log("aa")
+            }
+        });
     }
+
 });
 

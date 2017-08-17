@@ -1,0 +1,13 @@
+/**index.wxss**/
+.regiter-box{background: #f5f5f5;}
+.radio-group{width:90%;margin: 20px auto;display: flex;}
+.radio-group .radio{margin-right:20px;display: flex;align-items: center;}
+.register{padding:0px 20px;overflow: hidden;}
+.register .section input{float: left;padding:5px 10px;font-size:16px;}
+.register .section{margin:5px 0;overflow: hidden;border-bottom:1px solid #e5e5e5;}
+.register .section__title{float: left;width: 80px;line-height: 38px;font-size: 16px;}
+.getcode input{width: 120px;}
+.getcode button{font-size: 14px;background: #F13D3C;color: #fff;border:none;width: 100px}
+.login-btn{font-size: 16px;background: #F13D3C;color: #fff;border:none;width: 200px;margin:40px auto;}
+.login-info{width:100%;background: #fff;}
+.section:last-child{border:none;}

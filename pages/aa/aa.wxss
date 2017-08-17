@@ -1,4 +1,4 @@
 /**index.wxss**/
-.bottom-tabbar{border-top:1px solid #d9d9d9;padding:5px 0;overflow: hidden;margin-top: 20px;}
+.bottom-tabbar{border-top:1px solid #d9d9d9;padding:5px 0;overflow: hidden;position:fixed;bottom:0;width:100%}
 .tabbar-info{width:33.33%;float: left;text-align: center;}
 .tabbar-info image{width: 30px;height: 30px;}

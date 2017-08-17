@@ -1,33 +1,37 @@
 <!--regiter.wxml-->
-<form bindsubmit="formSubmit" bindreset="formReset">
-	<radio-group class="radio-group" name="radio-group">
-		<label class="radio" >
-			<radio value="cai" checked="" name='cai'/><text>采购方</text>
-		</label>
-		<label class="radio">
-			<radio value="car" checked="" name='car'/><text>运输司机</text>
-		</label>
-	</radio-group>
+<view class="public-bg"  style="height:{{winHeight}}px">
+	<form bindsubmit="formSubmit" bindreset="formReset">
+		
+		<radio-group class="radio-group" name="radio-group">
+			<label class="radio" >
+				<radio value="cai" checked="" name='cai'/><text>采购方</text>
+			</label>
+			<label class="radio">
+				<radio value="car" checked="" name='car'/><text>运输司机</text>
+			</label>
+		</radio-group>
 
-	<view class="register">
-		<view class="section">
-			<view class="section__title">手机</view>
-			<input name="input" placeholder="请输入手机" name="phone"/>
+		<view class="public-fff">
+			<view class="form-box">
+				<view class="section">
+					<view class="section__title">手机</view>
+					<input name="input" placeholder="请输入手机" name="phone"/>
+				</view>
+				<view class="section">
+					<view class="section__title">密码</view>
+					<input name="input" placeholder="请输入密码" name="password"/>
+				</view>
+				<view class="section">
+					<view class="section__title">确认密码</view>
+					<input name="input" placeholder="请再次输入密码" name="a_pass"/>
+				</view>
+				<view class="section getcode">
+					<view class="section__title">验证码</view>
+					<input name="input" placeholder="验证码" name="code"/>
+					<button bindtap="getcode">获得验证码</button>
+				</view>
+			</view>
 		</view>
-		<view class="section">
-			<view class="section__title">密码</view>
-			<input name="input" placeholder="请输入密码" name="password"/>
-		</view>
-		<view class="section">
-			<view class="section__title">重置密码</view>
-			<input name="input" placeholder="请再次输入密码" name="a-pass"/>
-		</view>
-		<view class="section getcode">
-			<view class="section__title">短信验证码</view>
-			<input name="input" placeholder="短信验证码" name="code"/>
-			<button bindtap="getcode">获得验证码</button>
-		</view>
-	</view>
-		<button class="register-btn" bindtap="redirect" formType="submit">注册</button>
-</form>
-
+		<button class="btn" bindtap="redirect" formType="submit">注册</button>
+	</form>
+</view>

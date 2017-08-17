@@ -1,8 +1,8 @@
 <!--Order details.wxml-->
 <view class="container">
+
 	<view class="order-box">
-		<view><text>订单号</text> :  4939403004</view>
-		<view><text>订单状态</text> :  等待备货</view>
-		<view><text>运输状态</text> ：等待运输</view>
+		<view><text>标题</text> :  {{informdetail.title}}</view>
+		<view><text>内容</text> :   {{informdetail.content}}</view>
 	</view>
 </view>

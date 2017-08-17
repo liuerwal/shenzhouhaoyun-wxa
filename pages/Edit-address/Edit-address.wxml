@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="public-bg"  style="height:{{winHeight}}px">
+	<view class="intro">运输时，超过接收位置的历程要加收里程费用，请提供精确地收货地点，以免产生不必要的费用。详情请查看收费标准</view>
+
+	<form bindsubmit="formSubmit" bindreset="formReset">
+		<view class="form-box">
+			<view class="section">
+				<view class="section__title">经度</view>
+				<input name="lng" placeholder="经度"  value="{{location.longitude}}" disabled/>
+			</view>
+			<view class="section">
+				<view class="section__title">纬度</view>
+				<input name="lat" placeholder="纬度" value="{{location.latitude}}" disabled />
+			</view>
+			<view class="section">
+				<view class="section__title">地址</view>
+				<input name="address" placeholder="地址" value="{{location.address}}" class="address-input" disabled/>
+			</view>
+			<view class="section">
+				<view class="section__title">详细位置</view>
+				<input name="input" placeholder="详细位置" value="{{location.name}}" disabled/>
+			</view>
+		</view>
+
+		<button class="btn" bindtap="chooseLocation">获取地址</button>
+		<button class="btn" formType="submit">确定</button>
+	</form>
+</view>

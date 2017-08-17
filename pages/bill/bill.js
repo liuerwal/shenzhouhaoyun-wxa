@@ -1,20 +1,49 @@
 //index.js
-//获取应用实例
-var app = getApp()
+var CONFIG = require('../../utils/config');
+
 Page({
-  data: {
-    userInfo: {},
+    data: {
+        bill:[],
     },
     onLoad: function () {
-        console.log('onLoad')
-        var that = this
-        //调用应用实例的方法获取全局数据
-        app.getUserInfo(function(userInfo){
-            //更新数据
-            that.setData({
-                userInfo:userInfo
-            })
-        })
+        var that = this;
+        that.bill();
     },
+    bill:function(){
+        var that=this;
+
+        wx.request({
+
+            url:  CONFIG.API.BILL_URL , 
+            data: {
+                
+            },
+            method: 'GET', 
+            header: {
+                "Content-Type":"application/json",
+                Authorization: "Bearer " + wx.getStorageSync('token')
+            },
+            success: function(res){
+                console.log(res)
+                if ( res.statusCode == 200 ){
+                    var bill = res.data.data;
+                    console.log(bill)
+                    that.setData({
+                        bill : bill
+                    })
+                    console.log("成功")
+
+                }else{
+                    console.log("什么")
+                }
+            },
+            fail:function(res){
+                console.log("失败")
+            },
+            complete: function(){
+                console.log("aa")
+            }
+        });
+    }
 });
 

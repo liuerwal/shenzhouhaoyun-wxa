@@ -1,21 +1,17 @@
 /**index.wxss**/
-.section input{float: left;padding:5px 0;}
-.section{overflow: hidden;padding:0 20px;}
-.section__title{float: left;width: 100px;line-height: 38px;}
-.Oil-type{padding:0 20px;overflow: hidden;}
-.Oil-type button{width: 31%;color:#F13D3C;height: 60px;line-height:60px;background:#fff;border:1px solid #d9d9d9;text-align: center;margin:0 2% 10px 0px;float: left;}
-.Oil-type button:nth-child(3n){margin-right:0;}
-.cash-box{overflow: hidden;padding:10px 20px;}
-.cash-box view{padding:10px 0;}
+.order{margin-bottom: 120px;}
+.cash-box{overflow: hidden;padding:5px 0 5px 15px;}
+.cash-box view{padding:10px 0 15px 0;}
 .cash-box text{clear: both;border-top:1px solid #d9d9d9;padding:10px 0;display: block;color: #a9a9a9;}
-.detailed-info{border-bottom: 1px solid #d9d9d9;padding:10px 0;margin: 20px 0;}
-.detailed-info input{margin: 10px 0;}
-.submit-order{position:fixed;bottom:0px;width: 100%;font-size: 14px;border-radius:0;background: #F13D3C;color: #fff;border:none;line-height:40px;}
+.detailed-info{border-bottom: 1px solid #d9d9d9;padding:10px 0;}
+.detailed-info input{margin-top: 15px;}
+.submit-order{z-index:10;position:fixed;bottom:0px;width: 100%;font-size: 14px;border-radius:0;background: #F13D3C;color: #fff;border:none;line-height:40px;}
 form{margin-bottom: 100px;height: 100%;}
 .time{margin-top:10px;}
 .detailed-info input{width: 100%;}
-.oil-cash{margin-bottom: 10px;}
+.Frozen-cash {margin-right: 15px;}
 
 
-
-
+.radio-group{width:90%;margin: 0 auto;display: flex;background: #fff;padding:15px 5%;margin-bottom: 20px;}
+.radio-group .radio{margin-right:20px;display: flex;align-items: center;}
+.all-cash{width:160px;overflow: hidden;}

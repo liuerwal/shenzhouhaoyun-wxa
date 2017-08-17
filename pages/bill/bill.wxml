@@ -1,17 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-	<view class="bill-info">
-		<view class="fl-left">
-			<view class="bill-title">where</view>
-			<view class="bill-time">2016-10-18</view>
+	<block wx:for="{{bill}}" wx:key="id">
+		<view class="bill-info">
+			<view class="fl-left">
+				<view class="bill-title">{{item.oil_name}}</view>
+				<view class="bill-time">{{item.created_at}}</view>
+			</view>
+			<view class="fl-right bill-money">-{{item.money}}</view>
 		</view>
-		<view class="fl-right bill-money">-12.00</view>
-	</view>
-	<view class="bill-info">
-		<view class="fl-left">
-			<view class="bill-title">where</view>
-			<view class="bill-time">2016-10-18</view>
-		</view>
-		<view class="fl-right bill-money">-12.00</view>
-	</view>
+	</block>
+
 </view>

@@ -1,0 +1,24 @@
+<template name="boss">
+	<view class="bottom-tabbar">
+		<navigator url="../index/index" hover-class="none">
+			<view class="tabbar-info">
+				<view><image src="../../img/home-a.png"></image></view>
+				<view class="icon-title">首页</view>
+			</view>
+		</navigator>
+
+		<navigator url="../inform/inform" hover-class="none">
+			<view class="tabbar-info">
+				<view><image src="../../img/info.png"></image></view>
+				<view class="icon-title">通知</view>
+			</view>
+		</navigator>
+
+		<navigator url="../my/my" hover-class="none">
+			<view class="tabbar-info">
+				<view><image src="../../img/my.png"></image></view>
+				<view class="icon-title">我的</view>
+			</view>
+		</navigator>
+	</view>
+</template>

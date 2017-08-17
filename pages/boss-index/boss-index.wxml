@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="index-banner">
+	<image src="../../img/car.jpg"></image>
+</view>
+<view class="order-box">
+	<navigator url="../Waybill/Waybill" hover-class="none">
+		<view class="fl-left p-order">
+			<image src="../../img/order.png"></image>
+			<view>运货单</view>
+		</view>
+	</navigator>
+
+	<navigator url="../waybill-details/waybill-details" hover-class="none">
+		<view class="fl-left order">
+			<image src="../../img/p-order.png"></image>
+			<view>下单</view>
+		</view>
+	</navigator>
+</view>
+
+<view class="bottom-tabbar">
+	<view class="tabbar-info">
+		<view><image src="../../img/home-a.png"></image></view>
+		<view class="icon-title">首页</view>
+	</view>
+	<view class="tabbar-info">
+		<view><image src="../../img/info.png"></image></view>
+		<view class="icon-title">通知</view>
+	</view>
+	<view class="tabbar-info">
+		<view><image src="../../img/my.png"></image></view>
+		<view class="icon-title">我的</view>
+	</view>
+</view>

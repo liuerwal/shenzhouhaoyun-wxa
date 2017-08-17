@@ -1,9 +1,4 @@
 /**Forgot-password.wxss**/
-.forgot{width: 90%;margin:20px auto;overflow: hidden;}
-.forgot .section input{border:1px solid #ccc;float: left;padding:5px 10px;}
-.forgot-btn{width:200px;}
-.forgot .section{margin:15px 0;overflow: hidden;font-size: 16px;}
-.forgot .section__title{float: left;width: 100px;line-height: 38px;}
-.getcode input{width: 80px;}
-.getcode button{font-size: 14px;background: #F13D3C;color: #fff;border:none;width: 100px}
-.forgot-btn{font-size: 16px;background: #F13D3C;color: #fff;border:none;width: 200px}
+.getcode input{width: 120px;}
+.getcode button{font-size: 14px;background: #fff;color: #F13D3C;border:none;width: 100px;border-left:1px solid #e5e5e5;border-radius: 0;}
+.getcode button:after{content: none;}

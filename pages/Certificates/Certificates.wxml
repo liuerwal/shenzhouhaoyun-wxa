@@ -1,6 +1,6 @@
 <!--index.wxml-->
-<view class="container">
-	<view class="voucher">
+<view class="item-box">
+<!-- 	<view class="voucher">
 		<view class="intro">资质说明：</view>
 		<text>a.新车购置价为**万元以上；</text>
 		<text>b.购车年限为5年以内</text>
@@ -8,5 +8,22 @@
 		<text>d.具有商业保险等符合行业要求的资质</text>
 	</view>
 	<button class="upload" bindtap="upload">上传图片</button>
-	 	<image src="{{tempFilePaths }}" mode="aspecFill"/>  
+	<image src="{{tempFilePaths }}" mode="aspecFill"/>   -->
+
+	<view class="item-title">
+		<view class="fl-left">司机资质</view>
+		<button class="fl-right" bindtap="submit">上传</button>
+	</view>
+
+	<block wx:for="{{items}}" wx:key="id">
+		<view class="item-info">
+			<view>{{item.id}}.{{item.item_name}}</view>
+			<view class="item">
+				<button class="upload" bindtap="add" data-index="{{item.id}}">+</button>
+				<block wx:for="{{path[item.id]}}" wx:key="id" wx:for-item="img">
+					<image src="{{img}}"/>
+				</block>
+			</view>
+		</view>
+	</block>
 </view>

@@ -1,0 +1,20 @@
+<!--index.wxml-->
+
+<view class="regiter-box public-box"  style="height:{{winHeight}}px">
+	<form bindsubmit="formSubmit">
+		<view class="login-info">
+			<view class="register">
+				<view class="section">
+					<view class="section__title">手机</view>
+					<input name="input" placeholder="请输入手机" name="phone" value="15502502644"/>
+				</view>
+				<view class="section">
+					<view class="section__title">密码</view>
+					<input name="input" placeholder="请输入密码" name="password" value="123456"/>
+				</view>
+			</view>
+		</view>
+		<button class="login-btn" formType="submit">登录</button>
+	</form>
+	
+</view>

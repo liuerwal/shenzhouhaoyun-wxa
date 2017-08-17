@@ -1,0 +1,32 @@
+<!--Order.wxml-->
+
+<view class="public-bg" style="height:{{winHeight}}px">
+	<view class="form-box sel-time">
+
+		<view class="section">
+			<view class="section__title">选择时间</view>
+			<picker bindchange="cycle" value="{{index}}" range="{{time}}" mode = "selector">
+				<view class="picker">
+					{{time[index]}}
+					<!-- <input value="{{time[index]}}" /> -->
+				</view>
+			</picker>
+		</view>
+	</view>
+
+	<block wx:for="{{order}}" wx:key="id">
+		<view class="order-info">
+			<navigator url="../waybill-details/waybill-details?id={{item.id}}" hover-class="none">
+				<view class="order-box">
+					<view>运费 <text class="cash">{{item.money}}</text></view>
+					<view class="time">时间 {{item.created_at}}</view>
+					<view class="">经度 {{item.lat}}</view>
+					<view class="">纬度 {{item.lng}}</view>
+					<view class="">类型 {{item.provider}}</view>
+					<view class="address">重量 {{item.weight}}</view>
+				</view>
+			</navigator>
+			<view class="again">去支付</view>
+		</view>
+	</block>
+</view>

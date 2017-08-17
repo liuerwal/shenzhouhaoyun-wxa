@@ -19,4 +19,5 @@
     </view>
 
     <button class="Obtain-btn" bindtap="chooseLocation">获取地址</button>
+    <button class="Obtain-btn" bindtap="aa">不打开地图</button>
 </view>

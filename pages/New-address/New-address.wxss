@@ -1,8 +1,2 @@
 /**index.wxss**/
-.new-address-btn{width: 200px;}
-.section{padding:20px 20px;}
-.region{margin-bottom: 10px;font-size:16px;}
-.detailed-info{border-bottom: 1px solid #eee;padding:10px 0;margin: 20px 0;font-size:16px;}
-.detailed-info input{margin: 10px 0;}
-.new-address-btn{font-size: 16px;background: #F13D3C;color: #fff;border:none;width: 200px}
-
+.address-input{width:100% !important;}
