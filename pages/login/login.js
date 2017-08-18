@@ -1,12 +1,13 @@
-//login.js
-
-var api=require('../../asset/js/api');
 var P = require('../../page');
+var api = P.Api;
 
 P.run({
+    customData: {
+        login: false,
+    },
     data: {  
         winHeight: 0,
-    },  
+    },
     onLoad: function() {
 
         console.log(this);

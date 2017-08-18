@@ -1,5 +1,6 @@
 
-var _ = require('asset/js/underscore');
+var _ = require('asset/js/util');
+var Api = require('asset/js/api');
 var page = this.Page;
 
 module.exports = {
@@ -9,11 +10,19 @@ module.exports = {
         var component = data.component || [];
         delete data.component;
 
-        var obj = {};
+        var obj = {
+            customData: {
+                login: true,
+            }
+        };
         var func = {
             onLoad: [
                 function(){
-                    
+                    if ( this.customData.login ){
+                        //@TODO 这里不支持同步 异步的请求会出问题
+                        //增加promise
+                        Api.checkToken()
+                    }
                 }
             ]
         };
@@ -30,7 +39,7 @@ module.exports = {
                     func[x].push(comp[x]);
                 }else if ( _.isArray(comp[x]) ){
                     obj[x] = (obj[x] || []).concat(comp[x]);
-                }else if ( _.isObject(comp[x]) ){
+                }else if ( _.isPlainObject(comp[x]) ){
                     obj[x] = _.extend(obj[x] || {} , comp[x]);
                 }else{
                     obj[x] = comp[x];
@@ -52,6 +61,7 @@ module.exports = {
         page(obj);
 
     },
-    _ : _
+    _ : _,
+    Api: Api,
 
 };
