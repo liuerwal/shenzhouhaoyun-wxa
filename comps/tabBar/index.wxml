@@ -1,0 +1,14 @@
+<view class="bottom-tabbar">
+    <view class="tabbar-info" bindtap="switchTo" data-tab="home">
+        <view><image src="{{tabIcon[0]}}"></image></view>
+        <view class="icon-title">首页</view>
+    </view>
+    <view class="tabbar-info" bindtap="switchTo" data-tab="message">
+        <view><image src="{{tabIcon[1]}}"></image></view>
+        <view class="icon-title">通知</view>
+    </view>
+    <view class="tabbar-info" bindtap="switchTo" data-tab="mine">
+        <view><image src="{{tabIcon[2]}}"></image></view>
+        <view class="icon-title">我的</view>
+    </view>
+</view>

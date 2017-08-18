@@ -18,17 +18,4 @@
 	</navigator>
 </view>
 
-<view class="bottom-tabbar">
-	<view class="tabbar-info">
-		<view><image src="../../asset/img/home-a.png"></image></view>
-		<view class="icon-title">首页</view>
-	</view>
-	<view class="tabbar-info">
-		<view><image src="../../asset/img/info.png"></image></view>
-		<view class="icon-title">通知</view>
-	</view>
-	<view class="tabbar-info">
-		<view><image src="../../asset/img/my.png"></image></view>
-		<view class="icon-title">我的</view>
-	</view>
-</view>
+<include src="../../comps/tabBar/index.wxml" />

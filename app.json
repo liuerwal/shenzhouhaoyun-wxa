@@ -1,9 +1,10 @@
 {
   "pages":[
+        "pages/boss-index/boss-index",
         "pages/login/login",
         "pages/register/register",
-        "pages/boss-index/boss-index",
-        "pages/inform/inform",
+        "pages/message/index",
+        "pages/message/detail",
         "pages/waybill/waybill",
         "pages/my/my",
         "pages/waybill-details/waybill-details",
@@ -20,7 +21,6 @@
         "pages/map/map",
         "pages/public-bottom/public-bottom",
         "pages/driver-index/driver-index",
-        "pages/info-details/info-details",
         "pages/charge-description/charge-description",
         "pages/recharge/recharge",
         "pages/boss-zz/boss-zz",
