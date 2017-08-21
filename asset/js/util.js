@@ -1,5 +1,7 @@
 "use strict";
 
+var sprintf = require('libs/sprintf')
+
 function formatTime(date) {
     var year = date.getFullYear()
     var month = date.getMonth() + 1
@@ -232,5 +234,7 @@ module.exports = {
         wx.navigateTo({
             url: url
         })
-    }
+    },
+
+    sprintf: sprintf.sprintf
 }

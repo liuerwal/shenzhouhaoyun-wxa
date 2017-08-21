@@ -1,12 +1,10 @@
 <!--index.wxml-->
-<import src="../boss.wxml"/>
-<template is="boss"></template>
 
 <view class="container">
 	<block wx:for="{{inform}}" wx:key="id">
 		
 			<view class="inform-box">
-			<navigator url="../info-details/info-details?id={{item.id}}" hover-class="none">
+			<navigator url="detail?id={{item.id}}" hover-class="none">
 				<view class="fl-left">
 					<text class="inform-title">{{item.title}}</text>
 					<text class="inform-content">{{item.content}}</text>
@@ -14,9 +12,11 @@
 			</navigator>
 			<view class="fl-right">
 				<text>{{item.created_at}}</text>
-				<text class="del" bindtap="delinform" data-index="{{index}}"> x </text>
+				<text class="del" bindtap="remove" data-index="{{index}}"> x </text>
 			</view>
 		</view>
 		
 	</block>
 </view>
+
+<include src="../../comps/tabBar/index.wxml" />

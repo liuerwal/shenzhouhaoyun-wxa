@@ -1,14 +1,20 @@
 //index.js
 
-var CONFIG = require('../../asset/js/config');
-
-var P = require('../../page');
+var P = require('../../page')
+var _ = P._
+var Api = P.Api
 
 P.run({
   data: {  
         winHeight: 0,   
         inform:[]
-    },  
+    },
+    customData: {
+        tabBar: 'message',
+    },
+    component: [
+        'comps/tabBar/index',
+    ],
     onLoad: function(options) {  
         var that = this;  
 
@@ -27,40 +33,14 @@ P.run({
     addform:function(){
         var that=this;
 
-        wx.request({
-
-            url:  CONFIG.API.MESSAGES_URL , 
-            data: {
-                // 'token': wx.getStorageSync('token')
-            },
-            method: 'GET', 
-            header: {
-                "Content-Type":"application/json",
-                Authorization: "Bearer " + wx.getStorageSync('token')
-            },
-            success: function(res){
-                console.log(res)
-                if ( res.statusCode == 200 ){
-                    var inform = res.data.data;
-                    console.log(inform)
-                    that.setData({
-                        inform : inform
-                    })
-                    console.log("成功")
-
-                }else{
-                    console.log("什么")
-                }
-            },
-            fail:function(res){
-                console.log("失败")
-            },
-            complete: function(){
-                console.log("aa")
-            }
+        Api.message.list(1, function(response){
+            console.log(response)
+            that.setData({
+                inform : response
+            })
         });
     },
-    delinform:function(e){
+    remove: function(e){
         var that = this;
         var index = e.currentTarget.dataset.index;
         var inform = that.data.inform[index];
@@ -68,40 +48,24 @@ P.run({
         console.log(that.data.inform)
         console.log(inform.id)
 
-        wx.request({
-            url: CONFIG.API.DELMESSAGES_URL +'/' +inform.id, 
-            data: {
-                id: inform.id,
-            },
-            method: 'GET',
-            header: {
-                'content-type': 'application/json',
-                Authorization: "Bearer " + wx.getStorageSync('token')
-            },
+        wx.showModal({
+            title: '温馨提示',
+            content: '确定要删除吗',
             success: function(res) {
-                console.log(res)
-                wx.showModal({
-                    title: '温馨提示',
-                    content: '确定要删除吗',
-                    success: function(res) {
-                        if (res.confirm) {
-                            wx.showToast({
-                                title: "移除成功",
-                                icon: "false",
-                                duration: 2000
-                            });
+                if (res.confirm) {
+                    Api.message.destory(inform.id, function(res) {
+                        _.toast('移除成功')
 
-                            that.data.inform.splice(index, 1);
-                            that.setData({
-                                inform: that.data.inform
-                            });
+                        that.data.inform.splice(index, 1);
+                        that.setData({
+                            inform: that.data.inform
+                        });
 
-                            console.log('用户点击确定')
-                        }else if (res.cancel) {
-                            console.log('用户点击取消')
-                        }
-                    }
-                });               
+                        console.log('用户点击确定')
+                    })
+                }else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
             }
         })
     }

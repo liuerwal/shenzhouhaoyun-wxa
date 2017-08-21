@@ -14,6 +14,8 @@ module.exports = {
     },
     onLoad: function(){
 
+        console.log('tab bar');
+
         this.setTabBar();
 
     },
@@ -38,8 +40,9 @@ module.exports = {
         }
     },
 
-    setTabBar: function(tab){
+    setTabBar: function(){
         var icon = [] , _this = this;
+
 
         this.customData.tabName.forEach(function(name){
             icon.push('../../asset/img/'+name+(_this.customData.tabBar==name ? '-a' : '')+'.png');

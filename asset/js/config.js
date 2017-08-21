@@ -13,8 +13,13 @@ module.exports = {
         UPLOADPIC_URL: ROOT_URL+'/api/uploadPic',
         ADDITEMS_URL: ROOT_URL+'/api/addItems',
         ITEMS_URL: ROOT_URL+'/api/items',
-        DELMESSAGES_URL: ROOT_URL+'/api/messages/destroy',
-        MESSAGES_URL: ROOT_URL+'/api/messages',
+
+        MESSAGE: {
+            DESTROY: ROOT_URL+'/api/messages/destroy/%d',
+            LIST: ROOT_URL+'/api/messages',
+            SHOW: ROOT_URL+'/api/message/%d',
+        },
+
         PHONE_URL: ROOT_URL+'/api/phone',
         BILL_URL: ROOT_URL+'/api/mybill',
         RESET_URL: ROOT_URL+'/api/password/reset',
