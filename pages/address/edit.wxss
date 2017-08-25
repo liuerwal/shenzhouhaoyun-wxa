@@ -1,0 +1,3 @@
+/**index.wxss**/
+.intro{line-height: 28px;padding:10px 20px;}
+.address-input{width:100% !important;}

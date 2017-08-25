@@ -5,20 +5,23 @@
 			<image src="../../asset/img/head.jpg"></image>
 		</view>
 		<view class="Head-info">
-			<view class="title">我是谁谁是我</view>
-			<view class="boss">采购方</view>
-			<view class="cash">余额：<text>￥10.00</text></view>
+			<view class="title">{{user.username}}</view>
+			<view class="boss">{{user.rolename}}</view>
+			<view class="cash">
+				油款：<text>￥{{user.oil_fund}}</text>
+				运费：<text>￥{{user.freight_fund}}</text>
+			</view>
 		</view>
 	</view>
 
 	<navigator url="../phone/phone" hover-class="none">
 		<view class="list spacing">
 			<view class="list-title">手机号</view>
-			<view class="Arrow">13399886677</view>
+			<view class="Arrow">{{user.phone}}</view>
 		</view>
 	</navigator>
 	<view class="my-list">
-		<navigator url="../Forgot-password/Forgot-password" hover-class="none">
+		<navigator url="reset_password" hover-class="none">
 			<view class="list">
 				<view class="list-title">重置密码</view>
 				<view class="Arrow">></view>
@@ -30,7 +33,7 @@
 				<view class="Arrow">已审核/未审核</view>
 			</navigator>
 		</view>
-		<navigator url="../Management-address/Management-address" hover-class="none">
+		<navigator url="../address/list" hover-class="none">
 			<view class="list">
 				<view class="list-title">常用地址</view>
 				<view class="Arrow">></view>
@@ -63,3 +66,5 @@
 		
 	</view>
 </view>
+
+<include src="../../comps/tabBar/index.wxml" /> 

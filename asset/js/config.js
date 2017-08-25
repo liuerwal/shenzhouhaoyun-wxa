@@ -1,38 +1,64 @@
 
 var ROOT_URL = 'https://szhy.chuwo.com';
+var API_URL = ROOT_URL + '/api';
 
 
 module.exports = {
 
+    DEBUG: true,
 
     ROOT_URL : ROOT_URL,
 
     API: {
 
-        WAYBILL_URL: ROOT_URL+'/api/waybill',
-        UPLOADPIC_URL: ROOT_URL+'/api/uploadPic',
-        ADDITEMS_URL: ROOT_URL+'/api/addItems',
-        ITEMS_URL: ROOT_URL+'/api/items',
-
-        MESSAGE: {
-            DESTROY: ROOT_URL+'/api/messages/destroy/%d',
-            LIST: ROOT_URL+'/api/messages',
-            SHOW: ROOT_URL+'/api/message/%d',
+        AUTH: {
+            OPENID: API_URL+'/auth/openid'
         },
 
-        PHONE_URL: ROOT_URL+'/api/phone',
-        BILL_URL: ROOT_URL+'/api/mybill',
-        RESET_URL: ROOT_URL+'/api/password/reset',
-        ORDER_URL: ROOT_URL+'/api/order',
-        ORDERS_URL: ROOT_URL+'/api/orders',
-        LOGIN_URL: ROOT_URL+'/api/register',
-        ADDADDRESS_URL: ROOT_URL+'/api/address/add',
-        ADDRESS_URL: ROOT_URL+'/api/address',
-        EDITADDRESS_URL: ROOT_URL+'/api/address/edit',
-        DELADDRESS_URL: ROOT_URL+'/api/address/destroy',
+        WAYBILL_URL: API_URL+'/waybill',
+        UPLOADPIC_URL: API_URL+'/uploadPic',
+        ADDITEMS_URL: API_URL+'/addItems',
+        ITEMS_URL: API_URL+'/items',
 
-        LOGIN_URL: ROOT_URL+'/api/login',                               //登录
-        TOKEN_REFRESH: ROOT_URL+'/api/auth/refresh',                    //刷新token
+        MESSAGE: {
+            DESTROY: API_URL+'/messages/destroy/%d',
+            LIST: API_URL+'/messages',
+            SHOW: API_URL+'/message/%d',
+        },
+
+        ORDER: {
+            LIST: API_URL+'/orders',
+            MONEY: API_URL+'/order/money',
+            CONFIRM: API_URL+'/order/confirm',
+            ORDER_URL: API_URL+'/order',
+        },
+
+        PAY: {
+            UNIFIEDORDER: API_URL+'/pay/unifiedorder',
+        },
+
+        OIL: {
+            LIST: API_URL + '/oil',
+        },
+
+        ADDRESS: {
+            LIST: API_URL+'/address',
+            ADD: API_URL+'/address/add',
+            EDIT: API_URL+'/address/edit',
+            DESTROY: API_URL+'/address/destroy/%d',
+        },
+
+        USER: {
+            SHOW: API_URL+'/user',
+            RESET_PASSWORD: API_URL+'/password/reset',
+        },
+
+        PHONE_URL: API_URL+'/phone',
+        BILL_URL: API_URL+'/mybill',
+        LOGIN_URL: API_URL+'/register',
+
+        LOGIN_URL: API_URL+'/auth/login',                               //登录
+        TOKEN_REFRESH: API_URL+'/auth/refresh',                    //刷新token
     }
 
 }

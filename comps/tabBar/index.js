@@ -25,7 +25,7 @@ module.exports = {
         var tab = e.currentTarget.dataset.tab
 
         if ( tab === 'mine' ){
-            _.redirectTo('/pages/mime/index')
+            _.redirectTo('/pages/mine/index')
 
         }else if ( tab === 'message' ){
             _.redirectTo('/pages/message/index')

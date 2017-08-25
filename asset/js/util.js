@@ -1,6 +1,8 @@
 "use strict";
 
 var sprintf = require('libs/sprintf')
+var strtotime = require('libs/strtotime')
+var CONFIG = require('config')
 
 function formatTime(date) {
     var year = date.getFullYear()
@@ -206,7 +208,7 @@ module.exports = {
     },
 
     timestamp: function(){
-        return Math.ceil( (new Date).getTime()/1000 );
+        return this.strtotime('now');
     },
 
     alert: function(message){
@@ -236,5 +238,14 @@ module.exports = {
         })
     },
 
-    sprintf: sprintf.sprintf
+    sprintf: sprintf.sprintf,
+    strtotime: function(str){
+        return parseInt(strtotime(str))
+    },
+
+    debug: function(msg){
+        if ( CONFIG.DEBUG ){
+            console.info(msg)
+        }
+    }
 }

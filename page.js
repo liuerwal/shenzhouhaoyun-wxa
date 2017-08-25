@@ -3,7 +3,45 @@ var _ = require('asset/js/util');
 var Api = require('asset/js/api');
 var page = this.Page;
 
-module.exports = {
+module.exports = P = {
+
+    onInit: function(){
+
+        var args = Array.prototype.slice.apply(arguments)
+        var success = args.pop()
+        var context = this
+        
+        _.debug('page init')
+
+        if ( !_.cache('openid') ){
+            wx.login({
+                success: function(res){
+                    if (res.code) {
+                      //发起网络请求
+                        Api.saveOpenId(res.code)
+                    } else {
+                        console.log('获取用户登录态失败！' + res.errMsg)
+                    }
+                }
+            })
+        }
+
+        if ( context.customData.login ){
+
+            if ( Api.isRefreshTokenExpired() ){
+                _.redirectTo('/pages/login/login')
+            }else{
+                if ( Api.isTokenExpired() ){
+                    Api.freshToken(function(){
+                        success && success.apply(context, args);
+                    })
+                    return;
+                }
+            }
+        }
+
+        success && success.apply(context, args);
+    },
 
     run: function(data){
 
@@ -15,17 +53,7 @@ module.exports = {
                 login: true,
             }
         };
-        var func = {
-            onLoad: [
-                function(){
-                    if ( this.customData.login ){
-                        //@TODO 这里不支持同步 异步的请求会出问题
-                        //增加promise
-                        Api.checkToken()
-                    }
-                }
-            ]
-        };
+        var func = {};
 
         component = component.map(function(path){
             return require(path);
@@ -51,14 +79,28 @@ module.exports = {
             obj[x] = function(){
                 var queue = func[x];
                 return function(){
-                    for( var i in queue ){
-                        queue[i].apply( this, arguments);
+                    if ( queue.length == 1 ){
+                        return queue[0].apply( this, arguments);
+                    }else{
+                        for( var i in queue ){
+                            queue[i].apply( this, arguments);
+                        }
                     }
                 }
             }();
         }
 
+        obj.onLoad = function(){
+            var onload = obj.onLoad || function(){};
+            return function(){
+                var args = Array.prototype.slice.apply(arguments);
+                args.push(onload)
+                P.onInit.apply(this, args);
+            }
+        }()
+
         page(obj);
+
 
     },
     _ : _,

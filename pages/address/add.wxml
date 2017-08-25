@@ -1,0 +1,30 @@
+<view class="public-bg"  style="height:{{winHeight}}px">
+
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class="form-box">
+            <view class="section">
+                <view class="section__title">经度</view>
+                <input name="lng" placeholder="经度"  value="{{location.longitude}}" disabled/>
+            </view>
+            <view class="section">
+                <view class="section__title">纬度</view>
+                <input name="lat" placeholder="纬度" value="{{location.latitude}}" disabled />
+            </view>
+            <view class="section">
+                <view class="section__title">详细地址</view>
+                <input name="address" placeholder="详细地址" value="{{location.address}}" class="address-input" disabled/>
+            </view>
+            <view class="section">
+                <view class="section__title">地址别名</view>
+                <input name="alias" placeholder="请填写别名" value="{{location.alias}}" />
+            </view>
+            <view class="section">
+                <view class="section__title">收货号码</view>
+                <input name="phone" placeholder="收货现场人员手机" value="{{location.phone}}" />
+            </view>
+        </view>
+
+        <button class="btn" bindtap="chooseLocation">获取地址</button>
+        <button class="btn" formType="submit">确定</button>
+    </form>
+</view>

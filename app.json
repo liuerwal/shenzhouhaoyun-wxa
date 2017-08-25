@@ -1,27 +1,35 @@
 {
   "pages":[
-        "pages/boss-index/boss-index",
+
+        "pages/address/add",
+        "pages/address/list",
+        "pages/address/edit",
+        
+        "pages/my/index",
+        "pages/my/reset_password",
+
+        "pages/order/confirm",
+        "pages/order/list",
+        "pages/order/index",
+        "pages/order/detail",
+        "pages/order/pay",
+
         "pages/login/login",
         "pages/register/register",
+
         "pages/message/index",
         "pages/message/detail",
-        "pages/waybill/waybill",
-        "pages/my/my",
-        "pages/waybill-details/waybill-details",
-        "pages/order-list/order-list",
-        "pages/order/order",
-        "pages/address-list/address-list",
-        "pages/edit-address/edit-address",
+
+        "pages/waybill/index",
+        "pages/waybill/detail",
+        
         "pages/driver-zz/driver-zz",
         "pages/bill/bill",
-        "pages/order-details/order-details",
         "pages/phone/phone",
-        "pages/forgot-psd/forgot-psd",
-        "pages/add-address/add-address",
         "pages/map/map",
         "pages/public-bottom/public-bottom",
         "pages/driver-index/driver-index",
-        "pages/charge-description/charge-description",
+        "pages/article/index",
         "pages/recharge/recharge",
         "pages/boss-zz/boss-zz",
         "pages/logs/logs"

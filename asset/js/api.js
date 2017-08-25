@@ -1,59 +1,15 @@
-var CONFIG = require('config');
-var _ = require('util');
-
-
-var Http = {
-    get: function(url, params, callback){
-        Http.request({
-            method  : 'GET',
-            url     : url,
-            data    : params,
-            success : callback
-        })
-    },
-
-    post: function(url, params, callback){
-        Http.request({
-            method  : 'POST',
-            url     : url,
-            data    : params,
-            success : callback
-        })
-    },
-
-    request: function(data){
-
-        var success = data.success || function(){}
-
-        data = _.extend({
-            header: {
-                "Content-Type" : "application/x-www-form-urlencoded",
-                "Version"      : "v1",
-                "Authorization": "Bearer "+ _.cache('token'),
-            },
-            dataType: 'json',
-            fail: function(e){
-                console.log(e.message)
-                _.toast('请求失败，请稍后再试');
-            }
-        }, data, {
-            success: function(response){
-                success(response.data)
-            }
-        });
-
-        wx.request(data);
-    }
-}
+var CONFIG = require('config')
+var _      = require('util')
+var Http   = require('http')
 
 module.exports = {
     login: function(phone, password, success){
 
         Http.post(CONFIG.API.LOGIN_URL, {phone: phone, password: password }, function(response){
             if ( response.status == 1){
-                wx.setStorageSync('token', response.data.token);
-                wx.setStorageSync('ttl', response.data.ttl);
-                wx.setStorageSync('refresh_ttl', response.data.refresh_ttl);
+                _.cache('token', response.data.token);
+                _.cache('ttl', response.data.ttl);
+                _.cache('refresh_ttl', response.data.refresh_ttl);
                 success && success(response.data);
             }else{
                 _.toast("登陆失败")
@@ -91,33 +47,144 @@ module.exports = {
         }
     },
 
+    order: {
+        confirm: function(order, success){
+            Http.post( CONFIG.API.ORDER.CONFIRM, order, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        done: function(){
+
+        },
+        list: function(starttime, endtime, page, success){
+            Http.get( CONFIG.API.ORDER.LIST, {starttime:starttime, endtime:endtime, page: page || 1}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        money: function(oil_id, weight, success, error){
+            Http.get( CONFIG.API.ORDER.MONEY, {oil_id: oil_id, weight: weight}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                    error && error(response.data);
+                }
+            })
+        }
+    },
+
+    oil: {
+        list: function(success){
+            Http.get( CONFIG.API.OIL.LIST, {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        }
+    },
+
+    address: {
+        list: function(page, success){
+            Http.get( CONFIG.API.ADDRESS.LIST, {page: page || 1}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        add: function(addr, success){
+            Http.post( CONFIG.API.ADDRESS.ADD, addr, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        edit: function(id, addr, success){
+            Http.post( _.sprintf(CONFIG.API.ADDRESS.EDIT, id), addr, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        }
+        destory: function(id, success){
+            Http.post( _.sprintf(CONFIG.API.ADDRESS.DESTROY, id), {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        }
+    },
+
+    pay: {
+        unifiedorder: function(order, success){
+            Http.post( CONFIG.API.PAY.UNIFIEDORDER, {order: order, openid: _.cache('openid')}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        }
+    },
+
+    user: {
+        myself: function(success){
+            Http.get( CONFIG.API.USER.SHOW, {}, function(response){
+                if ( response.status == 1){
+                    _.cache('user', response.data)
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        resetPwd: function(oldpwd, newpwd, success){
+            Http.post( CONFIG.API.USER.RESET_PASSWORD, {old_password: oldpwd, new_password: newpwd}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+    },
+
     getUserInfo: function(){
         var userinfo = wx.getStorageSync('userinfo');
         if ( !userinfo ){
             wx.getUserInfo({
                 success: function(res) {
                     var userinfo = res.userInfo
-                    wx.setStorageSync('userinfo', userinfo);
+                    _.cache('userinfo', userinfo);
                     console.log(userinfo);
                 }
             });
         }
     },
 
-    checkToken: function(){
-        if ( this.isRefreshTokenExpired() ){
-            throw new Error('token expired');
-        }else{
-            if ( this.isTokenExpired() ){
-                this.freshToken()
-            }
-        }
-    },
-
-    freshToken: function(){
+    freshToken: function(success){
         Http.get(CONFIG.API.TOKEN_REFRESH, {}, function(response){
             _.cache('token', response.data.token)
             _.cache('ttl', response.data.ttl)
+            _.debug('token fresh')
+            success && success.call()
         })
     },
 
@@ -127,6 +194,16 @@ module.exports = {
 
     isRefreshTokenExpired: function(){
         return _.timestamp() > _.cache('refresh_ttl')
+    },
+
+    saveOpenId: function(code){
+        Http.post(CONFIG.API.AUTH.OPENID, {code: code}, function(response){
+            if ( response.status == 1){
+                _.cache('openid', response.data);
+            }else{
+                _.toast(response.msg)
+            }
+        })
     },
 
     get: Http.get,
