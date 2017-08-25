@@ -43,18 +43,19 @@ module.exports = {
 
         ADDRESS: {
             LIST: API_URL+'/address',
+            SHOW: API_URL+'/address/%d',
             ADD: API_URL+'/address/add',
-            EDIT: API_URL+'/address/edit',
-            DESTROY: API_URL+'/address/destroy/%d',
+            EDIT: API_URL+'/address/%d/edit',
+            DESTROY: API_URL+'/address/%d/destroy',
         },
 
         USER: {
             SHOW: API_URL+'/user',
             RESET_PASSWORD: API_URL+'/password/reset',
+            BILLS: API_URL+'/mybill',
+            RESET_PHONE: API_URL+'/phone',
         },
 
-        PHONE_URL: API_URL+'/phone',
-        BILL_URL: API_URL+'/mybill',
         LOGIN_URL: API_URL+'/register',
 
         LOGIN_URL: API_URL+'/auth/login',                               //登录

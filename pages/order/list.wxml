@@ -1,0 +1,36 @@
+Order.wxml-->
+
+<view class="public-bg" style="height:{{winHeight}}px">
+    <view class="form-box sel-time">
+
+        <view class="section">
+            <view class="section__title">选择时间</view>
+            <picker bindchange="timeChange" value="{{index}}" range="{{time}}" mode = "selector">
+                <view class="picker">
+                    {{time[index]}}
+                    <!-- <input value="{{time[index]}}" /> -->
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <block wx:for="{{order}}" wx:key="id">
+        <view class="order-info">
+            <navigator url="detail?id={{item.order_no}}" hover-class="none">
+                <view class="order-box">
+                    <view>运费 <text class="cash">{{item.amount}}</text></view>
+                    <view class="time">时间 {{item.created_at}}</view>
+                    <view class="">油品 {{item.oil_name}}</view>
+                    <view class="address">订单号 {{item.order_no}}</view>
+                </view>
+            </navigator>
+                <view class="again">
+                    <navigator url="pay?order={{item.paylog.trade_no}}" hover-class="none">
+                    去支付
+                    </navigator>
+                </view>
+        </view>
+    </block>
+</view>
+
+<include src="../../comps/tabBar/index.wxml" /> 

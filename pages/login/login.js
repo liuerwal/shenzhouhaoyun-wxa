@@ -20,7 +20,7 @@ P.run({
                     winHeight: res.windowHeight  
                 });
             }
-        });  
+        });
 
     },
 

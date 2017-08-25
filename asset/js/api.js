@@ -103,6 +103,15 @@ module.exports = {
                 }
             })
         },
+        show: function(id, success){
+            Http.get( _.sprintf(CONFIG.API.ADDRESS.SHOW, id), {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
         add: function(addr, success){
             Http.post( CONFIG.API.ADDRESS.ADD, addr, function(response){
                 if ( response.status == 1){
@@ -120,7 +129,7 @@ module.exports = {
                     _.toast(response.msg)
                 }
             })
-        }
+        },
         destory: function(id, success){
             Http.post( _.sprintf(CONFIG.API.ADDRESS.DESTROY, id), {}, function(response){
                 if ( response.status == 1){
@@ -164,6 +173,24 @@ module.exports = {
                 }
             })
         },
+        resetPhone: function(oldpwd, newpwd, success){
+            Http.post( CONFIG.API.USER.RESET_PHONE, {phone: phone}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        bill: function(page, success){
+            Http.get( CONFIG.API.USER.BILLS, {page: page || 1}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        }
     },
 
     getUserInfo: function(){

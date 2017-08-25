@@ -1,0 +1,8 @@
+<view class="public-bg" style="height:{{winHeight}}px">
+
+    <view>运费： {{amount}}</view>
+    <view>押金： {{deposit}}</view>
+
+    <button>确认支付</button>
+
+</view>

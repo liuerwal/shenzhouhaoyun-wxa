@@ -1,12 +1,15 @@
 {
   "pages":[
 
-        "pages/address/add",
-        "pages/address/list",
-        "pages/address/edit",
         
         "pages/my/index",
         "pages/my/reset_password",
+        "pages/my/reset_phone",
+        "pages/my/bill",
+        
+        "pages/address/list",
+        "pages/address/add",
+        "pages/address/edit",
 
         "pages/order/confirm",
         "pages/order/list",
@@ -24,8 +27,6 @@
         "pages/waybill/detail",
         
         "pages/driver-zz/driver-zz",
-        "pages/bill/bill",
-        "pages/phone/phone",
         "pages/map/map",
         "pages/public-bottom/public-bottom",
         "pages/driver-index/driver-index",

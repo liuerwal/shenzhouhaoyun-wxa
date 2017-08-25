@@ -1,0 +1,81 @@
+<!--index.wxml-->
+<view  class="public-bg order"  style="height:{{winHeight}}px">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+
+        <radio-group class="radio-group" name="radio-group">
+        <label class="radio">线下支付</label>
+        <label class="radio" >
+            <radio value="1" checked="" name='pay_cash'/><text>是</text>
+        </label>
+        <label class="radio">
+            <radio value="0" checked="true" name='pay_cash'/><text>否</text>
+        </label>
+    </radio-group>
+
+    <view class="form-box">
+        <view class="section">
+            <view class="section__title">重量</view>
+            <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+        </view>
+<!-- 
+        <view class="section">
+            <view class="section__title">加油金额</view>
+            <input value="{{cost}}" name="money" disabled/>
+        </view> -->
+
+        <!-- <view class="Oil-type">
+            <button bindtap="aa">97#汽油</button>
+            <button>97#汽油</button>
+            <button>97#汽油</button>
+            <button>97#汽油</button>
+            <button>97#汽油</button>
+        </view> -->
+
+        <view class="section">
+            <view class="picker">
+                <view class="section__title">油料</view>
+                <picker bindchange="bindOilChange" value="0" range="{{oil_type}}" range-key="name">
+                    <input value="{{oil_type[current_oil].name}}" name="oil_id"/>
+                </picker>
+            </view>
+        </view>
+
+        <view class="cash-box">
+            <view class="all-cash fl-left">总余额：￥{{cost}}</view>
+            <view class="Frozen-cash fl-right">冻结金额：￥300.00</view>
+            <!-- <text>自动冻结金额1000元</text> -->
+        </view>
+        <view  class="section">
+            <!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}" class="region">
+                <view class="picker">
+                    当前地址 ： {{region[0]}}，{{region[1]}}，{{region[2]}}
+                </view>
+            </picker> -->
+            <view class="detailed-info">
+                <view>运输地址：</view>
+                <picker value="0" bindchange="bindAddressChange" range="{{addrs}}" range-key="alias">
+                    <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address"/>
+                </picker>
+            </view>
+        </view>
+        <view class="section">
+                <view class="picker">
+                    <view class="section__title">选择时间</view>
+                    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class="time">
+                        <input value="{{date}}" name="time"/>
+                    </picker>
+                </view>
+        </view>
+        <view class="section">
+            <view class="section__title">联系手机</view>
+            <input placeholder="请填写现场人员电话" name="phone"/>
+        </view>
+        <view class="section">
+            <view class="section__title">备注信息</view>
+            <input placeholder="请填写备注信息" name="remarks" placeholder-style="z-index:1"/>
+        </view>
+    </view>
+    <button class="submit-order" formType="submit">提交订单</button>
+</form>
+
+</view>

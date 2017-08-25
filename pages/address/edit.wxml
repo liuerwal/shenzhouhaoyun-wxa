@@ -6,11 +6,11 @@
 	    <view class="form-box">
 	        <view class="section">
 	            <view class="section__title">经度</view>
-	            <input name="lng" placeholder="经度"  value="{{location.longitude}}" disabled/>
+	            <input name="lng" placeholder="经度"  value="{{location.lng}}" disabled/>
 	        </view>
 	        <view class="section">
 	            <view class="section__title">纬度</view>
-	            <input name="lat" placeholder="纬度" value="{{location.latitude}}" disabled />
+	            <input name="lat" placeholder="纬度" value="{{location.lat}}" disabled />
 	        </view>
 	        <view class="section">
 	            <view class="section__title">详细地址</view>

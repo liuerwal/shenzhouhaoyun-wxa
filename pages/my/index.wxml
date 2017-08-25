@@ -14,7 +14,7 @@
 		</view>
 	</view>
 
-	<navigator url="../phone/phone" hover-class="none">
+	<navigator url="reset_phone" hover-class="none">
 		<view class="list spacing">
 			<view class="list-title">手机号</view>
 			<view class="Arrow">{{user.phone}}</view>
@@ -45,13 +45,13 @@
 				<view class="Arrow">></view>
 			</view>
 		</navigator>
-		<navigator url="../bill/bill" hover-class="none">
+		<navigator url="bill" hover-class="none">
 			<view class="list">
 				<view class="list-title">账单</view>
 				<view class="Arrow">></view>
 			</view>
 		</navigator>
-		<navigator url="../Charge-description/Charge-description" hover-class="none">
+		<navigator url="../article/index" hover-class="none">
 			<view class="list spacing">
 				<view class="list-title">收费说明</view>
 				<view class="Arrow">></view>

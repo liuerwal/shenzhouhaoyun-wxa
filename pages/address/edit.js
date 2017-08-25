@@ -1,8 +1,6 @@
-//index.js
 
-var CONFIG = require('../../asset/js/config');
-
-var P = require('../../page');
+var P = require('../../page')
+var _ = P._
 
 P.run({
     data: {
@@ -10,11 +8,17 @@ P.run({
     },
     customData: {
         addr_id : 0,
-    }
+    },
     onLoad: function(options) {  
         var that = this;
 
         that.customData.addr_id = options.id;
+
+        P.Api.address.show(options.id, function(response){
+            that.setData({
+                location: response
+            })
+        })
 
         wx.getSystemInfo( {  
             success: function( res ) {  
@@ -22,23 +26,23 @@ P.run({
                     winHeight: res.windowHeight  
                 });  
             }
-        });  
+        });
     },  
     chooseLocation:function(e){
         var that=this;
         wx.chooseLocation({
-          success:function(res){
-            console.log(res);
-            that.setData( {
-              location: {
-                longitude: res.longitude,
-                latitude: res.latitude,
-                address: res.address,
-                alias: res.alias,
+            success:function(res){
+                console.log(res);
+                that.setData({
+                    location: {
+                        lng: res.longitude,
+                        lat: res.latitude,
+                        address: res.address,
+                        alias: res.name,
+                    }
+                })
             }
         })
-        }
-    })
     },
     formSubmit:function(e){
         var that    =this;

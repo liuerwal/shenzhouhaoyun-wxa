@@ -31,29 +31,11 @@ P.run({
             var that    = this;
             var phone   = e.detail.value.phone;
 
-            wx.request({
-                url: CONFIG.API.PHONE_URL ,
-                data: {
-                    'phone': phone,
-                },
-                method: 'POST', 
-                header: {
-                    "Content-Type":"application/x-www-form-urlencoded",
-                    Authorization: "Bearer" + wx.getStorageSync('token')
-                },
-                success:function(res){
-                    console.log(res)
-                    if ( res.statusCode == 200 ){
-                        console.log("成功")
-
-                    }else{
-                        console.log("失败")
-                        wx.showModal({
-                            title: '提示',
-                            content: res.data.msg,
-                        });
-                    }
-                }
+            P.Api.resetPhone(phone, function(res){
+                _.toast('修改成功')
+                setTimeout(function(){
+                    wx.navigateBack()
+                }, 1500)
             })
         }
     },
