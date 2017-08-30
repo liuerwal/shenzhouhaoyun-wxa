@@ -12,9 +12,8 @@ P.run({
         var radio   = e.detail.value['radio-group'];
         if(radio = "cai"){
             console.log(radio)
-            wx.reLaunch({
-                url: '/pages/boss-index/boss-index'
-            });
+            
+            that.switchTo('home')
         }else{
             console.log(aa)
             wx.reLaunch({

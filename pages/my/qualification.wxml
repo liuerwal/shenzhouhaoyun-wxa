@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="item-box">
+<!--    <view class="voucher">
+        <view class="intro">资质说明：</view>
+        <text>a.新车购置价为**万元以上；</text>
+        <text>b.购车年限为5年以内</text>
+        <text>c.正规公司</text>
+        <text>d.具有商业保险等符合行业要求的资质</text>
+    </view>
+    <button class="upload" bindtap="upload">上传图片</button>
+    <image src="{{tempFilePaths }}" mode="aspecFill"/>   -->
+
+    <!-- <view class="form-box"> -->
+    <form bindsubmit="submit">
+        <block wx:for="{{items}}" wx:key="id">
+
+            <block wx:if="{{ item.type == 'text' }}">
+                <view class="section">
+                    <view class="section__title">{{item.item_name}}</view>
+                    <input placeholder="{{item.item_name}}" name="item[{{item.id}}]" value="{{item.qualifications.content}}" />
+                </view>
+            </block>
+
+            <block wx:if="{{ item.type == 'img' }}">
+                <view class="item-info">
+                    <view>{{item.item_name}}</view>
+                    <view class="item">
+                        <button class="upload" bindtap="add" data-index="{{item.id}}" >+</button>
+                        <block wx:for="{{path[item.id]}}" wx:key="id" wx:for-item="img">
+                            <image src="{{img}}"/>
+                        </block>
+                    </view>
+                </view>
+            </block>
+        </block>
+    <!-- </view> -->
+
+        <button formType="submit">提 交</button>
+    </form>
+</view>

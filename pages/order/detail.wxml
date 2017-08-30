@@ -1,11 +1,11 @@
 <!--Order details.wxml-->
 <view class="container">
 	<view class="order-box">
-		<view><text>订单号</text>:  {{orderdetail.order_no}}</view>
-		<view><text>下单时间</text>：{{orderdetail.created_at}}</view>
-		<view><text>送达时间</text>：{{orderdetail.updated_at}}</view>
-		<view><text>总价钱</text>：{{orderdetail.amount}}</view>
-		<view><text>油品</text>:  {{orderdetail.oil}}</view>
+		<view><text>订单号</text>:  {{order.order_no}}</view>
+		<view><text>下单时间</text>：{{order.created_at}}</view>
+		<!-- <view><text>送达时间</text>：{{order.updated_at}}</view> -->
+		<view><text>总价钱</text>：{{order.amount}}</view>
+		<view><text>油品</text>:  {{order.order_oil.oil.name}}</view>
 	</view>
 <!-- 	<view class="Driver-box">
 		<view><text>司机</text>：xxx</view>

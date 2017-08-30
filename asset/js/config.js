@@ -15,10 +15,13 @@ module.exports = {
             OPENID: API_URL+'/auth/openid'
         },
 
+        QUALIFICATION: {
+            LIST: API_URL+'/qualification',
+            ADD: API_URL+'/qualification/add',
+        },
+
         WAYBILL_URL: API_URL+'/waybill',
-        UPLOADPIC_URL: API_URL+'/uploadPic',
-        ADDITEMS_URL: API_URL+'/addItems',
-        ITEMS_URL: API_URL+'/items',
+        UPLOADPIC_URL: API_URL+'/upload',
 
         MESSAGE: {
             DESTROY: API_URL+'/messages/destroy/%d',
@@ -30,7 +33,8 @@ module.exports = {
             LIST: API_URL+'/orders',
             MONEY: API_URL+'/order/money',
             CONFIRM: API_URL+'/order/confirm',
-            ORDER_URL: API_URL+'/order',
+            SHOW: API_URL+'/order/%d',
+            INPOUR: API_URL+'/order/inpour',
         },
 
         PAY: {

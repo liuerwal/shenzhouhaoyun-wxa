@@ -37,15 +37,8 @@ P.run({
             var password = e.detail.value.password;
 
             api.login(phone, password, function(){
-                wx.showToast({
-                    title: "登录成功",
-                    icon: "false",
-                    duration: 3000,
-                });
-
-                wx.redirectTo({
-                    url: '../boss-index/boss-index'
-                })
+                _.toast('登录成功')
+                that.switchTab('home')
             });
 
         }

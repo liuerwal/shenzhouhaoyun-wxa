@@ -10,14 +10,23 @@ P.run({
         'comps/tabBar/index',
     ],
     customData: {
-        tabBar: 'mine'
+        tabBar: 'mine',
     },
     onLoad: function() {  
         var that = this;
 
-        P.Api.user.myself(function(data){
+        P.Api.user.myself(function(user){
+            
+            if ( user.checked==1 ){
+                user.checked = '已审核'
+            }else if ( user.checked==0 ){
+                user.checked = '未审核'
+            }else{
+                user.checked = '未通过'
+            }
+
             that.setData({
-                user: data,
+                user: user,
             })
         });
 
@@ -29,5 +38,5 @@ P.run({
               });  
             }
         });  
-    },  
+    },
 });

@@ -22,22 +22,9 @@ module.exports = {
 
     switchTo: function(e){
         var user = _.cache('user')
-        var tab = e.currentTarget.dataset.tab
+        var tab = _.isString(e) ? e : e.currentTarget.dataset.tab
 
-        if ( tab === 'mine' ){
-            _.redirectTo('/pages/mine/index')
-
-        }else if ( tab === 'message' ){
-            _.redirectTo('/pages/message/index')
-
-        }else if ( tab === 'home' ){
-            if ( user.role == 'buyer' ){
-                _.redirectTo('/pages/order/index')
-
-            }else if( user.role == 'driver'){
-                _.redirectTo('/pages/order/list')
-            }
-        }
+        this.switchTab(tab)
     },
 
     setTabBar: function(){

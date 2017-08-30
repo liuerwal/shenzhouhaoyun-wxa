@@ -200,6 +200,10 @@ module.exports = {
 
     isArray: Array.isArray,
 
+    isString: function( obj ){
+        return this.type( obj ) === 'string';
+    },
+
     cache: function(key, value){
         if ( value === undefined ){
             return wx.getStorageSync(key);
@@ -245,7 +249,26 @@ module.exports = {
 
     debug: function(msg){
         if ( CONFIG.DEBUG ){
-            console.info(msg)
+            console.trace(msg)
+            // console.info(msg)
         }
+    },
+
+    array_column: function(array, column_key){//, index_key){
+        if ( column_key!==null && column_key!==undefined ){
+            array = array.reduce(function(result, item){
+                var keys = column_key.split('.') 
+                if ( keys.length>1 ){
+                    keys.forEach(function(value){
+                        item = item[value]
+                    })
+                }else{
+                    item = item[column_key]
+                }
+                result.push(item)
+                return result;
+            }, [])
+        }
+        return array
     }
 }

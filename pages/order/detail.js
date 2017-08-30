@@ -6,7 +6,7 @@ var P = require('../../page');
 
 P.run({
     data: {
-        orderdetail:[],
+        order: null,
     },
     onLoad: function(options) {  
         var that = this;
@@ -21,43 +21,20 @@ P.run({
             }
         });   
 
-        that.orderdetail();
-    },  
-    orderdetail:function(e){
+        that.order();
+    },
+
+    order:function(e){
         var that=this;
 
         var id = that.data.id
 
-        wx.request({
+        P.Api.order.show(id, function(response){
 
-            url:  CONFIG.API.ORDERS_URL +'/' + that.data.id, 
-            data: {
-            },
-            method: 'GET', 
-            header: {
-                "Content-Type":"application/json",
-                Authorization: "Bearer" + wx.getStorageSync('token')
-            },
-            success: function(res){
-                console.log(res)
-                if ( res.statusCode == 200 ){
-                    var orderdetail = res.data.data.Order;
+            that.setData({
+                order : response
+            })
 
-                    that.setData({
-                        orderdetail : orderdetail
-                    })
-                    console.log("成功")
-
-                }else{
-                    wx.showToast(res.msg)
-                }
-            },
-            fail:function(res){
-                console.log("失败")
-            },
-            complete: function(){
-                console.log("aa")
-            }
         });
 
     }

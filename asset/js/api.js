@@ -10,6 +10,7 @@ module.exports = {
                 _.cache('token', response.data.token);
                 _.cache('ttl', response.data.ttl);
                 _.cache('refresh_ttl', response.data.refresh_ttl);
+                _.cache('user', response.data.user);
                 success && success(response.data);
             }else{
                 _.toast("登陆失败")
@@ -69,6 +70,15 @@ module.exports = {
                 }
             })
         },
+        show: function(id, success){
+            Http.get( _.sprintf(CONFIG.API.ORDER.SHOW, id), {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
         money: function(oil_id, weight, success, error){
             Http.get( CONFIG.API.ORDER.MONEY, {oil_id: oil_id, weight: weight}, function(response){
                 if ( response.status == 1){
@@ -76,6 +86,15 @@ module.exports = {
                 }else{
                     _.toast(response.msg)
                     error && error(response.data);
+                }
+            })
+        },
+        inpour: function(amount, success){
+            Http.post( CONFIG.API.ORDER.INPOUR, {amount: amount}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
                 }
             })
         }
@@ -184,6 +203,27 @@ module.exports = {
         },
         bill: function(page, success){
             Http.get( CONFIG.API.USER.BILLS, {page: page || 1}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        }
+    },
+
+    qualification: {
+        list: function(success){
+            Http.get( CONFIG.API.QUALIFICATION.LIST, {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        add: function(data, success){
+            Http.post( CONFIG.API.QUALIFICATION.ADD, data, function(response){
                 if ( response.status == 1){
                     success && success(response.data)
                 }else{

@@ -3,6 +3,7 @@ var CONFIG = require('../../asset/js/config');
 var api = require('../../asset/js/api');
 
 var P = require('../../page');
+var _ = P._
 
 P.run({
     data: {
@@ -40,10 +41,7 @@ P.run({
                 }else{
                     path[meta] = res.tempFilePaths;
                 }
-
-                
-                console.log(JSON.stringify(path));
-                console.log(path[meta])
+                console.log(path)
 
                 console.log(res.tempFilePaths);
                 for( x in res.tempFilePaths ){
@@ -102,84 +100,39 @@ P.run({
         });
     },
     items:function(){
-        var that=this;
+        var that=this , file = [] , path = []
 
-        wx.request({
+        P.Api.qualification.list(function(response){
 
-            url:  CONFIG.API.ITEMS_URL , 
-            data: {
-
-            },
-            method: 'GET', 
-            header: {
-                "Content-Type":"application/json",
-                Authorization: "Bearer " + wx.getStorageSync('token')
-            },
-            success: function(res){
-                console.log(res.data.data)
-                if ( res.statusCode == 200 ){
-                    var items = res.data.data;
-
-                    that.setData({
-                        items : items
-                    })
-                    console.log("成功")
-
-                }else{
-                    console.log("什么")
+            for( x in response ){
+                var item = response[x]
+                if ( item.type=='img' ){
+                    file[item.id] = _.array_column(item.qualifications, 'file_id')
+                    path[item.id] = _.array_column(item.qualifications, 'file.path')
                 }
-            },
-            fail:function(res){
-                console.log("失败")
-            },
-            complete: function(){
-                console.log("aa")
             }
+
+            that.setData({
+                items : response,
+                path : path
+            })
         });
     },
-    submit: function(){
+    submit: function(e){
         var that=this;
-        var items = [];
+        var data = e.detail.value;
         var file = [];
-        // var params = new FormData;
 
-        // for( var x in this.data.items){
-        //     params[].push(this.data.items[x].id);
-        // }
+        for( var x in this.data.files){
+            var f = this.data.files[x]
+            var k = 'item['+x+']';
+            file[k] = f.join(',');
+        }
+        var params = _.extend(data, file);
 
-        console.log(items);
-        console.log(that.data.files);
-
-        wx.request({
-
-            url:  CONFIG.API.ADDITEMS_URL , 
-            method: 'POST', 
-            data: {
-                "item_id": JSON.stringify([1,2,4]),
-                "file_id[1][]": 20,
-                "file_id[2][]": 20,
-                "file_id[4][]": 20,
-            },
-            header: {
-                "Content-Type":"application/x-www-form-urlencoded",
-                Authorization: "Bearer " + wx.getStorageSync('token')
-            },
-            success: function(res){
-                console.log(res)
-                if ( res.statusCode == 200 ){
-                    console.log(res)
-                    console.log("成功")
-
-                }else{
-                    console.log("什么")
-                }
-            },
-            fail:function(res){
-                console.log("失败")
-            },
-            complete: function(){
-                console.log("aa")
-            }
+        P.Api.qualification.add(params, function(res){
+            _.toast('提交成功')
+            wx.navigateBack()
         });
     }
 

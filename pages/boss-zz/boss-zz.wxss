@@ -1,4 +1,0 @@
-/**index.wxss**/
-.section input{float: left;padding:5px 10px;}
-.section{margin:15px 0;overflow: hidden;padding:10px 20px;}
-.section__title{float: left;width: 100px;line-height: 38px;}

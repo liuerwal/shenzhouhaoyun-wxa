@@ -6,11 +6,11 @@
 			<view class="form-box">
 				<view class="section">
 					<view class="section__title">手机</view>
-					<input name="input" placeholder="请输入手机" name="phone"/>
+					<input placeholder="请输入手机" name="phone"/>
 				</view>
 				<view class="section getcode">
 					<view class="section__title">验证码</view>
-					<input name="input" placeholder="验证码" name="code"/>
+					<input placeholder="验证码" name="code"/>
 					<button bindtap="getcode">获得验证码</button>
 				</view>
 			</view>

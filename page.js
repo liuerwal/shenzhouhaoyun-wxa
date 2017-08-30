@@ -40,6 +40,13 @@ module.exports = P = {
             }
         }
 
+        if ( !_.cache('user') ){
+
+            P.Api.user.myself(function(user){
+                _.cache('user', user)
+            });
+        }
+
         success && success.apply(context, args);
     },
 
@@ -51,6 +58,25 @@ module.exports = P = {
         var obj = {
             customData: {
                 login: true,
+            },
+            switchTab: function(tab){
+                
+                var user = _.cache('user')
+
+                if ( tab === 'mine' ){
+                    _.redirectTo('/pages/my/index')
+
+                }else if ( tab === 'message' ){
+                    _.redirectTo('/pages/message/index')
+
+                }else if ( tab === 'home' ){
+                    if ( user.role == 'buyer' ){
+                        _.redirectTo('/pages/order/index')
+
+                    }else if( user.role == 'driver'){
+                        _.redirectTo('/pages/order/list')
+                    }
+                }
             }
         };
         var func = {};

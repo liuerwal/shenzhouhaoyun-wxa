@@ -1,8 +1,13 @@
 <view class="public-bg" style="height:{{winHeight}}px">
 
-    <view>运费： {{amount}}</view>
-    <view>押金： {{deposit}}</view>
+    <view class="container">
+        <view class="order-box">
+            <view><text>运费</text>:  {{paylog.pay.amount}}</view>
+            <view><text>押金</text>:  {{paylog.pay.deposit}}</view>
+            <view><text>总计</text>:  {{paylog.amount}}</view>
+        </view>
 
-    <button>确认支付</button>
+        <button class="submit-order" bindtap="pay">确认支付</button>
 
+    </view>
 </view>

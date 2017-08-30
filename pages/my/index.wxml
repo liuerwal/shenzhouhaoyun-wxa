@@ -1,70 +1,70 @@
 <!--index.wxml-->
 <view class="container" style="height:{{winHeight}}px">
-	<view class="Head">
-		<view class="Head-portrait">
-			<image src="../../asset/img/head.jpg"></image>
-		</view>
-		<view class="Head-info">
-			<view class="title">{{user.username}}</view>
-			<view class="boss">{{user.rolename}}</view>
-			<view class="cash">
-				油款：<text>￥{{user.oil_fund}}</text>
-				运费：<text>￥{{user.freight_fund}}</text>
-			</view>
-		</view>
-	</view>
+    <view class="Head">
+        <view class="Head-portrait">
+            <image src="../../asset/img/head.jpg"></image>
+        </view>
+        <view class="Head-info">
+            <view class="title">{{user.username}}</view>
+            <view class="boss">{{user.rolename}}</view>
+            <view class="cash">
+                油款：<text>￥{{user.oil_fund}}</text>
+                运费：<text>￥{{user.freight_fund}}</text>
+            </view>
+        </view>
+    </view>
 
-	<navigator url="reset_phone" hover-class="none">
-		<view class="list spacing">
-			<view class="list-title">手机号</view>
-			<view class="Arrow">{{user.phone}}</view>
-		</view>
-	</navigator>
-	<view class="my-list">
-		<navigator url="reset_password" hover-class="none">
-			<view class="list">
-				<view class="list-title">重置密码</view>
-				<view class="Arrow">></view>
-			</view>
-		</navigator>
-		<view class="list">
-			<view class="list-title">资质</view>
-			<navigator url="../Certificates/Certificates" hover-class="none">
-				<view class="Arrow">已审核/未审核</view>
-			</navigator>
-		</view>
-		<navigator url="../address/list" hover-class="none">
-			<view class="list">
-				<view class="list-title">常用地址</view>
-				<view class="Arrow">></view>
-			</view>
-		</navigator>
-		<navigator url="../Recharge/Recharge" hover-class="none">
-			<view class="list spacing">
-				<view class="list-title">钱包</view>
-				<view class="Arrow">></view>
-			</view>
-		</navigator>
-		<navigator url="bill" hover-class="none">
-			<view class="list">
-				<view class="list-title">账单</view>
-				<view class="Arrow">></view>
-			</view>
-		</navigator>
-		<navigator url="../article/index" hover-class="none">
-			<view class="list spacing">
-				<view class="list-title">收费说明</view>
-				<view class="Arrow">></view>
-			</view>
-		</navigator>
-		<navigator url="" hover-class="none">
-			<view class="list spacing">
-				<view class="list-title">子公司</view>
-				<view class="Arrow">></view>
-			</view>
-		</navigator>
-		
-	</view>
+    <navigator url="reset_phone" hover-class="none">
+        <view class="list spacing">
+            <view class="list-title">手机号</view>
+            <view class="Arrow">{{user.phone}}</view>
+        </view>
+    </navigator>
+    <view class="my-list">
+        <navigator url="reset_password" hover-class="none">
+            <view class="list">
+                <view class="list-title">重置密码</view>
+                <view class="Arrow">></view>
+            </view>
+        </navigator>
+        <navigator url="qualification" hover-class="none">
+            <view class="list">
+                <view class="list-title">资质</view>
+                <view class="Arrow">{{user.checked}}</view>
+            </view>
+        </navigator>
+        <navigator url="../address/list" hover-class="none">
+            <view class="list">
+                <view class="list-title">常用地址</view>
+                <view class="Arrow">></view>
+            </view>
+        </navigator>
+        <navigator url="../Recharge/Recharge" hover-class="none">
+            <view class="list spacing">
+                <view class="list-title">钱包</view>
+                <view class="Arrow">></view>
+            </view>
+        </navigator>
+        <navigator url="bill" hover-class="none">
+            <view class="list">
+                <view class="list-title">账单</view>
+                <view class="Arrow">></view>
+            </view>
+        </navigator>
+        <navigator url="../article/index" hover-class="none">
+            <view class="list spacing">
+                <view class="list-title">收费说明</view>
+                <view class="Arrow">></view>
+            </view>
+        </navigator>
+        <navigator url="" hover-class="none">
+            <view class="list spacing">
+                <view class="list-title">子公司</view>
+                <view class="Arrow">></view>
+            </view>
+        </navigator>
+        
+    </view>
 </view>
 
 <include src="../../comps/tabBar/index.wxml" /> 

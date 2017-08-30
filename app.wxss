@@ -8,10 +8,10 @@ navigator {display: inline-block;}
 .public-bg{display: block;background: #f5f5f5;}
 .public-fff{background: #fff;}
 .form-box{background: #fff;}
-.form-box .section input{float: left;padding:5px 10px 5px 0;font-size:16px;}
-.form-box .section{padding:5px 0;overflow: hidden;border-bottom: 1px solid #e5e5e5;line-height: 38px;margin-left:15px;}
-.form-box .section:last-child{border:none;}
-.form-box .section__title{float: left;width: 80px;font-size: 16px;}
+/*.form-box*/ .section input{float: left;padding:5px 10px 5px 0;font-size:16px;}
+/*.form-box*/ .section{padding:5px 0;overflow: hidden;border-bottom: 1px solid #e5e5e5;line-height: 38px;margin-left:15px;}
+/*.form-box*/ .section:last-child{border:none;}
+/*.form-box*/ .section__title{float: left;width: 80px;font-size: 16px;}
 .btn{font-size: 16px;background: #F13D3C;color: #fff;border:none;width: 200px;clear: both;margin:20px auto;}
 
 

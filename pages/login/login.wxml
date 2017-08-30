@@ -10,7 +10,7 @@
 				</view>
 				<view class="section">
 					<view class="section__title">密码</view>
-					<input name="input" placeholder="请输入密码" name="password" value="123456"/>
+					<input name="input" placeholder="请输入密码" name="password" value="123123"/>
 				</view>
 			</view>
 		</view>

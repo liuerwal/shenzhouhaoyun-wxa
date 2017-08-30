@@ -1,24 +1,28 @@
 {
   "pages":[
 
+        "pages/login/login",
+        "pages/register/register",
+
+        "pages/wallet/index",
+        "pages/wallet/outpour",
+        "pages/wallet/inpour",
         
-        "pages/my/index",
+        "pages/my/qualification",
         "pages/my/reset_password",
+        "pages/my/index",
         "pages/my/reset_phone",
         "pages/my/bill",
+
+        "pages/order/list",
+        "pages/order/confirm",
+        "pages/order/index",
+        "pages/order/detail",
+        "pages/order/pay",
         
         "pages/address/list",
         "pages/address/add",
         "pages/address/edit",
-
-        "pages/order/confirm",
-        "pages/order/list",
-        "pages/order/index",
-        "pages/order/detail",
-        "pages/order/pay",
-
-        "pages/login/login",
-        "pages/register/register",
 
         "pages/message/index",
         "pages/message/detail",
@@ -26,14 +30,8 @@
         "pages/waybill/index",
         "pages/waybill/detail",
         
-        "pages/driver-zz/driver-zz",
-        "pages/map/map",
-        "pages/public-bottom/public-bottom",
-        "pages/driver-index/driver-index",
-        "pages/article/index",
-        "pages/recharge/recharge",
-        "pages/boss-zz/boss-zz",
-        "pages/logs/logs"
+
+        "pages/article/index"
     ],
     
     "window":{
