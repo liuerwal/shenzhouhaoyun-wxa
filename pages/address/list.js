@@ -7,7 +7,6 @@ var _ = P._
 
 P.run({
     data: {  
-        winHeight: 0,   
         address:[]
     },  
     onLoad: function(options) {  
@@ -18,7 +17,6 @@ P.run({
 
             success: function( res) {  
                 that.setData( {  
-                    winHeight: res.windowHeight  ,
                     id :id
                 });  
             }  

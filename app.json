@@ -1,6 +1,15 @@
 {
   "pages":[
         
+        
+        "pages/order/confirm",
+        "pages/order/list",
+        "pages/order/index",
+        "pages/order/confirm",
+        "pages/order/pay",
+        "pages/order/detail",
+        "pages/order/list",
+        
         "pages/login/login",
         "pages/register/register",
 
@@ -9,28 +18,28 @@
         
         "pages/my/qualification",
         "pages/my/reset_password",
-        "pages/my/index",
         "pages/my/reset_phone",
         "pages/my/bill",
 
         "pages/wallet/index",
         "pages/wallet/outpour",
         "pages/wallet/inpour",
-        
-        "pages/order/list",
-        "pages/order/confirm",
-        "pages/order/index",
-        "pages/order/detail",
-        "pages/order/pay",
-        
+
+
         "pages/address/list",
         "pages/address/add",
         "pages/address/edit",
 
+        "pages/login/login",
+        "pages/register/register",
+        
+        "pages/wallet/index",
+        "pages/wallet/outpour",
+        "pages/wallet/inpour",
+        
         "pages/message/index",
         "pages/message/detail",
         
-
         "pages/article/index"
     ],
     

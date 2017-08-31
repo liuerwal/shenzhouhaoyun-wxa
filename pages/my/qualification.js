@@ -27,9 +27,6 @@ P.run({
         var meta = e.currentTarget.dataset.index;
         var path = this.data.path;
 
-        console.log(meta);
-        console.log(path)
-
         wx.chooseImage({
             count: 9, 
             sizeType: ['original', 'compressed'], 
@@ -37,7 +34,7 @@ P.run({
             success: function (res) {
 
                 if ( path[meta] ){
-                    path[meta].concat(res.tempFilePaths);
+                    path[meta] = path[meta].concat(res.tempFilePaths);
                 }else{
                     path[meta] = res.tempFilePaths;
                 }
@@ -75,11 +72,7 @@ P.run({
                 console.log(res)
                 if ( res.statusCode == 200 ){
                     console.log(res)
-                    // var items = res.data.data;
 
-                    // that.setData({
-                    //     items : items
-                    // })
                     console.log("成功")
                     var data = JSON.parse(res.data);
                     if ( that.data.files[item_id] ){
@@ -134,9 +127,27 @@ P.run({
 
         P.Api.qualification.add(params, function(res){
             _.toast('提交成功')
-            wx.navigateBack()
+            // wx.navigateBack()
         });
-    }
+    },
+
+    previewImage: function(e){
+        var that = this,
+        index = e.currentTarget.dataset.index,
+        files = that.data.items[1].qualifications;
+
+        console.log(files);
+
+        var urls = [];
+        for( x in files ){
+            urls.push(files[x].file.path );
+        }
+
+        wx.previewImage({
+            current: files[index].file.path,
+            urls: urls
+        })
+    },
 
 });
 

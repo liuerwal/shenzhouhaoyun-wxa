@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container" style="height:{{winHeight - 31}}px">
+<view class="container" style="min-height:100%">
 	<block wx:for="{{address}}" wx:key="id">
 		
 		<view class="m-box" >

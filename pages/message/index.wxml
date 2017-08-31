@@ -12,7 +12,7 @@
 			</navigator>
 			<view class="fl-right">
 				<text>{{item.created_at}}</text>
-				<text class="del" bindtap="remove" data-index="{{index}}"> x </text>
+				<!-- <text class="del" bindtap="remove" data-index="{{index}}"> x </text> -->
 			</view>
 		</view>
 		

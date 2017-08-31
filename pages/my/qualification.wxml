@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="item-box">
+
 <!--    <view class="voucher">
         <view class="intro">资质说明：</view>
         <text>a.新车购置价为**万元以上；</text>
@@ -21,20 +21,27 @@
                 </view>
             </block>
 
-            <block wx:if="{{ item.type == 'img' }}">
-                <view class="item-info">
-                    <view>{{item.item_name}}</view>
-                    <view class="item">
-                        <button class="upload" bindtap="add" data-index="{{item.id}}" >+</button>
-                        <block wx:for="{{path[item.id]}}" wx:key="id" wx:for-item="img">
-                            <image src="{{img}}"/>
-                        </block>
+            <view class="item-box">
+                <block wx:if="{{ item.type == 'img' }}">
+                    <view class="item-info">
+                        <view>{{item.item_name}}</view>
+                        <view class="item">
+                            <image src="../../asset/img/add-img.png" bindtap="add" data-index="{{item.id}}" class="add-btn"></image>
+                            <!-- <button class="upload" bindtap="add" data-index="{{item.id}}" >+</button> -->
+                            <view class="add-img">
+                                <block wx:for="{{path[item.id]}}" wx:key="id" wx:for-item="img">
+                                    <image src="{{img}}" bindtap="previewImage" data-index="{{index}}"/>
+                                </block>
+                            </view>
+                            
+                        </view>
                     </view>
-                </view>
-            </block>
+                </block>
+            </view>
+
         </block>
     <!-- </view> -->
 
-        <button formType="submit">提 交</button>
+        <button formType="submit" class="btn upload-btn">提 交</button>
     </form>
-</view>
+

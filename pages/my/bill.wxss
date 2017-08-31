@@ -1,5 +1,5 @@
 /**index.wxss**/
-.bill-info{padding:10px 20px;border-bottom: 1px solid #d9d9d9;overflow: hidden;}
+.bill-info{padding:10px 15px;border-bottom: 1px solid #d9d9d9;overflow: hidden;}
 .bill-time{color:#9a9a9a;font-size: 14px;}
 .bill-money{font-size:16px;font-weight: bold;line-height: 30px;}
 .bill-title{font-size:16px;line-height: 30px;}

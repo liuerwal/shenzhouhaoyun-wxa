@@ -19,6 +19,7 @@ P.run({
         current_oil: 0,
         current_addr: 0,
 
+        picker_hidden: "hidden",
     },
     customData: {
         oil_id: 0,
@@ -43,15 +44,20 @@ P.run({
 
         this.loadInitData();
 
-        
+        this.initDateTimePicker();
+
+ 
     },
 
-    // bindRegionChange:function(e){
-    //     console.log('picker发送选择改变，携带值为', e.detail.value)
-    //     this.setData({
-    //         region: e.detail.value
-    //     })
-    // },
+    datetimePicker: function(){
+
+        console.log('show')
+
+        this.setData({
+            picker_hidden: ''
+        })
+    },
+
     bindDateChange: function(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
@@ -95,6 +101,7 @@ P.run({
     },
 
     formSubmit:function  (e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
         var that          = this;
         var note          = e.detail.value.remarks;
         var phone         = e.detail.value.phone;
@@ -201,6 +208,52 @@ P.run({
 
             wx.hideLoading()
         })
+    },
+
+    initDateTimePicker: function(){
+        var date = new Date()
+        var years = []
+        var months = []
+        var days = []
+
+        for (let i = 1990; i <= date.getFullYear(); i++) {
+            years.push(i)
+        }
+
+        for (let i = 1 ; i <= 12; i++) {
+            months.push(i)
+        }
+
+        for (let i = 1 ; i <= 31; i++) {
+            days.push(i)
+        }
+
+        this.setData({
+            years: years,
+            months: months,
+            days: days
+        })
+
+        // Page({
+        //   data: {
+        //     years: years,
+        //     year: date.getFullYear(),
+        //     months: months,
+        //     month: 2,
+        //     days: days,
+        //     day: 2,
+        //     year: date.getFullYear(),
+        //     value: [9999, 1, 1],
+        //   },
+        //   bindChange: function(e) {
+        //     const val = e.detail.value
+        //     this.setData({
+        //       year: this.data.years[val[0]],
+        //       month: this.data.months[val[1]],
+        //       day: this.data.days[val[2]]
+        //     })
+        //   }
+        // })
     }
 });
 

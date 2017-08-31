@@ -16,7 +16,11 @@ navigator {display: inline-block;}
 
 
 /*bottom*/
-.bottom-tabbar{border-top:1px solid #d9d9d9;padding:5px 0;overflow: hidden;margin-top: 20px;position: fixed;bottom:0;width: 100%;}
+.bottom-tabbar{border-top:1px solid #d9d9d9;padding:3px 0;overflow: hidden;margin-top: 20px;position: fixed;bottom:0;width: 100%;background: #fff;}
 .tabbar-info{width:33.33%;float: left;text-align: center;}
 .tabbar-info image{width: 26px;height: 26px;}
 .icon-title{font-size: 14px;}
+.bottom-icon{height: 26px;}
+
+page{height:100%;}
+.container{min-height: 100%;}

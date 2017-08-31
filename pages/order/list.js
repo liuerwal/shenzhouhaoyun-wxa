@@ -7,7 +7,7 @@ var P = require('../../page');
 
 P.run( {  
     data: {  
-        winHeight: 0,   
+ 
         time: ['最近一周', '最近半月', '最近一月'],
         index: 0,
         order:[],
@@ -20,14 +20,6 @@ P.run( {
     },
     onLoad: function() {  
         var that = this;  
-        wx.getSystemInfo( {  
-
-            success: function( res ) {  
-                that.setData( {  
-                    winHeight: res.windowHeight  
-                });  
-            }   
-        });
 
         this.orders( this.timeRange(7) )
 

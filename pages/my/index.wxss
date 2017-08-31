@@ -1,18 +1,18 @@
 /**my.wxss**/
 .container{background: #f5f5f5;}
-.Head{padding:10px 20px;background: #fff;border-bottom: 1px solid #d9d9d9;overflow: hidden;}
+.Head{padding:10px 15px;background: #fff;border-bottom: 1px solid #d9d9d9;overflow: hidden;}
 .Head-portrait image{width: 80px;height: 80px;float: left;}
-.Head-info{padding-left:100px;}
+.Head-info{padding-left:90px;}
 .Head-info view{line-height: 25px;font-size:16px;}
 .Head-info .title{font-size: 16px;}
 .Head-info .boss{font-size:14px;}
 .Head-info .cash{font-size:14px;}
 .cash text{color: #F13D3C;}
 .my-list{margin: 20px 0;border-top: 1px solid #d9d9d9;}
-.list{padding:0 20px;overflow: hidden;border-bottom: 1px solid #d9d9d9;line-height: 40px;background: #fff;}
+.list{padding:0 15px;overflow: hidden;border-bottom: 1px solid #d9d9d9;line-height: 40px;background: #fff;}
 .Arrow{float: right}
 .list-title{float: left;font-size:16px;}
 .spacing{margin-top:20px;border-top:1px solid #d9d9d9;}
 navigator {display: block;}
-
-
+.Arrow image{width:20px;height:20px;display: block;margin-top:10px;}
+.oil_fund{padding-right:10px;}
