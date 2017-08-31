@@ -2,7 +2,7 @@
 <view class="container">
 
 	<view class="order-box">
-		<view><text>标题</text> :  {{informdetail.title}}</view>
-		<view><text>内容</text> :   {{informdetail.content}}</view>
+		<view><text>标题</text>: {{informdetail.title}}</view>
+		<view><text>内容</text>: {{informdetail.content}}</view>
 	</view>
 </view>

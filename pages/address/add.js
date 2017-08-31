@@ -63,7 +63,7 @@ P.run({
         P.Api.address.add({lng: lng, lat: lat, address: address, alias: alias, phone: phone }, function(res){
             _.toast('添加成功');
             setTimeout(function(){
-                _.redirectTo('list')
+                _.reLaunch('list')
             }, 1000)
         });
 

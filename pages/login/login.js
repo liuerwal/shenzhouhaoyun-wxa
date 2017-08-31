@@ -1,5 +1,6 @@
 var P = require('../../page');
 var api = P.Api;
+var _ = P._
 
 P.run({
     customData: {

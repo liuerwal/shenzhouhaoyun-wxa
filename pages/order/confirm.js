@@ -42,16 +42,9 @@ P.run({
         console.log('page load');
 
         this.loadInitData();
-
-        
+ 
     },
 
-    // bindRegionChange:function(e){
-    //     console.log('picker发送选择改变，携带值为', e.detail.value)
-    //     this.setData({
-    //         region: e.detail.value
-    //     })
-    // },
     bindDateChange: function(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
@@ -95,6 +88,7 @@ P.run({
     },
 
     formSubmit:function  (e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
         var that          = this;
         var note          = e.detail.value.remarks;
         var phone         = e.detail.value.phone;

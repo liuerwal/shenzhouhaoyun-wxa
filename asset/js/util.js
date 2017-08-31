@@ -242,6 +242,12 @@ module.exports = {
         })
     },
 
+    reLaunch: function(url){
+        wx.reLaunch({
+            url: url
+        })
+    },
+
     sprintf: sprintf.sprintf,
     strtotime: function(str){
         return parseInt(strtotime(str))

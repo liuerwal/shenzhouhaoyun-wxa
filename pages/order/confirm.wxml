@@ -17,19 +17,6 @@
             <view class="section__title">重量</view>
             <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
         </view>
-<!-- 
-        <view class="section">
-            <view class="section__title">加油金额</view>
-            <input value="{{cost}}" name="money" disabled/>
-        </view> -->
-
-        <!-- <view class="Oil-type">
-            <button bindtap="aa">97#汽油</button>
-            <button>97#汽油</button>
-            <button>97#汽油</button>
-            <button>97#汽油</button>
-            <button>97#汽油</button>
-        </view> -->
 
         <view class="section">
             <view class="picker">
@@ -46,23 +33,26 @@
             <!-- <text>自动冻结金额1000元</text> -->
         </view>
         <view  class="section">
-            <!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}" class="region">
-                <view class="picker">
-                    当前地址 ： {{region[0]}}，{{region[1]}}，{{region[2]}}
-                </view>
-            </picker> -->
             <view class="detailed-info">
                 <view>运输地址：</view>
                 <picker value="0" bindchange="bindAddressChange" range="{{addrs}}" range-key="alias">
-                    <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address"/>
+                    <view class="picker">
+                        {{addrs[current_addr].address}}
+                    </view>
+                    <!-- <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address"/> -->
                 </picker>
+
             </view>
         </view>
         <view class="section">
                 <view class="picker">
                     <view class="section__title">选择时间</view>
                     <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class="time">
-                        <input value="{{date}}" name="time"/>
+                        <view class="picker">
+                            {{date}}
+                        </view>
+
+                        <!-- <input value="{{date}}" name="time"/> -->
                     </picker>
                 </view>
         </view>

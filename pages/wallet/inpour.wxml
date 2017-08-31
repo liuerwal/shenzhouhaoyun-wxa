@@ -1,15 +1,15 @@
 <!--Recharge.wxml-->
 <view class="container">
-    
-    <form bindsubmit="formSubmit" bindreset="formReset">
-        <view>
-            <text>充值</text>
-            <text>￥</text>
-            <input type="text" name="amount"></input>
 
-            <button class="forgot-btn btn" formType="submit">充值</button>
-        </view>
+	<form bindsubmit="formSubmit" bindreset="formReset">
 
-    </form>
-    
+		<view class="section">
+			<view class="section__title">充值</view>
+			<input type="text" name="amount" placeholder="请输入金额" value=""/>
+		</view>
+
+		<button class="forgot-btn btn" formType="submit">充值</button>
+
+	</form>
+
 </view>
