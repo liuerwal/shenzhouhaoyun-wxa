@@ -1,12 +1,11 @@
 {
   "pages":[
-
+        
         "pages/login/login",
         "pages/register/register",
 
-        "pages/wallet/index",
-        "pages/wallet/outpour",
-        "pages/wallet/inpour",
+        "pages/waybill/list",
+        "pages/waybill/detail",
         
         "pages/my/qualification",
         "pages/my/reset_password",
@@ -14,6 +13,10 @@
         "pages/my/reset_phone",
         "pages/my/bill",
 
+        "pages/wallet/index",
+        "pages/wallet/outpour",
+        "pages/wallet/inpour",
+        
         "pages/order/list",
         "pages/order/confirm",
         "pages/order/index",
@@ -26,9 +29,6 @@
 
         "pages/message/index",
         "pages/message/detail",
-
-        "pages/waybill/index",
-        "pages/waybill/detail",
         
 
         "pages/article/index"

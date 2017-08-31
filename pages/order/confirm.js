@@ -6,7 +6,7 @@ var _ = P._
 P.run({
     data: {
         region: ['广东省', '广州市', '海珠区'],
-        date: '2016-09-01',
+        date: '',
         winHeight: 0,  
 
         oil_type: [],

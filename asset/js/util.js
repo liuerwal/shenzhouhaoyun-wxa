@@ -255,6 +255,10 @@ module.exports = {
     },
 
     array_column: function(array, column_key){//, index_key){
+        if ( !this.isArray(array) ){
+            return null
+        }
+        
         if ( column_key!==null && column_key!==undefined ){
             array = array.reduce(function(result, item){
                 var keys = column_key.split('.') 

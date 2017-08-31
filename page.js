@@ -38,13 +38,13 @@ module.exports = P = {
                     return;
                 }
             }
-        }
 
-        if ( !_.cache('user') ){
+            if ( !_.cache('user') ){
 
-            P.Api.user.myself(function(user){
-                _.cache('user', user)
-            });
+                P.Api.user.myself(function(user){
+                    _.cache('user', user)
+                });
+            }
         }
 
         success && success.apply(context, args);
@@ -74,7 +74,7 @@ module.exports = P = {
                         _.redirectTo('/pages/order/index')
 
                     }else if( user.role == 'driver'){
-                        _.redirectTo('/pages/order/list')
+                        _.redirectTo('/pages/waybill/list')
                     }
                 }
             }

@@ -97,6 +97,63 @@ module.exports = {
                     _.toast(response.msg)
                 }
             })
+        },
+        arrive: function(id, location, success){
+            Http.post( _.sprintf(CONFIG.API.ORDER.ARRIVE, id), location, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        done: function(id, location, success){
+            Http.post( _.sprintf(CONFIG.API.ORDER.DONE, id), location, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        }
+    },
+
+    waybill: {
+        list: function(starttime, endtime, page, success){
+            Http.post( CONFIG.API.WAYBILL.LIST, {starttime:starttime, endtime:endtime, page: page || 1}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        show: function(id, success){
+            Http.get( _.sprintf(CONFIG.API.WAYBILL.SHOW, id), {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        pickup: function(id, location, success){
+            Http.post( _.sprintf(CONFIG.API.WAYBILL.PICKUP, id), location, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        deliver: function(id, location, success){
+            Http.post( _.sprintf(CONFIG.API.WAYBILL.DELIVER, id), location, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
         }
     },
 

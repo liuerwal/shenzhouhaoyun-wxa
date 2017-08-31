@@ -1,0 +1,34 @@
+
+<view class="public-bg" style="height:{{winHeight}}px">
+    <view class="form-box sel-time">
+
+        <view class="section">
+            <view class="section__title">选择时间</view>
+            <picker bindchange="timeChange" value="{{index}}" range="{{time}}" mode = "selector">
+                <view class="picker">
+                    {{time[index]}}
+                    <!-- <input value="{{time[index]}}" /> -->
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <block wx:for="{{order}}" wx:key="id">
+        <view class="order-info">
+            <navigator url="detail?id={{item.id}}" hover-class="none">
+                <view class="order-box">
+                    <!-- <view class="">订单号 {{item.order_no}}</view> -->
+                    <view class="">油品 {{item.oil.name}}</view>
+                    <view class="">重量 {{item.weight}}T</view>
+                    <view class="">供应商 {{item.provider}}</view>
+                    <view class="address">地址 {{item.station}}</view>
+                </view>
+            </navigator>
+                <view class="again">
+                    
+                </view>
+        </view>
+    </block>
+</view>
+
+<include src="../../comps/tabBar/index.wxml" /> 

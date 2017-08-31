@@ -41,7 +41,7 @@
         </view>
 
         <view class="cash-box">
-            <view class="all-cash fl-left">总余额：￥{{cost}}</view>
+            <view class="all-cash fl-left">总金额：￥{{cost}}</view>
             <view class="Frozen-cash fl-right">冻结金额：￥300.00</view>
             <!-- <text>自动冻结金额1000元</text> -->
         </view>
@@ -61,14 +61,14 @@
         <view class="section">
                 <view class="picker">
                     <view class="section__title">选择时间</view>
-                    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" class="time">
+                    <picker mode="date" value="{{date}}" bindchange="bindDateChange" class="time">
                         <input value="{{date}}" name="time"/>
                     </picker>
                 </view>
         </view>
         <view class="section">
             <view class="section__title">联系手机</view>
-            <input placeholder="请填写现场人员电话" name="phone"/>
+            <input placeholder="请填写现场人员电话" name="phone" value="{{addrs[current_addr].phone}}" />
         </view>
         <view class="section">
             <view class="section__title">备注信息</view>

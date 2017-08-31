@@ -112,6 +112,8 @@ P.run({
                 }
             }
 
+            that.data.files = file;
+
             that.setData({
                 items : response,
                 path : path

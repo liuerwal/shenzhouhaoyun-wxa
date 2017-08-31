@@ -20,7 +20,6 @@ module.exports = {
             ADD: API_URL+'/qualification/add',
         },
 
-        WAYBILL_URL: API_URL+'/waybill',
         UPLOADPIC_URL: API_URL+'/upload',
 
         MESSAGE: {
@@ -35,6 +34,15 @@ module.exports = {
             CONFIRM: API_URL+'/order/confirm',
             SHOW: API_URL+'/order/%d',
             INPOUR: API_URL+'/order/inpour',
+            ARRIVE: API_URL+'/order/%d/arrive',
+            DONE: API_URL+'/order/%d/done',
+        },
+
+        WAYBILL: {
+            LIST: API_URL+'/waybill',
+            SHOW: API_URL+'/waybill/%d',
+            PICKUP: API_URL+'/waybill/%d/pickup',
+            DELIVER: API_URL+'/waybill/%d/deliver',
         },
 
         PAY: {
