@@ -3,8 +3,7 @@
 .order-box view{line-height: 30px;font-size:16px;}
 .order-box text{line-height: 30px;}
 .again{border-top:1px solid #d9d9d9;text-align: right;padding-top:10px;color: #F13D3C}
-.address{margin-bottom: 20px;}
 .cash{color: #F13D3C}
 .order-info{margin-bottom:20px;padding:10px 20px;background: #fff;}
 .sel-time{margin-bottom: 20px;}
-
+.order-stitle{width:70px;display: inline-block;}

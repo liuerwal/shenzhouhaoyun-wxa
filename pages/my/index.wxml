@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container" style="height:{{winHeight}}px">
+<view class="container">
     <view class="Head">
         <view class="Head-portrait">
             <image src="../../asset/img/head.jpg"></image>
@@ -57,12 +57,12 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
-        <navigator url="" hover-class="none">
+        <!-- <navigator url="" hover-class="none">
             <view class="list spacing">
                 <view class="list-title">子公司</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
-        </navigator>
+        </navigator> -->
         
     </view>
 </view>

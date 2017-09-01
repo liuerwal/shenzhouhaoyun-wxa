@@ -26,6 +26,7 @@ P.run( {
     },
 
     timeChange: function(e) {
+        console.log(e)
         console.log('picker发送选择改变，携带值为', e.detail.value)
         var that = this;
         var index = e.detail.value;

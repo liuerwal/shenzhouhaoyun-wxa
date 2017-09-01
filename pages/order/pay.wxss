@@ -1,3 +1,4 @@
 
 .order-box{padding:0 10px;}
 .order-box view{padding:10px 0;}
+.order-box view text{width:60px;display: inline-block;}

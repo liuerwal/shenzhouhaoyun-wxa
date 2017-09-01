@@ -36,10 +36,10 @@
             <view class="detailed-info">
                 <view>运输地址：</view>
                 <picker value="0" bindchange="bindAddressChange" range="{{addrs}}" range-key="alias">
-                    <view class="picker">
+                    <!-- <view class="picker">
                         {{addrs[current_addr].address}}
-                    </view>
-                    <!-- <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address"/> -->
+                    </view> -->
+                    <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address" disabled/>
                 </picker>
 
             </view>

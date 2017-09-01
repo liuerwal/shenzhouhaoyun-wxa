@@ -18,15 +18,15 @@
             <navigator url="detail?id={{item.id}}" hover-class="none">
                 <view class="order-box">
                     <!-- <view class="">订单号 {{item.order_no}}</view> -->
-                    <view class="">油品 {{item.oil.name}}</view>
-                    <view class="">重量 {{item.weight}}T</view>
-                    <view class="">供应商 {{item.provider}}</view>
-                    <view class="address">地址 {{item.station}}</view>
+                    <view class=""><text class="order-stitle">油品</text> {{item.oil.name}}</view>
+                    <view class=""><text class="order-stitle">重量</text> {{item.weight}}T</view>
+                    <view class=""><text class="order-stitle">地址</text> {{item.station}}</view>
+                    <view class=""><text class="order-stitle">供应商</text> {{item.provider}}</view>
                 </view>
             </navigator>
-                <view class="again">
+                <!-- <view class="again">
                     
-                </view>
+                </view> -->
         </view>
     </block>
 </view>

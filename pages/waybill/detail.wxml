@@ -4,7 +4,7 @@
         <view><text>油料</text>:  {{waybill.oil.name}}</view>
         <view><text>总重量</text>:  {{waybill.weight}}</view>
         <view><text>供应商</text>:  {{waybill.provider}}</view>
-        <view><text>地址</text>:  {{waybill.station}} <text bindtap="showLocatioin" data-lat="{{waybill.lat}}" data-lng="{{waybill.lng}}">查看位置</text></view>
+        <view><text>地址</text>:  {{waybill.station}} <text bindtap="showLocatioin" data-lat="{{waybill.lat}}" data-lng="{{waybill.lng}}" class="Location">查看位置</text></view>
 
         <block wx:if="{{waybill.status == 0 }}">
             <button bindtap="waybillPickup" data-waybill="{{waybill.id}}">开始取货</button>
@@ -17,14 +17,14 @@
 
     <block wx:for="{{waybill.order_oil}}" wx:key="key" wx:for-item="item">
 
-        <view class="oil-box">
-            <view><text>订单号</text>:  {{item.order_no}}</view>
-            <view><text>油品</text>：{{waybill.oil.name}}</view>
-            <view><text>重量</text>:  {{item.weight}}</view>
+        <view class="oil-box order-box">
+            <view><text>订单号</text>: {{item.order_no}}</view>
+            <view><text>油品</text>: {{waybill.oil.name}}</view>
+            <view><text>重量</text>: {{item.weight}}</view>
             <!-- <view><text>距离</text>:  {{item.distance}}</view> -->
-            <view><text>下单时间</text>：{{item.created_at}}</view>
-            <view><text>期望送达</text>：{{item.expected_time}}</view>
-            <view><text>地址</text>:  {{item.address}} <text bindtap="showLocatioin" data-lat="{{item.lat}}" data-lng="{{item.lng}}">查看位置</text></view>
+            <view><text>下单时间</text>: {{item.created_at}}</view>
+            <view><text>期望送达</text>: {{item.expected_time}}</view>
+            <view><text>地址</text>: {{item.address}} <text bindtap="showLocatioin" data-lat="{{item.lat}}" data-lng="{{item.lng}}"  class="Location">查看位置</text></view>
 
             <view>
                 <block wx:if="{{item.status == 2 }}">

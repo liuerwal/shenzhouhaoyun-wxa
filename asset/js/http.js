@@ -36,6 +36,7 @@ module.exports = {
             }
         }, data, {
             success: function(response){
+                console.log(response)
                 success(response.data)
             }
         });

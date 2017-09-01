@@ -1,6 +1,6 @@
 <!--index.wxml-->
 
-<view class="regiter-box public-box"  style="height:{{winHeight}}px">
+<view class="regiter-box public-box"  style="min-height:100%;">
 	<form bindsubmit="formSubmit">
 		<view class="login-info">
 			<view class="register">

@@ -122,6 +122,7 @@ P.run({
             'oil_id'        : oil_id,
             'weight'        : weight,
             'expected_time' : expected_time,
+            'money'         : money,
         }, function(response){
             _.redirectTo('/pages/order/pay?order='+response)
             _.toast('下单成功')
