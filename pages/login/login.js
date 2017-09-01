@@ -6,23 +6,10 @@ P.run({
     customData: {
         login: false,
     },
-    data: {  
-        winHeight: 0,
-    },
+
     onLoad: function() {
-
-        console.log(this);
-
         var that = this;  
         that.data.user = wx.getStorageSync('userinfo');
-        wx.getSystemInfo( {  
-            success: function( res ) {  
-                that.setData( {  
-                    winHeight: res.windowHeight  
-                });
-            }
-        });
-
     },
 
     formSubmit:function(e){
@@ -41,7 +28,6 @@ P.run({
                 _.toast('登录成功')
                 that.switchTab('home')
             });
-
         }
     },
 });

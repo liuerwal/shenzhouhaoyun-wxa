@@ -1,6 +1,6 @@
 <!--index.wxml-->
 
-<view class="container">
+<view class="">
 	<block wx:for="{{inform}}" wx:key="id">
 		
 			<view class="inform-box">

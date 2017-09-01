@@ -1,20 +1,19 @@
 <!--Forgot-password.wxml-->
-<view class="public-bg"  style="height:{{winHeight}}px">
+<view class="public-bg" >
 	<form bindsubmit="formSubmit" bindreset="formReset">
 
-		<view class="public-fff">
-			<view class="form-box">
-				<view class="section">
-					<view class="section__title">手机</view>
-					<input placeholder="请输入手机" name="phone"/>
-				</view>
-				<view class="section getcode">
-					<view class="section__title">验证码</view>
-					<input placeholder="验证码" name="code"/>
-					<button bindtap="getcode">获得验证码</button>
-				</view>
+		<view class="form-box">
+			<view class="section">
+				<view class="section__title">手机</view>
+				<input placeholder="请输入手机" name="phone"/>
+			</view>
+			<view class="section getcode">
+				<view class="section__title">验证码</view>
+				<input placeholder="验证码" name="code"/>
+				<button bindtap="getcode">获得验证码</button>
 			</view>
 		</view>
+		
 		<button class="btn" bindtap="redirect" formType="submit">确定</button>
 	</form>
 </view>

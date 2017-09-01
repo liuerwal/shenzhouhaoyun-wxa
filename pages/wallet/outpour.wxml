@@ -1,5 +1,5 @@
 <!--Recharge.wxml-->
-<view class="container">
+<view class="public-bg">
 	<view class="balance">余额 ：<text>￥{{user.freight_fund}}</text></view>
 	<view class="deposit">押金： <text>￥{{user.frozen}}</text></view>
 		<button class="Recharge">充值</button>

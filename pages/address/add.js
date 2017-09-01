@@ -4,20 +4,9 @@ var P = require('../../page')
 var _ = P._
 
 P.run({
-    data: {
-        winHeight: 0,  
-    },
+
     onLoad: function(options) {  
-        var that = this;
-
-        wx.getSystemInfo( {  
-
-            success: function( res ) {  
-                that.setData( { 
-                    winHeight: res.windowHeight  
-                });  
-            }
-        });  
+        var that = this; 
     },  
     chooseLocation:function(e){
         var that=this;

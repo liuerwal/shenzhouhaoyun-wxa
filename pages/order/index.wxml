@@ -1,21 +1,24 @@
 <!--index.wxml-->
-<view class="index-banner">
-	<image src="../../asset/img/car.jpg"></image>
-</view>
-<view class="order-box">
-	<navigator url="../order/list" hover-class="none">
-		<view class="fl-left p-order">
-			<image src="../../asset/img/order.png"></image>
-			<view>运货单</view>
-		</view>
-	</navigator>
 
-	<navigator url="../order/confirm" hover-class="none">
-		<view class="fl-left order">
-			<image src="../../asset/img/p-order.png"></image>
-			<view>下单</view>
-		</view>
-	</navigator>
+<view class="public-bg">
+	<view class="index-banner">
+		<image src="../../asset/img/car.jpg"></image>
+	</view>
+	<view class="order-box">
+		<navigator url="../order/list" hover-class="none">
+			<view class="fl-left p-order">
+				<image src="../../asset/img/order.png"></image>
+				<view>运货单</view>
+			</view>
+		</navigator>
+
+		<navigator url="../order/confirm" hover-class="none">
+			<view class="fl-left order">
+				<image src="../../asset/img/p-order.png"></image>
+				<view>下单</view>
+			</view>
+		</navigator>
+	</view>
 </view>
 
 <include src="../../comps/tabBar/index.wxml" />

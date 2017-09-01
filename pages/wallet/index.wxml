@@ -1,8 +1,8 @@
 <!--Recharge.wxml-->
-<view class="container">
-	<view class="balance">余额 ：<text>￥{{user.freight_fund}}</text></view>
-	<view class="deposit">押金： <text>￥{{user.frozen}}</text></view>
-		<navigator url="inpour" hover-class="none"><button class="btn">充值</button></navigator>
-		<!-- <navigator url="outpour" hover-class="none"><button class="cash">提现</button></navigator> -->
+<view class="public-bg">
+	<view class="balance">余额 ：<text class="main-color">￥{{user.freight_fund}}</text></view>
+	<view class="deposit">押金： <text class="main-color">￥{{user.frozen}}</text></view>
+	<navigator url="inpour" hover-class="none"><button class="btn">充值</button></navigator>
+	<!-- <navigator url="outpour" hover-class="none"><button class="cash">提现</button></navigator> -->
 	
 </view>

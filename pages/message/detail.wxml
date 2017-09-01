@@ -1,8 +1,7 @@
 <!--Order details.wxml-->
-<view class="container">
-
-	<view class="order-box">
-		<view><text>标题</text>: {{informdetail.title}}</view>
-		<view><text>内容</text>: {{informdetail.content}}</view>
+<view class="order-box">
+	<view class="order-info">
+		<view><text class="order-stitle">标题</text>: {{informdetail.title}}</view>
+		<view><text class="order-stitle">内容</text>: {{informdetail.content}}</view>
 	</view>
 </view>

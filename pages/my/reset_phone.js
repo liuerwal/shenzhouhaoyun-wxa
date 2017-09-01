@@ -1,23 +1,12 @@
 //Forgot-password.js
 
 var CONFIG = require('../../asset/js/config');
-
 var P = require('../../page');
 
 P.run({
-  data: {
-     winHeight: 0,
-    },
-    onLoad: function() {  
-        var that = this;  
-        wx.getSystemInfo( {  
 
-            success: function( res ) {  
-                that.setData( {  
-                    winHeight: res.windowHeight  
-                });  
-            }
-        });  
+    onLoad: function() {  
+        var that = this;    
     },  
     formSubmit:function  (e) {
         console.log('form发生了submit事件，携带数据为：', e.detail.value);

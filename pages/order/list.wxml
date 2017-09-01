@@ -14,20 +14,20 @@
     </view>
 
     <block wx:for="{{order}}" wx:key="id">
-        <view class="order-info">
+        <view class="order-box">
             <navigator url="detail?id={{item.id}}" hover-class="none">
-                <view class="order-box">
-                    <view><text class="list-stitle">运费</text><text class="cash">{{item.amount}}</text></view>
-                    <view class="time"><text class="list-stitle">时间</text>{{item.created_at}}</view>
-                    <view class=""><text class="list-stitle">油品</text>{{item.oil_name}}</view>
-                    <view class="address"><text class="list-stitle">订单号</text>{{item.order_no}}</view>
+                <view class="order-info">
+                    <view><text class="order-stitle">运费</text><text class="main-color">{{item.amount}}</text></view>
+                    <view class="time"><text class="order-stitle">时间</text>{{item.created_at}}</view>
+                    <view class=""><text class="order-stitle">油品</text>{{item.oil_name}}</view>
+                    <view class="address"><text class="order-stitle">订单号</text>{{item.order_no}}</view>
                 </view>
             </navigator>
-                <view class="again">
-                    <block wx:if="{{item.paylog.status}}">
+                <view class="again main-color">
+                    <block wx:if="{{item.paylog.status == 1}}">
                         已支付
                     </block>
-                    <block wx:if="{{!item.paylog.status}}">
+                    <block wx:if="{{item.paylog.status != 1}}">
                         <navigator url="pay?order={{item.paylog.trade_no}}" hover-class="none">
                         去支付
                         </navigator>

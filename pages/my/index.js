@@ -3,7 +3,6 @@ var P = require('../../page');
 
 P.run({
     data: {  
-        winHeight: 0,
         user: {}
     },
     component: [
@@ -28,15 +27,6 @@ P.run({
             that.setData({
                 user: user,
             })
-        });
-
-        wx.getSystemInfo( {  
-
-            success: function( res ) {  
-                that.setData( {  
-                    winHeight: res.windowHeight  
-              });  
-            }
         });  
     },
 });

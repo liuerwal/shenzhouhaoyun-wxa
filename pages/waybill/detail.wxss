@@ -1,6 +1,3 @@
-/**Order details.wxss**/
-.Driver-box,.order-box{padding:10px 15px;border-bottom:1px solid #d9d9d9;}
-.Driver-box view,.order-box view{line-height: 30px;font-size:16px;}
-.Driver-box text,.order-box text{width:70px;display: inline-block;}
+
 .order-box{margin-bottom: 20px;}
-.Location{display: inline-block;color: #F13D3C}
+.Location{padding-left:10px;}

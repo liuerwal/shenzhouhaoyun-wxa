@@ -3,9 +3,7 @@ var P = require('../../page')
 var _ = P._
 
 P.run({
-    data: {
-        winHeight: 0,  
-    },
+
     customData: {
         addr_id : 0,
     },
@@ -19,14 +17,6 @@ P.run({
                 location: response
             })
         })
-
-        wx.getSystemInfo( {  
-            success: function( res ) {  
-                that.setData( { 
-                    winHeight: res.windowHeight  
-                });  
-            }
-        });
     },  
     chooseLocation:function(e){
         var that=this;

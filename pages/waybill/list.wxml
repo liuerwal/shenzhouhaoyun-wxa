@@ -1,5 +1,5 @@
 
-<view class="public-bg" style="height:{{winHeight}}px">
+<view class="public-bg">
     <view class="form-box sel-time">
 
         <view class="section">
@@ -14,14 +14,14 @@
     </view>
 
     <block wx:for="{{order}}" wx:key="id">
-        <view class="order-info">
+        <view class="order-box">
             <navigator url="detail?id={{item.id}}" hover-class="none">
-                <view class="order-box">
+                <view class="order-info">
                     <!-- <view class="">订单号 {{item.order_no}}</view> -->
-                    <view class=""><text class="order-stitle">油品</text> {{item.oil.name}}</view>
-                    <view class=""><text class="order-stitle">重量</text> {{item.weight}}T</view>
-                    <view class=""><text class="order-stitle">地址</text> {{item.station}}</view>
-                    <view class=""><text class="order-stitle">供应商</text> {{item.provider}}</view>
+                    <view><text class="order-stitle">油品</text> {{item.oil.name}}</view>
+                    <view><text class="order-stitle">重量</text> {{item.weight}}T</view>
+                    <view><text class="order-stitle">地址</text> {{item.station}}</view>
+                    <view><text class="order-stitle">供应商</text> {{item.provider}}</view>
                 </view>
             </navigator>
                 <!-- <view class="again">

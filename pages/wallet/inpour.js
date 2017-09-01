@@ -8,9 +8,7 @@ P.run({
     },
 
     onLoad: function(){
-        var user = _.cache('user')
-
-        
+        var user = _.cache('user') 
     },
 
     formSubmit: function(e){

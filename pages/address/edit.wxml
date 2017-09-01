@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="public-bg"  style="height:{{winHeight}}px">
+<view class="public-bg">
 	<view class="intro">运输时，超过接收位置的历程要加收里程费用，请提供精确地收货地点，以免产生不必要的费用。详情请查看收费标准</view>
 
 	<form bindsubmit="formSubmit" bindreset="formReset">
