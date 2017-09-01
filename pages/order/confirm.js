@@ -6,7 +6,6 @@ var _ = P._
 P.run({
     data: {
         region: ['广东省', '广州市', '海珠区'],
-        date: '',
         winHeight: 0,  
 
         oil_type: [],
@@ -18,8 +17,6 @@ P.run({
 
         current_oil: 0,
         current_addr: 0,
-
-        picker_hidden: "hidden",
     },
     customData: {
         oil_id: 0,
@@ -27,6 +24,9 @@ P.run({
         tid: null,
         addr_id: 0,
     },
+    component: [
+        'comps/datetimePicker/index',
+    ],
     onLoad: function(){
         var that = this;
 
@@ -43,27 +43,9 @@ P.run({
         console.log('page load');
 
         this.loadInitData();
-
-        this.initDateTimePicker();
-
  
     },
 
-    datetimePicker: function(){
-
-        console.log('show')
-
-        this.setData({
-            picker_hidden: ''
-        })
-    },
-
-    bindDateChange: function(e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
-        this.setData({
-            date: e.detail.value
-        })
-    },
     bindOilChange: function(e) {
         var oil_id = this.data.oil_type[e.detail.value].id;
         var weight = this.customData.weight;
@@ -210,50 +192,5 @@ P.run({
         })
     },
 
-    initDateTimePicker: function(){
-        var date = new Date()
-        var years = []
-        var months = []
-        var days = []
-
-        for (let i = 1990; i <= date.getFullYear(); i++) {
-            years.push(i)
-        }
-
-        for (let i = 1 ; i <= 12; i++) {
-            months.push(i)
-        }
-
-        for (let i = 1 ; i <= 31; i++) {
-            days.push(i)
-        }
-
-        this.setData({
-            years: years,
-            months: months,
-            days: days
-        })
-
-        // Page({
-        //   data: {
-        //     years: years,
-        //     year: date.getFullYear(),
-        //     months: months,
-        //     month: 2,
-        //     days: days,
-        //     day: 2,
-        //     year: date.getFullYear(),
-        //     value: [9999, 1, 1],
-        //   },
-        //   bindChange: function(e) {
-        //     const val = e.detail.value
-        //     this.setData({
-        //       year: this.data.years[val[0]],
-        //       month: this.data.months[val[1]],
-        //       day: this.data.days[val[2]]
-        //     })
-        //   }
-        // })
-    }
 });
 

@@ -1,0 +1,22 @@
+
+    <view style="width: 100%;height: 100%;position: fixed;background: rgba(0,0,0,.4);bottom: 0;z-index: 100000;{{dt_show ? 'display: block;' : 'display: none;'}}" bindtap="datetimePickerHide">
+    
+        <view style="position: fixed;bottom: 300px;background:#fff;" catchtap="donothing">
+            <view bindtap="datetimePickerHide" style="color: gray;float: left;">取消</view>
+            <view bindtap="datetimePickerChoose" style="color: green;float: right;">确定</view>
+        </view>
+        <picker-view indicator-style="height: 50px;" style="text-align: center;z-index: 100000;width: 100%; height: 300px;position: fixed;bottom: 0;background:#fff;"  value="{{dt_value}}" catchtap="donothing" bindchange="datetimePickerChange">
+            <picker-view-column>
+                <view wx:for="{{dt_years}}" wx:key="key" style="line-height: 50px">{{item}}年</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{dt_months}}" wx:key="key" style="line-height: 50px">{{item}}月</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{dt_days}}" wx:key="key" style="line-height: 50px">{{item}}日</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{dt_hours}}" wx:key="key" style="line-height: 50px">{{item}}时</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
