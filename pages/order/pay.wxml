@@ -5,6 +5,7 @@
 		<view><text>押金</text>:  {{paylog.pay.deposit}}</view>
 		<view><text>总计</text>:  {{paylog.amount}}</view>
 	</view>
+    
+    <button class="submit-order btn" bindtap="pay">确认支付</button>
 
 </view>
-<button class="submit-order btn" bindtap="pay">确认支付</button>

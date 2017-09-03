@@ -1,8 +1,5 @@
-//Order details.js
-
-var CONFIG = require('../../asset/js/config');
-
-var P = require('../../page');
+var P = require('../../page')
+var _ = P._
 
 P.run({
     data: {
@@ -37,6 +34,20 @@ P.run({
 
         });
 
+    },
+
+    orderCancel: function(e){
+        var that=this;
+
+        var id = that.data.id
+
+        P.Api.order.cancel(id, function(response){
+            _.toast('订单已取消')
+            setTimeout(function(){
+                wx.navigateBack()
+            }, 1500)
+
+        });
     }
 });
 

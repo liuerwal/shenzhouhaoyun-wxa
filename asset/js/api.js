@@ -58,8 +58,17 @@ module.exports = {
                 }
             })
         },
-        done: function(){
-
+        done: function(id, success){
+            
+        },
+        cancel: function(id, success){
+            Http.post( _.sprintf(CONFIG.API.ORDER.CANCEL, id), {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
         },
         list: function(starttime, endtime, page, success){
             Http.get( CONFIG.API.ORDER.LIST, {starttime:starttime, endtime:endtime, page: page || 1}, function(response){

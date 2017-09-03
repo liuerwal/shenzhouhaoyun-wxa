@@ -1,5 +1,17 @@
 {
   "pages":[
+        
+        "pages/login/login",
+        "pages/register/register",
+        
+        "pages/order/list",
+        "pages/order/detail",
+        "pages/order/index",
+        "pages/order/confirm",
+        "pages/order/pay",
+        
+        "pages/waybill/list",
+        "pages/waybill/detail",
 
         "pages/my/index",
         "pages/my/qualification",
@@ -13,18 +25,6 @@
         
         "pages/message/index",
         "pages/message/detail",
-        
-        "pages/waybill/list",
-        "pages/waybill/detail",
-        
-        "pages/order/list",
-        "pages/order/detail",
-        "pages/order/index",
-        "pages/order/confirm",
-        "pages/order/pay",
-        
-        "pages/login/login",
-        "pages/register/register",
 
         "pages/wallet/index",
         "pages/wallet/outpour",
