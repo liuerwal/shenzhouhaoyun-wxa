@@ -10,7 +10,7 @@
 			<view><text class="order-stitle">订单状态</text>: {{order.order_oil.status_text}}</view>
 
             <block wx:if="{{order.order_oil.status < 3}}">
-                <button bindtap="orderCancel">取消</button>
+                <button bindtap="orderCancel" class="btn">取消</button>
             </block>
 
 		</view>
@@ -20,7 +20,7 @@
         <view class="order-box">
             <view class="order-info">
                 <view><text class="order-stitle">司机</text>: {{order.order_oil.waybill.driver.username}}</view>
-                <view><text class="order-stitle"> </text>  {{order.order_oil.waybill.driver.phone}}</view>
+                <view><text class="order-stitle">电话</text>: {{order.order_oil.waybill.driver.phone}}</view>
 
             </view>
         </view>

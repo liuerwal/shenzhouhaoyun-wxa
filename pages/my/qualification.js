@@ -84,12 +84,6 @@ P.run({
                     console.log("什么")
                 }
             },
-            fail:function(res){
-                console.log("失败")
-            },
-            complete: function(){
-                console.log("aa")
-            }
         });
     },
     items:function(){
@@ -125,10 +119,12 @@ P.run({
         }
         var params = _.extend(data, file);
 
+
         P.Api.qualification.add(params, function(res){
             _.toast('提交成功')
             // wx.navigateBack()
         });
+        
     },
 
     previewImage: function(e){

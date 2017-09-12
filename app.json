@@ -1,17 +1,17 @@
 {
   "pages":[
         
-        "pages/login/login",
-        "pages/register/register",
-        
-        "pages/waybill/list",
-        "pages/waybill/detail",
-        
         "pages/order/index",
         "pages/order/list",
         "pages/order/detail",
         "pages/order/confirm",
         "pages/order/pay",
+        
+        "pages/login/login",
+        "pages/register/register",
+        
+        "pages/waybill/list",
+        "pages/waybill/detail",
         
         "pages/my/index",
         "pages/my/qualification",
