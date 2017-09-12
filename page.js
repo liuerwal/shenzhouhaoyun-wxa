@@ -1,7 +1,7 @@
 
-var _ = require('asset/js/util');
-var Api = require('asset/js/api');
-var page = this.Page;
+var _ = require('asset/js/util')
+var Api = require('asset/js/api')
+var page = this.Page
 
 module.exports = P = {
 

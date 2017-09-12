@@ -34,6 +34,7 @@ module.exports = {
             CONFIRM: API_URL+'/order/confirm',
             SHOW: API_URL+'/order/%d',
             INPOUR: API_URL+'/order/inpour',
+            CANCEL: API_URL+'/order/%d/cancel',
             ARRIVE: API_URL+'/order/%d/arrive',
             DONE: API_URL+'/order/%d/done',
         },
