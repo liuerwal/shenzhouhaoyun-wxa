@@ -69,7 +69,7 @@ module.exports = {
             RESET_PHONE: API_URL+'/phone',
         },
 
-        LOGIN_URL: API_URL+'/register',
+        REGISTER_URL: API_URL+'/register',
 
         LOGIN_URL: API_URL+'/auth/login',                               //登录
         TOKEN_REFRESH: API_URL+'/auth/refresh',                    //刷新token

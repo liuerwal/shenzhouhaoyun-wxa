@@ -31,14 +31,6 @@ P.run({
         var that = this;
 
         var that = this;  
-        wx.getSystemInfo( {  
-
-            success: function( res ) {  
-                that.setData( {  
-                    winHeight: res.windowHeight  
-                });  
-            }
-        });
 
         console.log('page load');
 

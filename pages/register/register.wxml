@@ -4,10 +4,10 @@
 		
 		<radio-group class="radio-group" name="radio-group">
 			<label class="radio" >
-				<radio value="cai" checked="" name='cai'/><text>采购方</text>
+				<radio value="buyer" checked="" name='buyer' checked/><text>采购方</text>
 			</label>
 			<label class="radio">
-				<radio value="car" checked="" name='car'/><text>运输司机</text>
+				<radio value="driver" checked="" name='driver'/><text>运输司机</text>
 			</label>
 		</radio-group>
 

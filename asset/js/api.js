@@ -3,6 +3,17 @@ var _      = require('util')
 var Http   = require('http')
 
 module.exports = {
+    register: function(phone, password, role, success){
+
+        Http.post(CONFIG.API.REGISTER_URL, {phone: phone, password: password, role: role }, function(response){
+            if ( response.status == 1){
+                success && success(response.data)
+            }else{
+               _.toast(response.msg);
+            }
+        });
+    },
+
     login: function(phone, password, success){
 
         Http.post(CONFIG.API.LOGIN_URL, {phone: phone, password: password }, function(response){
