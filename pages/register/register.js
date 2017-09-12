@@ -8,12 +8,13 @@ P.run({
         winHeight: 0,  
     },
     formSubmit: function(e) {
+        var that =this;
         console.log('form发生了submit事件，携带数据为：', e.detail.value.cai);
         var radio   = e.detail.value['radio-group'];
         if(radio = "cai"){
             console.log(radio)
             
-            that.switchTo('home')
+            that.switchTab('home')
         }else{
             console.log(aa)
             wx.reLaunch({

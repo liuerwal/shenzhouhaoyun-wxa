@@ -3,6 +3,7 @@
 var CONFIG = require('../../asset/js/config');
 
 var P = require('../../page');
+var _ = P._
 
 P.run({
     data: {

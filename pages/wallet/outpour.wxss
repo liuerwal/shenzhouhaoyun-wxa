@@ -3,4 +3,4 @@
 .Recharge{clear: both;margin: 20px auto;}
 .Recharge,.cash{font-size: 16px;background: #F13D3C;color: #fff;border:none;width: 200px}
 .balance{border-right:1px solid #d9d9d9;}
-.balance text,.deposit text{color: #F13D3C}
+.balance text,.deposit text{color: #F13D3C;}
