@@ -1,7 +1,7 @@
 
 var _ = require('asset/js/util')
 var Api = require('asset/js/api')
-var page = this.Page
+var P = null
 
 module.exports = P = {
 
@@ -10,8 +10,6 @@ module.exports = P = {
         var args = Array.prototype.slice.apply(arguments)
         var success = args.pop()
         var context = this
-        
-        _.debug('page init')
 
         if ( !_.cache('openid') ){
             wx.login({
@@ -125,7 +123,7 @@ module.exports = P = {
             }
         }()
 
-        page(obj);
+        Page(obj);
 
 
     },
