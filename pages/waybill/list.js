@@ -60,8 +60,8 @@ P.run( {
     },
 
     timeRange: function(range){
-        start = P._.timestamp()
-        end = range>0 ? P._.strtotime('-'+range+' day') : 0
+        var start = P._.timestamp()
+        var end = range>0 ? P._.strtotime('-'+range+' day') : 0
 
         return {starttime: start, endtime: end};
     }
