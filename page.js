@@ -37,7 +37,7 @@ module.exports = P = {
                 }
             }
 
-            if ( !_.cache('user') ){
+            if ( !_.cache('user') && _.cache('token') ){
 
                 P.Api.user.myself(function(user){
                     _.cache('user', user)
