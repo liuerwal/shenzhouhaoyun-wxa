@@ -5,17 +5,24 @@
 		<image src="../../asset/img/car.jpg"></image>
 	</view>
 	<view class="order-box">
-		<navigator url="../order/list" hover-class="none">
-			<view class="fl-left p-order">
-				<image src="../../asset/img/order.png"></image>
-				<view>运货单</view>
+		<navigator url="../order/confirm" hover-class="none">
+			<view class="fl-left order">
+				<image src="../../asset/img/give.png"></image>
+				<view>预约配送</view>
 			</view>
 		</navigator>
 
-		<navigator url="../order/confirm" hover-class="none">
+		<navigator url="../wallet/index" hover-class="none">
 			<view class="fl-left order">
-				<image src="../../asset/img/p-order.png"></image>
-				<view>下单</view>
+				<image src="../../asset/img/cash.png"></image>
+				<view>充值</view>
+			</view>
+		</navigator>
+
+		<navigator url="../order/list" hover-class="none">
+			<view class="fl-left order">
+				<image src="../../asset/img/cash.png"></image>
+				<view>订单</view>
 			</view>
 		</navigator>
 	</view>

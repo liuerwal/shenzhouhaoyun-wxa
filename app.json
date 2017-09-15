@@ -1,10 +1,23 @@
 {
   "pages":[
+
+        "pages/article/index",
+        "pages/wallet/index",
+        "pages/wallet/outpour",
+        "pages/wallet/inpour",
         
+        "pages/my/index",
+        "pages/my/coupon",
+        "pages/my/qualification",
+        "pages/my/reset_password",
+        "pages/my/reset_phone",
+        "pages/my/bill",
+        
+
+        "pages/order/confirm",
         "pages/order/index",
         "pages/order/list",
         "pages/order/detail",
-        "pages/order/confirm",
         "pages/order/pay",
         
         "pages/login/login",
@@ -13,23 +26,13 @@
         "pages/waybill/list",
         "pages/waybill/detail",
         
-        "pages/my/index",
-        "pages/my/qualification",
-        "pages/my/reset_password",
-        "pages/my/reset_phone",
-        "pages/my/bill",
-        
         "pages/address/list",
         "pages/address/add",
         "pages/address/edit",
         
         "pages/message/index",
-        "pages/message/detail",
+        "pages/message/detail"
 
-        "pages/wallet/index",
-        "pages/wallet/outpour",
-        "pages/wallet/inpour",
-        "pages/article/index"
     ],
     
     "window":{

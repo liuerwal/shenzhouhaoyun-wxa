@@ -1,3 +1,7 @@
 
-.order-box{padding:0 15px;}
+.order-box{padding:0 15px;overflow: hidden;}
 .order-box view text{width:60px;display: inline-block;}
+.pay-btn{width:80%;margin:20px 10%;}
+.pay-btn button{width:40%;display: inline-block;font-size: 16px;border:none;}
+.pay-btn .online-btn{background: #F13D3C;color: #fff;}
+.pay-btn .line-btn{background: #fff;}

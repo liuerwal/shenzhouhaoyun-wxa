@@ -57,6 +57,10 @@ module.exports = P = {
             customData: {
                 login: true,
             },
+            redirectTo: function(e){
+                var url = e.currentTarget.dataset.url
+                _.redirectTo(url)
+            },
             switchTab: function(tab){
                 
                 var user = _.cache('user')

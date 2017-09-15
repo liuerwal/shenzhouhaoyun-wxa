@@ -7,6 +7,7 @@ P.run({
 
     onLoad: function(options) {  
         var that = this; 
+        that.customData.form_order = !!options.form
     },  
     chooseLocation:function(e){
         var that=this;
@@ -52,7 +53,7 @@ P.run({
         P.Api.address.add({lng: lng, lat: lat, address: address, alias: alias, phone: phone }, function(res){
             _.toast('添加成功');
             setTimeout(function(){
-                _.reLaunch('list')
+                that.customData.form_order ? wx.reLaunch({url: '/pages/order/confirm'}) : wx.navigateBack({url: '/pages/address/list'})
             }, 1000)
         });
 

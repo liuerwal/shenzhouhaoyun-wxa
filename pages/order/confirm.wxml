@@ -1,8 +1,8 @@
 <!--index.wxml-->
-<view  class="public-bg order"  style="height:{{winHeight}}px">
+<view  class="public-bg order">
     <form bindsubmit="formSubmit" bindreset="formReset">
 
-        <radio-group class="radio-group" name="radio-group">
+        <!-- <radio-group class="radio-group" name="radio-group">
         <label class="radio">线下支付</label>
         <label class="radio" >
             <radio value="1" checked="" name='pay_cash'/><text>是</text>
@@ -10,56 +10,124 @@
         <label class="radio">
             <radio value="0" checked="true" name='pay_cash'/><text>否</text>
         </label>
-    </radio-group>
+    </radio-group> -->
 
+    
     <view class="form-box">
-        <view class="section">
-            <view class="section__title">重量</view>
-            <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+
+        <view hidden="{{oil_block}}">
+            <view class="section oiltype">
+                <view class="picker">
+                    <view class="section__title">油品</view>
+                    <picker bindchange="bindOilChange" value="0" range="{{oil_type}}" range-key="name">
+                        <input value="{{oil_type[current_oil].name}}" name="oil_id"/>
+                    </picker>
+                </view>
+                <view class="unit-price main-color">money</view>
+            </view>
+
+            <button class="btn"  bindtap="oiltype">确定</button>
         </view>
 
-        <view class="section">
-            <view class="picker">
-                <view class="section__title">油料</view>
-                <picker bindchange="bindOilChange" value="0" range="{{oil_type}}" range-key="name">
-                    <input value="{{oil_type[current_oil].name}}" name="oil_id"/>
-                </picker>
+        <view hidden="{{addr_block}}" >
+
+            <view class="addr-box">
+                <view class="section" >
+                    <view class="we-left fl-left" >
+                        <view class="section__title">重量</view>
+                        <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+                    </view>
+
+                    <view class="phone-right fl-right">
+                        <view class="section__title">联系手机</view>
+                        <input placeholder="请填写现场人员电话" type="number" name="phone" value="{{addrs[current_addr].phone}}" />
+                    </view>
+                </view>
+
+                <view  class="section" bindtap="yunshu" >
+                    <view class="detailed-info">
+                        <view>运输地址：</view>
+                        <picker value="0" bindchange="bindAddressChange" range="{{addrs}}" range-key="alias">
+                            <!-- <view class="picker">
+                                {{addrs[current_addr].address}}
+                            </view> -->
+                            <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address" disabled/>
+                        </picker>
+
+                    </view>
+                </view>
             </view>
+
+            <view class="addr-box" hidden="{{add_one}}">
+                <view class="section" >
+                    <view class="we-left fl-left" >
+                        <view class="section__title">重量</view>
+                        <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+                    </view>
+
+                    <view class="phone-right fl-right">
+                        <view class="section__title">联系手机</view>
+                        <input placeholder="请填写现场人员电话" type="number" name="phone" value="{{addrs[current_addr].phone}}" />
+                    </view>
+                </view>
+
+                <view  class="section" bindtap="yunshu" >
+                    <view class="detailed-info">
+                        <view>运输地址：</view>
+                        <picker value="0" bindchange="bindAddressChange" range="{{addrs}}" range-key="alias">
+                            <!-- <view class="picker">
+                                {{addrs[current_addr].address}}
+                            </view> -->
+                            <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address" disabled/>
+                        </picker>
+
+                    </view>
+                </view>
+            </view>
+
+            <view class="addr-btn">
+                <button class="btn"  bindtap="add">新增地址</button>
+                <button class="btn"  bindtap="addr">确定</button>
+            </view>
+
         </view>
 
-        <view class="cash-box">
-            <view class="all-cash fl-left">总金额：￥{{cost}}</view>
-            <view class="Frozen-cash fl-right">冻结金额：￥300.00</view>
-            <!-- <text>自动冻结金额1000元</text> -->
-        </view>
-        <view  class="section">
-            <view class="detailed-info">
-                <view>运输地址：</view>
-                <picker value="0" bindchange="bindAddressChange" range="{{addrs}}" range-key="alias">
-                    <!-- <view class="picker">
-                        {{addrs[current_addr].address}}
-                    </view> -->
-                    <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address" disabled/>
-                </picker>
+        <view class="other" hidden="{{other_block}}">
+            <view class='section'>
+                <view class="cash-box">
+                    <view class="all-cash fl-left">运费：￥100</view>
+                    <view class="Frozen-cash fl-right">油费：￥300.00</view>
+                    <!-- <text>自动冻结金额1000元</text> -->
+                </view>
+            </view>
 
+            <view class='section'>
+                <view class="cash-box">
+                    <view class="all-cash fl-left">总金额：￥{{cost}}</view>
+                    <view class="Frozen-cash fl-right">冻结金额：￥300.00</view>
+                    <!-- <text>自动冻结金额1000元</text> -->
+                </view>
             </view>
-        </view>
-        <view class="section">
-            <view class="picker">
-                <view class="section__title">送达时间</view>
-                <input type="text" disabled name="time" value="{{datetime}}" bindtap="datetimePickerShow" />
+
+            <view class="section">
+                <view class='main-color'>默认从当天晚上9点开始送</view>
+                <view class="picker">
+                    <view class="section__title">送达时间</view>
+                    <input type="text" disabled name="time" value="{{datetime}}" bindtap="datetimePickerShow" />
+                </view>
             </view>
+
+            <view class="section">
+                <view class="section__title">备注信息</view>
+                <input placeholder="请填写备注信息" name="remarks" placeholder-style="z-index:1"/>
+            </view>
+            <button class="submit-order" formType="submit">提交订单</button>
         </view>
-        <view class="section">
-            <view class="section__title">联系手机</view>
-            <input placeholder="请填写现场人员电话" name="phone" value="{{addrs[current_addr].phone}}" />
-        </view>
-        <view class="section">
-            <view class="section__title">备注信息</view>
-            <input placeholder="请填写备注信息" name="remarks" placeholder-style="z-index:1"/>
-        </view>
+
+
     </view>
-    <button class="submit-order" formType="submit">提交订单</button>
+
+    
 </form>
 
 

@@ -41,7 +41,7 @@ P.run({
                 console.log(path)
 
                 console.log(res.tempFilePaths);
-                for( x in res.tempFilePaths ){
+                for( var x in res.tempFilePaths ){
                     console.log(res.tempFilePaths)
                     console.log(res.tempFilePaths[x])
                     that.upload(res.tempFilePaths[x], meta);
@@ -91,7 +91,7 @@ P.run({
 
         P.Api.qualification.list(function(response){
 
-            for( x in response ){
+            for( var x in response ){
                 var item = response[x]
                 if ( item.type=='img' ){
                     file[item.id] = _.array_column(item.qualifications, 'file_id')

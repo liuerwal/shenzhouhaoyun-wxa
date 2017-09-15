@@ -1,4 +1,7 @@
 /**Recharge.wxss**/
-.balance,.deposit{overflow:hidden;width:49.8%;border-bottom:1px solid #d9d9d9;float: left;line-height: 100px;text-align: center;margin-bottom: 50px;background: #fff;}
-.balance{border-right:1px solid #d9d9d9;}
+.balance-box{height:100%;background: #f5f5f5}
 navigator{display: block;}
+.balance-info{margin:0 auto;padding-top:50px;}
+.balance-info image{width:80px;height:80px;margin:20px auto;display: block;}
+.balance{text-align: center;}
+.balance .main-color{display: block;font-size:32px;font-weight:bold;line-height: 50px;}

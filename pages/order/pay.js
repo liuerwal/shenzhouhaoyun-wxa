@@ -42,7 +42,7 @@ P.run({
 
     },
 
-    pay: function(){
+    Onlinepay: function(){
         wx.requestPayment(_.extend(this.customData.params, {
             success: function(res){
                 console.log(res);
@@ -61,5 +61,9 @@ P.run({
                 }
             }
         }))
+    },
+
+    Linepay: function(){
+        _.toast('好的')
     }
 })

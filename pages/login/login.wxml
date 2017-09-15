@@ -5,11 +5,11 @@
 		<view class="form-box">
 			<view class="section">
 				<view class="section__title">手机</view>
-				<input placeholder="请输入手机" name="phone" value="15074849617"/>
+				<input placeholder="请输入手机" name="phone" value="15502502644"/>
 			</view>
 			<view class="section">
 				<view class="section__title">密码</view>
-				<input placeholder="请输入密码" name="password" value="123123"/>
+				<input placeholder="请输入密码" name="password" value="123123" password="true"/>
 			</view>
 		</view>
 		<button class="btn" formType="submit">登录</button>

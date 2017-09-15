@@ -20,6 +20,7 @@
             <view class="Arrow">{{user.phone}}</view>
         </view>
     </navigator>
+
     <view class="my-list">
         <navigator url="reset_password" hover-class="none">
             <view class="list">
@@ -42,6 +43,12 @@
         <navigator url="../wallet/index" hover-class="none">
             <view class="list spacing">
                 <view class="list-title">钱包</view>
+                <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
+            </view>
+        </navigator>
+        <navigator url="../my/coupon" hover-class="none">
+            <view class="list">
+                <view class="list-title">优惠券</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>

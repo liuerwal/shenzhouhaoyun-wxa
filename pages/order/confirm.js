@@ -6,7 +6,6 @@ var _ = P._
 P.run({
     data: {
         region: ['广东省', '广州市', '海珠区'],
-        winHeight: 0,  
 
         oil_type: [],
         index: 0,
@@ -17,6 +16,11 @@ P.run({
 
         current_oil: 0,
         current_addr: 0,
+
+        oil_block: false,
+        addr_block: true,
+        add_one :true,
+        other_block: true
     },
     customData: {
         oil_id: 0,
@@ -25,7 +29,7 @@ P.run({
         addr_id: 0,
     },
     component: [
-        'comps/datetimePicker/index',
+    'comps/datetimePicker/index',
     ],
     onLoad: function(){
         var that = this;
@@ -35,7 +39,7 @@ P.run({
         console.log('page load');
 
         this.loadInitData();
- 
+
     },
 
     bindOilChange: function(e) {
@@ -55,6 +59,7 @@ P.run({
     bindAddressChange: function(e) {
         var address = this.data.addrs[e.detail.value];
         this.customData.addr_id = address.id;
+        
         this.setData({
             current_addr: e.detail.value
         })
@@ -82,7 +87,7 @@ P.run({
         var weight        = this.customData.weight;
         var oil_id        = this.customData.oil_id;
         var addr_id       = this.customData.addr_id;
-        var pay_cash      = e.detail.value['radio-group'];
+        // var pay_cash      = e.detail.value['radio-group'];
         var expected_time = e.detail.value.time;
         var money         = this.data.cost;
 
@@ -108,7 +113,7 @@ P.run({
 
         P.Api.order.confirm({
             'phone'         : phone,
-            'pay_cash'      : pay_cash,
+            // 'pay_cash'      : pay_cash,
             'addr_id'       : addr_id,
             "note"          : note,
             'oil_id'        : oil_id,
@@ -166,7 +171,8 @@ P.run({
         Promise.all([oil, addr]).then(function(result){
 
             var oil = result[0], 
-                addr = result[1];
+            addr = result[1];
+            addr.reverse();
 
             that.setData({
                 oil_type: oil,
@@ -184,6 +190,27 @@ P.run({
             wx.hideLoading()
         })
     },
+
+    oiltype: function(){
+        var that = this;
+        that.setData({
+            oil_block: true,
+            addr_block: false
+        })
+    },
+    addr: function(){
+        var that = this;
+        that.setData({
+            addr_block: true,
+            other_block: false
+        })
+    },
+    add: function(){
+        var that = this;
+        that.setData({
+            add_one: false,
+        })
+    }
 
 });
 

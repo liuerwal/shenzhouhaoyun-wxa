@@ -20,7 +20,7 @@
             </view>
             <view class="section">
                 <view class="section__title">收货号码</view>
-                <input name="phone" placeholder="收货现场人员手机" value="{{location.phone}}" />
+                <input name="phone" placeholder="收货现场人员手机" value="{{location.phone}}" type="number"/>
             </view>
         </view>
 
