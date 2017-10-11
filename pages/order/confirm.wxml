@@ -89,6 +89,20 @@
                 <button class="btn"  bindtap="add">新增地址</button>
                 <button class="btn"  bindtap="addr">确定</button>
             </view>
+            
+
+            <block wx:for="{{addr}}" wx:key="id">
+        
+                <view class="m-box" >
+                    <view class="m-info">
+                        <view class="m-name fl-left">{{item.alias}}</view>
+                        <view class="m-phone fl-right">{{item.phone}}</view>
+                        <view class="m-address">{{item.address}}</view>
+                    </view>
+                </view>
+                
+            </block>
+
 
         </view>
 

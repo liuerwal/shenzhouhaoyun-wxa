@@ -39,6 +39,7 @@ P.run({
         console.log('page load');
 
         this.loadInitData();
+        this.addresslist();
 
     },
 
@@ -198,19 +199,37 @@ P.run({
             addr_block: false
         })
     },
-    addr: function(){
+    addr: function(e){
+
         var that = this;
-        that.setData({
-            addr_block: true,
-            other_block: false
-        })
+        var weight = this.customData.weight;
+
+        if(weight == 0){
+            _.toast('请填写重量')
+        }else{
+            that.setData({
+                addr_block: true,
+                other_block: false
+            }) 
+        }
+            
     },
     add: function(){
         var that = this;
         that.setData({
             add_one: false,
         })
-    }
+    },
+
+    addresslist:function(){
+        var that=this;
+
+        P.Api.address.list(1, function(response){
+            that.setData({
+                addr : response
+            })
+        });
+    },
 
 });
 

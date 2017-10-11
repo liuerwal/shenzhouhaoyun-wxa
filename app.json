@@ -1,6 +1,12 @@
 {
   "pages":[
 
+        "pages/order/confirm",
+        "pages/order/index",
+        "pages/order/list",
+        "pages/order/detail",
+        "pages/order/pay",
+        
         "pages/article/index",
         "pages/wallet/index",
         "pages/wallet/outpour",
@@ -14,12 +20,6 @@
         "pages/my/bill",
         
 
-        "pages/order/confirm",
-        "pages/order/index",
-        "pages/order/list",
-        "pages/order/detail",
-        "pages/order/pay",
-        
         "pages/login/login",
         "pages/register/register",
         
