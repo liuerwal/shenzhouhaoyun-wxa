@@ -36,7 +36,7 @@ P.run({
 
         var that = this;  
 
-        console.log('page load');
+        // console.log('page load');
 
         this.loadInitData();
         this.addresslist();
@@ -152,10 +152,10 @@ P.run({
     loadInitData: function(){
         var that = this;
         
-        wx.showLoading({
-            title: '加载数据...',
-            mask: true,
-        })
+        // wx.showLoading({
+        //     title: '加载数据...',
+        //     mask: true,
+        // })
 
         var oil = new Promise(function(resolve, reject){
             P.Api.oil.list(function(response){

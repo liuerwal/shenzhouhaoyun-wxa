@@ -1,5 +1,15 @@
 {
   "pages":[
+        "pages/my/index",
+        "pages/my/coupon",
+        "pages/my/qualification",
+        "pages/my/reset_password",
+        "pages/my/reset_phone",
+        "pages/my/bill",
+
+        "pages/account/index",
+        "pages/account/account_detail",
+        "pages/account/add_account",
 
         "pages/order/confirm",
         "pages/order/index",
@@ -11,14 +21,6 @@
         "pages/wallet/index",
         "pages/wallet/outpour",
         "pages/wallet/inpour",
-        
-        "pages/my/index",
-        "pages/my/coupon",
-        "pages/my/qualification",
-        "pages/my/reset_password",
-        "pages/my/reset_phone",
-        "pages/my/bill",
-        
 
         "pages/login/login",
         "pages/register/register",

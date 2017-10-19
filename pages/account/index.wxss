@@ -1,0 +1,8 @@
+/**index.wxss**/
+navigator{display: block;}
+.Arrow{float: right;}
+.Arrow image{width:20px;height:20px;display: block;}
+.btn{position:fixed;bottom:0;margin:0;width:100%;border-radius:0;}
+.account_list{margin:0 16px;overflow:hidden;padding:10px 0;}
+.list_info {display: block;overflow: hidden;clear: both;padding:5px 0;}
+.list_info .list-left{width:80px;}

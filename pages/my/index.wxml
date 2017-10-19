@@ -64,12 +64,12 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
-        <!-- <navigator url="" hover-class="none">
+        <navigator url="../account/index" hover-class="none">
             <view class="list spacing">
-                <view class="list-title">子公司</view>
+                <view class="list-title">子账户</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
-        </navigator> -->
+        </navigator>
         
     </view>
 </view>
