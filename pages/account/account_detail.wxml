@@ -6,25 +6,30 @@
         </view>
     </view>
 
-    <view class="account_list">
+    <view class="account_list list-box">
+        <view class="list-title">账户详情</view>
         <view class="list_info">
             <text class="list-left fl-left">电话号码</text>
-            <text class="list-right fl-left">: 123456789520</text>
+            <text class="list-right"> 123456789520</text>
         </view>
         <view class="list_info">
             <text class="list-left fl-left">些什么</text>
-            <text class="list-right fl-left">: 不知道</text>
+            <text class="list-right"> 不知道</text>
         </view>
         <view class="list_info">
             <text class="list-left fl-left">些什么</text>
-            <text class="list-right fl-left">: 不知道</text>
+            <text class="list-right"> 不知道</text>
         </view>
         <view class="list_info">
             <text class="list-left fl-left">些什么</text>
-            <text class="list-right fl-left">: 不知道</text>
+            <text class="list-right"> 不知道</text>
+        </view>
+        <view class="list_info">
+            <text class="list-left fl-left">是否关闭此账户</text>
+            <text class="list-right main-color">关闭</text>
         </view> 
     </view>
 
-    <button  class="btn">关闭</button>
+    <!-- <button  class="btn">关闭</button> -->
 
 </view>

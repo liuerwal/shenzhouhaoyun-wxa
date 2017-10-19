@@ -16,6 +16,7 @@
 
     <navigator url="reset_phone" hover-class="none">
         <view class="list spacing">
+            <image src="../../asset/img/phone-icon.png" class="icon"></image>
             <view class="list-title">手机号</view>
             <view class="Arrow">{{user.phone}}</view>
         </view>
@@ -24,48 +25,56 @@
     <view class="my-list">
         <navigator url="reset_password" hover-class="none">
             <view class="list">
+                <image src="../../asset/img/psd-icon.png" class="icon"></image>
                 <view class="list-title">重置密码</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
         <navigator url="qualification" hover-class="none">
             <view class="list">
+                <image src="../../asset/img/qf-icon.png" class="icon"></image>
                 <view class="list-title">资质</view>
                 <view class="Arrow">{{user.checked}}</view>
             </view>
         </navigator>
         <navigator url="../address/list" hover-class="none">
             <view class="list">
+                <image src="../../asset/img/address-icon.png" class="icon"></image>
                 <view class="list-title">常用地址</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
         <navigator url="../wallet/index" hover-class="none">
             <view class="list spacing">
+                <image src="../../asset/img/money-icon.png" class="icon"></image>
                 <view class="list-title">钱包</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
         <navigator url="../my/coupon" hover-class="none">
             <view class="list">
+                <image src="../../asset/img/coupon-icon.png" class="icon"></image>
                 <view class="list-title">优惠券</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
         <navigator url="bill" hover-class="none">
             <view class="list">
+                <image src="../../asset/img/bill-icon.png" class="icon"></image>
                 <view class="list-title">账单</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
         <navigator url="../article/index" hover-class="none">
             <view class="list spacing">
+                <image src="../../asset/img/intro-icon.png" class="icon"></image>
                 <view class="list-title">收费说明</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
         <navigator url="../account/index" hover-class="none">
             <view class="list spacing">
+                <image src="../../asset/img/account-icon.png" class="icon"></image>
                 <view class="list-title">子账户</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>

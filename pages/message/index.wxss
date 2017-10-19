@@ -1,9 +1,9 @@
 /**index.wxss**/
 .inform-box{border-bottom:1px solid #d9d9d9;padding:10px 15px;height:50px;}
 .inform-box text{line-height: 25px;display: block;width:100px;overflow: hidden;height: 25px;}
-.inform-content{font-size:14px;color:#9a9a9a;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+.inform-content{font-size:14px;color:#9a9a9a;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;width:180px !important;}
 .inform-box .fl-left{width: 65%;}
 .inform-box .fl-right{text-align: right;}
 .del{font-size: 24px;}
 navigator{display: block;}
-
+.msg-time{font-size: 12px;}

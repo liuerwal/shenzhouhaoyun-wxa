@@ -2,6 +2,8 @@
 navigator{display: block;}
 .Arrow{float: right;padding-right:15px;}
 .Arrow image{width:20px;height:20px;display: block;margin-top:10px;}
-.account_list{margin: 20px 15px;overflow: hidden;}
-.list_info {display: block;overflow: hidden;clear: both;margin-bottom: 10px;}
-.list_info .list-left{width:80px;}
+.list-box{margin: 20px 0px;overflow: hidden;background: #fff;padding:0 15px;}
+.list_info {display: block;overflow: hidden;clear: both;border-bottom: 1px dotted #e5e5e5;padding:10px 0;font-size: 15px;}
+.list_info:last-child{border:none;}
+.list-right{float: right;}
+.list-title{padding:10px 0 5px 0;font-weight: bold;font-size: 15px;}

@@ -3,7 +3,7 @@
 <view class="">
 	<block wx:for="{{inform}}" wx:key="id">
 		
-			<view class="inform-box">
+		<view class="inform-box">
 			<navigator url="detail?id={{item.id}}" hover-class="none">
 				<view class="fl-left">
 					<text class="inform-title">{{item.title}}</text>
@@ -11,7 +11,7 @@
 				</view>
 			</navigator>
 			<view class="fl-right">
-				<text>{{item.created_at}}</text>
+				<text class="msg-time">{{item.created_at}}</text>
 				<!-- <text class="del" bindtap="remove" data-index="{{index}}"> x </text> -->
 			</view>
 		</view>

@@ -1,7 +1,6 @@
 /**Order.wxss**/
 
 
-.again{border-top:1px solid #d9d9d9;text-align: right;padding-top:10px;}
-.address{margin-bottom: 20px;}
-
+.again{border-top:1px solid #e5e5e5;text-align: right;padding-top:10px;}
+.address{margin-bottom: 10px;}
 .public-bg{padding-bottom: 80px;}

@@ -12,7 +12,7 @@
 				<input placeholder="请输入密码" name="password" value="123123" password="true"/>
 			</view>
 		</view>
-		<button class="btn" formType="submit">登录</button>
+		<button class="btn btn-big" formType="submit">登录</button>
 	</form>
 	
 </view>
