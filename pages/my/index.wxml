@@ -8,8 +8,7 @@
             <view class="title">{{user.username}}</view>
             <view class="boss">{{user.rolename}}</view>
             <view class="cash">
-                <view class="oil_fund fl-left">油款 : <text>￥{{user.oil_fund}}</text></view>
-                <view class="freight_fund fl-left">运费 : <text>￥{{user.freight_fund}}</text></view>
+                <view class="oil_fund fl-left">余额 : <text>￥{{user.fund}}</text></view>
             </view>
         </view>
     </view>
@@ -30,18 +29,18 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
-        <navigator url="qualification" hover-class="none">
-            <view class="list">
-                <image src="../../asset/img/qf-icon.png" class="icon"></image>
-                <view class="list-title">资质</view>
-                <view class="Arrow">{{user.checked}}</view>
-            </view>
-        </navigator>
         <navigator url="../address/list" hover-class="none">
             <view class="list">
                 <image src="../../asset/img/address-icon.png" class="icon"></image>
                 <view class="list-title">常用地址</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
+            </view>
+        </navigator>
+        <navigator url="qualification" hover-class="none">
+            <view class="list">
+                <image src="../../asset/img/qf-icon.png" class="icon"></image>
+                <view class="list-title">资质</view>
+                <view class="Arrow">{{user.checked}}</view>
             </view>
         </navigator>
         <navigator url="../wallet/index" hover-class="none">
@@ -72,7 +71,7 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
-        <navigator url="../account/index" hover-class="none">
+        <navigator wx:if="{{ !user.parent_id }}" url="../subaccount/index" hover-class="none">
             <view class="list spacing">
                 <image src="../../asset/img/account-icon.png" class="icon"></image>
                 <view class="list-title">子账户</view>

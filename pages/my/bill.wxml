@@ -6,7 +6,10 @@
 				<view class="bill-title">{{item.title}}</view>
 				<view class="bill-time">{{item.created_at}}</view>
 			</view>
-			<view class="fl-right bill-money">{{item.money}}</view>
+			<view class="fl-right">
+                <view class="bill-money">{{item.amount}}</view>
+                <view class="bill-refund" wx:if="{{ item.refund }}">已退款{{ item.refund }}</view>
+            </view>
 		</view>
 	</block>
 

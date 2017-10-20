@@ -62,6 +62,13 @@ module.exports = {
     formatTime: formatTime,
     formatTime2: formatTime2,
 
+    date: function(format, timestamp){
+        var date = new Date(timestamp*1000)
+        if ( format=='m-d' ){
+            return [date.getMonth()+1, date.getDate()].map(formatNumber).join('-')
+        }
+    },
+
     extend: function() {
         var options, name, src, copy, copyIsArray, clone,
             target = arguments[ 0 ] || {},
@@ -217,9 +224,27 @@ module.exports = {
 
     alert: function(message){
         wx.showModal({
-            title: "提示",
+            title: "温馨提示",
             content: message,
             showCancel: false,
+        });
+    },
+
+    confirm: function(message, success, error, confirm_text, cancel_text){
+        wx.showModal({
+            title: "温馨提示",
+            content: message,
+            showCancel: true,
+            cancelText: cancel_text || '取消',
+            confirmText: confirm_text || '确定',
+            success: function(res){
+                if ( res.confirm && success ){
+                    success.call()
+                }
+                if ( res.cancel && error ){
+                    error.call()
+                }
+            },
         });
     },
 

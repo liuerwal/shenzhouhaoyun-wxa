@@ -20,105 +20,99 @@
                 <view class="picker">
                     <view class="section__title">油品</view>
                     <picker bindchange="bindOilChange" value="0" range="{{oil_type}}" range-key="name">
-                        <input value="{{oil_type[current_oil].name}}" name="oil_id"/>
+                        <input value="{{ current_oil.name }}" name="oil_id" disabled />
                     </picker>
                 </view>
-                <view class="unit-price main-color">money</view>
+                <view class="unit-price main-color">{{ current_oil.price }}元/吨</view>
+            </view>
+            <view class="section" >
+                <view class="section__title">重量</view>
+                <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+            </view>
+            <view class="notice">
+                <text>提示：一次下单越多，价格越优惠</text>
             </view>
 
-            <button class="btn"  bindtap="oiltype">确定</button>
+            <button class="btn"  bindtap="showAddrBlock">确定</button>
         </view>
 
         <view hidden="{{addr_block}}" >
 
-            <view class="addr-box">
+<!--             <view class="addr-box">
                 <view class="section" >
-                    <view class="we-left fl-left" >
-                        <view class="section__title">重量</view>
-                        <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
-                    </view>
-
-                    <view class="phone-right fl-right">
-                        <view class="section__title">联系手机</view>
-                        <input placeholder="请填写现场人员电话" type="number" name="phone" value="{{addrs[current_addr].phone}}" />
-                    </view>
+                    <view class="section__title">联系手机</view>
+                    <input placeholder="请填写现场人员电话" type="number" name="phone" value="{{addrs[current_addr].phone}}" disabled />
                 </view>
 
-                <view  class="section" bindtap="yunshu" >
+                <view class="section" >
                     <view class="detailed-info">
                         <view>运输地址：</view>
                         <picker value="0" bindchange="bindAddressChange" range="{{addrs}}" range-key="alias">
-                            <!-- <view class="picker">
-                                {{addrs[current_addr].address}}
-                            </view> -->
                             <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address" disabled/>
                         </picker>
 
                     </view>
+                </view>
+            </view> -->
+
+
+            <view class="notice" >从地址列表中选择送货地址，最多3个</view>
+
+            <view class="m-box" wx:if="{{ current_addr[0] }}">
+                <view class="m-info" bindtap="removeAddr" data-index="0">
+                    <view class="m-name fl-left">{{ current_addr[0].alias }}</view>
+                    <view class="m-phone fl-right">-</view>
+                    <!-- <view class="m-address">{{item.address}}</view> -->
                 </view>
             </view>
 
-            <view class="addr-box" hidden="{{add_one}}">
-                <view class="section" >
-                    <view class="we-left fl-left" >
-                        <view class="section__title">重量</view>
-                        <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
-                    </view>
-
-                    <view class="phone-right fl-right">
-                        <view class="section__title">联系手机</view>
-                        <input placeholder="请填写现场人员电话" type="number" name="phone" value="{{addrs[current_addr].phone}}" />
-                    </view>
+            <view class="m-box" wx:if="{{ current_addr[1] }}">
+                <view class="m-info" bindtap="removeAddr" data-index="1">
+                    <view class="m-name fl-left">{{ current_addr[1].alias }}</view>
+                    <view class="m-phone fl-right">-</view>
+                    <!-- <view class="m-address">{{item.address}}</view> -->
                 </view>
+            </view>
 
-                <view  class="section" bindtap="yunshu" >
-                    <view class="detailed-info">
-                        <view>运输地址：</view>
-                        <picker value="0" bindchange="bindAddressChange" range="{{addrs}}" range-key="alias">
-                            <!-- <view class="picker">
-                                {{addrs[current_addr].address}}
-                            </view> -->
-                            <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address" disabled/>
-                        </picker>
-
-                    </view>
+            <view class="m-box" wx:if="{{ current_addr[2] }}">
+                <view class="m-info" bindtap="removeAddr" data-index="2">
+                    <view class="m-name fl-left">{{ current_addr[2].alias }}</view>
+                    <view class="m-phone fl-right">-</view>
+                    <!-- <view class="m-address">{{item.address}}</view> -->
                 </view>
             </view>
 
             <view class="addr-btn">
-                <button class="btn"  bindtap="add">新增地址</button>
-                <button class="btn"  bindtap="addr">确定</button>
+                <!-- <button class="btn"  bindtap="add">新增地址</button> -->
+                <button class="btn"  bindtap="showConfirmBlock">确定</button>
             </view>
             
+            <view class="notice link text-center" bindtap="newAddr">新增地址</view>
 
-            <block wx:for="{{addr}}" wx:key="id">
-        
+            <block wx:for="{{addrs}}" wx:key="id">
                 <view class="m-box" >
-                    <view class="m-info">
-                        <view class="m-name fl-left">{{item.alias}}</view>
-                        <view class="m-phone fl-right">{{item.phone}}</view>
-                        <view class="m-address">{{item.address}}</view>
+                    <view class="m-info" bindtap="selectAddr" data-index="{{ index }}">
+                        <view class="m-name fl-left">{{ item.alias }}</view>
+                        <view class="m-phone fl-right">+</view>
+                        <!-- <view class="m-address">{{item.address}}</view> -->
                     </view>
                 </view>
-                
             </block>
-
-
         </view>
 
         <view class="other" hidden="{{other_block}}">
             <view class='section'>
                 <view class="cash-box">
-                    <view class="all-cash fl-left">运费：￥100</view>
-                    <view class="Frozen-cash fl-right">油费：￥300.00</view>
+                    <view class="all-cash fl-left">运费：￥{{ freight }}</view>
+                    <view class="Frozen-cash fl-right">油费：￥{{ amount }}</view>
                     <!-- <text>自动冻结金额1000元</text> -->
                 </view>
             </view>
 
             <view class='section'>
                 <view class="cash-box">
-                    <view class="all-cash fl-left">总金额：￥{{cost}}</view>
-                    <view class="Frozen-cash fl-right">冻结金额：￥300.00</view>
+                    <view class="all-cash fl-left">总金额：￥{{ cost }}</view>
+                    <view class="Frozen-cash fl-right">押金：￥{{ frozen }}</view>
                     <!-- <text>自动冻结金额1000元</text> -->
                 </view>
             </view>

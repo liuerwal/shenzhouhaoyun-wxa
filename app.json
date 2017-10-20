@@ -1,11 +1,6 @@
 {
   "pages":[
-        "pages/login/login",
-        "pages/register/register",
-        
-        "pages/account/account_detail",
-        "pages/account/index",
-        "pages/account/add_account",
+        "pages/article/index",
         
         "pages/my/index",
         "pages/my/coupon",
@@ -13,28 +8,33 @@
         "pages/my/reset_password",
         "pages/my/reset_phone",
         "pages/my/bill",
+        
+        "pages/register/register",
+        "pages/login/login",
 
+        "pages/subaccount/add",
+        "pages/subaccount/index",
+        "pages/subaccount/detail",
+        
+        "pages/message/index",
+        "pages/message/detail",
+        
+        "pages/waybill/list",
+        "pages/waybill/detail",
 
-        "pages/order/confirm",
         "pages/order/index",
         "pages/order/list",
+        "pages/order/confirm",
         "pages/order/detail",
         "pages/order/pay",
         
-        "pages/article/index",
         "pages/wallet/index",
         "pages/wallet/outpour",
         "pages/wallet/inpour",
-
-        "pages/waybill/list",
-        "pages/waybill/detail",
         
         "pages/address/list",
         "pages/address/add",
-        "pages/address/edit",
-        
-        "pages/message/index",
-        "pages/message/detail"
+        "pages/address/edit"
 
     ],
     

@@ -40,14 +40,21 @@ P.run({
         var that=this;
 
         var id = that.data.id
+        
+        if ( this.data.order.order_oil.status > 0 ){
+            var message = '订单已在受理中，取消订单将扣除一定的费用，您确定取消此订单吗？'
+        }else{
+            var message = '您确定要取消此订单吗？'
+        }
 
-        P.Api.order.cancel(id, function(response){
-            _.toast('订单已取消')
-            setTimeout(function(){
-                wx.navigateBack()
-            }, 1500)
-
-        });
+        _.confirm(message, function(){
+            P.Api.order.cancel(id, function(response){
+                _.toast('订单已取消')
+                setTimeout(function(){
+                    wx.navigateBack()
+                }, 1500)
+            });
+        })
     }
 });
 

@@ -28,6 +28,7 @@ module.exports = P = {
 
             if ( Api.isRefreshTokenExpired() ){
                 _.redirectTo('/pages/login/login')
+                return;
             }else{
                 if ( Api.isTokenExpired() ){
                     Api.freshToken(function(){

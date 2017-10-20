@@ -14,8 +14,12 @@ P.run({
         weight: '',
         addrs: [],
 
-        current_oil: 0,
-        current_addr: 0,
+        current_oil: {
+            id: 0,
+            name: '',
+            price: 0,
+        },
+        current_addr: [],
 
         oil_block: false,
         addr_block: true,
@@ -29,70 +33,46 @@ P.run({
         addr_id: 0,
     },
     component: [
-    'comps/datetimePicker/index',
+        'comps/datetimePicker/index',
     ],
     onLoad: function(){
-        var that = this;
 
-        var that = this;  
-
-        // console.log('page load');
-
-        this.loadInitData();
-        this.addresslist();
+        this.loadInitData()
 
     },
 
     bindOilChange: function(e) {
-        var oil_id = this.data.oil_type[e.detail.value].id;
-        var weight = this.customData.weight;
+        var oil = this.data.oil_type[e.detail.value]
+        var weight = this.customData.weight
 
-        this.customData.oil_id = oil_id;
+        this.customData.oil_id = oil.id
 
-        this.setData({
-            current_oil: e.detail.value
-        })
-
-        if ( weight>0 && oil_id>0 ){
-            this.countMoney(this.customData.weight, oil_id)
-        }
-    },
-    bindAddressChange: function(e) {
-        var address = this.data.addrs[e.detail.value];
-        this.customData.addr_id = address.id;
-        
-        this.setData({
-            current_addr: e.detail.value
-        })
+        this.setSelectedOil(oil, weight)
     },
 
     //输入金额时计算重量
     oilCost: function(e){
         var that = this;
         var weight = e.detail.value;
-        var oil_id = this.customData.oil_id;
+        var oil = this.data.current_oil;
 
         this.customData.weight = weight;
 
-        if ( weight>0 && oil_id>0 ){
-            this.countMoney(weight, oil_id)
-        }
+
+        this.setSelectedOil(oil, weight)
 
     },
 
     formSubmit:function  (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
         var that          = this;
         var note          = e.detail.value.remarks;
-        var phone         = e.detail.value.phone;
         var weight        = this.customData.weight;
-        var oil_id        = this.customData.oil_id;
-        var addr_id       = this.customData.addr_id;
+        var oil_id        = this.data.current_oil.id;
+        var addrs         = _.array_column(this.data.current_addr, 'id');
         // var pay_cash      = e.detail.value['radio-group'];
         var expected_time = e.detail.value.time;
-        var money         = this.data.cost;
 
-        if ( money<=0 || weight<=0 ){
+        if ( weight<=0 ){
             _.alert("请填写购买的重量");
             return;
         }
@@ -102,51 +82,57 @@ P.run({
             return;
         }
 
-        if ( ! /[1][0-9]{10}/.test(phone) ){
-            _.alert("请填写现场人员电话");
-            return;
-        }
-
-        if ( ! addr_id ){
+        if ( ! addrs.length ){
             _.alert("请选择送货地址");
             return;
         }
 
         P.Api.order.confirm({
-            'phone'         : phone,
             // 'pay_cash'      : pay_cash,
-            'addr_id'       : addr_id,
+            'addrs[]'       : addrs,
             "note"          : note,
             'oil_id'        : oil_id,
             'weight'        : weight,
             'expected_time' : expected_time,
-            'money'         : money,
         }, function(response){
-            _.redirectTo('/pages/order/pay?order='+response)
+            getApp().globalData('order', response)
+            _.redirectTo('/pages/order/pay')
             _.toast('下单成功')
         })
     },
 
     //根据重量计算油费
-    countMoney: function(weight, oil_id){
-        var that = this;
+    countMoney: function(weight, oil){
+        var that = this
+        var weight = this.customData.weight
+        var oil = this.data.current_oil
+        var addrs = _.array_column(this.data.current_addr, 'id')
 
         if ( this.customData.tid ){
             clearTimeout(this.customData.tid)
         }
 
+        wx.showLoading({
+            title: '计算运费...',
+            mask: true,
+        })
+
         this.customData.tid = setTimeout(function(){
-            P.Api.order.money(oil_id, weight, function(response){
+            P.Api.order.money(oil.id, weight, addrs.join(','), function(response){
                 that.setData({
-                    cost: response
+                    amount: response.amount,
+                    freight: response.freight,
+                    frozen: response.frozen,
+                    cost: response.cost,
                 })
+                wx.hideLoading();
             }, function(){
                 that.setData({
                     weight: '',
                     cost: 0
                 })
             })
-        }, 150)
+        }, 350)
     },
 
     loadInitData: function(){
@@ -169,67 +155,160 @@ P.run({
             });
         })
 
-        Promise.all([oil, addr]).then(function(result){
+        var price = new Promise(function(resolve, reject){
+            P.Api.oil.price(function(response){
+                resolve(response)
+            });
+        })
 
-            var oil = result[0], 
-            addr = result[1];
-            addr.reverse();
+        Promise.all([oil, addr, price]).then(function(result){
+
+            that.customData.oil   = result[0]
+            that.customData.addr  = result[1]
+            that.customData.price = result[2]
 
             that.setData({
-                oil_type: oil,
-                addrs: addr,
+                oil_type: that.customData.oil,
+                addrs: that.customData.addr,
             })
 
+            that.setSelectedOil(that.customData.oil[0]);
+
+            if ( that.customData.addr.length ){
+                that.setSelectedAddr(that.customData.addr[0]);
+            }
+
             if ( oil.length ){
-                that.customData.oil_id = oil[0].id;
+                that.customData.oil_id = oil[0].id
             }
 
             if ( addr.length ){
-                that.customData.addr_id = addr[0].id;
+                that.customData.addr_id = addr[0].id
             }
 
             wx.hideLoading()
+
+            getApp().trigger('reLaunch', that)
         })
     },
 
-    oiltype: function(){
-        var that = this;
-        that.setData({
-            oil_block: true,
-            addr_block: false
-        })
-    },
-    addr: function(e){
-
-        var that = this;
+    showAddrBlock: function(){
         var weight = this.customData.weight;
 
         if(weight == 0){
             _.toast('请填写重量')
-        }else{
-            that.setData({
-                addr_block: true,
-                other_block: false
-            }) 
+            return false;
         }
-            
-    },
-    add: function(){
-        var that = this;
-        that.setData({
-            add_one: false,
+
+        this.setData({
+            oil_block: true,
+            addr_block: false
         })
     },
 
-    addresslist:function(){
-        var that=this;
+    showConfirmBlock: function(e){
+        var addr = this.data.current_addr
+        var weight = this.customData.weight
 
-        P.Api.address.list(1, function(response){
-            that.setData({
-                addr : response
-            })
-        });
+        if ( !addr.length ){
+            _.toast('至少设置一个地址')
+            return false;
+        }
+
+        this.countMoney()
+
+        this.setData({
+            addr_block: true,
+            other_block: false
+        })
     },
+
+    newAddr: function(){
+        var current_addr = this.data.current_addr
+        var current_oil = this.data.current_oil
+
+        getApp().on('reLaunch', function(){
+            var first = this.customData.addr[0]
+            current_addr.push(first)
+            this.setData({
+                current_addr: current_addr,
+                current_oil: current_oil,
+                oil_block: true,
+                addr_block: false
+            })
+        })
+
+        _.navigateTo('/pages/address/add?from=order')
+    },
+
+    selectAddr: function(e){
+        var index = e.currentTarget.dataset.index
+        var addr = this.customData.addr[index]
+
+        this.setSelectedAddr(addr)
+    },
+
+    removeAddr: function(e){
+        var index = e.currentTarget.dataset.index
+        var current_addr = this.data.current_addr
+
+        current_addr.splice(index, 1)
+
+        this.setData({
+            current_addr: current_addr
+        })
+    },
+
+    setSelectedAddr: function(addr){
+        var current_addr = this.data.current_addr;
+
+        if ( current_addr.length >= 3 ){
+            _.toast('最多指定3个地址')
+            return false;
+        }
+
+        for( x in current_addr ){
+            if ( addr.id == current_addr[x].id ){
+                return true;
+            }
+        }
+
+        current_addr.push(addr)
+
+        this.setData({
+            current_addr: current_addr,
+        })
+
+    },
+
+    setSelectedOil: function(oil, weight){
+
+        this.setData({
+            current_oil: {
+                id: oil.id,
+                name: oil.name,
+                price: this.getOilPrice(oil, weight)
+            }
+        })
+    },
+
+    getOilPrice: function(oil, weight){
+        var weight = weight || 0;
+        var prices = this.customData.price[oil.id];
+
+        if ( !weight ){
+            console.log(prices[0])
+            return prices[0].price
+        }
+
+        for( x in prices ){
+            if ( prices[x].lower_limit<weight && prices[x].upper_limit>=weight ){
+                return prices[x].price
+            }
+        }
+
+        return 'NaN';
+    }
 
 });
 

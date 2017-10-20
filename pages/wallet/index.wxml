@@ -2,7 +2,7 @@
 <view class="balance-box">
 	<view class="balance-info">
 		<image src="../../asset/img/balance.png"></image>
-		<view class="balance">余额(元)<text class="main-color">￥{{user.freight_fund}}</text></view>
+		<view class="balance">余额(元)<text class="main-color">￥{{user.fund}}</text></view>
 	</view>
 	
 <!-- 	<view class="deposit">押金： <text class="main-color">￥{{user.frozen}}</text></view>

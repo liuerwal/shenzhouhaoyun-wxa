@@ -28,6 +28,7 @@ module.exports = {
                 "Content-Type" : "application/x-www-form-urlencoded",
                 "Version"      : "v1",
                 "Authorization": "Bearer "+ _.cache('token'),
+                'Accept'       : 'application/json',
             },
             dataType: 'json',
             fail: function(e){

@@ -3,13 +3,18 @@ var _      = require('util')
 var Http   = require('http')
 
 module.exports = {
-    register: function(phone, password, role, success){
 
-        Http.post(CONFIG.API.REGISTER_URL, {phone: phone, password: password, role: role }, function(response){
+    register: function(data, success){
+
+        Http.post(CONFIG.API.REGISTER_URL, data, function(response){
             if ( response.status == 1){
+                _.cache('token', response.data.token);
+                _.cache('ttl', response.data.ttl);
+                _.cache('refresh_ttl', response.data.refresh_ttl);
+                _.cache('user', response.data.user);
                 success && success(response.data)
             }else{
-               _.toast(response.msg);
+               _.toast(response.msg)
             }
         });
     },
@@ -27,6 +32,18 @@ module.exports = {
                 _.toast("登陆失败")
             }
         });
+    },
+
+    auth: {
+        phone: function(phone, success){
+            Http.post(CONFIG.API.AUTH.PHONE, {phone: phone}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data);
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        }
     },
 
     message: {
@@ -99,8 +116,8 @@ module.exports = {
                 }
             })
         },
-        money: function(oil_id, weight, success, error){
-            Http.get( CONFIG.API.ORDER.MONEY, {oil_id: oil_id, weight: weight}, function(response){
+        money: function(oil_id, weight, addrs, success, error){
+            Http.get( CONFIG.API.ORDER.MONEY, {oil_id: oil_id, weight: weight, addrs: addrs}, function(response){
                 if ( response.status == 1){
                     success && success(response.data)
                 }else{
@@ -174,6 +191,15 @@ module.exports = {
                     _.toast(response.msg)
                 }
             })
+        },
+        cancel: function(id, location, success){
+            Http.post( _.sprintf(CONFIG.API.WAYBILL.CANCEL, id), location, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
         }
     },
 
@@ -181,6 +207,16 @@ module.exports = {
         list: function(success){
             Http.get( CONFIG.API.OIL.LIST, {}, function(response){
                 if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        price: function(success){
+            Http.get( CONFIG.API.OIL.PRICE, {}, function(response){
+                if ( response.status == 1){
+                    _.cache('price', response.data)
                     success && success(response.data)
                 }else{
                     _.toast(response.msg)
@@ -237,16 +273,14 @@ module.exports = {
         }
     },
 
-    pay: {
-        unifiedorder: function(order, success){
-            Http.post( CONFIG.API.PAY.UNIFIEDORDER, {order: order, openid: _.cache('openid')}, function(response){
-                if ( response.status == 1){
-                    success && success(response.data)
-                }else{
-                    _.toast(response.msg)
-                }
-            })
-        }
+    pay: function(order, paywith, success){
+        Http.post( CONFIG.API.PAY, {order: order, paywith: paywith, openid: _.cache('openid')}, function(response){
+            if ( response.status == 1){
+                success && success(response.data)
+            }else{
+                _.toast(response.msg)
+            }
+        })
     },
 
     user: {
@@ -286,6 +320,15 @@ module.exports = {
                     _.toast(response.msg)
                 }
             })
+        },
+        subaccount: function(page, success){
+            Http.get( CONFIG.API.USER.SUBACCOUNT, {page: page || 1}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
         }
     },
 
@@ -302,6 +345,30 @@ module.exports = {
         add: function(data, success){
             Http.post( CONFIG.API.QUALIFICATION.ADD, data, function(response){
                 if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        }
+    },
+
+    weixin: {
+        wxaqrcode: function(data, success){
+            Http.get( CONFIG.API.WEIXIN.WXAQRCODE, data, function(response){
+                if ( response.status == 1 ){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        }
+    },
+
+    article: {
+        list: function(success){
+            Http.get( CONFIG.API.ARTICLE.LIST, {}, function(response){
+                if ( response.status == 1 ){
                     success && success(response.data)
                 }else{
                     _.toast(response.msg)

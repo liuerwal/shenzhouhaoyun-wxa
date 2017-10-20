@@ -23,16 +23,15 @@
                     <view class="address"><text class="order-stitle">订单号</text>{{item.order_no}}</view>
                 </view>
             </navigator>
-                <view class="again main-color">
-                    <block wx:if="{{item.paylog.status == 1}}">
-                        已支付
+            <view class="again main-color">
+                <block wx:if="{{ item.order_oil.status == -1 }}"> 已取消 </block>
+                <block wx:else>
+                    <block wx:if="{{item.pay_status == 1}}"> 已支付 </block>
+                    <block wx:if="{{item.pay_status != 1}}">
+                        <navigator url="pay?order={{item.order_no}}" hover-class="none"> 去支付 </navigator>
                     </block>
-                    <block wx:if="{{item.paylog.status != 1}}">
-                        <navigator url="pay?order={{item.paylog.trade_no}}" hover-class="none">
-                        去支付
-                        </navigator>
-                    </block>
-                </view>
+                </block>
+            </view>
         </view>
     </block>
 </view>

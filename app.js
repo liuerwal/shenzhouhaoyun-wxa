@@ -26,5 +26,57 @@ App({
     globalData: {
         userInfo: null
     },
+
+    eventQueue: {
+    },
+
+    globalData: function(key, value){
+        if ( value === undefined ){
+            return this.globalData[key]
+        }
+
+        if ( value === null ){
+            delete this.globalData[key]
+            return true
+        }
+
+        this.globalData[key] = value
+    },
+
+    on: function(event, fn){
+        var pages = getCurrentPages()
+        var route = pages[page.length-1].route
+
+        var queue = this.eventQueue[route] || {}
+
+        if ( queue[event] ){
+            queue[event].push(fn)
+        }else{
+            queue[event] = [fn]
+        }
+
+        this.eventQueue[route] = queue
+
+        console.log(this.eventQueue)
+    },
+
+    trigger: function(event, context){
+        var page = getCurrentPages()
+        var route = page[0].route
+
+        console.log(this.eventQueue)
+
+        var cb = this.eventQueue[route]
+        if ( !cb ) return
+
+        var queue = cb[event]
+        if ( !queue ) return
+
+        console.log(queue)
+
+        for ( x in queue ){
+            queue[x].call(context)
+        }
+    }
     
 })

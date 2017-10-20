@@ -5,65 +5,69 @@ P.run({
 
     onLoad: function(options){
 
-        P._.debug(options)
 
-        var that = this;
+        var order = getApp().globalData('order')
 
-        if ( options.order ){
+        this.setData({
+            order: order,
+        })
 
-            P.Api.pay.unifiedorder(options.order, function(response){
-                that.customData.params = response.params;
+    },
 
-                that.setData({
-                    paylog: response.paylog
-                })
+    payDeposit: function(){
+        var that = this
+        var order = getApp().globalData('order')
+
+        P.Api.pay(order.order_no, 'deposit', function(response){
+            that.paySuccess()
+        })
+    },
+
+    payOnline: function(){
+        var that = this
+        var order = getApp().globalData('order')
+
+        if ( order && order.order_no ){
+
+            wx.showLoading({
+                title: '请求支付...',
+                mask: true,
+            })
+
+            P.Api.pay(order.order_no, 'online', function(response){
+                wx.hideLoading()
+
+                wx.requestPayment(_.extend(response, {
+                    success: function(res){
+                        console.log(res);
+                        that.paySuccess()
+                    },
+                    fail: function(res){
+                        console.log(res);
+                        if ( res.errMsg=='requestPayment:fail cancel' ){
+                            _.toast('用户取消支付')
+                            setTimeout(function(){
+                                _.redirectTo('/pages/order/list')
+                            }, 1000)
+                        }else{
+                            _.toast(res.errMsg)
+                        }
+                    }
+                }))
             })
         }else{
             _.alert('订单错误')
         }
-
-
-        // wx.request({
-        //     url
-        // });
-
-        // wx.request({
-        //     url: 'https://api.mch.weixin.qq.com/pay/unifiedorder',
-        //     data: this.unifiedorder(),
-        //     method: "POST",
-        //     header: {
-        //         "Content-Type": "application/xml",
-        //     },
-        //     dataType: "xml",
-        //     success: function(response){
-        //         response
-        //     }
-        // })
-
     },
 
-    Onlinepay: function(){
-        wx.requestPayment(_.extend(this.customData.params, {
-            success: function(res){
-                console.log(res);
-                _.toast('支付成功')
-                setTimeout(function(){
-                    _.redirectTo('/pages/order/list')
-                }, 1000)
-            },
-            fail: function(res){
-                console.log(res);
-                if ( res.errMsg=='requestPayment:fail cancel' ){
-                    _.toast('用户取消支付')
-                    _.redirectTo('/pages/order/list')
-                }else{
-                    _.toast(res.errMsg)
-                }
-            }
-        }))
-    },
-
-    Linepay: function(){
+    payCash: function(){
         _.toast('好的')
+    },
+
+    paySuccess: function(){
+        _.toast('支付成功')
+        setTimeout(function(){
+            _.redirectTo('/pages/order/list')
+        }, 1000)
     }
 })

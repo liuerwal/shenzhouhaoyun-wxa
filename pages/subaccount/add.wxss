@@ -1,7 +1,9 @@
 /**index.wxss**/
-.account_ewm image{width:180px;height: 180px;display:block;margin:0 auto;padding:20px 0;}
+.account_ewm image{width:180px;height: 200px;display:block;margin:0 auto;padding:20px 0;}
 .generate-btn{font-size:14px;background:#F13D3C;color:#fff;border:none;width:60px;line-height:30px;margin-top:4px;float: right;}
-.section input {width:120px;}
+/*.section input {width:120px;}*/
+.section input {float: none;}
 .account_list{margin:0 16px;overflow:hidden;padding:10px 0;}
 .list_info {display:block;overflow:hidden;clear:both;padding:5px 16px;line-height:38px;}
 .list_info .list-left{width:80px;}
+.notice text{display: block;}

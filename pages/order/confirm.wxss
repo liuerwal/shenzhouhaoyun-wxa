@@ -6,10 +6,11 @@ form{margin-bottom: 100px;height: 100%;}
 .time{margin-top:10px;}
 .detailed-info input{width: 100%;}
 .Frozen-cash {margin-right: 15px;}
-.unit-price{font-size: 13px;}
+.oiltype{position: relative;}
+.unit-price{font-size: 13px;position:absolute; right:5px; }
 .we-left input{width:40px;}
-.phone-right input{width:110px;}
 .we-left .section__title{width:40px;}
+.phone-right input{width:110px;}
 .phone-right .section__title{width:70px;}
 .addr-box .section:first-child{border:none;}
 .addr-box .section:last-child{border-bottom: 1px solid #e5e5e5;}

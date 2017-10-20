@@ -8,6 +8,7 @@ var _ = P._
 P.run({
     data: {
         waybill: null,
+        mask: true,
     },
     customData: {
         status: {
@@ -89,13 +90,39 @@ P.run({
         })
     },
 
-    waybillStatusChange: function(status, id, location){
+    waybillStatusChange: function(status, id, location, extra){
         var that = this
         var data = location ? {lat: location.latitude, lng: location.longitude} : {}
 
-        P.Api.waybill[status](id, data, function(response){
+        P.Api.waybill[status](id, _.extend(data, extra), function(response){
             
             that.waybill();
+        })
+    },
+
+    waybillCancel: function(e){
+        var that = this
+        var radio = e.detail.value.reason_radio
+        var text = e.detail.value.reason_text
+        var id = this.data.waybill.id
+
+        if ( !radio && !text ){
+            return;
+        }
+
+        that.closeCancelBox()
+
+        var reason = text ? text : radio
+
+        wx.getLocation({
+            type: 'gcj02',
+            success: function(location){
+                that.waybillStatusChange('cancel', id, location, {remark: reason})
+            },
+            fail: function(){
+                _.toast('坐标获取失败')
+                that.waybillStatusChange('cancel', id, null, {remark: reason})
+            }
         })
     },
 
@@ -137,6 +164,17 @@ P.run({
 
         P.Api.order[status](id, data, function(response){
             that.waybill();
+        })
+    },
+
+    showCancelBox: function(){
+        this.setData({
+            mask: false,
+        })
+    },
+    closeCancelBox: function(){
+        this.setData({
+            mask: true,
         })
     }
 });

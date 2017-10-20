@@ -4,19 +4,44 @@ var app = getApp()
 var P = require('../../page');
 
 P.run({
-  data: {
-    userInfo: {},
+    data: {
+        articles: [],
+        hidden: []
     },
+
     onLoad: function () {
-        console.log('onLoad')
+
         var that = this
-        //调用应用实例的方法获取全局数据
-        app.getUserInfo(function(userInfo){
-            //更新数据
-            that.setData({
-                userInfo:userInfo
-            })
+        
+        wx.showLoading({
+            title: '加载数据...',
+            mask: true,
         })
+
+        P.Api.article.list(function(response){
+            wx.hideLoading();
+
+            that.setData({
+                articles: response
+            })
+        });
     },
+
+    showContent: function(e){
+        var index    = e.currentTarget.dataset.index
+        var articles = this.data.articles
+        var hidden   = this.data.hidden
+
+        if ( hidden[index] === 1 ){
+            hidden[index] = 0
+        }else{
+            hidden = []
+            hidden[index] = 1
+        }
+
+        this.setData({
+            hidden: hidden
+        })
+    }
 });
 

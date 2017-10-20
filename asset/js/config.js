@@ -12,7 +12,8 @@ module.exports = {
     API: {
 
         AUTH: {
-            OPENID: API_URL+'/auth/openid'
+            OPENID: API_URL+'/auth/openid',
+            PHONE: API_URL+'/auth/check/phone',
         },
 
         QUALIFICATION: {
@@ -31,6 +32,7 @@ module.exports = {
         ORDER: {
             LIST: API_URL+'/orders',
             MONEY: API_URL+'/order/money',
+            FREIGHT: API_URL+'/order/freight',
             CONFIRM: API_URL+'/order/confirm',
             SHOW: API_URL+'/order/%d',
             INPOUR: API_URL+'/order/inpour',
@@ -44,14 +46,14 @@ module.exports = {
             SHOW: API_URL+'/waybill/%d',
             PICKUP: API_URL+'/waybill/%d/pickup',
             DELIVER: API_URL+'/waybill/%d/deliver',
+            CANCEL: API_URL+'/waybill/%d/cancel',
         },
 
-        PAY: {
-            UNIFIEDORDER: API_URL+'/pay/unifiedorder',
-        },
+        PAY: API_URL+'/pay',
 
         OIL: {
             LIST: API_URL + '/oil',
+            PRICE: API_URL + '/oil/price',
         },
 
         ADDRESS: {
@@ -67,12 +69,21 @@ module.exports = {
             RESET_PASSWORD: API_URL+'/password/reset',
             BILLS: API_URL+'/mybill',
             RESET_PHONE: API_URL+'/phone',
+            SUBACCOUNT: API_URL+'/subaccount',
         },
 
         REGISTER_URL: API_URL+'/register',
 
         LOGIN_URL: API_URL+'/auth/login',                               //登录
         TOKEN_REFRESH: API_URL+'/auth/refresh',                    //刷新token
+
+        WEIXIN: {
+            WXAQRCODE: API_URL+'/weixin/wxa/qrcode',
+        },
+
+        ARTICLE: {
+            LIST: API_URL+'/articles',
+        }
     }
 
 }

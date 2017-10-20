@@ -1,22 +1,24 @@
 <!--index.wxml-->
 
 <view class="">
-	<block wx:for="{{inform}}" wx:key="id">
-		
-		<view class="inform-box">
-			<navigator url="detail?id={{item.id}}" hover-class="none">
-				<view class="fl-left">
-					<text class="inform-title">{{item.title}}</text>
-					<text class="inform-content">{{item.content}}</text>
-				</view>
-			</navigator>
-			<view class="fl-right">
-				<text class="msg-time">{{item.created_at}}</text>
-				<!-- <text class="del" bindtap="remove" data-index="{{index}}"> x </text> -->
-			</view>
-		</view>
-		
-	</block>
+    <block wx:for="{{ messages }}" wx:key="id">
+        
+        <navigator url="detail?id={{item.id}}" hover-class="none">
+            <view class="inform-box">
+                <view>
+                    <view class="fl-left">
+                        <text class="inform-title">{{item.title}}</text>
+                    </view>
+                    <view class="fl-right">
+                        <text>{{item.created_at}}</text>
+                        <!-- <text class="del" bindtap="remove" data-index="{{index}}"> x </text> -->
+                    </view>
+                </view>
+                <view><text class="inform-content">{{item.content}}</text></view>
+            </view> 
+        </navigator>
+        
+    </block>
 </view>
 
 <include src="../../comps/tabBar/index.wxml" />
