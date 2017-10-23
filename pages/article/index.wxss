@@ -2,9 +2,9 @@
 .des{padding:10px 20px;}
 .des text{line-height: 30px;display: block;}
 
-
 .list{padding:0 15px;overflow: hidden;background: #fff;}
-.list-title{font-size:15px;line-height: 44px;border-bottom: 1px solid #e5e5e5;}
-.list-content{font-size:14px;margin:15px 0;border-bottom: 1px solid #e5e5e5;}
-
-rich-text{font-size: 14px;}
+.list-title{font-size:15px;line-height: 44px;border-top: 1px solid #e5e5e5;}
+.list:first-child .list-title{border:none;}
+.list-content{font-size:14px;padding:0px 0 10px 20px;}
+.list:last-child .list-content{border:none;}
+rich-text{font-size: 14px;line-height: 24px;}

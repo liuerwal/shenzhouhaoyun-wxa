@@ -2,7 +2,7 @@
 .radio-group{width:90%;margin: 0 auto;display: flex;background: #fff;padding:15px 5%;margin-bottom: 20px;}
 .radio-group .radio{margin-right:20px;display: flex;align-items: center;}
 
-.getcode input{width: 120px;}
+.getcode input{width: 100px;}
 .getcode button{font-size: 14px;background: #fff;color: #F13D3C;border:none;width: 100px;border-left:1px solid #e5e5e5;border-radius: 0;}
 .getcode button:after{content: none;}
 

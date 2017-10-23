@@ -10,3 +10,4 @@ button:after{content: none;}
 .item-title view{line-height: 30px;}
 .add-btn{width: 80px;height: 80px;margin-bottom: 20px;}
 
+.section{border:none;}

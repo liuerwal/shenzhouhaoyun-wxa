@@ -5,7 +5,7 @@
                 <text class="list-left fl-left">姓名</text>
                 <text class="list-right fl-left">: {{ user.username }}</text>
             </view>
-            <navigator url="../account/account_detail" hover-class="none">
+            <navigator url="../subaccount/detail" hover-class="none">
                 <view class="list_info">
                     <text class="list-left fl-left">电话号码</text>
                     <text class="list-right fl-left">: {{ user.phone }}</text>

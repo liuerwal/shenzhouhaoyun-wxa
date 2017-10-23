@@ -1,8 +1,8 @@
 <view class="public-bg">
     <view class="form-box">
 
-        <view class="notice">
-            <text>生成子账户步骤：</text>
+        <view class="step">
+            <text class="step-title">生成子账户步骤：</text>
             <text>1.填写子账户手机号码，生成二维码</text>
             <text>2.使用微信“扫一扫”功能扫描二维码</text>
             <text>3.在打开的小程序页面中注册</text>
@@ -12,7 +12,7 @@
             <input name="phone" bindchange="phoneChange" placeholder="请设置手机号码" value="" />
         </view>
 
-        <button class="btn" bindtap="createQrcode">生成二维码</button>
+        
 
      <!--    <view class="list_info">
 
@@ -24,5 +24,6 @@
             <image wx:if="{{ qrcode }}" binderror="imageError" src="{{ qrcode }}"></image>
         </view>
     </view>
-
+    
+    <button class="btn" bindtap="createQrcode">生成二维码</button>
 </view>

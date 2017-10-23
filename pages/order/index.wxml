@@ -7,21 +7,21 @@
 	<view class="order-box">
 		<navigator url="../order/confirm" hover-class="none">
 			<view class="fl-left order">
-				<image src="../../asset/img/give.png"></image>
+				<image src="../../asset/img/give.jpg"></image>
 				<view>预约配送</view>
 			</view>
 		</navigator>
 
 		<navigator url="../wallet/index" hover-class="none">
 			<view class="fl-left order">
-				<image src="../../asset/img/cash.png"></image>
+				<image src="../../asset/img/cash.jpg"></image>
 				<view>充值</view>
 			</view>
 		</navigator>
 
 		<navigator url="../order/list" hover-class="none">
 			<view class="fl-left order">
-				<image src="../../asset/img/cash.png"></image>
+				<image src="../../asset/img/order.jpg"></image>
 				<view>订单</view>
 			</view>
 		</navigator>

@@ -2,7 +2,7 @@
 navigator{display: block;}
 .Arrow{float: right;padding-right:15px;}
 .Arrow image{width:20px;height:20px;display: block;margin-top:10px;}
-.list-box{margin: 20px 0px;overflow: hidden;background: #fff;padding:0 15px;}
+.list-box{margin-top:10px;overflow: hidden;background: #fff;padding:0 15px;}
 .list_info {display: block;overflow: hidden;clear: both;border-bottom: 1px dotted #e5e5e5;padding:10px 0;font-size: 15px;}
 .list_info:last-child{border:none;}
 .list-right{float: right;}

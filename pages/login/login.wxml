@@ -14,5 +14,9 @@
 		</view>
 		<button class="btn btn-big" formType="submit">登录</button>
 	</form>
+
+	<navigator url="../register/register" hover-class="none">
+		<view class="go-register main-color">去注册</view>
+	</navigator>
 	
 </view>

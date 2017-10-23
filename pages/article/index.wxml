@@ -1,10 +1,13 @@
 <view class="public-bg">
     <block  wx:for="{{ articles }}" wx:for-item="article" wx:key="article">
         <view class="list spacing">
-            <view class="list-title" bindtap="showContent" data-index="{{ index }}">{{ article.title }}</view>
+            <view class="list-title" bindtap="showContent" data-index="{{ index }}">
+            <text class="article-title">{{ article.title }}</text>
+            </view>
             <view hidden="{{ hidden[index]==1 ? false : true }}" class="list-content">
                 <rich-text  nodes="{{ article.content }}"> </rich-text>
             </view>
         </view>
     </block>
+
 </view>

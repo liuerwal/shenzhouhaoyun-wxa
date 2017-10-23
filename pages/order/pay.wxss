@@ -1,7 +1,10 @@
 
-.order-box{padding:0 15px;overflow: hidden;}
-.order-box view text{width:60px;display: inline-block;}
-.pay-btn{width:80%;margin:20px 10%;}
-.pay-btn button{width:40%;display: inline-block;font-size: 16px;border:none;}
-.pay-btn .online-btn{background: #F13D3C;color: #fff;}
-.pay-btn .line-btn{background: #fff;}
+.list-box{overflow: hidden;background: #fff;padding:0 15px;}
+.list_info {display: block;overflow: hidden;clear: both;border-bottom: 1px dotted #e5e5e5;padding:10px 0;font-size: 15px;}
+.list-right{float: right;}
+.list-title{padding:10px 0 5px 0;font-weight: bold;font-size: 15px;}
+
+.pay-btn .online-btn{margin:20px 5%;}
+.pay-btn .line-btn,.pay-btn .deposit{width:40%;margin-top:0;margin-bottom:0;height: 38px;}
+.deposit{margin-right:5%;}
+.line-btn{margin-left: 5%;font-size: 15px;}

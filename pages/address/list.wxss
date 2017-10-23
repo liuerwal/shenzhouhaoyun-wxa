@@ -1,6 +1,6 @@
 /**m-address.wxss**/
 
-.m-box{background: #fff;overflow: hidden;margin-bottom: 20px;}
+.m-box{background: #fff;overflow: hidden;margin-bottom: 10px;}
 .m-info{border-bottom: 1px solid #ccc;}
 .m-info,.address-btn{padding:10px 20px;overflow: hidden;}
 .m-address{display: block;clear: both;line-height: 28px;padding-top:10px;}

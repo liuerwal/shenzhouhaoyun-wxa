@@ -63,7 +63,7 @@ P.run({
         P.Api.address.edit(id, {lng: lng, lat: lat, address: address, alias: alias, phone: phone }, function(res){
             _.toast('修改成功');
             setTimeout(function(){
-                wx.reLaunch('list')
+                wx.navigateBack('list')
             }, 1000)
         });
     },

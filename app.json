@@ -1,7 +1,5 @@
 {
   "pages":[
-        "pages/article/index",
-        
         "pages/my/index",
         "pages/my/coupon",
         "pages/my/qualification",
@@ -9,25 +7,27 @@
         "pages/my/reset_phone",
         "pages/my/bill",
         
-        "pages/register/register",
-        "pages/login/login",
-
-        "pages/subaccount/add",
-        "pages/subaccount/index",
-        "pages/subaccount/detail",
+        "pages/order/confirm",
+        "pages/order/index",
+        "pages/order/list",
+        "pages/order/detail",
+        "pages/order/pay",
         
         "pages/message/index",
         "pages/message/detail",
         
+        "pages/login/login",
+        "pages/register/register",
+        
+        "pages/article/index",
+        
+        "pages/subaccount/add",
+        "pages/subaccount/index",
+        "pages/subaccount/detail",
+        
         "pages/waybill/list",
         "pages/waybill/detail",
 
-        "pages/order/index",
-        "pages/order/list",
-        "pages/order/confirm",
-        "pages/order/detail",
-        "pages/order/pay",
-        
         "pages/wallet/index",
         "pages/wallet/outpour",
         "pages/wallet/inpour",

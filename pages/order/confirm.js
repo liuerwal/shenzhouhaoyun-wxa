@@ -267,7 +267,7 @@ P.run({
             return false;
         }
 
-        for( x in current_addr ){
+        for( var x in current_addr ){
             if ( addr.id == current_addr[x].id ){
                 return true;
             }
@@ -301,7 +301,7 @@ P.run({
             return prices[0].price
         }
 
-        for( x in prices ){
+        for( var x in prices ){
             if ( prices[x].lower_limit<weight && prices[x].upper_limit>=weight ){
                 return prices[x].price
             }

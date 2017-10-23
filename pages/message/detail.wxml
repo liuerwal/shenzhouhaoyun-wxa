@@ -1,7 +1,10 @@
 <!--Order details.wxml-->
-<view class="order-box">
+<view class="public-bg">
 	<view class="order-info">
 		<view class="title">{{informdetail.title}}</view>
-		<view class="content">{{informdetail.content}}</view>
+		<view class="content">
+			<view class="call">您好：</view>
+			{{informdetail.content}}
+		</view>
 	</view>
 </view>
