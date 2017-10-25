@@ -1,5 +1,12 @@
 {
   "pages":[
+        "pages/order/confirm",
+        "pages/order/index",
+        "pages/order/list",
+        "pages/order/detail",
+        "pages/order/pay",
+        
+        "pages/my/bill_detail",
         "pages/my/index",
         "pages/my/coupon",
         "pages/my/qualification",
@@ -7,17 +14,11 @@
         "pages/my/reset_phone",
         "pages/my/bill",
         
-        "pages/order/confirm",
-        "pages/order/index",
-        "pages/order/list",
-        "pages/order/detail",
-        "pages/order/pay",
+        "pages/login/login",
+        "pages/register/register",
         
         "pages/message/index",
         "pages/message/detail",
-        
-        "pages/login/login",
-        "pages/register/register",
         
         "pages/article/index",
         

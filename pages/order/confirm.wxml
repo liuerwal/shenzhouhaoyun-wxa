@@ -16,6 +16,25 @@
     <view class="form-box">
 
         <view hidden="{{oil_block}}" class="order-type">
+            <view class="notice">
+                <text>提示：一次下单越多，价格越优惠</text>
+                <text class="notice-addr">从地址列表中选择送货地址，最多3个</text>
+                <view class="link text-center" bindtap="newAddr">新增地址</view>
+            </view>
+
+            <view class="list-title" >地址列表</view>
+            <view class="addrs-box" >
+                <block wx:for="{{addrs}}" wx:key="id">
+                    <view class="m-box" >
+                        <view class="m-info" bindtap="selectAddr" data-index="{{ index }}">
+                            <view class="m-name fl-left">{{ item.alias }}</view>
+                            <view class="m-phone fl-right">+</view>
+                            <!-- <view class="m-address">{{item.address}}</view> -->
+                        </view>
+                    </view>
+                </block>
+            </view>
+
             <view class="section oiltype">
                 <view class="picker">
                     <view class="section__title">油品</view>
@@ -25,36 +44,55 @@
                 </view>
                 <view class="unit-price main-color">{{ current_oil.price }}元/吨</view>
             </view>
-            <view class="section" >
-                <view class="section__title">重量</view>
-                <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
-            </view>
-            <view class="notice">
-                <text>提示：一次下单越多，价格越优惠</text>
+            
+            
+            <!-- <button class="btn"  bindtap="showAddrBlock">确定</button> -->
+
+            <view class="m-box" wx:if="{{ current_addr[0] }}">
+                <view class="m-info" bindtap="removeAddr" data-index="0">
+                    <view class="m-name fl-left">{{ current_addr[0].alias }}</view>
+                    <view class="m-phone fl-right">-</view>
+                    <!-- <view class="m-address">{{item.address}}</view> -->
+                </view>
+                <view class="section" >
+                    <view class="section__title">重量</view>
+                    <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+                </view>
             </view>
 
-            <button class="btn"  bindtap="showAddrBlock">确定</button>
+            <view class="m-box" wx:if="{{ current_addr[1] }}">
+                <view class="m-info" bindtap="removeAddr" data-index="1">
+                    <view class="m-name fl-left">{{ current_addr[1].alias }}</view>
+                    <view class="m-phone fl-right">-</view>
+                    <!-- <view class="m-address">{{item.address}}</view> -->
+                </view>
+                <view class="section" >
+                    <view class="section__title">重量</view>
+                    <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+                </view>
+            </view>
+
+            <view class="m-box" wx:if="{{ current_addr[2] }}">
+                <view class="m-info" bindtap="removeAddr" data-index="2">
+                    <view class="m-name fl-left">{{ current_addr[2].alias }}</view>
+                    <view class="m-phone fl-right">-</view>
+                    <!-- <view class="m-address">{{item.address}}</view> -->
+                </view>
+                <view class="section" >
+                    <view class="section__title">重量</view>
+                    <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+                </view>
+            </view>
+
+            <view class="addr-btn">
+                <!-- <button class="btn"  bindtap="add">新增地址</button> -->
+                <button class="btn"  bindtap="showConfirmBlock">确定</button>
+            </view>
+            
+            
         </view>
 
         <view hidden="{{addr_block}}" >
-
-<!--             <view class="addr-box">
-                <view class="section" >
-                    <view class="section__title">联系手机</view>
-                    <input placeholder="请填写现场人员电话" type="number" name="phone" value="{{addrs[current_addr].phone}}" disabled />
-                </view>
-
-                <view class="section" >
-                    <view class="detailed-info">
-                        <view>运输地址：</view>
-                        <picker value="0" bindchange="bindAddressChange" range="{{addrs}}" range-key="alias">
-                            <input placeholder="运输地址" value="{{addrs[current_addr].address}}"  name="address" disabled/>
-                        </picker>
-
-                    </view>
-                </view>
-            </view> -->
-
 
             <view class="notice" >从地址列表中选择送货地址，最多3个</view>
 
@@ -89,6 +127,7 @@
             
             <view class="notice link text-center" bindtap="newAddr">新增地址</view>
 
+            
             <block wx:for="{{addrs}}" wx:key="id">
                 <view class="m-box" >
                     <view class="m-info" bindtap="selectAddr" data-index="{{ index }}">
@@ -98,6 +137,7 @@
                     </view>
                 </view>
             </block>
+            
         </view>
 
         <view class="other" hidden="{{other_block}}">

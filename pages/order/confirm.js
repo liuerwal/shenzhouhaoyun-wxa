@@ -24,7 +24,7 @@ P.run({
         oil_block: false,
         addr_block: true,
         add_one :true,
-        other_block: true
+        other_block: true,
     },
     customData: {
         oil_id: 0,
@@ -57,6 +57,9 @@ P.run({
         var oil = this.data.current_oil;
 
         this.customData.weight = weight;
+        if(this.customData.weight > 1000){
+            _.alert("请填写正确的购买重量");
+        }
 
 
         this.setSelectedOil(oil, weight)

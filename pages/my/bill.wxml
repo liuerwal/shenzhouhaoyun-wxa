@@ -1,16 +1,18 @@
 <!--index.wxml-->
 <view class="container">
 	<block wx:for="{{bill}}" wx:key="id">
-		<view class="bill-info">
-			<view class="fl-left">
-				<view class="bill-title">{{item.title}}</view>
-				<view class="bill-time">{{item.created_at}}</view>
+	<!-- <navigator url="bill_detail" hover-class="none"> -->
+			<view class="bill-info">
+				<view class="fl-left">
+					<view class="bill-title">{{item.title}}</view>
+					<view class="bill-time">{{item.created_at}}</view>
+				</view>
+				<view class="fl-right">
+					<view class="bill-money">{{item.amount}}</view>
+					<view class="bill-refund" wx:if="{{ item.refund }}">已退款{{ item.refund }}</view>
+				</view>
 			</view>
-			<view class="fl-right">
-                <view class="bill-money">{{item.amount}}</view>
-                <view class="bill-refund" wx:if="{{ item.refund }}">已退款{{ item.refund }}</view>
-            </view>
-		</view>
+		<!-- </navigator> -->
 	</block>
 
 </view>

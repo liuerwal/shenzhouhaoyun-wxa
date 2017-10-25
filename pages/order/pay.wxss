@@ -5,6 +5,5 @@
 .list-title{padding:10px 0 5px 0;font-weight: bold;font-size: 15px;}
 
 .pay-btn .online-btn{margin:20px 5%;}
-.pay-btn .line-btn,.pay-btn .deposit{width:40%;margin-top:0;margin-bottom:0;height: 38px;}
-.deposit{margin-right:5%;}
-.line-btn{margin-left: 5%;font-size: 15px;}
+.pay-btn .line-btn,.pay-btn .deposit{width:90%;margin:0 5% 20px 5%;height: 38px;}
+.line-btn{font-size: 15px;}

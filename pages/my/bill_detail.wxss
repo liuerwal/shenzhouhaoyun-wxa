@@ -1,0 +1,7 @@
+.list-box{overflow: hidden;background: #fff;padding:0 15px;clear: both;font-size:14px;}
+.list_info {display: block;overflow: hidden;clear: both;border-bottom: 1px dotted #e5e5e5;padding:10px 0;font-size: 15px;}
+.list-right{float: right;}
+
+.bill-head{padding:10px 15px;background: #fff;overflow: hidden;margin-bottom: 10px;}
+.main-color,.money{font-weight:bold;}
+.main-color{font-size: 20px;}

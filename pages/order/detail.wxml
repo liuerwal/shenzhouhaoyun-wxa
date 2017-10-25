@@ -28,7 +28,10 @@
         </view>
         <view class="list_info">
             <text class="list-left fl-left">是否取消此订单</text>
-            <block wx:if="{{order.order_oil.status < 3}}">
+            <block wx:if="{{ order.order_oil.status == -1 }}"> 
+                <text class="list-right main-color">已取消</text>
+            </block>
+            <block wx:else="{{order.order_oil.status < 3}}">
                 <text class="list-right main-color" bindtap="orderCancel">取消</text>
             </block>
         </view> 

@@ -81,7 +81,7 @@ P.run({
                         that.data.files[item_id]= [data.data.id]; 
                     }
                 }else{
-                    console.log("什么")
+                    console.log("失败")
                 }
             },
         });
@@ -135,7 +135,7 @@ P.run({
         console.log(files);
 
         var urls = [];
-        for( x in files ){
+        for( var x in files ){
             urls.push(files[x].file.path );
         }
 
