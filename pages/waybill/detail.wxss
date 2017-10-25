@@ -1,12 +1,21 @@
+.list-box{overflow: hidden;padding:0 15px;background: #fff;}
+.list_info {display: block;overflow: hidden;clear: both;border-bottom: 1px dotted #e5e5e5;padding:10px 0px;background:#fff;font-size: 15px;}
+.list-right{float: right;}
+.list-title{padding:10px 0 5px 0px;font-weight: bold;font-size: 15px;background: #fff;}
 
-.order-box{margin-bottom: 20px;}
 .Location{padding-left:10px;}
+.radio-group label{padding-right: 10px;}
+.oil-box{margin-top:20px;}
+.list_info:last-child{border:none;}
 
-.public-mask{position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: rgba(68, 68, 68, 0.5);}
-.mask-content{width:90%;margin:20px 5% 20px 5%;background: #fff;overflow: hidden;}
-.mask-title{font-size: 16px;padding: 10px 15px;}
+.public-mask{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(68, 68, 68, 0.5);}
+.mask-content{width:90%;background: #fff;overflow: hidden;position: absolute;top: 50%;margin-top:-162px;left:5%;}
+.mask-title{font-size: 16px;padding:15px;}
 .mask-info .reason{margin:10px 0 10px 15px;display: inline-block;}
-.mask-info textarea{width:86%;margin:10px 5%;border:1px solid #eeeeee;padding:5px 2%;font-size:14px;line-height:22px;}
+.mask-info textarea{width:96%;margin:10px 0;border:1px solid #eeeeee;padding:5px 2%;font-size:14px;line-height:22px;}
 .mask-btn .confirm-btn,.mask-btn .cancel-btn{float:left;width:40%;margin:0 5% 20px 5%;height:36px;line-height:36px;font-size:14px;letter-spacing:2px;}
 .mask-btn .confirm-btn{background: #F13D3C;border:none;color: #fff;}
 .mask-btn .cancel-btn{}
+.mask-info{width:90%;padding:0 5%;margin-bottom: 20px;}
+
+.delivery-addrs{width:200px; white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow: hidden;text-align: right}

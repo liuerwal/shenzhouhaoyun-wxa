@@ -1,8 +1,11 @@
 {
   "pages":[
-        "pages/order/confirm",
-        "pages/order/index",
+        "pages/login/login",
+        "pages/register/register",
+        
         "pages/order/list",
+        "pages/order/index",
+        "pages/order/confirm",
         "pages/order/detail",
         "pages/order/pay",
         
@@ -13,9 +16,6 @@
         "pages/my/reset_password",
         "pages/my/reset_phone",
         "pages/my/bill",
-        
-        "pages/login/login",
-        "pages/register/register",
         
         "pages/message/index",
         "pages/message/detail",

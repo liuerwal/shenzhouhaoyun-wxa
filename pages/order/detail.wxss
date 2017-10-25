@@ -1,4 +1,9 @@
-.list-box{overflow: hidden;background: #fff;padding:0 15px;}
-.list_info {display: block;overflow: hidden;clear: both;border-bottom: 1px dotted #e5e5e5;padding:10px 0;font-size: 15px;}
+.list-box{overflow: hidden;padding:0 15px;background: #fff;}
+.list_info {display: block;overflow: hidden;clear: both;border-bottom: 1px dotted #e5e5e5;padding:10px 0px;background:#fff;font-size: 15px;}
 .list-right{float: right;}
-.list-title{padding:10px 0 5px 0;font-weight: bold;font-size: 15px;}
+.list-title{padding:10px 0 5px 0px;font-weight: bold;font-size: 15px;background: #fff;}
+.list_info:last-child{border:none;}
+
+.addrs-list{margin-top:20px;}
+.addrs-list .list-box{margin-bottom: 5px;}
+.addrs-list .list-title{padding-left:15px;}
