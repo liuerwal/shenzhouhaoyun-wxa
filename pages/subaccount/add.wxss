@@ -2,8 +2,9 @@
 .account_ewm image{width:180px;height: 200px;display:block;margin:0 auto;}
 .generate-btn{font-size:14px;background:#F13D3C;color:#fff;border:none;width:60px;line-height:30px;margin-top:4px;float: right;}
 .step{padding:10px 15px;}
-.step text{display: block;font-size: 14px;line-height: 24px;}
-.step-title{font-size: 15px;padding-bottom: 10px;}
+.step text{display: block;line-height: 24px;}
+.step-title{padding-bottom: 10px;}
+.step-info{font-size: 13px;color: #555;}
 .section input {float: none;}
 .section{border:none;}
 .account_list{margin:0 16px;overflow:hidden;padding:10px 0;}

@@ -9,7 +9,7 @@
                     <view class="fl-left">
                         <text class="inform-title">{{item.title}}</text>
                     </view>
-                    <view class="fl-right">
+                    <view class="fl-right created-time">
                         <text>{{item.created_at}}</text>
                         <!-- <text class="del" bindtap="remove" data-index="{{index}}"> x </text> -->
                     </view>

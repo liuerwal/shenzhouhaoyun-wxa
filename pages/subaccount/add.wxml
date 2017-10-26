@@ -3,9 +3,11 @@
 
         <view class="step">
             <text class="step-title">生成子账户步骤：</text>
-            <text>1.填写子账户手机号码，生成二维码</text>
-            <text>2.使用微信“扫一扫”功能扫描二维码</text>
-            <text>3.在打开的小程序页面中注册</text>
+            <view class="step-info">
+                <text>1.填写子账户手机号码，生成二维码</text>
+                <text>2.使用微信“扫一扫”功能扫描二维码</text>
+                <text>3.在打开的小程序页面中注册</text>
+            </view>
         </view>
 
         <view class="section">

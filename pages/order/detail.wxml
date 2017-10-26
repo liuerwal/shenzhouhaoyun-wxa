@@ -31,15 +31,14 @@
     </view>
 
     <view class="addrs-list">
-        <view class="list-title">地址列表</view>
         <view class="list-box">
             <view class="list_info">
-                <text class="list-left fl-left main-color">地址1</text>
-                <text class="list-right">山水芙蓉一道一号</text>
+                <text class="list-left">山水芙蓉一道一号</text>
+                <!-- <text class="list-right">山水芙蓉一道一号</text> -->
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">订单状态</text>
-                <text class="list-right main-color">{{order.order_oil.status_text}}</text>
+                <text class="list-right main-state">{{order.order_oil.status_text}}</text>
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">重量</text>
@@ -53,7 +52,7 @@
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">订单状态</text>
-                <text class="list-right main-color">{{order.order_oil.status_text}}</text>
+                <text class="list-right main-state">{{order.order_oil.status_text}}</text>
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">重量</text>
@@ -67,7 +66,7 @@
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">订单状态</text>
-                <text class="list-right main-color">{{order.order_oil.status_text}}</text>
+                <text class="list-right main-state">{{order.order_oil.status_text}}</text>
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">重量</text>
