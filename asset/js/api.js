@@ -8,37 +8,37 @@ module.exports = {
 
         Http.post(CONFIG.API.REGISTER_URL, data, function(response){
             if ( response.status == 1){
-                _.cache('token', response.data.token);
-                _.cache('ttl', response.data.ttl);
-                _.cache('refresh_ttl', response.data.refresh_ttl);
-                _.cache('user', response.data.user);
+                _.cache('token', response.data.token)
+                _.cache('ttl', response.data.ttl)
+                _.cache('refresh_ttl', response.data.refresh_ttl)
+                _.cache('user', response.data.user)
                 success && success(response.data)
             }else{
                _.toast(response.msg)
             }
-        });
+        })
     },
 
     login: function(phone, password, success){
 
         Http.post(CONFIG.API.LOGIN_URL, {phone: phone, password: password }, function(response){
             if ( response.status == 1){
-                _.cache('token', response.data.token);
-                _.cache('ttl', response.data.ttl);
-                _.cache('refresh_ttl', response.data.refresh_ttl);
-                _.cache('user', response.data.user);
-                success && success(response.data);
+                _.cache('token', response.data.token)
+                _.cache('ttl', response.data.ttl)
+                _.cache('refresh_ttl', response.data.refresh_ttl)
+                _.cache('user', response.data.user)
+                success && success(response.data)
             }else{
                 _.toast("登陆失败")
             }
-        });
+        })
     },
 
     auth: {
         phone: function(phone, success){
             Http.post(CONFIG.API.AUTH.PHONE, {phone: phone}, function(response){
                 if ( response.status == 1){
-                    success && success(response.data);
+                    success && success(response.data)
                 }else{
                     _.toast(response.msg)
                 }
@@ -52,7 +52,7 @@ module.exports = {
                 if ( response.status == 1){
                     success && success(response.data)
                 }else{
-                    _.toast(response.msg);
+                    _.toast(response.msg)
                 }
             })
         },
@@ -122,7 +122,7 @@ module.exports = {
                     success && success(response.data)
                 }else{
                     _.toast(response.msg)
-                    error && error(response.data);
+                    error && error(response.data)
                 }
             })
         },
@@ -135,23 +135,34 @@ module.exports = {
                 }
             })
         },
-        arrive: function(id, location, success){
-            Http.post( _.sprintf(CONFIG.API.ORDER.ARRIVE, id), location, function(response){
-                if ( response.status == 1){
-                    success && success(response.data)
-                }else{
-                    _.toast(response.msg)
-                }
-            })
-        },
-        done: function(id, location, success){
-            Http.post( _.sprintf(CONFIG.API.ORDER.DONE, id), location, function(response){
-                if ( response.status == 1){
-                    success && success(response.data)
-                }else{
-                    _.toast(response.msg)
-                }
-            })
+        address: {
+            deliver: function(id, location, success){
+                Http.post( _.sprintf(CONFIG.API.ORDER.ADDRESS.DELIVER, id), location, function(response){
+                    if ( response.status == 1){
+                        success && success(response.data)
+                    }else{
+                        _.toast(response.msg)
+                    }
+                })
+            },
+            arrive: function(id, location, success){
+                Http.post( _.sprintf(CONFIG.API.ORDER.ADDRESS.ARRIVE, id), location, function(response){
+                    if ( response.status == 1){
+                        success && success(response.data)
+                    }else{
+                        _.toast(response.msg)
+                    }
+                })
+            },
+            done: function(id, location, success){
+                Http.post( _.sprintf(CONFIG.API.ORDER.ADDRESS.DONE, id), location, function(response){
+                    if ( response.status == 1){
+                        success && success(response.data)
+                    }else{
+                        _.toast(response.msg)
+                    }
+                })
+            }
         }
     },
 
@@ -176,6 +187,15 @@ module.exports = {
         },
         pickup: function(id, location, success){
             Http.post( _.sprintf(CONFIG.API.WAYBILL.PICKUP, id), location, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        loading: function(id, location, success){
+            Http.post( _.sprintf(CONFIG.API.WAYBILL.LOADING, id), location, function(response){
                 if ( response.status == 1){
                     success && success(response.data)
                 }else{
@@ -378,15 +398,15 @@ module.exports = {
     },
 
     getUserInfo: function(){
-        var userinfo = wx.getStorageSync('userinfo');
+        var userinfo = wx.getStorageSync('userinfo')
         if ( !userinfo ){
             wx.getUserInfo({
                 success: function(res) {
                     var userinfo = res.userInfo
-                    _.cache('userinfo', userinfo);
-                    console.log(userinfo);
+                    _.cache('userinfo', userinfo)
+                    console.log(userinfo)
                 }
-            });
+            })
         }
     },
 
@@ -410,7 +430,7 @@ module.exports = {
     saveOpenId: function(code){
         Http.post(CONFIG.API.AUTH.OPENID, {code: code}, function(response){
             if ( response.status == 1){
-                _.cache('openid', response.data);
+                _.cache('openid', response.data)
             }else{
                 _.toast(response.msg)
             }

@@ -1,21 +1,29 @@
 {
   "pages":[
+        
         "pages/login/login",
         "pages/register/register",
         
+        "pages/waybill/list",
+        "pages/waybill/detail",
+
         "pages/order/list",
         "pages/order/index",
         "pages/order/confirm",
         "pages/order/detail",
         "pages/order/pay",
         
-        "pages/my/bill_detail",
+        "pages/wallet/index",
+        "pages/wallet/outpour",
+        "pages/wallet/inpour",
+        
         "pages/my/index",
         "pages/my/coupon",
         "pages/my/qualification",
         "pages/my/reset_password",
         "pages/my/reset_phone",
         "pages/my/bill",
+        "pages/my/bill_detail",
         
         "pages/message/index",
         "pages/message/detail",
@@ -25,13 +33,7 @@
         "pages/subaccount/add",
         "pages/subaccount/index",
         "pages/subaccount/detail",
-        
-        "pages/waybill/list",
-        "pages/waybill/detail",
 
-        "pages/wallet/index",
-        "pages/wallet/outpour",
-        "pages/wallet/inpour",
         
         "pages/address/list",
         "pages/address/add",

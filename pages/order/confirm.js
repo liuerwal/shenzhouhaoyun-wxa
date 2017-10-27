@@ -11,7 +11,7 @@ P.run({
         index: 0,
         allcash: '0.00',
         cost: '0',
-        weight: '',
+        weight: 0,
         addrs: [],
 
         current_oil: {
@@ -27,10 +27,7 @@ P.run({
         other_block: true,
     },
     customData: {
-        oil_id: 0,
-        weight: 0,
         tid: null,
-        addr_id: 0,
     },
     component: [
         'comps/datetimePicker/index',
@@ -43,42 +40,29 @@ P.run({
 
     bindOilChange: function(e) {
         var oil = this.data.oil_type[e.detail.value]
-        var weight = this.customData.weight
 
-        this.customData.oil_id = oil.id
+        this.setCurrentOil(oil)
 
-        this.setSelectedOil(oil, weight)
     },
 
-    //输入金额时计算重量
     oilCost: function(e){
-        var that = this;
         var weight = e.detail.value;
-        var oil = this.data.current_oil;
+        var index  = e.currentTarget.dataset.index
+        var oil    = this.data.current_oil
 
-        this.customData.weight = weight;
-        if(this.customData.weight > 1000){
-            _.alert("请填写正确的购买重量");
-        }
-
-
-        this.setSelectedOil(oil, weight)
+        this.setWeights(index, weight)
+        this.setCurrentOil(oil)
 
     },
 
     formSubmit:function  (e) {
-        var that          = this;
-        var note          = e.detail.value.remarks;
-        var weight        = this.customData.weight;
-        var oil_id        = this.data.current_oil.id;
-        var addrs         = _.array_column(this.data.current_addr, 'id');
+        var that          = this
+        var note          = e.detail.value.remarks
+        var oil_id        = this.data.current_oil.id
+        var weight        = _.array_column(this.data.current_addr, 'weight')
+        var addrs         = _.array_column(this.data.current_addr, 'id')
         // var pay_cash      = e.detail.value['radio-group'];
         var expected_time = e.detail.value.time;
-
-        if ( weight<=0 ){
-            _.alert("请填写购买的重量");
-            return;
-        }
 
         if ( !oil_id ){
             _.alert("请选择购买的油料种类");
@@ -92,10 +76,10 @@ P.run({
 
         P.Api.order.confirm({
             // 'pay_cash'      : pay_cash,
-            'addrs[]'       : addrs,
+            'addrs'         : addrs.join(','),
             "note"          : note,
             'oil_id'        : oil_id,
-            'weight'        : weight,
+            'weight'        : weight.join(','),
             'expected_time' : expected_time,
         }, function(response){
             getApp().globalData('order', response)
@@ -105,11 +89,11 @@ P.run({
     },
 
     //根据重量计算油费
-    countMoney: function(weight, oil){
-        var that = this
-        var weight = this.customData.weight
-        var oil = this.data.current_oil
-        var addrs = _.array_column(this.data.current_addr, 'id')
+    countMoney: function(){
+        var that   = this
+        var weight = this.getTotalWeight()
+        var oil    = this.data.current_oil
+        var addrs  = _.array_column(this.data.current_addr, 'id')
 
         if ( this.customData.tid ){
             clearTimeout(this.customData.tid)
@@ -175,18 +159,10 @@ P.run({
                 addrs: that.customData.addr,
             })
 
-            that.setSelectedOil(that.customData.oil[0]);
+            that.setCurrentOil(that.customData.oil[0]);
 
             if ( that.customData.addr.length ){
-                that.setSelectedAddr(that.customData.addr[0]);
-            }
-
-            if ( oil.length ){
-                that.customData.oil_id = oil[0].id
-            }
-
-            if ( addr.length ){
-                that.customData.addr_id = addr[0].id
+                that.setCurrentAddrs(that.customData.addr[0]);
             }
 
             wx.hideLoading()
@@ -195,33 +171,26 @@ P.run({
         })
     },
 
-    showAddrBlock: function(){
-        var weight = this.customData.weight;
-
-        if(weight == 0){
-            _.toast('请填写重量')
-            return false;
-        }
-
-        this.setData({
-            oil_block: true,
-            addr_block: false
-        })
-    },
-
     showConfirmBlock: function(e){
         var addr = this.data.current_addr
-        var weight = this.customData.weight
 
         if ( !addr.length ){
             _.toast('至少设置一个地址')
-            return false;
+            return false
+        }
+
+        for ( x in addr ){
+            var w = addr[x].weight
+            if ( isNaN(w) || w<=0 ){
+                _.toast('未设置重量')
+                return false
+            }
         }
 
         this.countMoney()
 
         this.setData({
-            addr_block: true,
+            oil_block: true,
             other_block: false
         })
     },
@@ -248,7 +217,7 @@ P.run({
         var index = e.currentTarget.dataset.index
         var addr = this.customData.addr[index]
 
-        this.setSelectedAddr(addr)
+        this.setCurrentAddrs(addr)
     },
 
     removeAddr: function(e){
@@ -262,45 +231,22 @@ P.run({
         })
     },
 
-    setSelectedAddr: function(addr){
-        var current_addr = this.data.current_addr;
-
-        if ( current_addr.length >= 3 ){
-            _.toast('最多指定3个地址')
-            return false;
-        }
-
-        for( var x in current_addr ){
-            if ( addr.id == current_addr[x].id ){
-                return true;
-            }
-        }
-
-        current_addr.push(addr)
-
-        this.setData({
-            current_addr: current_addr,
-        })
-
-    },
-
-    setSelectedOil: function(oil, weight){
+    setCurrentOil: function(oil){
 
         this.setData({
             current_oil: {
                 id: oil.id,
                 name: oil.name,
-                price: this.getOilPrice(oil, weight)
+                price: this.getOilPrice(oil)
             }
         })
     },
 
-    getOilPrice: function(oil, weight){
-        var weight = weight || 0;
+    getOilPrice: function(oil){
+        var weight = this.getTotalWeight();
         var prices = this.customData.price[oil.id];
 
         if ( !weight ){
-            console.log(prices[0])
             return prices[0].price
         }
 
@@ -311,6 +257,45 @@ P.run({
         }
 
         return 'NaN';
+    },
+
+    getTotalWeight: function(){
+        var weights = _.array_column(this.data.current_addr, 'weight')
+        return _.array_sum(weights)
+    },
+
+    setWeights: function(i, w){
+        var addr = this.getCurrentAddrs(i)
+        addr.weight = w
+        this.setCurrentAddrs(addr, i)
+    },
+
+    setCurrentAddrs: function(addr, i){
+        var addrs = this.data.current_addr
+
+        for( var x in addrs ){
+            if ( addr.id == addrs[x].id ){
+                return true;
+            }
+        }
+
+        if ( isNaN(i) ){
+            if ( addrs.length >= 3 ){
+                _.toast('最多指定3个地址')
+                return false;
+            }
+            addrs.push(addr)
+        }else{
+            addrs[i] = addr
+        }
+
+        this.setData({
+            current_addr: addrs
+        })
+    },
+
+    getCurrentAddrs: function(i){
+        return this.data.current_addr[i] || {}
     }
 
 });

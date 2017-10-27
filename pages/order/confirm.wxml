@@ -56,7 +56,7 @@
                 </view>
                 <view class="section" >
                     <view class="section__title">重量</view>
-                    <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+                    <input type="number" placeholder="吨" name="weight"  data-index="0" value="{{ current_addr[0].weight }}" bindinput="oilCost" />
                 </view>
             </view>
 
@@ -68,7 +68,7 @@
                 </view>
                 <view class="section" >
                     <view class="section__title">重量</view>
-                    <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+                    <input type="number" placeholder="吨" name="weight"  data-index="1" value="{{ current_addr[1].weight }}" bindinput="oilCost" />
                 </view>
             </view>
 
@@ -80,7 +80,7 @@
                 </view>
                 <view class="section" >
                     <view class="section__title">重量</view>
-                    <input type="number" placeholder="吨" name="weight" value="{{weight}}" bindinput="oilCost" />
+                    <input type="number" placeholder="吨" name="weight"  data-index="2" value="{{ current_addr[2].weight }}" bindinput="oilCost" />
                 </view>
             </view>
 
@@ -92,7 +92,7 @@
             
         </view>
 
-        <view hidden="{{addr_block}}" >
+       <!--  <view hidden="{{addr_block}}" >
 
             <view class="notice" >从地址列表中选择送货地址，最多3个</view>
 
@@ -100,7 +100,6 @@
                 <view class="m-info" bindtap="removeAddr" data-index="0">
                     <view class="m-name fl-left">{{ current_addr[0].alias }}</view>
                     <view class="m-phone fl-right">-</view>
-                    <!-- <view class="m-address">{{item.address}}</view> -->
                 </view>
             </view>
 
@@ -108,7 +107,6 @@
                 <view class="m-info" bindtap="removeAddr" data-index="1">
                     <view class="m-name fl-left">{{ current_addr[1].alias }}</view>
                     <view class="m-phone fl-right">-</view>
-                    <!-- <view class="m-address">{{item.address}}</view> -->
                 </view>
             </view>
 
@@ -116,12 +114,10 @@
                 <view class="m-info" bindtap="removeAddr" data-index="2">
                     <view class="m-name fl-left">{{ current_addr[2].alias }}</view>
                     <view class="m-phone fl-right">-</view>
-                    <!-- <view class="m-address">{{item.address}}</view> -->
                 </view>
             </view>
 
             <view class="addr-btn">
-                <!-- <button class="btn"  bindtap="add">新增地址</button> -->
                 <button class="btn"  bindtap="showConfirmBlock">确定</button>
             </view>
             
@@ -133,12 +129,11 @@
                     <view class="m-info" bindtap="selectAddr" data-index="{{ index }}">
                         <view class="m-name fl-left">{{ item.alias }}</view>
                         <view class="m-phone fl-right">+</view>
-                        <!-- <view class="m-address">{{item.address}}</view> -->
                     </view>
                 </view>
             </block>
             
-        </view>
+        </view> -->
 
         <view class="other" hidden="{{other_block}}">
             <view class='section'>

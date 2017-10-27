@@ -28,6 +28,8 @@ P.run({
 
         P.Api.order.show(id, function(response){
 
+            console.log(response.address)
+
             that.setData({
                 order : response
             })

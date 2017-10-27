@@ -15,14 +15,13 @@ P.run({
         var amount = e.detail.value.amount
 
         P.Api.order.inpour(amount, function(response){
-            P.Api.pay.unifiedorder(response, function(response){
-
-                wx.requestPayment(_.extend(response.params, {
+            P.Api.pay(response.order_no, 'online', function(response){
+                wx.requestPayment(_.extend(response, {
                     success: function(res){
                         _.toast('支付成功')
                         P.Api.user.myself(function(user){
                             _.cache('user', user)
-                            wx.navigateBack()
+                            _.redirectTo('/pages/wallet/index')
                         });
                     },
                     fail: function(res){

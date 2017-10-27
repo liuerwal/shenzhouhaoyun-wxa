@@ -23,7 +23,7 @@
             <block wx:if="{{ order.order_oil.status == -1 }}"> 
                 <text class="list-right main-color">已取消</text>
             </block>
-            <block wx:else="{{order.order_oil.status < 3}}">
+            <block wx:else="{{order.order_oil.status < 2}}">
                 <text class="list-right main-color" bindtap="orderCancel">取消</text>
             </block>
         </view> 
@@ -31,53 +31,25 @@
     </view>
 
     <view class="addrs-list">
-        <view class="list-box">
+        <view class="list-box" wx:for="{{order.address}}" wx:key="addr" wx:for-item="addr">
             <view class="list_info">
-                <text class="list-left">山水芙蓉一道一号</text>
-                <!-- <text class="list-right">山水芙蓉一道一号</text> -->
+                <!-- <text class="list-left fl-left main-color">地址3</text> -->
+                <text class="list-left">{{ addr.address }}</text>
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">订单状态</text>
-                <text class="list-right main-state">{{order.order_oil.status_text}}</text>
+                <text class="list-right main-state">{{ addr.status_text }}</text>
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">重量</text>
-                <text class="list-right"> {{order.order_oil.weight}}</text>
-            </view>
-        </view>
-        <view class="list-box">
-            <view class="list_info">
-                <text class="list-left fl-left main-color">地址2</text>
-                <text class="list-right">山水芙蓉一道一号</text>
-            </view>
-            <view class="list_info">
-                <text class="list-left fl-left">订单状态</text>
-                <text class="list-right main-state">{{order.order_oil.status_text}}</text>
-            </view>
-            <view class="list_info">
-                <text class="list-left fl-left">重量</text>
-                <text class="list-right"> {{order.order_oil.weight}}</text>
-            </view>
-        </view>
-        <view class="list-box">
-            <view class="list_info">
-                <text class="list-left fl-left main-color">地址3</text>
-                <text class="list-right">山水芙蓉一道一号</text>
-            </view>
-            <view class="list_info">
-                <text class="list-left fl-left">订单状态</text>
-                <text class="list-right main-state">{{order.order_oil.status_text}}</text>
-            </view>
-            <view class="list_info">
-                <text class="list-left fl-left">重量</text>
-                <text class="list-right"> {{order.order_oil.weight}}</text>
+                <text class="list-right"> {{ addr.weight }}吨</text>
             </view>
         </view>
     </view>
 
     <block wx:if="{{order.order_oil.waybill}}" >
         <view class="account_list list-box">
-            <view class="list-title">订单详情</view>
+            <view class="list-title">运输司机</view>
             <view class="list_info">
                 <text class="list-left fl-left">司机</text>
                 <text class="list-right"> {{order.order_oil.waybill.driver.username}}</text>

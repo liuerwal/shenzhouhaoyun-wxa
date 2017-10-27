@@ -16,26 +16,14 @@ P.run({
             done: 4
         }
     },
-    onLoad: function(options) {  
-        var that = this;
-        var id = options.id;
-
-        wx.getSystemInfo( {  
-
-            success: function( res ) {  
-                that.setData( { 
-                    id:id, 
-                });  
-            }
-        });   
-
-        that.waybill();
+    onLoad: function(options) {
+        this.customData.id = options.id
+        this.loadWaybill();
     },
 
-    waybill: function(e){
+    loadWaybill: function(){
         var that=this;
-
-        var id = that.data.id
+        var id = this.customData.id
 
         P.Api.waybill.show(id, function(response){
 
@@ -74,6 +62,22 @@ P.run({
         })
     },
 
+    waybillLoading: function(e){
+        var that = this
+        var id = e.currentTarget.dataset.waybill
+
+        wx.getLocation({
+            type: 'gcj02',
+            success: function(location){
+                that.waybillStatusChange('loading', id, location)
+            },
+            fail: function(){
+                _.toast('坐标获取失败')
+                that.waybillStatusChange('loading', id)
+            }
+        })
+    },
+
     waybillDeliver: function(e){
         var that = this
         var id = e.currentTarget.dataset.waybill
@@ -95,8 +99,7 @@ P.run({
         var data = location ? {lat: location.latitude, lng: location.longitude} : {}
 
         P.Api.waybill[status](id, _.extend(data, extra), function(response){
-            
-            that.waybill();
+            that.loadWaybill();
         })
     },
 
@@ -126,44 +129,60 @@ P.run({
         })
     },
 
-    orderArrive: function(e){
+    addrDeliver: function(e){
         var that = this
-        var id = e.currentTarget.dataset.order
+        var id = e.currentTarget.dataset.addr
 
         wx.getLocation({
             type: 'gcj02',
             success: function(location){
-                that.orderStatusChange('arrive', id, location)
+                that.addrStatusChange('deliver', id, location)
             },
             fail: function(){
                 _.toast('坐标获取失败')
-                that.orderStatusChange('arrive', id)
+                that.addrStatusChange('deliver', id)
             }
         })
     },
 
-    orderDone: function(e){
+    addrArrive: function(e){
         var that = this
-        var id = e.currentTarget.dataset.order
+        var id = e.currentTarget.dataset.addr
 
         wx.getLocation({
             type: 'gcj02',
             success: function(location){
-                that.orderStatusChange('done', id, location)
+                that.addrStatusChange('arrive', id, location)
             },
             fail: function(){
                 _.toast('坐标获取失败')
-                that.orderStatusChange('done', id)
+                that.addrStatusChange('arrive', id)
             }
         })
     },
 
-    orderStatusChange: function(status, id, location){
+    addrDone: function(e){
+        var that = this
+        var id = e.currentTarget.dataset.addr
+
+        wx.getLocation({
+            type: 'gcj02',
+            success: function(location){
+                that.addrStatusChange('done', id, location)
+            },
+            fail: function(){
+                _.toast('坐标获取失败')
+                that.addrStatusChange('done', id)
+            }
+        })
+    },
+
+    addrStatusChange: function(status, id, location){
         var that = this
         var data = location ? {lat: location.latitude, lng: location.longitude} : {}
 
-        P.Api.order[status](id, data, function(response){
-            that.waybill();
+        P.Api.order.address[status](id, data, function(response){
+            that.loadWaybill();
         })
     },
 

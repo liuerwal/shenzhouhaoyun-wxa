@@ -37,14 +37,18 @@ module.exports = {
             SHOW: API_URL+'/order/%d',
             INPOUR: API_URL+'/order/inpour',
             CANCEL: API_URL+'/order/%d/cancel',
-            ARRIVE: API_URL+'/order/%d/arrive',
-            DONE: API_URL+'/order/%d/done',
+            ADDRESS:{
+                DELIVER: API_URL+'/order/address/%d/deliver',
+                ARRIVE: API_URL+'/order/address/%d/arrive',
+                DONE: API_URL+'/order/address/%d/done',
+            }
         },
 
         WAYBILL: {
             LIST: API_URL+'/waybill',
             SHOW: API_URL+'/waybill/%d',
             PICKUP: API_URL+'/waybill/%d/pickup',
+            LOADING: API_URL+'/waybill/%d/loading',
             DELIVER: API_URL+'/waybill/%d/deliver',
             CANCEL: API_URL+'/waybill/%d/cancel',
         },

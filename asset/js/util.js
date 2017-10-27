@@ -300,10 +300,20 @@ module.exports = {
                 }else{
                     item = item[column_key]
                 }
-                result.push(item)
+                result.push( item!==undefined ? item : null )
                 return result;
             }, [])
         }
         return array
-    }
+    },
+
+    array_sum: function(array){
+        return array.reduce(function(a, b){
+            return a*1 + b*1
+        }, 0)
+    },
+
+    trimRightZero: function(str){
+        return str.replace(/[.]*[0]*$/, '')
+    },
 }
