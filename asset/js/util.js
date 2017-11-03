@@ -67,6 +67,9 @@ module.exports = {
         if ( format=='m-d' ){
             return [date.getMonth()+1, date.getDate()].map(formatNumber).join('-')
         }
+        if ( format=='H-i' ){
+            return [date.getHours(), date.getMinutes()].map(formatNumber).join(':')
+        }
     },
 
     extend: function() {
@@ -222,11 +225,16 @@ module.exports = {
         return this.strtotime('now');
     },
 
-    alert: function(message){
+    alert: function(message, success){
         wx.showModal({
             title: "温馨提示",
             content: message,
             showCancel: false,
+            success: function(res){
+                if ( res.confirm && success ){
+                    success.call()
+                }
+            },
         });
     },
 

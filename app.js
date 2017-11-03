@@ -1,4 +1,6 @@
-//app.js
+var Api = require('asset/js/api')
+var _ = require('asset/js/util')
+
 App({
     onLaunch: function() {
         //调用API从本地缓存中获取数据
@@ -77,6 +79,6 @@ App({
         for ( x in queue ){
             queue[x].call(context)
         }
-    }
+    },
     
 })

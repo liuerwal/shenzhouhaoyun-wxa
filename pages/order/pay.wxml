@@ -9,9 +9,9 @@
 			<text class="list-left fl-left">运费</text>
 			<text class="list-right"> {{order.detail.freight}}</text>
 		</view>
-		<view class="list_info">
-			<text class="list-left fl-left">押金</text>
-			<text class="list-right"> {{order.detail.frozen}}</text>
+		<view class="list_info" wx:if="{{ order.detail.discount }}">
+			<text class="list-left fl-left">优惠券</text>
+			<text class="list-right"> {{order.detail.discount}}</text>
 		</view>
 		<view class="list_info">
 			<text class="list-left fl-left">总计</text>

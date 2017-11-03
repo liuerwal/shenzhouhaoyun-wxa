@@ -1,0 +1,9 @@
+
+.list-box{overflow: hidden;background: #fff;padding:0 15px;}
+.list_info {display: block;overflow: hidden;clear: both;border-bottom: 1px dotted #e5e5e5;padding:10px 0;font-size: 15px;}
+.list-right{float: right;}
+.list-title{padding:10px 0 5px 0;font-weight: bold;font-size: 15px;}
+
+.pay-btn .online-btn{margin:20px 5%;}
+.pay-btn .line-btn,.pay-btn .deposit{width:90%;margin:0 5% 20px 5%;height: 38px;}
+.line-btn{font-size: 15px;}

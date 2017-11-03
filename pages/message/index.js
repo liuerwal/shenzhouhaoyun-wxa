@@ -57,7 +57,7 @@ P.run({
         if ( this.customData.hasMore ){
             this.loadMessage()
         }else{
-            _.toast('已经拉到底了')
+            // _.toast('已经拉到底了')
         }
     },
 

@@ -1,6 +1,14 @@
 {
   "pages":[
         
+        "pages/my/index",
+        "pages/my/coupon",
+        "pages/my/qualification",
+        "pages/my/reset_password",
+        "pages/my/reset_phone",
+        "pages/my/bill",
+        "pages/my/bill_detail",
+        
         "pages/login/login",
         "pages/register/register",
         
@@ -12,18 +20,11 @@
         "pages/order/confirm",
         "pages/order/detail",
         "pages/order/pay",
+        "pages/order/payticket",
         
         "pages/wallet/index",
         "pages/wallet/outpour",
         "pages/wallet/inpour",
-        
-        "pages/my/index",
-        "pages/my/coupon",
-        "pages/my/qualification",
-        "pages/my/reset_password",
-        "pages/my/reset_phone",
-        "pages/my/bill",
-        "pages/my/bill_detail",
         
         "pages/message/index",
         "pages/message/detail",

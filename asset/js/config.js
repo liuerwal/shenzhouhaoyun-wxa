@@ -41,7 +41,8 @@ module.exports = {
                 DELIVER: API_URL+'/order/address/%d/deliver',
                 ARRIVE: API_URL+'/order/address/%d/arrive',
                 DONE: API_URL+'/order/address/%d/done',
-            }
+            },
+            TICKET: API_URL+'/order/ticket'
         },
 
         WAYBILL: {
@@ -72,6 +73,7 @@ module.exports = {
             SHOW: API_URL+'/user',
             RESET_PASSWORD: API_URL+'/password/reset',
             BILLS: API_URL+'/mybill',
+            COUPONS: API_URL+'/mycoupon',
             RESET_PHONE: API_URL+'/phone',
             SUBACCOUNT: API_URL+'/subaccount',
         },

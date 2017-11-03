@@ -169,6 +169,8 @@ P.run({
 
             getApp().trigger('reLaunch', that)
         })
+
+        this.checkTicket()
     },
 
     showConfirmBlock: function(e){
@@ -296,6 +298,17 @@ P.run({
 
     getCurrentAddrs: function(i){
         return this.data.current_addr[i] || {}
+    },
+
+    checkTicket: function(){
+        P.Api.order.ticket(function(response){
+            if ( response ){
+                getApp().globalData('ticket', response)
+                _.alert('您上次的订单超时，需支付超时费用', function(){
+                    _.redirectTo('/pages/order/payticket')
+                })
+            }
+        })
     }
 
 });

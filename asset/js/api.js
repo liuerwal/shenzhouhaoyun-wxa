@@ -163,6 +163,15 @@ module.exports = {
                     }
                 })
             }
+        },
+        ticket: function(success){
+            Http.get( CONFIG.API.ORDER.TICKET, {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
         }
     },
 
@@ -334,6 +343,15 @@ module.exports = {
         },
         bill: function(page, success){
             Http.get( CONFIG.API.USER.BILLS, {page: page || 1}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        coupon: function(page, success){
+            Http.get( CONFIG.API.USER.COUPONS, {page: page || 1}, function(response){
                 if ( response.status == 1){
                     success && success(response.data)
                 }else{
