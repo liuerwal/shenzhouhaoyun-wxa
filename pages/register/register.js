@@ -77,6 +77,10 @@ P.run({
 
         this.customData.phone = e.detail.value
 
+        if ( this.customData.phone.length == 11 ){
+            P.Api.auth.phone(this.customData.phone)
+        }
+
     },
     
     getcode:function(){
