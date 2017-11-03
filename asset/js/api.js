@@ -6,7 +6,7 @@ module.exports = {
 
     register: function(data, success){
 
-        Http.post(CONFIG.API.REGISTER_URL, data, function(response){
+        Http.post(CONFIG.API.REGISTER_URL, _.extend(data, {access_token: data.phone}), function(response){
             if ( response.status == 1){
                 _.cache('token', response.data.token)
                 _.cache('ttl', response.data.ttl)
@@ -30,6 +30,16 @@ module.exports = {
                 success && success(response.data)
             }else{
                 _.toast("登陆失败")
+            }
+        })
+    },
+
+    verifyCode: function(phone){
+        Http.post(CONFIG.API.VERIFYCODE, {phone: phone, access_token: phone}, function(response){
+            if ( response.success){
+                _.toast('短信已发送')
+            }else{
+                _.toast(response.message)
             }
         })
     },

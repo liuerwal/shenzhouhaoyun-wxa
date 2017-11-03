@@ -111,12 +111,14 @@ P.run({
                     freight: response.freight,
                     frozen: response.frozen,
                     cost: response.cost,
+                    oil_block: true,
+                    other_block: false
                 })
                 wx.hideLoading();
             }, function(){
                 that.setData({
                     weight: '',
-                    cost: 0
+                    cost: 0,
                 })
             })
         }, 350)
@@ -174,6 +176,7 @@ P.run({
     },
 
     showConfirmBlock: function(e){
+        var that = this
         var addr = this.data.current_addr
 
         if ( !addr.length ){
@@ -191,10 +194,7 @@ P.run({
 
         this.countMoney()
 
-        this.setData({
-            oil_block: true,
-            other_block: false
-        })
+        
     },
 
     newAddr: function(){

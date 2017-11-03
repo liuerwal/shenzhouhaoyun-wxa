@@ -147,7 +147,7 @@
             <view class='section'>
                 <view class="cash-box">
                     <view class="all-cash fl-left">总金额：￥{{ cost }}</view>
-                    <view class="Frozen-cash fl-right">押金：￥{{ frozen }}</view>
+                    <!-- <view class="Frozen-cash fl-right">押金：￥{{ frozen }}</view> -->
                     <!-- <text>自动冻结金额1000元</text> -->
                 </view>
             </view>

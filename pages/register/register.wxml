@@ -15,7 +15,7 @@
 			<view class="form-box">
 				<view class="section">
 					<view class="section__title">手机</view>
-					<input name="input" placeholder="请输入手机" name="phone" value="{{phone}}"/>
+					<input name="input" placeholder="请输入手机" name="phone" value="{{phone}}" bindinput="phone"/>
 				</view>
 				<view class="section">
 					<view class="section__title">密码</view>

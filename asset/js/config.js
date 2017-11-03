@@ -16,6 +16,8 @@ module.exports = {
             PHONE: API_URL+'/auth/check/phone',
         },
 
+        VERIFYCODE: API_URL+'/sms/verify-code',
+
         QUALIFICATION: {
             LIST: API_URL+'/qualification',
             ADD: API_URL+'/qualification/add',

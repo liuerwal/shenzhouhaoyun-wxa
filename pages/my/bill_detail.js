@@ -7,19 +7,14 @@ P.run({
     data: {
         bill:[],
     },
-    onLoad: function () {
-        
-        this.bill()
+    onLoad: function() {
+        var bill = getApp().globalData('bill')
+
+        this.setData({
+            bill: bill
+        })
     },
     
-    bill:function(){
-        var that=this;
-
-        P.Api.user.bill(1, function(response){
-            that.setData({
-                bill : response
-            })
-        })
-    }
+   
 });
 

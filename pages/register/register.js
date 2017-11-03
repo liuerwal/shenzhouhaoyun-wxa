@@ -7,21 +7,25 @@ var _   = P._
 
 P.run({
 
+    customData: {
+        login: false,
+        parent: 0,
+        phone: '',
+    },
+
     data: {
-        parent: null,
+        parent: 0,
+        phone: '',
+        disabled: 'false'
     },
 
     onLoad: function(options){
-        options.parent = 1;
-        options.phone = 18692258343;
-        this.customData.parent = options.parent
-        this.customData.phone = options.phone
 
-        if ( this.customData.parent ){
+        if ( options.parent ){
             this.setData({
-                parent: this.customData.parent,
-                phone: this.customData.phone,
-                disabled: this.customData.parent ? 'true' : 'false',
+                parent: options.parent,
+                phone: options.phone,
+                disabled: options.parent ? 'true' : 'false',
             })
         }
     },
@@ -32,7 +36,8 @@ P.run({
         var phone    = e.detail.value.phone;
         var password = e.detail.value.password;
         var a_pass   = e.detail.value.a_pass;
-        var parent   = this.customData.parent
+        var parent   = this.data.parent
+        var code     = e.detail.value.code
             
         if(phone == 0 || password == 0 || a_pass == 0 ){
              _.toast('内容不能为空')
@@ -55,6 +60,7 @@ P.run({
             password: password,
             role: role,
             parent: parent,
+            code: code,
         }, function(){
             if(role == "driver"){
                 _.toast('注册成功')
@@ -66,13 +72,16 @@ P.run({
             }
         }); 
     },
-    
-    getcode:function(){
+
+    phone: function(e){
+
+        this.customData.phone = e.detail.value
 
     },
-
     
-    
+    getcode:function(){
+        P.Api.verifyCode(this.customData.phone)
+    },
 
 });
 

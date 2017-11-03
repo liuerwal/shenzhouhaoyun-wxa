@@ -52,5 +52,13 @@ P.run({
             // _.toast('已经拉到底了')
         }
     },
+
+    show: function(e){
+        var index = e.currentTarget.dataset.index
+        var bill = this.data.bill[index]
+
+        getApp().globalData('bill', bill)
+        _.navigateTo('/pages/my/bill_detail')
+    }
 });
 
