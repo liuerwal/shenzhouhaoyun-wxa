@@ -21,11 +21,14 @@ P.run({
 
     onLoad: function(options){
 
-        if ( options.parent ){
+        if ( options.q ){
+            var url = decodeURI(options.q)
+            var params = _.parseURL(url).params
+            
             this.setData({
-                parent: options.parent,
-                phone: options.phone,
-                disabled: options.parent ? 'true' : 'false',
+                parent: params.parent,
+                phone: params.phone,
+                disabled: params.parent ? 'true' : 'false',
             })
         }
     },
