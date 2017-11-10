@@ -22,9 +22,11 @@ P.run({
     onLoad: function(options){
 
         if ( options.q ){
-            var url = decodeURI(options.q)
-            var params = _.parseURL(url).params
-            
+            // var url = decodeURI(options.q)
+            var url = decodeURIComponent(options.q)
+            var params = this.parseUrl(url)
+            console.log(params)
+
             this.setData({
                 parent: params.parent,
                 phone: params.phone,
@@ -89,6 +91,19 @@ P.run({
     getcode:function(){
         P.Api.verifyCode(this.customData.phone)
     },
+
+    parseUrl: function(url){
+        var url = url.split('?')
+        var query = url[1].split('&')
+        var params = []
+
+        for( var x in query ){
+            var t = query[x].split('=')
+            params[t[0]] = t[1]
+        }
+
+        return params
+    }
 
 });
 
