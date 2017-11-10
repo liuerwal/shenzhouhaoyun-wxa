@@ -184,7 +184,7 @@ P.run({
             return false
         }
 
-        for ( x in addr ){
+        for ( var x in addr ){
             var w = addr[x].weight
             if ( isNaN(w) || w<=0 ){
                 _.toast('未设置重量')

@@ -13,13 +13,13 @@
         </view>
     </view>
 
-    <navigator url="reset_phone" hover-class="none">
+    <!-- <navigator url="reset_phone" hover-class="none">
         <view class="list spacing">
             <image src="../../asset/img/phone-icon.png" class="icon"></image>
             <view class="list-title">手机号</view>
             <view class="Arrow">{{user.phone}}</view>
         </view>
-    </navigator>
+    </navigator> -->
 
     <view class="my-list">
         <navigator url="reset_password" hover-class="none">

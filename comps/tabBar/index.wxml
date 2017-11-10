@@ -1,6 +1,6 @@
 <view class="bottom-tabbar">
     <view class="tabbar-info" bindtap="switchTo" data-tab="home">
-        <view class="bottom-icon"><image src="{{tabIcon[0]}}"></image></view>
+        <view class="bottom-icon"><image src="{{tabIcon[0]}}" class="home-icon"></image></view>
         <view class="icon-title">首页</view>
     </view>
     <view class="tabbar-info" bindtap="switchTo" data-tab="message">

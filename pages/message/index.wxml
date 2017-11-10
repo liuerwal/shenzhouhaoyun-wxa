@@ -1,6 +1,6 @@
 <!--index.wxml-->
 
-<view class="">
+<view class="message-box">
     <block wx:for="{{ messages }}" wx:key="id">
         
         <navigator url="detail?id={{item.id}}" hover-class="none">

@@ -15,20 +15,20 @@
 			<view class="form-box">
 				<view class="section">
 					<view class="section__title">手机</view>
-					<input name="input" placeholder="请输入手机" name="phone" value="{{phone}}" bindinput="phone"/>
+					<input placeholder="请输入手机" name="phone" value="{{phone}}" bindinput="phone" type="number"/>
 				</view>
 				<view class="section">
 					<view class="section__title">密码</view>
-					<input name="input" placeholder="请输入密码" name="password"/>
+					<input placeholder="请输入密码" name="password" password="true"/>
 				</view>
 				<view class="section">
 					<view class="section__title">确认密码</view>
-					<input name="input" placeholder="请再次输入密码" name="a_pass"/>
+					<input placeholder="请再次输入密码" name="a_pass" password="true"/>
 				</view>
 				<view class="section getcode">
 					<view class="section__title">验证码</view>
-					<input name="input" placeholder="验证码" name="code"/>
-					<button bindtap="getcode">获得验证码</button>
+					<input placeholder="验证码" name="code"/>
+					<button bindtap="getcode">{{VerifyCode}}</button>
 				</view>
 			</view>
 		</view>
