@@ -49,38 +49,38 @@
             <!-- <button class="btn"  bindtap="showAddrBlock">确定</button> -->
 
             <view class="m-box" wx:if="{{ current_addr[0] }}">
-                <view class="m-info" bindtap="removeAddr" data-index="0">
+                <view class="m-info" data-index="0">
                     <view class="m-name fl-left">{{ current_addr[0].alias }}</view>
-                    <view class="m-phone fl-right">-</view>
+                    <view class="m-phone fl-right"  bindtap="removeAddr">-</view>
                     <!-- <view class="m-address">{{item.address}}</view> -->
                 </view>
                 <view class="section" >
                     <view class="section__title">重量</view>
-                    <input type="number" placeholder="吨" name="weight"  data-index="0" value="{{ current_addr[0].weight }}" bindinput="oilCost" />
+                    <input type="digit" placeholder="吨" name="weight"  data-index="0" value="{{ current_addr[0].weight }}" bindinput="oilCost"  cursor-spacing="100"/>
                 </view>
             </view>
 
             <view class="m-box" wx:if="{{ current_addr[1] }}">
-                <view class="m-info" bindtap="removeAddr" data-index="1">
+                <view class="m-info" data-index="1">
                     <view class="m-name fl-left">{{ current_addr[1].alias }}</view>
-                    <view class="m-phone fl-right">-</view>
+                    <view class="m-phone fl-right"  bindtap="removeAddr">-</view>
                     <!-- <view class="m-address">{{item.address}}</view> -->
                 </view>
                 <view class="section" >
                     <view class="section__title">重量</view>
-                    <input type="number" placeholder="吨" name="weight"  data-index="1" value="{{ current_addr[1].weight }}" bindinput="oilCost" />
+                    <input type="digit" placeholder="吨" name="weight"  data-index="1" value="{{ current_addr[1].weight }}" bindinput="oilCost" cursor-spacing="100"/>
                 </view>
             </view>
 
             <view class="m-box" wx:if="{{ current_addr[2] }}">
-                <view class="m-info" bindtap="removeAddr" data-index="2">
+                <view class="m-info" data-index="2">
                     <view class="m-name fl-left">{{ current_addr[2].alias }}</view>
-                    <view class="m-phone fl-right">-</view>
+                    <view class="m-phone fl-right"  bindtap="removeAddr">-</view>
                     <!-- <view class="m-address">{{item.address}}</view> -->
                 </view>
                 <view class="section" >
                     <view class="section__title">重量</view>
-                    <input type="number" placeholder="吨" name="weight"  data-index="2" value="{{ current_addr[2].weight }}" bindinput="oilCost" />
+                    <input type="digit" placeholder="吨" name="weight"  data-index="2" value="{{ current_addr[2].weight }}" bindinput="oilCost" cursor-spacing="100"/>
                 </view>
             </view>
 
@@ -156,7 +156,7 @@
                 <view class='main-color'>默认从当天晚上9点开始送</view>
                 <view class="picker">
                     <view class="section__title">送达时间</view>
-                    <input type="text" disabled name="time" value="{{datetime}}" bindtap="datetimePickerShow" />
+                    <input type="text" disabled name="time" value="{{datetime}}" bindtap="datetimePickerShow" placeholder="请选择时间"/>
                 </view>
             </view>
 
