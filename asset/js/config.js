@@ -44,7 +44,8 @@ module.exports = {
                 ARRIVE: API_URL+'/order/address/%d/arrive',
                 DONE: API_URL+'/order/address/%d/done',
             },
-            TICKET: API_URL+'/order/ticket'
+            TICKET: API_URL+'/order/ticket',
+            TIME: API_URL+'/order/setting'
         },
 
         WAYBILL: {

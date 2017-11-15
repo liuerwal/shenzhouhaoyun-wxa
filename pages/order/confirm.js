@@ -8,6 +8,7 @@ P.run({
         region: ['广东省', '广州市', '海珠区'],
 
         oil_type: [],
+        choosetime :[],
         index: 0,
         allcash: '0.00',
         cost: '0',
@@ -25,6 +26,8 @@ P.run({
         addr_block: true,
         add_one :true,
         other_block: true,
+
+        showModalStatus: false  
     },
     customData: {
         tid: null,
@@ -42,9 +45,7 @@ P.run({
         var oil = this.data.oil_type[e.detail.value]
 
         this.setCurrentOil(oil)
-
     },
-
     oilCost: function(e){
         var weight = e.detail.value;
         var index  = e.currentTarget.dataset.index
@@ -54,8 +55,22 @@ P.run({
         this.setCurrentOil(oil)
 
     },
+    datatime :function(e){
+        var that = this
+        console.log('picker发送选择改变，携带值为', e.detail.value)
+        P.Api.order.choosetime(function(response){
+            if ( response ){
+                that.setData({
+                    choosetime: response.time,
+                    index: e.detail.value,
+                    time :e.detail.value
+                })
+            }
+        })  
+    },
 
     formSubmit:function  (e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
         var that          = this
         var note          = e.detail.value.remarks
         var oil_id        = this.data.current_oil.id
@@ -150,15 +165,24 @@ P.run({
             });
         })
 
-        Promise.all([oil, addr, price]).then(function(result){
+        var time = new Promise(function(resolve, reject){
+            P.Api.order.choosetime(function(response){
+                resolve(response)
+            });
+        })
+
+        Promise.all([oil, addr, price ,time]).then(function(result){
+            console.log(that.customData)
 
             that.customData.oil   = result[0]
             that.customData.addr  = result[1]
             that.customData.price = result[2]
+            that.customData.time  = result[3]
 
             that.setData({
                 oil_type: that.customData.oil,
                 addrs: that.customData.addr,
+                choosetime :that.customData.time,
             })
 
             that.setCurrentOil(that.customData.oil[0]);
@@ -220,6 +244,11 @@ P.run({
         var addr = this.customData.addr[index]
 
         this.setCurrentAddrs(addr)
+
+        this.setData({
+            showModalStatus: false  
+        })
+        
     },
 
     removeAddr: function(e){
@@ -309,7 +338,59 @@ P.run({
                 })
             }
         })
-    }
+    },
+    powerDrawer: function (e) {  
+        var currentStatu = e.currentTarget.dataset.statu;  
+        this.util(currentStatu)  
+    },  
+    util: function(currentStatu){  
+    /* 动画部分 */  
+    // 第1步：创建动画实例   
+    var animation = wx.createAnimation({  
+        duration: 200,  //动画时长  
+        timingFunction: "ease", //线性  
+        delay: 0  //0则不延迟  
+    });  
+      
+    // 第2步：这个动画实例赋给当前的动画实例  
+    this.animation = animation;  
+  
+    // 第3步：执行第一组动画：Y轴偏移240px后(盒子高度是240px)，停  
+    animation.translateY(240).step();  
+  
+    // 第4步：导出动画对象赋给数据对象储存  
+    this.setData({  
+        animationData: animation.export()  
+    })  
+      
+    // 第5步：设置定时器到指定时候后，执行第二组动画  
+    setTimeout(function () {  
+        // 执行第二组动画：Y轴不偏移，停  
+        animation.translateY(0).step()  
+        // 给数据对象储存的第一组动画，更替为执行完第二组动画的动画对象  
+        this.setData({  
+            animationData: animation  
+        });  
+        
+        //关闭抽屉  
+        if (currentStatu == "close") {  
+            this.setData(  
+            {  
+                showModalStatus: false  
+            }  
+        );  
+      }  
+    }.bind(this), 200)  
+    
+    // 显示抽屉  
+    if (currentStatu == "open") {  
+      this.setData(  
+        {  
+          showModalStatus: true  
+        }  
+      );  
+    }  
+  }  
 
 });
 

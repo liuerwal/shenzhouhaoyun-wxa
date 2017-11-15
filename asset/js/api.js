@@ -182,6 +182,15 @@ module.exports = {
                     _.toast(response.msg)
                 }
             })
+        },
+        choosetime: function(success){
+            Http.get( CONFIG.API.ORDER.TIME, {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
         }
     },
 
