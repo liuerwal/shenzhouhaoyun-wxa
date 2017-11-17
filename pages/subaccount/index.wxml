@@ -1,17 +1,17 @@
 <view class="public-bg">
-    <view wx:for="{{ users }}" wx:key="user" wx:for-item="user" class="account_list">
-        <view class="list_info">
-            <text class="list-left fl-left">姓名</text>
-            <text class="list-right fl-left">: {{ user.username }}</text>
-        </view>
-        <navigator url="../subaccount/detail" hover-class="none">
+    <block wx:for="{{ users }}" wx:key="user" wx:for-item="user">
+        <view  class="account_list" data-index="{{ index }}" bindtap="showSubaccount">
+            <view class="list_info">
+                <text class="list-left fl-left">姓名</text>
+                <text class="list-right fl-left">: {{ user.username }}</text>
+            </view>
             <view class="list_info">
                 <text class="list-left fl-left">电话号码</text>
                 <text class="list-right fl-left">: {{ user.phone }}</text>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
-        </navigator>
-    </view>   
+        </view>   
+    </block>
     <navigator url="add" hover-class="none">
         <button class="btn" bindtap="">新增账户</button>
     </navigator>

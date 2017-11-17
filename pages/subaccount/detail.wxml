@@ -2,7 +2,7 @@
     <view class="form-box">
         <view class="section">
             <view class="section__title">限额</view>
-            <input name="" placeholder="限额" value="" class=""/>
+            <input type="digit" name="limit" placeholder="设置子账户限额" value="" class="" bindinput="limit"/>
         </view>
     </view>
 
@@ -10,26 +10,26 @@
         <view class="list-title">账户详情</view>
         <view class="list_info">
             <text class="list-left fl-left">电话号码</text>
-            <text class="list-right"> 123456789520</text>
+            <text class="list-right"> {{ user.phone }}</text>
         </view>
         <view class="list_info">
-            <text class="list-left fl-left">些什么</text>
-            <text class="list-right"> 不知道</text>
+            <text class="list-left fl-left">限额</text>
+            <text class="list-right"> {{ user.limit_fund }}</text>
         </view>
         <view class="list_info">
-            <text class="list-left fl-left">些什么</text>
-            <text class="list-right"> 不知道</text>
+            <text class="list-left fl-left">已使用</text>
+            <text class="list-right"> {{ user.used_fund }}</text>
         </view>
         <view class="list_info">
-            <text class="list-left fl-left">些什么</text>
-            <text class="list-right"> 不知道</text>
+            <text class="list-left fl-left">剩余</text>
+            <text class="list-right"> {{ user.remain_fund }}</text>
         </view>
         <view class="list_info">
             <text class="list-left fl-left">是否关闭此账户</text>
-            <text class="list-right main-color">关闭</text>
+            <text class="list-right main-color" bindtap="closeSubaccount">关闭</text>
         </view> 
     </view>
 
-    <!-- <button  class="btn">关闭</button> -->
+    <button class="btn" bindtap="close">确 定</button>
 
 </view>

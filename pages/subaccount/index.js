@@ -42,6 +42,15 @@ P.run({
         });
     },
 
+    showSubaccount: function(e){
+        var index = e.currentTarget.dataset.index
+        var user = this.data.users[index]
+
+        getApp().globalData('subaccount_show', user)
+
+        _.navigateTo('detail')
+    },
+
     onReachBottom: function(){
         if ( this.customData.hasMore ){
             this.loadSubAccount()
