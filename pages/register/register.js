@@ -34,6 +34,8 @@ P.run({
             var params = this.parseUrl(url)
             console.log(params)
 
+            this.customData.phone = params.phone
+
             this.setData({
                 parent: params.parent,
                 phone: params.phone,
@@ -43,7 +45,7 @@ P.run({
     },
 
     formSubmit:function(e){
-        var that     =this;
+        var that     = this;
         var role     = e.detail.value['radio-group'];
         var phone    = e.detail.value.phone;
         var password = e.detail.value.password;
