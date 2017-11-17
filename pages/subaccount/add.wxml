@@ -11,7 +11,7 @@
         </view>
 
         <view class="section">
-            <input name="phone" bindchange="phoneChange" placeholder="请设置手机号码" value="" />
+            <input name="phone" bindinput="phoneChange" placeholder="请设置手机号码" value="" />
         </view>
 
         
