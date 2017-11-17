@@ -11,6 +11,8 @@ P.run({
         login: false,
         parent: 0,
         phone: '',
+
+        countdown: false,
     },
 
     data: {
@@ -94,11 +96,16 @@ P.run({
     },
     
     getcode:function(){
-        var total_micro_second = 60 * 1000;
-        //验证码倒计时
-        count_down(this, total_micro_second);
+        if ( this.customData.countdown === false ){
+            console.log('count down')
+            this.customData.countdown = true
 
-        P.Api.verifyCode(this.customData.phone)
+            var total_micro_second = 60 * 1000;
+            //验证码倒计时
+            count_down(this, total_micro_second);
+
+            P.Api.verifyCode(this.customData.phone)
+        }
     },
 
     parseUrl: function(url){
@@ -121,10 +128,12 @@ P.run({
     function count_down(that, total_micro_second) {
         if (total_micro_second <= 0) {
             that.setData({
-            VerifyCode: "重新发送"
-        });
-        // timeout则跳出递归
-        return;
+                VerifyCode: "重新发送"
+            });
+            // timeout则跳出递归
+            
+            that.customData.countdown = true
+            return;
         }
 
         // 渲染倒计时时钟
