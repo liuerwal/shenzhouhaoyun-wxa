@@ -10,6 +10,7 @@ P.run({
         oil_type: [],
         choosetime :[],
         index: 0,
+        ct: 0,
         allcash: '0.00',
         cost: '0',
         weight: 0,
@@ -58,15 +59,9 @@ P.run({
     datatime :function(e){
         var that = this
         console.log('picker发送选择改变，携带值为', e.detail.value)
-        P.Api.order.choosetime(function(response){
-            if ( response ){
-                that.setData({
-                    choosetime: response.time,
-                    index: e.detail.value,
-                    time :e.detail.value
-                })
-            }
-        })  
+            that.setData({
+                ct :  e.detail.value
+            }) 
     },
 
     formSubmit:function  (e) {
@@ -77,7 +72,7 @@ P.run({
         var weight        = _.array_column(this.data.current_addr, 'weight')
         var addrs         = _.array_column(this.data.current_addr, 'id')
         // var pay_cash      = e.detail.value['radio-group'];
-        var expected_time = e.detail.value.time;
+        var expected_time = _.date('Y-m-d H:i:s', _.strtotime('+'+e.detail.value.time+' hours'));
 
         if ( !oil_id ){
             _.alert("请选择购买的油料种类");
@@ -126,6 +121,7 @@ P.run({
                     freight: response.freight,
                     frozen: response.frozen,
                     cost: response.cost,
+                    allweight: weight,
                     oil_block: true,
                     other_block: false
                 })
@@ -142,10 +138,10 @@ P.run({
     loadInitData: function(){
         var that = this;
         
-        // wx.showLoading({
-        //     title: '加载数据...',
-        //     mask: true,
-        // })
+        wx.showLoading({
+            title: '加载数据...',
+            mask: true,
+        })
 
         var oil = new Promise(function(resolve, reject){
             P.Api.oil.list(function(response){
@@ -177,7 +173,7 @@ P.run({
             that.customData.oil   = result[0]
             that.customData.addr  = result[1]
             that.customData.price = result[2]
-            that.customData.time  = result[3]
+            that.customData.time  = result[3].time
 
             that.setData({
                 oil_type: that.customData.oil,

@@ -63,13 +63,13 @@ module.exports = {
     formatTime2: formatTime2,
 
     date: function(format, timestamp){
-        var date = new Date(timestamp*1000)
-        if ( format=='m-d' ){
-            return [date.getMonth()+1, date.getDate()].map(formatNumber).join('-')
-        }
-        if ( format=='H-i' ){
-            return [date.getHours(), date.getMinutes()].map(formatNumber).join(':')
-        }
+        var date = timestamp ? new Date(timestamp*1000) : new Date()
+        return format.replace('Y', date.getFullYear())
+                     .replace('m', date.getMonth()+1)
+                     .replace('d', date.getDate())
+                     .replace('H', date.getHours())
+                     .replace('i', date.getMinutes())
+                     .replace('s', date.getSeconds())
     },
 
     extend: function() {
