@@ -5,7 +5,7 @@
 
 .Location{padding-left:10px;}
 .radio-group label{padding-right: 10px;}
-.oil-box{margin-top:20px;}
+.oil-box{margin-top:20px;margin-bottom:20px;}
 .list_info:last-child{border:none;}
 
 .public-mask{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(68, 68, 68, 0.5);}
@@ -18,4 +18,5 @@
 .mask-btn .cancel-btn{}
 .mask-info{width:90%;padding:0 5%;margin-bottom: 20px;}
 
+.section-detail{border-top:5px solid #eeeff3;}
 .delivery-addrs{width:200px; white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow: hidden;text-align: right}

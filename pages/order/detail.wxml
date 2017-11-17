@@ -44,6 +44,10 @@
                 <text class="list-left fl-left">重量</text>
                 <text class="list-right"> {{ addr.weight }}吨</text>
             </view>
+            <view class="list_info">
+                <text class="list-left fl-left">重量</text>
+                <text class="list-right"> {{ addr.phone }}</text>
+            </view>
         </view>
     </view>
 

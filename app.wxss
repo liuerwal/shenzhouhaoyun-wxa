@@ -25,6 +25,7 @@ view{font-size: 15px;}
 .tabbar-info image{width: 25px;height: 25px;}
 .icon-title{font-size: 12px;color: #999;}
 .bottom-icon{height: 26px;}
+.home-icon{width:27px !important;height: 27px !important;}
 
 page{height:100%;}
 .container{min-height: 100%;}
