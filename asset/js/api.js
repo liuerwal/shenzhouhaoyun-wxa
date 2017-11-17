@@ -386,6 +386,15 @@ module.exports = {
                     _.toast(response.msg)
                 }
             })
+        },
+        resetLimitFund: function(user_id, limit, success){
+            Http.post( CONFIG.API.USER.RESET_LIMIT_FUND, {'id': user_id, 'limit_fund': limit}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
         }
     },
 
