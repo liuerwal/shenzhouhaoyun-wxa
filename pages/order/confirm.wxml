@@ -38,10 +38,10 @@
                 <view class='main-color'>默认从当天晚上9点开始送</view>
                 <view class="picker">
                     <view class="section__title">送达时间</view>
-                    <!-- <picker bindchange="datatime" value="0" range="{{choosetime}}" >
-                        <input value=""  disabled placeholder="请选择时间(小时)" name="time"/>
-                    </picker> -->
-                    <input type="text" disabled name="time" value="{{datetime}}" bindtap="datetimePickerShow" placeholder="请选择时间"/>
+                    <picker bindchange="datatime" value="{{ct}}" range="{{choosetime}}" >
+                        <input value="{{choosetime[ct]}}小时内"  disabled placeholder="请选择时间(小时)" name="time"/>
+                    </picker>
+                    <!-- <input type="text" disabled name="time" value="{{datetime}}" bindtap="datetimePickerShow" placeholder="请选择时间"/> -->
                 </view>
             </view>
 
@@ -175,17 +175,18 @@
         </view> -->
 
         <view class="other" hidden="{{other_block}}">
+
             <view class='section'>
                 <view class="cash-box">
-                    <view class="all-cash fl-left">运费：￥{{ freight }}</view>
-                    <view class="Frozen-cash fl-right">油费：￥{{ amount }}</view>
-                    <!-- <text>自动冻结金额1000元</text> -->
+                    <view class="all-cash fl-left">总重量：{{ allweight }}吨</view>
+                    <view class="all-cash fl-right">运费：￥{{ freight }}</view>
                 </view>
             </view>
 
             <view class='section'>
                 <view class="cash-box">
-                    <view class="all-cash fl-left">总金额：￥{{ cost }}</view>
+                    <view class="all-cash fl-left">油费：￥{{ amount }}</view>
+                    <view class="all-cash fl-right main-color">总金额：￥{{ cost }}</view>
                     <!-- <view class="Frozen-cash fl-right">押金：￥{{ frozen }}</view> -->
                     <!-- <text>自动冻结金额1000元</text> -->
                 </view>
