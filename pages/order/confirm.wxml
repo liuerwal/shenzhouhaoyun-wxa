@@ -18,11 +18,6 @@
     <view class="form-box">
 
         <view hidden="{{oil_block}}" class="order-type">
-            <view class="notice">
-                <text>提示：一次下单越多，价格越优惠</text>
-                <text class="notice-addr">从地址列表中选择送货地址，最多3个</text>
-                <view class="link text-center" bindtap="newAddr">新增地址</view>
-            </view>
 
             <view class="section oiltype">
                 <view class="picker">
@@ -34,23 +29,12 @@
                 <view class="unit-price main-color" bindtap="powerDrawer" data-statu="open">{{ current_oil.price }}元/吨</view>
             </view>
 
-            <view class="section">
-                <view class='main-color'>默认从当天晚上9点开始送</view>
-                <view class="picker">
-                    <view class="section__title">送达时间</view>
-                    <picker bindchange="datatime" value="{{ct}}" range="{{choosetime}}" >
-                        <input value="{{choosetime[ct]}}小时内"  disabled placeholder="请选择时间(小时)" name="time"/>
-                    </picker>
-                    <!-- <input type="text" disabled name="time" value="{{datetime}}" bindtap="datetimePickerShow" placeholder="请选择时间"/> -->
-                </view>
+            <view class="notice">
+                <text>提示：从地址列表中选择送货地址，最多3个</text>
+                <!-- <text class="notice-addr">从地址列表中选择送货地址，最多3个</text> -->
+                <view class="link text-center" bindtap="newAddr">新增地址</view>
             </view>
 
-            <view class="section">
-                <view class="section__title">备注信息</view>
-                <input placeholder="请填写备注信息" name="remarks" placeholder-style="z-index:1"/>
-            </view>
-            
-            
             <view class="choose-add" bindtap="powerDrawer" data-statu="open">选择地址</view>
 
             <!--mask-->  
@@ -123,6 +107,22 @@
                 </view>
             </view>
 
+            <view class="section service-time">
+                <view class='main-color'>默认从当天晚上9点开始送</view>
+                <view class="picker">
+                    <view class="section__title">送达时间</view>
+                    <picker bindchange="datatime" value="{{ct}}" range="{{choosetime}}" >
+                        <input value="{{choosetime[ct]}}小时内"  disabled placeholder="请选择时间(小时)" name="time"/>
+                    </picker>
+                    <!-- <input type="text" disabled name="time" value="{{datetime}}" bindtap="datetimePickerShow" placeholder="请选择时间"/> -->
+                </view>
+            </view>
+
+            <view class="section">
+                <view class="section__title">备注信息</view>
+                <input placeholder="请填写备注信息" name="remarks" placeholder-style="z-index:1"/>
+            </view>
+
             <view class="addr-btn">
                 <!-- <button class="btn"  bindtap="add">新增地址</button> -->
                 <button class="btn"  bindtap="showConfirmBlock">确定</button>
@@ -191,6 +191,8 @@
                     <!-- <text>自动冻结金额1000元</text> -->
                 </view>
             </view>
+
+            <button class="btn" bindtap="returnorder">返回查看订单信息</button>
 
             
             <button class="submit-order" formType="submit">提交订单</button>

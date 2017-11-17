@@ -18,7 +18,7 @@ P.run({
     data: {
         parent: 0,
         phone: '',
-        disabled: 'false',
+        disabled: false,
 
         VerifyCode:"发送验证码"
     },
@@ -39,7 +39,7 @@ P.run({
             this.setData({
                 parent: params.parent,
                 phone: params.phone,
-                disabled: params.parent ? 'true' : 'false',
+                disabled: params.parent ? true : false,
             })
         }
     },
@@ -98,6 +98,10 @@ P.run({
     },
     
     getcode:function(){
+        if( this.customData.phone.length != 11){
+            return;
+        }
+
         if ( this.customData.countdown === false ){
             console.log('count down')
             this.customData.countdown = true

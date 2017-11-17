@@ -39,7 +39,13 @@ P.run({
     onLoad: function(){
 
         this.loadInitData()
+    },
 
+    returnorder: function(){
+        this.setData({
+            oil_block: false,
+            other_block: true
+        })
     },
 
     bindOilChange: function(e) {

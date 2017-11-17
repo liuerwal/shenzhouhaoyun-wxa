@@ -87,6 +87,10 @@
                         <text class="list-left fl-left">所处位置</text>
                         <text bindtap="showLocatioin" data-lat="{{addr.lat}}" data-lng="{{addr.lng}}"  class="fl-right main-color Location">查看位置</text>
                     </view>
+                    <view class="list_info">
+                        <text class="list-left fl-left">手机号码</text>
+                        <view class="fl-right delivery-addrs">{{ addr.phone }}</view>
+                    </view>
 
                     <view>
                         <block wx:if="{{waybill.status == 3}}"> 
