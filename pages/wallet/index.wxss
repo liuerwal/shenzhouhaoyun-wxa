@@ -1,7 +1,11 @@
 /**Recharge.wxss**/
 .balance-box{height:100%;background: #f5f5f5}
 navigator{display: block;}
-.balance-info{margin:0 auto;padding-top:50px;}
+
 .balance-info image{width:80px;height:80px;margin:20px auto;display: block;}
-.balance{text-align: center;}
-.balance .main-color{display: block;font-size:32px;font-weight:bold;line-height: 50px;}
+
+.driver{padding:10px 0;overflow: hidden;border-bottom:1px solid #e5e5e5;margin:0 15px;}
+.driver:last-child{border:none;}
+.driver .main-color{display: block;font-size:32px;font-weight:bold;}
+.driver-info{background: #fff;overflow: hidden;}
+.driver .driver-title{display:block;padding-left: 5px;}

@@ -2,7 +2,7 @@
 
 <view class="public-bg">
 	<view class="index-banner">
-		<image src="../../asset/img/car.jpg"></image>
+		<image src="../../asset/img/car.png"></image>
 	</view>
 	<view class="order-box">
 		<navigator url="../order/confirm" hover-class="none">

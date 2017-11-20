@@ -1,10 +1,13 @@
 <!-- 司机的界面 -->
 <block wx:if="{{ user.parent_id > 0 }}">
-    <view class="balance-box">
-        <view class="balance-info">
-            <image src="../../asset/img/balance.png"></image>
-            <view class="balance">限额(元)<text class="main-color">￥{{user.limit_fund}}</text></view>
-            <view class="balance">剩余(元)<text class="main-color">￥{{user.remain_fund}}</text></view>
+    <view class="balance-box ">
+        <view class="balance-info driver-info">
+            <view class="driver">
+                <text class="driver-title">限额(元)</text><text class="main-color">￥{{user.limit_fund}}</text>
+            </view>
+            <view class="driver">
+                <text class="driver-title">剩余(元)</text><text class="main-color">￥{{user.remain_fund}}</text>
+            </view>
         </view>
     </view>
 </block>
@@ -12,14 +15,15 @@
 <!-- 老板的界面 -->
 <block wx:if="{{ user.parent_id==0 }}">
     <view class="balance-box">
-        <view class="balance-info">
-            <image src="../../asset/img/balance.png"></image>
-            <view class="balance">余额(元)<text class="main-color">￥{{user.fund}}</text></view>
+        <view class="driver-info">
+            <view class="driver">
+                <text class="driver-title">余额(元)</text><text class="main-color">￥{{user.fund}}</text>
+            </view>
         </view>
         
     <!--    <view class="deposit">押金： <text class="main-color">￥{{user.frozen}}</text></view>
-    --> <navigator url="inpour" hover-class="none"><button class="btn">充值</button></navigator>
-    <!-- <navigator url="outpour" hover-class="none"><button class="cash">提现</button></navigator> -->
+--> <navigator url="inpour" hover-class="none"><button class="btn">充值</button></navigator>
+<!-- <navigator url="outpour" hover-class="none"><button class="cash">提现</button></navigator> -->
 
-    </view>
+</view>
 </block>

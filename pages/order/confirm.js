@@ -313,8 +313,8 @@ P.run({
         }
 
         if ( isNaN(i) ){
-            if ( addrs.length >= 3 ){
-                _.toast('最多指定3个地址')
+            if ( addrs.length >= 1 ){
+                _.toast('只能选择1个地址')
                 return false;
             }
             addrs.push(addr)

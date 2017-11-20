@@ -83,11 +83,11 @@
                 </view>
             </view>
 
-            <view class="m-box" wx:if="{{ current_addr[1] }}">
+            <!-- <view class="m-box" wx:if="{{ current_addr[1] }}">
                 <view class="m-info" data-index="1">
                     <view class="m-name fl-left">{{ current_addr[1].alias }}</view>
                     <view class="m-phone fl-right"  bindtap="removeAddr"> × </view>
-                    <!-- <view class="m-address">{{item.address}}</view> -->
+                    <view class="m-address">{{item.address}}</view>
                 </view>
                 <view class="section" >
                     <view class="section__title">重量</view>
@@ -99,13 +99,13 @@
                 <view class="m-info" data-index="2">
                     <view class="m-name fl-left">{{ current_addr[2].alias }}</view>
                     <view class="m-phone fl-right"  bindtap="removeAddr"> × </view>
-                    <!-- <view class="m-address">{{item.address}}</view> -->
+                    <view class="m-address">{{item.address}}</view>
                 </view>
                 <view class="section" >
                     <view class="section__title">重量</view>
                     <input type="digit" placeholder="吨" name="weight"  data-index="2" value="{{ current_addr[2].weight }}" bindinput="oilCost" cursor-spacing="100"/>
                 </view>
-            </view>
+            </view> -->
 
             <view class="section service-time">
                 <view class='main-color'>默认从当天晚上9点开始送</view>

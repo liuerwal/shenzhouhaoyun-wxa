@@ -24,10 +24,10 @@
             <text class="list-left fl-left">剩余</text>
             <text class="list-right"> {{ user.remain_fund }}</text>
         </view>
-        <view class="list_info">
+        <!-- <view class="list_info">
             <text class="list-left fl-left">是否关闭此账户</text>
             <text class="list-right main-color" bindtap="closeSubaccount">关闭</text>
-        </view> 
+        </view>  -->
     </view>
 
     <button class="btn" bindtap="close">确 定</button>

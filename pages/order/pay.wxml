@@ -6,13 +6,14 @@
 			<text class="list-right"> {{order.order_no}}</text>
 		</view>
 		<view class="list_info">
-			<text class="list-left fl-left">重量</text>
-			<text class="list-right"> {{order.weight}}吨</text>
-		</view>
-		<view class="list_info">
 			<text class="list-left fl-left">油品</text>
 			<text class="list-right"> {{order.oil}}</text>
 		</view>
+		<view class="list_info">
+			<text class="list-left fl-left">重量</text>
+			<text class="list-right"> {{order.weight}}吨</text>
+		</view>
+		
 		<view class="list_info">
 			<text class="list-left fl-left">油费</text>
 			<text class="list-right"> {{order.detail.amount}}</text>

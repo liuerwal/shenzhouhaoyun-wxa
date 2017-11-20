@@ -61,9 +61,9 @@ P.run({
 
             _.toast('设置成功')
 
-            setTimeout(function(){
-                wx.navigateBack()
-            }, 3000)
+            // setTimeout(function(){
+            //     wx.navigateBack()
+            // }, 3000)
         })
     }
 

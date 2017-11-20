@@ -3,6 +3,10 @@
         "pages/login/login",
         "pages/register/register",
         
+        "pages/wallet/index",
+        "pages/wallet/outpour",
+        "pages/wallet/inpour",
+        
         "pages/order/index",
         "pages/order/list",
         "pages/order/confirm",
@@ -21,10 +25,6 @@
         "pages/my/reset_password",
         "pages/my/reset_phone",
 
-        "pages/wallet/index",
-        "pages/wallet/outpour",
-        "pages/wallet/inpour",
-        
         "pages/message/index",
         "pages/message/detail",
         
