@@ -47,7 +47,7 @@ App({
 
     on: function(event, fn){
         var pages = getCurrentPages()
-        var route = pages[page.length-1].route
+        var route = pages[pages.length-1].route
 
         var queue = this.eventQueue[route] || {}
 
