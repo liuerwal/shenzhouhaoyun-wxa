@@ -263,6 +263,17 @@ module.exports = {
         })
     },
 
+    loading: function(message){
+        wx.showLoading({
+            title: message,
+            mask: true,
+        })
+    },
+
+    hideLoading: function(message){
+        wx.hideLoading()
+    },
+
     redirectTo: function(url){
         wx.redirectTo({
             url: url

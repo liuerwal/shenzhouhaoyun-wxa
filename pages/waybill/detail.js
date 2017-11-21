@@ -98,8 +98,11 @@ P.run({
         var that = this
         var data = location ? {lat: location.latitude, lng: location.longitude} : {}
 
+        _.loading('提交中...')
+
         P.Api.waybill[status](id, _.extend(data, extra), function(response){
             that.loadWaybill();
+            _.hideLoading()
         })
     },
 
@@ -181,8 +184,11 @@ P.run({
         var that = this
         var data = location ? {lat: location.latitude, lng: location.longitude} : {}
 
+        _.loading('提交中...')
+
         P.Api.order.address[status](id, data, function(response){
             that.loadWaybill();
+            _.hideLoading()
         })
     },
 
