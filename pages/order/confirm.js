@@ -233,8 +233,8 @@ P.run({
             this.setData({
                 current_addr: current_addr,
                 current_oil: current_oil,
-                oil_block: true,
-                addr_block: false
+                oil_block: false,
+                other_block: true
             })
         })
 
@@ -304,6 +304,7 @@ P.run({
     },
 
     setCurrentAddrs: function(addr, i){
+        var i = 0;//改为只能有一个地址
         var addrs = this.data.current_addr
 
         for( var x in addrs ){

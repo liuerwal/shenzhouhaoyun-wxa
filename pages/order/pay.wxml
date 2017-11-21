@@ -35,7 +35,8 @@
 	<view class="pay-btn">
 		<button class="online-btn fl-left btn-big btn" bindtap="payOnline">微信支付</button>
 		<button wx:if="{{ order.use_fund }}" class="fl-right btn deposit" bindtap="payDeposit">余额支付</button>
-		<button class="line-btn fl-left" bindtap="payCash">线下支付</button>
+		<!-- <button class="line-btn fl-left" bindtap="payCash">线下支付</button> -->
+		<button class="line-btn fl-left" wx:if="{{ haveBoss }}" disabled="{{disabled}}" bindtap="payBoss">老板支付</button>
 	</view>
 
 	<!-- <button class="submit-order btn" bindtap="pay">确认支付</button> -->

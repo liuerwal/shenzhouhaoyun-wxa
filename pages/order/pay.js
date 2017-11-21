@@ -3,6 +3,10 @@ var _ = P._
 
 P.run({
 
+    data: {
+        boss_pay_btn: false,
+    },
+
     onLoad: function(options){
 
 
@@ -10,6 +14,8 @@ P.run({
 
         this.setData({
             order: order,
+            haveBoss: _.cache('user').parent_id ? true : false,
+            boss_pay_btn: order.boss_pay ? true : false,
         })
 
     },
@@ -62,6 +68,15 @@ P.run({
 
     payCash: function(){
         _.toast('好的')
+    },
+
+    payBoss: function(){
+        var that = this
+        var order = getApp().globalData('order')
+
+        P.Api.pay(order.order_no, 'boss', function(response){
+            that.paySuccess()
+        })
     },
 
     paySuccess: function(){
