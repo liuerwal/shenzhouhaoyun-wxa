@@ -5,6 +5,10 @@ P.run({
 
     data: {
         boss_pay_btn: false,
+        pay_choose_box: true,
+    },
+    customData: {
+        payWith: null,
     },
 
     onLoad: function(options){
@@ -20,16 +24,23 @@ P.run({
 
     },
 
-    payDeposit: function(){
+    choose: function(e){
+        this.customData.payWith = e.currentTarget.dataset.paywith
+        this.setData({
+            pay_choose_box: false,
+        })
+    },
+
+    payDeposit: function(paypart){
         var that = this
         var order = getApp().globalData('order')
 
-        P.Api.pay(order.order_no, 'deposit', function(response){
+        P.Api.pay(order.order_no, 'deposit', paypart, function(response){
             that.paySuccess()
         })
     },
 
-    payOnline: function(){
+    payOnline: function(paypart){
         var that = this
         var order = getApp().globalData('order')
 
@@ -40,7 +51,7 @@ P.run({
                 mask: true,
             })
 
-            P.Api.pay(order.order_no, 'online', function(response){
+            P.Api.pay(order.order_no, 'online', paypart, function(response){
                 wx.hideLoading()
 
                 wx.requestPayment(_.extend(response, {
@@ -66,17 +77,24 @@ P.run({
         }
     },
 
-    payCash: function(){
-        _.toast('好的')
-    },
-
-    payBoss: function(){
+    payBoss: function(paypart){
         var that = this
         var order = getApp().globalData('order')
 
-        P.Api.pay(order.order_no, 'boss', function(response){
+        P.Api.pay(order.order_no, 'boss', paypart, function(response){
             that.paySuccess()
         })
+    },
+
+    pay: function(){
+        this[this.customData.payWith]( this.customData.payPart )
+    }
+
+    payAll: function(){
+        this.customData.payPart = 'all'
+    },
+    payFreight: function(){
+        this.customData.payPart = 'freight'
     },
 
     paySuccess: function(){
@@ -84,5 +102,5 @@ P.run({
         setTimeout(function(){
             _.redirectTo('/pages/order/list')
         }, 1000)
-    }
+    },
 })

@@ -28,7 +28,8 @@
                 <block wx:else>
                     <block wx:if="{{item.pay_status == 1}}"> 已支付 </block>
                     <block wx:if="{{item.pay_status != 1}}">
-                        <navigator url="pay?order={{item.order_no}}" hover-class="none"> 去支付 </navigator>
+                        <navigator wx:if="{{ item.order_oil.freight_pay_status == 0 }}" url="pay?order={{item.order_no}}" hover-class="none"> 去支付 </navigator>
+                        <block wx:if="{{ item.order_oil.freight_pay_status == 1 }}"> 货到付款 </block>
                     </block>
                 </block>
             </view>

@@ -321,8 +321,8 @@ module.exports = {
         }
     },
 
-    pay: function(order, paywith, success){
-        Http.post( CONFIG.API.PAY, {order: order, paywith: paywith, openid: _.cache('openid')}, function(response){
+    pay: function(order, paywith, paypart, success){
+        Http.post( CONFIG.API.PAY, {order: order, paywith: paywith, paypart: paypart, openid: _.cache('openid')}, function(response){
             if ( response.status == 1){
                 success && success(response.data)
             }else{

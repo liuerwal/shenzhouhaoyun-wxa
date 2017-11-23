@@ -3,21 +3,20 @@
         "pages/login/login",
         "pages/register/register",
 
-        "pages/waybill/list",
-        "pages/waybill/detail",
-
         "pages/order/index",
         "pages/order/list",
         "pages/order/confirm",
         "pages/order/detail",
         "pages/order/pay",
         "pages/order/payticket",
+
+        "pages/waybill/list",
+        "pages/waybill/detail",
+
         
         "pages/wallet/index",
         "pages/wallet/outpour",
         "pages/wallet/inpour",
-        
-        
         
         "pages/my/bill",
         "pages/my/bill_detail",
