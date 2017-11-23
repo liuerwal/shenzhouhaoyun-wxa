@@ -24,9 +24,11 @@
 	            <view class="section__title">收货号码</view>
 	            <input name="phone" placeholder="收货现场人员手机" value="{{location.phone}}" type="number"/>
 	        </view>
+	        <image src="../../asset/img/nav-icon.png" class="icon nav-icon" bindtap="chooseLocation"></image>
 	    </view>
 
-	    <button class="btn" bindtap="chooseLocation">获取地址</button>
+	    <!-- <view class="nav-icon" bindtap="chooseLocation">获取地址</view> -->
+
 	    <button class="btn" formType="submit">确定</button>
 	</form>
 

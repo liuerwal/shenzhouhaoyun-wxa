@@ -39,5 +39,24 @@
 	</view>
 
 	<!-- <button class="submit-order btn" bindtap="pay">确认支付</button> -->
+	<!-- <view class="pay_choose_box" hidden="{{ pay_choose_box }}">
+		<view bindtap="payAll">一次性付款(支付总计 {{order.amount}} 元)</view>
+		<view bindtap="payFreight">货到付款(支付运费 {{order.detail.freight}} 元)</view>
+	</view> -->
+
+	<view class="public-mask" hidden="{{ mask }}">
+        <view class="mask-content">
+            <form bindsubmit="waybillCancel">
+                <view class="mask-title">请选择支付形式</view>
+                <view class="mask-info">
+                    <radio-group class="radio-group" name="reason_radio">
+	                    <label class="radio" bindtap="payAll"> <radio value="一次性付款" />一次性付款(支付总计 {{order.amount}} 元) </label>
+	                    <label class="radio" bindtap="payFreight"> <radio value="货到付款" />货到付款(支付运费 {{order.detail.freight}} 元) </label>
+	                </radio-group>
+	            </view>
+	        </form>
+	    </view>
+	</view>
+
 </view>
 

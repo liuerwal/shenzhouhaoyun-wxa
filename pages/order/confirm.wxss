@@ -1,7 +1,8 @@
 /**index.wxss**/
-.cash-box{overflow: hidden;}
+.cash-box{overflow: hidden;padding:0 15px;}
 .cash-box text{clear: both;border-top:1px solid #e5e5e5;padding:10px 0;display: block;color: #a9a9a9;}
-.submit-order{z-index:10;position:fixed;bottom:0px;width: 100%;font-size: 14px;border-radius:0;background: #F13D3C;color: #fff;border:none;line-height:40px;}
+.submit-order{z-index:10;position:fixed;bottom:0px;right:0;width: 50%;font-size: 14px;border-radius:0;background: #F13D3C;color: #fff;border:none;line-height:40px;}
+.returnorder{z-index:10;position:fixed;bottom:0px;left:0;width: 50%;font-size: 14px;border-radius:0;background: #F13D3C;color: #fff;border:none;line-height:40px;border-right: 1px solid #eee}
 form{margin-bottom: 100px;height: 100%;}
 .time{margin-top:10px;}
 .detailed-info input{width: 100%;}
@@ -17,6 +18,7 @@ form{margin-bottom: 100px;height: 100%;}
 .form-box .section{margin-left:0;background: #fff;}
 .detailed-info view,.detailed-info picker,.main-color,.all-cash,.form-box .section__title{margin-left:15px;}
 .form-box{background:#eeeff3;}
+button::after{content:none;}
 
 .m-box{background: #fff;overflow: hidden;margin-top: 10px;}
 .m-info,.address-btn{padding:15px;overflow: hidden;}
@@ -60,7 +62,7 @@ form{margin-bottom: 100px;height: 100%;}
 .drawer_attr_box {  
   width: 96%;  
   height: 96%;
-  overflow: hidden;  
+  overflow: auto;  
   position: fixed;  
   top: 2%;  
   left: 2%;  

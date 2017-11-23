@@ -178,23 +178,21 @@
 
             <view class='section'>
                 <view class="cash-box">
-                    <view class="all-cash fl-left">总重量：{{ allweight }}吨</view>
-                    <view class="all-cash fl-right">运费：￥{{ freight }}</view>
+                    <view class="fl-left">总重量：{{ allweight }}吨</view>
+                    <view class="fl-right">运费：￥{{ freight }}</view>
                 </view>
             </view>
 
             <view class='section'>
                 <view class="cash-box">
-                    <view class="all-cash fl-left">油费：￥{{ amount }}</view>
-                    <view class="all-cash fl-right main-color">总金额：￥{{ cost }}</view>
+                    <view class="fl-left">油费：￥{{ amount }}</view>
+                    <view class="fl-right main-color">总金额：￥{{ cost }}</view>
                     <!-- <view class="Frozen-cash fl-right">押金：￥{{ frozen }}</view> -->
                     <!-- <text>自动冻结金额1000元</text> -->
                 </view>
             </view>
 
-            <button class="btn" bindtap="returnorder">返回查看订单信息</button>
-
-            
+            <button class="returnorder" bindtap="returnorder">返回上一页</button>
             <button class="submit-order" formType="submit">提交订单</button>
         </view>
 

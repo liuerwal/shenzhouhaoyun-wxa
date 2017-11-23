@@ -34,7 +34,7 @@ P.run({
         tid: null,
     },
     component: [
-        'comps/datetimePicker/index',
+    'comps/datetimePicker/index',
     ],
     onLoad: function(){
 
@@ -65,9 +65,9 @@ P.run({
     datatime :function(e){
         var that = this
         console.log('picker发送选择改变，携带值为', e.detail.value)
-            that.setData({
-                ct :  e.detail.value
-            }) 
+        that.setData({
+            ct :  e.detail.value
+        }) 
     },
 
     formSubmit:function  (e) {
@@ -341,30 +341,39 @@ P.run({
             }
         })
     },
-    powerDrawer: function (e) {  
-        var currentStatu = e.currentTarget.dataset.statu;  
-        this.util(currentStatu)  
-    },  
-    util: function(currentStatu){  
+    powerDrawer: function (e) { 
+        var addr = this.data.current_addr
+        console.log(addr)
+        if (!addr.length ){
+            _.toast('还没有地址，去新增地址吧')
+
+        }
+        else{
+            var currentStatu = e.currentTarget.dataset.statu;  
+            this.util(currentStatu)   
+     }
+
+ },  
+ util: function(currentStatu){  
     /* 动画部分 */  
     // 第1步：创建动画实例   
     var animation = wx.createAnimation({  
-        duration: 200,  //动画时长  
-        timingFunction: "ease", //线性  
+        duration: 100,  //动画时长  
+        timingFunction: "ease",  
         delay: 0  //0则不延迟  
     });  
-      
+
     // 第2步：这个动画实例赋给当前的动画实例  
     this.animation = animation;  
-  
+
     // 第3步：执行第一组动画：Y轴偏移240px后(盒子高度是240px)，停  
     animation.translateY(240).step();  
-  
+
     // 第4步：导出动画对象赋给数据对象储存  
     this.setData({  
         animationData: animation.export()  
     })  
-      
+
     // 第5步：设置定时器到指定时候后，执行第二组动画  
     setTimeout(function () {  
         // 执行第二组动画：Y轴不偏移，停  
@@ -380,19 +389,19 @@ P.run({
             {  
                 showModalStatus: false  
             }  
-        );  
-      }  
+            );  
+        }  
     }.bind(this), 200)  
     
     // 显示抽屉  
     if (currentStatu == "open") {  
       this.setData(  
-        {  
+      {  
           showModalStatus: true  
-        }  
+      }  
       );  
-    }  
   }  
+}  
 
 });
 
