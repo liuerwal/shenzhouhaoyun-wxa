@@ -88,7 +88,7 @@ P.run({
 
     pay: function(){
         this[this.customData.payWith]( this.customData.payPart )
-    }
+    },
 
     payAll: function(){
         this.customData.payPart = 'all'
