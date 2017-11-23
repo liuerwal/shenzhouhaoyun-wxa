@@ -10,7 +10,7 @@ P.run({
         oil_type: [],
         choosetime :[],
         index: 0,
-        ct: 0,
+        ct: null,
         allcash: '0.00',
         cost: '0',
         weight: 0,
@@ -72,13 +72,16 @@ P.run({
 
     formSubmit:function  (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
-        var that          = this
-        var note          = e.detail.value.remarks
-        var oil_id        = this.data.current_oil.id
-        var weight        = _.array_column(this.data.current_addr, 'weight')
-        var addrs         = _.array_column(this.data.current_addr, 'id')
-        // var pay_cash      = e.detail.value['radio-group'];
-        var expected_time = _.date('Y-m-d H:i:s', _.strtotime('+'+e.detail.value.time+' hours'));
+        var that   = this
+        var note   = e.detail.value.remarks
+        var oil_id = this.data.current_oil.id
+        var weight = _.array_column(this.data.current_addr, 'weight')
+        var addrs  = _.array_column(this.data.current_addr, 'id')
+        var time   = this.data.ct===null ? '' : this.data.choosetime[this.data.ct]
+        
+        if ( time ){
+            time = _.date('Y-m-d H:i:s', _.strtotime('+'+time+' hours'))
+        }
 
         if ( !oil_id ){
             _.alert("请选择购买的油料种类");
@@ -91,12 +94,11 @@ P.run({
         }
 
         P.Api.order.confirm({
-            // 'pay_cash'      : pay_cash,
             'addrs'         : addrs.join(','),
             "note"          : note,
             'oil_id'        : oil_id,
             'weight'        : weight.join(','),
-            'expected_time' : expected_time,
+            'expected_time' : time,
         }, function(response){
             getApp().globalData('order', response)
             _.redirectTo('/pages/order/pay')
@@ -233,8 +235,8 @@ P.run({
             this.setData({
                 current_addr: current_addr,
                 current_oil: current_oil,
-                oil_block: true,
-                addr_block: false
+                oil_block: false,
+                other_block: true
             })
         })
 
@@ -304,6 +306,7 @@ P.run({
     },
 
     setCurrentAddrs: function(addr, i){
+        var i = 0;//改为只能有一个地址
         var addrs = this.data.current_addr
 
         for( var x in addrs ){
