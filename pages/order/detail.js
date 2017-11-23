@@ -135,7 +135,7 @@ P.run({
         if ( order.order_oil.freight_pay_status ){
             return '仅支付运费'
         }
-        return ''
+        return '未支付'
     }
 });
 

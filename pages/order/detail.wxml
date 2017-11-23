@@ -97,7 +97,7 @@
                     <text class="list-right"> {{ addr.arrive_time }}</text>
                 </view>
 
-                <view class="list_info" wx:if="{{ order.order_oil.oil_pay_status == 0 }}">
+                <view class="list_info" wx:if="{{ order.order_oil.oil_pay_status == 0 && order.order_oil.freight_pay_status==1 }}">
                     <text class="list-left fl-left">货到付款</text>
                     <text class="list-right main-color" bindtap="payOil">支付</text>
                 </view>

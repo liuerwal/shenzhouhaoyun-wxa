@@ -17,6 +17,9 @@
         </view>
         <view class="list_info">
             <text class="list-left fl-left">货物状态</text>
+            <block wx:if="{{waybill.status == -1 }}">
+                <text bindtap="waybillPickup" data-waybill="{{waybill.id}}" class="main-color fl-right">已取消</text>
+            </block>
             <block wx:if="{{waybill.status == 0 }}">
                 <text bindtap="waybillPickup" data-waybill="{{waybill.id}}" class="main-color fl-right">开始取货</text>
             </block>
@@ -33,7 +36,7 @@
                 <text class="main-color fl-right">已完成</text>
             </block>
         </view> 
-        <block wx:if="{{waybill.status < 4 }}">
+        <block wx:if="{{waybill.status < 4 && waybill.status > 0}}">
             <view class="list_info">
                 <text class="list-left fl-left">是否取消订单</text>
                 <text bindtap="showCancelBox" data-waybill="{{waybill.id}}" class="main-color fl-right">取消订单</text>
