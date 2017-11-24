@@ -2,6 +2,15 @@
   "pages":[
         "pages/login/login",
         "pages/register/register",
+        
+        "pages/my/index",
+        "pages/my/bill",
+        "pages/my/bill_detail",
+        "pages/my/coupon",
+        "pages/my/qualification",
+        "pages/my/reset_password",
+        "pages/my/reset_phone",
+        
 
         "pages/order/index",
         "pages/order/list",
@@ -18,14 +27,6 @@
         "pages/wallet/outpour",
         "pages/wallet/inpour",
         
-        "pages/my/bill",
-        "pages/my/bill_detail",
-        "pages/my/index",
-        "pages/my/coupon",
-        "pages/my/qualification",
-        "pages/my/reset_password",
-        "pages/my/reset_phone",
-
         "pages/message/index",
         "pages/message/detail",
         

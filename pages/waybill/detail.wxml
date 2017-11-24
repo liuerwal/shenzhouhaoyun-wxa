@@ -72,7 +72,7 @@
                 <text class="list-right"> {{item.status_text}}</text>
             </view> -->
             <block wx:for="{{ item.address }}" wx:for-item="addr" wx:key="addrs">
-                <view class="section-detail">
+                <view class="">
                     <view class="list_info">
                         <text class="list-left fl-left">送达时间</text>
                         <text class="list-right delivery-addrs">{{ addr.arrive_time || '未送达' }}</text>

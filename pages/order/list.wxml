@@ -17,7 +17,7 @@
         <view class="order-box">
             <navigator url="detail?id={{item.id}}" hover-class="none">
                 <view class="order-info">
-                    <view><text class="order-stitle">运费</text><text class="main-color">{{item.amount}}</text></view>
+                    <view><text class="order-stitle">总金额</text><text class="main-color">{{item.amount}}</text></view>
                     <view class="time"><text class="order-stitle">时间</text>{{item.created_at}}</view>
                     <view class=""><text class="order-stitle">油品</text>{{item.order_oil.oil.name}}</view>
                     <view class="address"><text class="order-stitle">订单号</text>{{item.order_no}}</view>
