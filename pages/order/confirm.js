@@ -231,7 +231,7 @@ P.run({
 
         getApp().on('reLaunch', function(){
             var first = this.customData.addr[0]
-            current_addr.push(first)
+            current_addr = [first]
             this.setData({
                 current_addr: current_addr,
                 current_oil: current_oil,
