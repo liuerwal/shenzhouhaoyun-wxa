@@ -1,47 +1,62 @@
 <view class="public-bg">
-	<view class="account_list list-box">
-		<view class="list-title">订单详情</view>
-		<view class="list_info">
-			<text class="list-left fl-left">订单号</text>
-			<text class="list-right"> {{order.order_no}}</text>
-		</view>
-		<view class="list_info">
-			<text class="list-left fl-left">油品</text>
-			<text class="list-right"> {{order.oil}}</text>
-		</view>
-		<view class="list_info">
-			<text class="list-left fl-left">重量</text>
-			<text class="list-right"> {{order.weight}}吨</text>
-		</view>
-		
-		<view class="list_info">
-			<text class="list-left fl-left">油费</text>
-			<text class="list-right"> {{order.detail.amount}}</text>
-		</view>
-		<view class="list_info">
-			<text class="list-left fl-left">运费</text>
-			<text class="list-right"> {{order.detail.freight}}</text>
-		</view>
-		<view class="list_info" wx:if="{{ order.detail.discount }}">
-			<text class="list-left fl-left">优惠券</text>
-			<text class="list-right"> {{order.detail.discount}}</text>
-		</view>
-		<view class="list_info">
-			<text class="list-left fl-left">总计</text>
-			<text class="list-right"> {{order.amount}}</text>
-		</view>
-	</view>
+    <view class="account_list list-box">
+        <view class="list-title">订单详情</view>
+        <view class="list_info">
+            <text class="list-left fl-left">订单号</text>
+            <text class="list-right"> {{order.order_no}}</text>
+        </view>
+        <view class="list_info">
+            <text class="list-left fl-left">油品</text>
+            <text class="list-right"> {{order.oil}}</text>
+        </view>
+        <view class="list_info">
+            <text class="list-left fl-left">重量</text>
+            <text class="list-right"> {{order.weight}}吨</text>
+        </view>
 
-	<view class="pay-btn">
-		<button class="online-btn fl-left btn-big btn" data-paywith="payOnline" bindtap="choose">微信支付</button>
-		<button wx:if="{{ order.use_fund }}" class="fl-right btn deposit" data-paywith="payDeposit" bindtap="choose">余额支付</button>
-		<!-- <button class="line-btn fl-left" bindtap="payCash">线下支付</button> -->
-		<button class="line-btn fl-left" wx:if="{{ haveBoss }}" disabled="{{ disabled }}" data-paywith="payBoss" bindtap="choose">老板支付</button>
-	</view>
+        <block wx:for="{{ order.address }}" wx:key="addr" wx:for-item="addr">
+            <view class="list_info">
+                <text class="list-left fl-left">地址</text>
+                <text class="list-right"> {{ addr.address }} </text>
+            </view>
+            <view class="list_info">
+                <text class="list-left fl-left">手机</text>
+                <text class="list-right"> {{ addr.phone }} </text>
+            </view>
+        </block>
+        <view class="list_info">
+            <text class="list-left fl-left">备注</text>
+            <text class="list-right"> {{ order.note }} </text>
+        </view>
+        
+        <view class="list_info">
+            <text class="list-left fl-left">油费</text>
+            <text class="list-right"> {{order.detail.amount}}</text>
+        </view>
+        <view class="list_info">
+            <text class="list-left fl-left">运费</text>
+            <text class="list-right"> {{order.detail.freight}}</text>
+        </view>
+        <view class="list_info" wx:if="{{ order.detail.discount }}">
+            <text class="list-left fl-left">优惠券</text>
+            <text class="list-right"> {{order.detail.discount}}</text>
+        </view>
+        <view class="list_info">
+            <text class="list-left fl-left">总计</text>
+            <text class="list-right"> {{order.amount}}</text>
+        </view>
+    </view>
 
-	<!-- <button class="submit-order btn" bindtap="pay">确认支付</button> -->
+    <view class="pay-btn">
+        <button class="online-btn fl-left btn-big btn" data-paywith="payOnline" bindtap="choose">微信支付</button>
+        <button wx:if="{{ order.use_fund }}" class="fl-right btn deposit" data-paywith="payDeposit" bindtap="choose">余额支付</button>
+        <!-- <button class="line-btn fl-left" bindtap="payCash">线下支付</button> -->
+        <button class="line-btn fl-left" wx:if="{{ haveBoss }}" disabled="{{ disabled }}" data-paywith="payBoss" bindtap="choose">老板支付</button>
+    </view>
 
-	<view class="public-mask" hidden="{{ pay_choose_box }}">
+    <!-- <button class="submit-order btn" bindtap="pay">确认支付</button> -->
+
+    <view class="public-mask" hidden="{{ pay_choose_box }}">
         <view class="mask-content">
             <view class="mask-title">请选择支付形式</view>
             <view class="mask-info">
@@ -51,7 +66,7 @@
                 </radio-group>
             </view>
             <button class="btn" bindtap="pay">支付</button>
-	    </view>
-	</view>
+        </view>
+    </view>
 </view>
 

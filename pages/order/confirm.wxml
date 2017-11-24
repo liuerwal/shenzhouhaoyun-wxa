@@ -73,54 +73,12 @@
 
             <view class="addr-btn">
                 <!-- <button class="btn"  bindtap="add">新增地址</button> -->
-                <button class="btn"  bindtap="showConfirmBlock">确定</button>
+                <!-- <button class="btn"  bindtap="showConfirmBlock">确定</button> -->
+                <button class="submit-order" formType="submit">提交订单</button>
             </view>
             
             
         </view>
-
-       <!--  <view hidden="{{addr_block}}" >
-
-            <view class="notice" >从地址列表中选择送货地址，最多3个</view>
-
-            <view class="m-box" wx:if="{{ current_addr[0] }}">
-                <view class="m-info" bindtap="removeAddr" data-index="0">
-                    <view class="m-name fl-left">{{ current_addr[0].alias }}</view>
-                    <view class="m-phone fl-right">-</view>
-                </view>
-            </view>
-
-            <view class="m-box" wx:if="{{ current_addr[1] }}">
-                <view class="m-info" bindtap="removeAddr" data-index="1">
-                    <view class="m-name fl-left">{{ current_addr[1].alias }}</view>
-                    <view class="m-phone fl-right">-</view>
-                </view>
-            </view>
-
-            <view class="m-box" wx:if="{{ current_addr[2] }}">
-                <view class="m-info" bindtap="removeAddr" data-index="2">
-                    <view class="m-name fl-left">{{ current_addr[2].alias }}</view>
-                    <view class="m-phone fl-right">-</view>
-                </view>
-            </view>
-
-            <view class="addr-btn">
-                <button class="btn"  bindtap="showConfirmBlock">确定</button>
-            </view>
-            
-            <view class="notice link text-center" bindtap="newAddr">新增地址</view>
-
-            
-            <block wx:for="{{addrs}}" wx:key="id">
-                <view class="m-box" >
-                    <view class="m-info" bindtap="selectAddr" data-index="{{ index }}">
-                        <view class="m-name fl-left">{{ item.alias }}</view>
-                        <view class="m-phone fl-right">+</view>
-                    </view>
-                </view>
-            </block>
-            
-        </view> -->
 
         <view class="other" hidden="{{other_block}}">
 
@@ -137,6 +95,22 @@
                     <view class="fl-right main-color">总金额：￥{{ cost }}</view>
                     <!-- <view class="Frozen-cash fl-right">押金：￥{{ frozen }}</view> -->
                     <!-- <text>自动冻结金额1000元</text> -->
+                </view>
+            </view>
+
+            <view class='section'>
+                <view class="cash-box">
+                    <view class="fl-left">地址：{{ current_addr[0].alias }}</view>
+                </view>
+            </view>
+            <view class='section'>
+                <view class="cash-box">
+                    <view class="fl-left">电话：{{ current_addr[0].phone }}</view>
+                </view>
+            </view>
+            <view class='section'>
+                <view class="cash-box">
+                    <view class="fl-left">备注：{{ current_addr[0].phone }}</view>
                 </view>
             </view>
 

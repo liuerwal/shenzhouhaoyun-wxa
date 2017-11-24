@@ -10,7 +10,7 @@ P.run({
         oil_type: [],
         choosetime :[],
         index: 0,
-        ct: null,
+        ct: 3,
         allcash: '0.00',
         cost: '0',
         weight: 0,
@@ -28,7 +28,7 @@ P.run({
         add_one :true,
         other_block: true,
 
-        showModalStatus: false  
+        showModalStatus: false
     },
     customData: {
         tid: null,
@@ -90,6 +90,11 @@ P.run({
 
         if ( ! addrs.length ){
             _.alert("请选择送货地址");
+            return;
+        }
+
+        if ( ! weight ){
+            _.alert("请设置重量");
             return;
         }
 
