@@ -18,7 +18,7 @@
         <view class="list_info">
             <text class="list-left fl-left">货物状态</text>
             <block wx:if="{{waybill.status == -1 }}">
-                <text bindtap="waybillPickup" data-waybill="{{waybill.id}}" class="main-color fl-right">已取消</text>
+                <text class="main-color fl-right">已取消</text>
             </block>
             <block wx:if="{{waybill.status == 0 }}">
                 <text bindtap="waybillPickup" data-waybill="{{waybill.id}}" class="main-color fl-right">开始取货</text>
