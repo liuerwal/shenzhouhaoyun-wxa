@@ -22,6 +22,7 @@
                     <view><text class="order-stitle">重量</text> {{item.weight}}T</view>
                     <view><text class="order-stitle">出库地址</text> {{item.station}}</view>
                     <view><text class="order-stitle">送货地址</text> {{item.provider}}</view>
+                    <view><text class="order-stitle">状态</text> {{item.status_text}}</view>
                 </view>
             </navigator>
                 <!-- <view class="again">
