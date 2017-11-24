@@ -2,7 +2,7 @@
 .cash-box{overflow: hidden;padding:0 15px;}
 .cash-box text{clear: both;border-top:1px solid #e5e5e5;padding:10px 0;display: block;color: #a9a9a9;}
 .submit-order{z-index:10;position:fixed;bottom:0px;right:0;width: 50%;font-size: 14px;border-radius:0;background: #F13D3C;color: #fff;border:none;line-height:40px;}
-.returnorder{z-index:10;position:fixed;bottom:0px;left:0;width: 50%;font-size: 14px;border-radius:0;background: #F13D3C;color: #fff;border:none;line-height:40px;border-right: 1px solid #eee}
+.returnorder{z-index:10;position:fixed;bottom:0px;left:0;width: 50%;font-size: 14px;border-radius:0;background: #aaaaaa;color: #fff;border:none;line-height:40px;}
 form{margin-bottom: 100px;height: 100%;}
 .time{margin-top:10px;}
 .detailed-info input{width: 100%;}

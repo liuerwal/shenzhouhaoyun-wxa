@@ -3,7 +3,7 @@
     <block wx:for="{{bill}}" wx:key="id">
         <view class="bill-info" bindtap="show" data-index="{{ index }}">
             <view class="fl-left">
-                <view class="bill-title">{{item.type}}</view>
+                <view class="bill-title">{{item.description}}</view>
                 <view class="bill-time">{{item.created_at}}</view>
             </view>
             <view class="fl-right">
