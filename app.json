@@ -1,5 +1,12 @@
 {
   "pages":[
+        "pages/order/index",
+        "pages/order/list",
+        "pages/order/confirm",
+        "pages/order/detail",
+        "pages/order/pay",
+        "pages/order/payticket",
+        
         "pages/login/login",
         "pages/register/register",
         
@@ -12,12 +19,6 @@
         "pages/my/reset_phone",
         
 
-        "pages/order/index",
-        "pages/order/list",
-        "pages/order/confirm",
-        "pages/order/detail",
-        "pages/order/pay",
-        "pages/order/payticket",
 
         "pages/waybill/list",
         "pages/waybill/detail",

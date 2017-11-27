@@ -6,6 +6,9 @@ P.run({
     data: {
         boss_pay_btn: false,
         pay_choose_box: true,
+        fous_input: false,
+        pay_pswd: "",
+        view_pswd: ["","","","","",""],
     },
     customData: {
         payWith: null,
@@ -19,9 +22,25 @@ P.run({
         this.setData({
             order: order,
             haveBoss: _.cache('user').parent_id ? true : false,
-            boss_pay_btn: order.boss_pay ? true : false,
+            // boss_pay_btn: order.boss_pay ? true : false,
         })
 
+    },
+    focus_pswd: function(){
+        console.log("有反应")
+        this.setData({
+            fous_input: true,
+        })
+    },
+
+    bindpswdblur: function(e){
+        var pay_pswd = e.detail.value
+        var view_pswd = pay_pswd.split("")
+
+        this.setData({
+            pay_pswd: e.detail.value,
+            view_pswd: view_pswd,
+        })
     },
 
     choose: function(e){
@@ -103,4 +122,8 @@ P.run({
             _.redirectTo('/pages/order/list')
         }, 1000)
     },
+
+    password2Arr: function(str){
+        var arr = (str ? str.split() : (new Array(6)).fill(0, 6))
+    }
 })

@@ -114,19 +114,21 @@
 
         </view>
 
-    <block wx:if="{{order.order_oil.waybill}}" >
-        <view class="account_list list-box">
-            <view class="list-title">运输司机</view>
-            <view class="list_info">
-                <text class="list-left fl-left">司机</text>
-                <text class="list-right"> {{order.order_oil.waybill.driver.username}}</text>
+    <view class="driver-box">
+        <block wx:if="{{order.order_oil.waybill}}" >
+            <view class="account_list list-box">
+                <view class="list-title">运输司机</view>
+                <view class="list_info">
+                    <text class="list-left fl-left">司机</text>
+                    <text class="list-right"> {{order.order_oil.waybill.driver.username}}</text>
+                </view>
+                <view class="list_info">
+                    <text class="list-left fl-left">电话</text>
+                    <text class="list-right"> {{order.order_oil.waybill.driver.phone}}</text>
+                </view>
             </view>
-            <view class="list_info">
-                <text class="list-left fl-left">电话</text>
-                <text class="list-right"> {{order.order_oil.waybill.driver.phone}}</text>
-            </view>
-        </view>
-    </block>
+        </block>
+    </view>
 
     <view class="public-mask" hidden="{{ pay_choose_box }}">
         <view class="mask-content">

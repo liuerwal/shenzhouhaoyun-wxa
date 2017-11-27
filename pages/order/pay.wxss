@@ -4,8 +4,26 @@
 .list-right{float: right;}
 .list-title{padding:10px 0 5px 0;font-weight: bold;font-size: 15px;}
 
-.pay-btn .online-btn{margin:20px 5%;}
-.pay-btn .line-btn,.pay-btn .deposit{width:90%;margin:0 5% 20px 5%;height: 38px;}
-.line-btn{font-size: 15px;}
+.pay-content{padding:20px 15px 10px 15px;background: #fff;margin:20px 0 50px 0;}
+.pay-info image{width: 30px;height: 30px;float: left;margin-top:5px;}
+.pay-title{color: #666666;}
+.pay-info{overflow: hidden;padding-bottom:10px;padding-top:10px;border-bottom: 1px solid #eee;}
+.pay-info:last-child{border:none;}
+.pay-info label{float: right;margin-bottom: 0;}
+.pay-intro{float: left;padding-left: 10px;}
+.pay-intro view{font-size: 18px;}
+.pay-intro text{font-size: 14px;color: #696969;}
+/*.boss-pay{width: 35px !important;height: 35px !important;}*/
+
+.pay-btn{z-index:1;width: 100%;}
+.pay-btn button{border:none;width: 50%;font-size: 14px;color: #fff;border-radius:0;line-height: 40px;}
+.pay-btn .payAll{background: #F13D3C;color: #fff;left: 0;position: fixed;bottom:0;}
+.pay-btn .payFreight{background: #aaaaaa;color: #fff;right:0;position: fixed;bottom:0;}
 
 
+.mask-title{text-align: center;}
+.mask-money{text-align: center;font-size: 30px;}
+.mask-info text{width: 40px;height: 40px;float: left;border-right:1px solid #eee;line-height: 40px;text-align: center;}
+.mask-info text:last-child{border:0;}
+.mask-info{border:1px solid #eee;width: 245px;height: 40px;margin:20px auto;padding:0;}
+.mask-pswd{width: 0;display: block;}
