@@ -34,7 +34,7 @@ P.run({
         tid: null,
     },
     component: [
-    'comps/datetimePicker/index',
+        'comps/datetimePicker/index',
     ],
     onLoad: function(){
 
@@ -105,7 +105,7 @@ P.run({
             'weight'        : weight.join(','),
             'expected_time' : time,
         }, function(response){
-            _.redirectTo('/pages/order/pay?order='+response.id)
+            _.redirectTo('/pages/order/pay?order='+response.order.id)
             _.toast('下单成功')
         })
     },
