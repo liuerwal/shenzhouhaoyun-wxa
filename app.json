@@ -1,14 +1,14 @@
 {
   "pages":[
+        "pages/login/login",
+        "pages/register/register",
+
         "pages/order/index",
+        "pages/order/pay",
         "pages/order/list",
         "pages/order/confirm",
         "pages/order/detail",
-        "pages/order/pay",
         "pages/order/payticket",
-        
-        "pages/login/login",
-        "pages/register/register",
         
         "pages/my/index",
         "pages/my/bill",
@@ -17,12 +17,10 @@
         "pages/my/qualification",
         "pages/my/reset_password",
         "pages/my/reset_phone",
-        
-
+        "pages/my/reset_pay_passwd",
 
         "pages/waybill/list",
         "pages/waybill/detail",
-
         
         "pages/wallet/index",
         "pages/wallet/outpour",
@@ -37,7 +35,6 @@
         "pages/subaccount/index",
         "pages/subaccount/detail",
 
-        
         "pages/address/list",
         "pages/address/add",
         "pages/address/edit"

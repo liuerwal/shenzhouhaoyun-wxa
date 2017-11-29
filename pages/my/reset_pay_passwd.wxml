@@ -1,0 +1,18 @@
+<!--Forgot-password.wxml-->
+<view class="public-bg" >
+	<form bindsubmit="formSubmit" bindreset="formReset">
+
+		<view class="form-box">
+			<view class="section">
+				<view class="section__title">登录密码</view>
+				<input placeholder="请输入登录密码" name="password"/>
+			</view>
+			<view class="section">
+				<view class="section__title">支付密码</view>
+				<input placeholder="请输入支付密码" name="pay_passwd"/>
+			</view>
+		</view>
+		
+		<button class="btn" formType="submit">确定</button>
+	</form>
+</view>

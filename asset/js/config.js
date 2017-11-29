@@ -78,6 +78,7 @@ module.exports = {
             BILLS: API_URL+'/mybill',
             COUPONS: API_URL+'/mycoupon',
             RESET_PHONE: API_URL+'/phone',
+            RESET_PAY_PASSWD: API_URL+'/pay_passwd/reset',
             SUBACCOUNT: API_URL+'/subaccount',
             RESET_LIMIT_FUND: API_URL+'/subaccount/limit',
         },

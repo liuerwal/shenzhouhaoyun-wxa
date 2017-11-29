@@ -7,11 +7,11 @@
         </view>
         <view class="list_info">
             <text class="list-left fl-left">油品</text>
-            <text class="list-right"> {{order.oil}}</text>
+            <text class="list-right"> {{order.order_oil.oil.name}}</text>
         </view>
         <view class="list_info">
             <text class="list-left fl-left">重量</text>
-            <text class="list-right"> {{order.weight}}吨</text>
+            <text class="list-right"> {{order.order_oil.weight}}吨</text>
         </view>
 
         <block wx:for="{{ order.address }}" wx:key="addr" wx:for-item="addr">
@@ -31,15 +31,15 @@
         
         <view class="list_info">
             <text class="list-left fl-left">油费</text>
-            <text class="list-right"> {{order.detail.amount}}</text>
+            <text class="list-right"> {{order.order_oil.amount}}</text>
         </view>
         <view class="list_info">
             <text class="list-left fl-left">运费</text>
-            <text class="list-right"> {{order.detail.freight}}</text>
+            <text class="list-right"> {{order.order_oil.freight}}</text>
         </view>
         <view class="list_info" wx:if="{{ order.detail.discount }}">
             <text class="list-left fl-left">优惠券</text>
-            <text class="list-right"> {{order.detail.discount}}</text>
+            <text class="list-right"> {{order.order_oil.discount}}</text>
         </view>
         <view class="list_info">
             <text class="list-left fl-left">总计</text>
@@ -47,76 +47,15 @@
         </view>
     </view>
 
-    <view class="pay-content">
-    	<view class="pay-title">请选择支付方式</view>
-		<radio-group class="radio-group" name="radio-group">
-        	<view class="pay-info">
-        		<image src="../../asset/img/wechat-pay.png" class="icon"></image>
-                <view class="pay-intro">
-                    <view>微信支付</view>
-                    <text>亿万用户的选择，更快更安全</text>
-                </view>
-                
-        		<!-- <button class="online-btn fl-left btn-big btn" data-paywith="payOnline" bindtap="choose">微信支付</button> -->
-        		<label class="radio" >
-                    <radio value="" name='pay' checked="true"/>
-                </label>
-        	</view>
-        	<view class="pay-info">
-        		<image src="../../asset/img/cash-pay.png" class="icon"></image>
-                <view class="pay-intro">
-                    <view>余额支付</view>
-                    <text>使用余额进行付款</text>
-                </view>
-        		<!-- <button class="online-btn fl-left btn-big btn" data-paywith="payOnline" bindtap="choose">余额支付</button> -->
-        		<label class="radio" >
-                    <radio value="" name='pay' />
-                </label>
-        	</view>
-        	<view class="pay-info">
-        		<image src="../../asset/img/boss-pay.png" class="icon boss-pay"></image>
-                <view class="pay-intro">
-                    <view>老板支付</view>
-                    <text>老板支付,</text>
-                </view>
-        		<!-- <button class="online-btn fl-left btn-big btn" data-paywith="payOnline" bindtap="choose">老板支付</button> -->
-        		<label class="radio" >
-                    <radio value="" name='pay'/>
-                </label>
-        	</view>
-            
-        <!-- <button wx:if="{{ order.use_fund }}" class="fl-right btn deposit" data-paywith="payDeposit" bindtap="choose">余额支付</button> -->
-        <!-- <button class="line-btn fl-left" bindtap="payCash">线下支付</button> -->
-        <!-- <button class="line-btn fl-left" wx:if="{{ haveBoss }}" disabled="{{ disabled }}" data-paywith="payBoss" bindtap="choose">老板支付</button> -->
-        </radio-group>
-    </view>
+    <paywith payWithDeposit="{{ order.use_fund }}" payWithBoss="{{ order.boss_pay }}" default="{{ payWithDefault }}" bindchange="payWith"></paywith>
 
-    <!-- <button class="submit-order btn" bindtap="pay">确认支付</button> -->
-
-    <!-- <view class="public-mask" hidden="{{ pay_choose_box }}"> -->
-    <view class="public-mask" >
-        <view class="mask-content">
-            <view class="mask-title">余额支付</view>
-            <view class="mask-money">￥11.00</view>
-            <view class="mask-info" bindtap="focus_pswd" >
-                <block wx:for="{{view_pswd}}" wx:key="1">
-                    <text>{{item}}</text>
-                    <!-- <text></text>
-                    <text></text>
-                    <text></text>
-                    <text></text>
-                    <text></text> -->
-                    </block>
-            </view>
-            <input type="text" class="mask-pswd" maxlength="6" focus="{{fous_input}}" value="{{pay_pswd}}" bindinput="bindpswdblur"/>
-           
-            <button class="btn" bindtap="pay">支付</button>
-        </view>
-    </view>
+    <toast message="{{ _toast_message }}" hide="{{ _toast_hide }}"></toast>
+    
+    <pay title="{{ pay_title }}" amount="{{ pay_amount }}" hide="{{ pay_choose_box }}" bindpay="pay"></pay>
 
     <view class="pay-btn">
-        <button class="payAll" bindtap="payAll">一次性付款(总计 {{order.amount}}元)</button>
-        <button class="payFreight" bindtap="payFreight">货到付款(运费{{order.detail.freight}}元)</button>
+        <button class="payFreight" data-paypart="freight" bindtap="payPart">货到付款</button>
+        <button class="payAll" data-paypart="all" bindtap="payPart">一次性付款</button> 
     </view>
 
 </view>

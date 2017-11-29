@@ -1,0 +1,4 @@
+/**Forgot-password.wxss**/
+.getcode input{width: 100px;}
+.getcode button{font-size: 14px;background: #fff;color: #F13D3C;border:none;width: 100px;border-left:1px solid #e5e5e5;border-radius: 0;}
+.getcode button:after{content: none;}

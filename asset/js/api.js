@@ -321,8 +321,8 @@ module.exports = {
         }
     },
 
-    pay: function(order, paywith, paypart, success){
-        Http.post( CONFIG.API.PAY, {order: order, paywith: paywith, paypart: paypart, openid: _.cache('openid')}, function(response){
+    pay: function(order, paywith, paypart, password, success){
+        Http.post( CONFIG.API.PAY, {order: order, paywith: paywith, paypart: paypart, paypasswd: password, openid: _.cache('openid')}, function(response){
             if ( response.status == 1){
                 success && success(response.data)
             }else{
@@ -353,6 +353,15 @@ module.exports = {
         },
         resetPhone: function(oldpwd, newpwd, success){
             Http.post( CONFIG.API.USER.RESET_PHONE, {phone: phone}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        resetPayPasswd: function(login_password, pay_passwd, success){
+            Http.post( CONFIG.API.USER.RESET_PAY_PASSWD, {password: login_password, pay_passwd: pay_passwd}, function(response){
                 if ( response.status == 1){
                     success && success(response.data)
                 }else{

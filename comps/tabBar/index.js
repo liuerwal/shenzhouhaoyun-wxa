@@ -13,11 +13,7 @@ module.exports = {
         ],
     },
     onLoad: function(){
-
-        console.log('tab bar');
-
         this.setTabBar();
-
     },
 
     switchTo: function(e){

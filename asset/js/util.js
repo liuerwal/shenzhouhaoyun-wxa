@@ -257,10 +257,19 @@ module.exports = {
     },
 
     toast: function(message){
+        // this.currentPage().setData({
+        //     _toast_hide: false,
+        //     _toast_message: message
+        // })
         wx.showToast({
             title: message,
-
+            
         })
+    },
+
+    currentPage: function(){
+        var pages = getCurrentPages()
+        return pages[pages.length-1]
     },
 
     loading: function(message){
@@ -334,6 +343,14 @@ module.exports = {
 
     trimRightZero: function(str){
         return str.replace(/[.]*[0]*$/, '')
+    },
+
+    ucfirst: function(str){
+        if(!!str){
+            return str[0].toUpperCase() + str.substr(1)
+        }else {
+            return str;
+        }
     },
 
     Math: {

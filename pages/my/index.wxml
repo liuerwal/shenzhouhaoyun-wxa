@@ -22,10 +22,17 @@
     </navigator> -->
 
     <view class="my-list">
+        <navigator url="reset_pay_passwd" hover-class="none">
+            <view class="list">
+                <image src="../../asset/img/psd-icon.png" class="icon"></image>
+                <view class="list-title">支付密码</view>
+                <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
+            </view>
+        </navigator>
         <navigator url="reset_password" hover-class="none">
             <view class="list">
                 <image src="../../asset/img/psd-icon.png" class="icon"></image>
-                <view class="list-title">重置密码</view>
+                <view class="list-title">登录密码</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>

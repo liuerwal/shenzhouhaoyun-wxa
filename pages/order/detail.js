@@ -5,7 +5,13 @@ P.run({
     data: {
         order: null,
         pay_choose_box: true,
+        pay_password_box: true,
+        pay_with_default: 'online',
         id: null,
+    },
+    customData: {
+        payWith: 'online',
+        password: ''
     },
     onLoad: function(options) {  
         var that = this;
@@ -52,20 +58,32 @@ P.run({
     },
 
     choose: function(e){
-        this.customData.payWith = e.currentTarget.dataset.paywith
+        this.customData.payWith = e.detail.paywith
     },
 
     pay: function(){
-        this[this.customData.payWith]()
+        if ( this.customData.payWith=='online' ){
+            var method = 'pay'+ _.ucfirst(this.customData.payWith)
+            this[method]()
+        }else{
+            this.showPasswodBox()
+        }
+    },
+
+    payWithPassword: function(e){
+        this.customData.password = e.detail.password
+        var method = 'pay'+ _.ucfirst(this.customData.payWith)
+        this[method]()
     },
 
     payDeposit: function(){
         var that = this
         var order = this.data.order
+        var password = this.customData.password
 
         _.loading('请求支付...')
 
-        P.Api.pay(order.order_no, 'deposit', 'oil', function(response){
+        P.Api.pay(order.order_no, 'deposit', 'oil', password, function(response){
             that.paySuccess()
             _.hideLoading()
         })
@@ -79,7 +97,7 @@ P.run({
 
             _.loading('请求支付...')
 
-            P.Api.pay(order.order_no, 'online', 'oil', function(response){
+            P.Api.pay(order.order_no, 'online', 'oil', null, function(response){
                 _.hideLoading()
 
                 wx.requestPayment(_.extend(response, {
@@ -108,9 +126,10 @@ P.run({
     payBoss: function(){
         var that = this
         var order = this.data.order
+        var password = this.customData.password
 
         _.loading('请求支付...')
-        P.Api.pay(order.order_no, 'boss', 'oil', function(response){
+        P.Api.pay(order.order_no, 'boss', 'oil', password, function(response){
             that.paySuccess()
             _.hideLoading()
         })
@@ -136,6 +155,14 @@ P.run({
             return '仅支付运费'
         }
         return '未支付'
-    }
+    },
+
+    showPasswodBox: function(){
+        this.setData({
+            pay_password_box: false,
+            pay_title: this.customData.payWith=='deposit' ? '余额支付' : '老板支付',
+            pay_amount: this.data.order.order_oil.amount,
+        })
+    },
 });
 

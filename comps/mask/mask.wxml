@@ -1,0 +1,3 @@
+<view class="mask" hidden="{{ hidden }}" style="z-index: {{ zIndex }}"> 
+    <slot></slot>
+</view>

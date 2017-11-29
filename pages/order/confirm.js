@@ -105,8 +105,7 @@ P.run({
             'weight'        : weight.join(','),
             'expected_time' : time,
         }, function(response){
-            getApp().globalData('order', response)
-            _.redirectTo('/pages/order/pay')
+            _.redirectTo('/pages/order/pay?order='+response.id)
             _.toast('下单成功')
         })
     },

@@ -1,0 +1,20 @@
+<c-mask hide="{{ hidden }}">
+    <view class="mask-content" hidden="{{ hidden }}">
+        <view class="mask-header">
+            <text class="mask-close" bindtap="_hide">×</text>
+        </view>
+        <view class="mask-title">{{ pay_title }}</view>
+        <view class="mask-money">￥{{ pay_amount }}</view>
+        <view class="mask-info" bindtap="_showKeyboard" >
+                <text>{{ encode_passwd[0] }}</text>
+                <text>{{ encode_passwd[1] }}</text>
+                <text>{{ encode_passwd[2] }}</text>
+                <text>{{ encode_passwd[3] }}</text>
+                <text>{{ encode_passwd[4] }}</text>
+                <text>{{ encode_passwd[5] }}</text>
+        </view>
+        <input type="number" class="mask-pswd" maxlength="6" focus="{{show_keyboard}}" value="{{ password }}" bindinput="_passwordInput"/>
+       
+        <!-- <button class="btn" disabled="{{ disabled }}" bindtap="_onPay">支付</button> -->
+    </view>
+</c-mask>

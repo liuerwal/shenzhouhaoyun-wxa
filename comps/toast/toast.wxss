@@ -1,0 +1,15 @@
+.container{float: left;position: fixed; left: 0; bottom: 100px;left: 50%;z-index:10000000;}
+.content{
+    margin: 0 auto;
+    padding: 8px 15px;
+    min-width: 100px;
+    max-width: 60%;
+    width: auto;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    z-index: 20;
+    left: -50%;
+    position: relative;
+}

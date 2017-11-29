@@ -1,0 +1,19 @@
+.mask-content{width:90%;background: #fff;overflow: hidden;position: absolute;top: 50%;margin-top:-148px;left:5%;}
+.mask-title{font-size: 16px;padding:15px;}
+.mask-info .reason{margin:10px 0 10px 15px;display: inline-block;}
+.mask-btn .confirm-btn,.mask-btn .cancel-btn{float:left;width:40%;margin:0 5% 20px 5%;height:36px;line-height:36px;font-size:14px;letter-spacing:2px;}
+.mask-btn .confirm-btn{background: #F13D3C;border:none;color: #fff;}
+.mask-btn .cancel-btn{}
+.mask-info{width:90%;padding:0 5%;margin-bottom: 20px;}
+
+.mask-title{text-align: center;}
+.mask-money{text-align: center;font-size: 30px;}
+.mask-info text{width: 40px;height: 40px;float: left;border-right:1px solid #eee;line-height: 40px;text-align: center;font-size: 25px;}
+.mask-info text:last-child{border:0;}
+.mask-info{border:1px solid #eee;width: 245px;height: 40px;margin:20px auto;padding:0;}
+.mask-pswd{width: 0;display: block;}
+.mask-header{text-align: right;}
+.mask-close{width: 20px;height: 20px;display: inline-block;text-align:center;color:#c5c5c5;margin: 10px;}
+
+.btn{font-size: 15px;background: #F13D3C;color: #fff;border:none;width: 200px;clear: both;margin:20px auto;}
+input{height: 0;min-height: 0;}

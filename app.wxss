@@ -52,3 +52,4 @@ page{height:100%;}
 .mask-btn .cancel-btn{}
 .mask-info{width:90%;padding:0 5%;margin-bottom: 20px;}
 label{display: block;margin-bottom: 20px;}
+button[disabled]{ opacity: .6;background-color:#F13D3C !important;color: #fff !important;}
