@@ -80,7 +80,17 @@ module.exports = P = {
                         _.redirectTo('/pages/waybill/list')
                     }
                 }
-            }
+            },
+            onShareAppMessage: function(options){
+                return {
+                    'title'   : '神州好运',
+                    'path'    : '/path/order/index',
+                    'imageUrl': '/asset/img/szhy_logo.png',
+                    'success' : function(){ _.toast('分享成功') },
+                    'fail'    : function(){ _.toast('分享失败') },
+                    'complete': function(){},
+                }
+            },
         };
         var func = {};
 
