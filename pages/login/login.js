@@ -7,9 +7,10 @@ P.run({
         login: false,
     },
 
-    onLoad: function() {
+    onLoad: function(options) {
         var that = this;  
         that.data.user = wx.getStorageSync('userinfo');
+        getApp().globalData('referer', options.referer || 0);
     },
 
     formSubmit:function(e){

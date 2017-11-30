@@ -75,6 +75,7 @@ P.run({
             role: role,
             parent: parent,
             code: code,
+            referer: getApp().globalData('referer')
         }, function(){
             if(role == "driver"){
                 _.toast('注册成功')

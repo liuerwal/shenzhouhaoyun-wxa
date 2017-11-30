@@ -82,9 +82,10 @@ module.exports = P = {
                 }
             },
             onShareAppMessage: function(options){
+                var user = _.cache('user')
                 return {
                     'title'   : '神州好运',
-                    'path'    : '/path/order/index',
+                    'path'    : _.sprintf('/pages/login/login?referer=%d', user.id),
                     'imageUrl': '/asset/img/szhy_logo.png',
                     'success' : function(){ _.toast('分享成功') },
                     'fail'    : function(){ _.toast('分享失败') },
