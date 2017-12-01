@@ -65,9 +65,6 @@ P.run({
                         console.log(res);
                         if ( res.errMsg=='requestPayment:fail cancel' ){
                             _.toast('用户取消支付')
-                            setTimeout(function(){
-                                _.redirectTo('/pages/order/list')
-                            }, 1000)
                         }else{
                             _.toast(res.errMsg)
                         }
@@ -116,10 +113,13 @@ P.run({
 
 
     showPasswodBox: function(){
+        var order = this.data.order
+        var orderOil = this.data.order.order_oil
+        
         this.setData({
             pay_choose_box: false,
             pay_title: this.customData.payWith=='deposit' ? '余额支付' : '老板支付',
-            pay_amount: this.customData.payPart=='all' ? this.data.order.amount : this.data.order.order_oil.freight,
+            pay_amount: this.customData.payPart=='all' ? order.amount : _.Math.sub(order.amount, orderOil.amount) ,
         })
     },
 })

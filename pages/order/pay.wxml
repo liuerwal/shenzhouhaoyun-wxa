@@ -58,8 +58,8 @@
     <pay title="{{ pay_title }}" amount="{{ pay_amount }}" hide="{{ pay_choose_box }}" bindpay="pay"></pay>
 
     <view class="pay-btn">
-        <button class="payFreight" data-paypart="freight" bindtap="payPart">货到付款</button>
-        <button class="payAll" data-paypart="all" bindtap="payPart">一次性付款</button> 
+        <button class="payFreight" data-paypart="freight" bindtap="payPart">先付运费</button>
+        <button class="payAll" data-paypart="all" bindtap="payPart">一次性付款</button>
     </view>
 
 </view>
