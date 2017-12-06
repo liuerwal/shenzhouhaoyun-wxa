@@ -15,7 +15,7 @@ P.run({
         var amount = e.detail.value.amount
 
         P.Api.order.inpour(amount, function(response){
-            P.Api.pay(response.order_no, 'online', function(response){
+            P.Api.pay(response.order_no, 'online', 'all', '', function(response){
                 wx.requestPayment(_.extend(response, {
                     success: function(res){
                         _.toast('支付成功')

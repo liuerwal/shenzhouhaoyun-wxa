@@ -17,11 +17,19 @@
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">油款</text>
-                <text class="list-right"> {{order.amount}}</text>
+                <text class="list-right"> {{order.order_oil.amount}}</text>
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">运费</text>
                 <text class="list-right"> {{order.order_oil.freight}}</text>
+            </view>
+            <view class="list_info" wx:if="{{ order.order_oil.discount > 0 }}">
+                <text class="list-left fl-left">优惠券</text>
+                <text class="list-right"> {{order.order_oil.discount}}</text>
+            </view>
+            <view class="list_info" wx:if="{{ order.order_oil.full_reduction > 0 }}">
+                <text class="list-left fl-left">满减</text>
+                <text class="list-right"> {{order.order_oil.full_reduction}}</text>
             </view>
             <view class="list_info">
                 <text class="list-left fl-left">备注</text>
@@ -46,8 +54,8 @@
                 </view>
 
                 <view class="list_info" wx:if="{{ order.order_oil.oil_pay_status == 0 && order.order_oil.freight_pay_status==1 }}">
-                    <text class="list-left fl-left">货到付款</text>
-                    <text class="list-right main-color" bindtap="payOil">支付</text>
+                    <text class="list-left fl-left">待付油款</text>
+                    <text class="list-right main-color" bindtap="payOil">￥{{order.order_oil.amount}}   支付</text>
                 </view>
             </block>
             <!-- <view class="list_info">
