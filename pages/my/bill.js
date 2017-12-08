@@ -38,7 +38,7 @@ P.run({
             // })
 
             that.setData({
-                bill : response.concat(that.data.bill)
+                bill : that.data.bill.concat(response)
             })
 
             that.customData.page += 1

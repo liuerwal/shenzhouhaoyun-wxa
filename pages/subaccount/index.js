@@ -35,7 +35,7 @@ P.run({
             }
 
             that.setData({
-                users : response.concat(that.data.users)
+                users : that.data.users.concat(response)
             })
 
             that.customData.page += 1

@@ -37,7 +37,7 @@ P.run({
             })
 
             that.setData({
-                coupons : response.concat(that.data.coupons)
+                coupons : that.data.coupons.concat(response)
             })
 
             that.customData.page += 1

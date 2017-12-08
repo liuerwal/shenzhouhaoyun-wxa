@@ -46,7 +46,7 @@ P.run({
             })
 
             that.setData({
-                messages : response.concat(that.data.messages)
+                messages : that.data.messages.concat(response)
             })
 
             that.customData.page += 1
