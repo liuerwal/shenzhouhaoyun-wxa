@@ -53,21 +53,12 @@ P.run({
         P.Api.address.add({lng: lng, lat: lat, address: address, alias: alias, phone: phone }, function(response){
             _.toast('添加成功');
             setTimeout(function(){
-                that.closeWindow()
+                wx.navigateBack()
             }, 1000)
         });
 
         
     },
-
-    closeWindow: function(){
-        var options = this.customData.options
-        if ( options.from == 'order' ){
-            wx.reLaunch({url: '/pages/order/confirm'})
-        }else{
-            wx.navigateBack({url: '/pages/address/list'})
-        }
-    }
     
 });
 

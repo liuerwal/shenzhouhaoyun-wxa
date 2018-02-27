@@ -38,6 +38,9 @@ P.run({
     ],
     onLoad: function(){
 
+    },
+
+    onShow: function(){
         this.loadInitData()
     },
 
