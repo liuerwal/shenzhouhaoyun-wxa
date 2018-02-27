@@ -29,13 +29,13 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
-        <navigator url="reset_password" hover-class="none">
+<!--         <navigator url="reset_password" hover-class="none">
             <view class="list">
                 <image src="../../asset/img/psd-icon.png" class="icon"></image>
                 <view class="list-title">登录密码</view>
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
-        </navigator>
+        </navigator> -->
         <navigator wx:if="{{ !user.parent_id }}" url="../address/list" hover-class="none">
             <view class="list">
                 <image src="../../asset/img/address-icon.png" class="icon"></image>
