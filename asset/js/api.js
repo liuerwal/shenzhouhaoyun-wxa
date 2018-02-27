@@ -6,7 +6,7 @@ module.exports = {
 
     register: function(data, success){
 
-        Http.post(CONFIG.API.REGISTER_URL, _.extend(data, {access_token: data.phone}), function(response){
+        Http.post(CONFIG.API.AUTH.WEIXIN, data, function(response){
             if ( response.status == 1){
                 _.cache('token', response.data.token)
                 _.cache('ttl', response.data.ttl)
@@ -482,10 +482,10 @@ module.exports = {
         return _.timestamp() > _.cache('refresh_ttl')
     },
 
-    saveOpenId: function(code){
+    saveOpenId: function(code, success){
         Http.post(CONFIG.API.AUTH.OPENID, {code: code}, function(response){
             if ( response.status == 1){
-                _.cache('openid', response.data)
+                success && success(response.data)
             }else{
                 _.toast(response.msg)
             }

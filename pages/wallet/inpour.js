@@ -18,11 +18,8 @@ P.run({
             P.Api.pay(response.order_no, 'online', 'all', '', function(response){
                 wx.requestPayment(_.extend(response, {
                     success: function(res){
-                        _.toast('支付成功')
-                        P.Api.user.myself(function(user){
-                            _.cache('user', user)
-                            _.redirectTo('/pages/wallet/index')
-                        });
+                        _.toast('充值成功')
+                        wx.navigateBack()
                     },
                     fail: function(res){
                         console.log(res);

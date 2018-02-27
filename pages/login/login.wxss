@@ -1,4 +1,4 @@
 /**index.wxss**/
 
-.go-register{text-align: right;padding-right:15px;float: right}
-navigator{display: block;}
+/*.go-register{text-align: right;padding-right:15px;float: right}
+navigator{display: block;}*/

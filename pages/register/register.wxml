@@ -1,37 +1,40 @@
 <!--regiter.wxml-->
 <view class="public-bg"  style="height:{{winHeight}}px">
-	<form bindsubmit="formSubmit" bindreset="formReset">
-		
-		<radio-group class="radio-group" name="radio-group">
-			<label class="radio" >
-				<radio value="buyer" disabled="{{disabled}}" name='buyer' checked="true"/><text>采购方</text>
-			</label>
-			<label class="radio">
-				<radio value="driver" disabled="{{disabled}}" name='driver'/><text>运输司机</text>
-			</label>
-		</radio-group>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        
 
-		<view class="public-fff">
-			<view class="form-box">
-				<view class="section">
-					<view class="section__title">手机</view>
-					<input placeholder="请输入手机" name="phone" value="{{phone}}" bindinput="phone" type="number"/>
-				</view>
-				<view class="section">
-					<view class="section__title">密码</view>
-					<input placeholder="请输入密码" name="password" password="true"/>
-				</view>
-				<view class="section">
-					<view class="section__title">确认密码</view>
-					<input placeholder="请再次输入密码" name="a_pass" password="true"/>
-				</view>
-				<view class="section getcode">
-					<view class="section__title">验证码</view>
-					<input placeholder="验证码" name="code"/>
-					<button bindtap="getcode">{{VerifyCode}}</button>
-				</view>
-			</view>
-		</view>
-		<button class="btn" bindtap="redirect" formType="submit">注册</button>
-	</form>
+        <view class="public-fff">
+            <view class="form-box">
+                
+                <view class="section">
+                    <radio-group class="radio-group" name="radio-group">
+                        <label class="radio" >
+                            <radio value="buyer" disabled="{{disabled}}" name='buyer' checked="true"/><text>采购方</text>
+                        </label>
+                        <label class="radio">
+                            <radio value="driver" disabled="{{disabled}}" name='driver'/><text>运输司机</text>
+                        </label>
+                    </radio-group>
+                </view>
+                <view class="section">
+                    <view class="section__title">昵称</view>
+                    <input placeholder="请输入昵称" name="nickname" value="{{nickname}}"  />
+                </view>
+                <!-- <view class="section">
+                    <view class="section__title">密码</view>
+                    <input placeholder="请输入密码" name="password" password="true"/>
+                </view>
+                <view class="section">
+                    <view class="section__title">确认密码</view>
+                    <input placeholder="请再次输入密码" name="a_pass" password="true"/>
+                </view>
+                <view class="section getcode">
+                    <view class="section__title">验证码</view>
+                    <input placeholder="验证码" name="code"/>
+                    <button bindtap="getcode">{{VerifyCode}}</button>
+                </view> -->
+            </view>
+        </view>
+        <button class="btn" bindtap="redirect" formType="submit">注册</button>
+    </form>
 </view>

@@ -24,9 +24,16 @@ P.run({
     },
 
     onLoad: function(options){
-        console.log(111)
-        console.log(options)
+        var that = this
 
+        wx.getUserInfo({
+            withCredentials: false,
+            success: function(res) {
+                that.setData({
+                    nickname: res.userInfo.nickName
+                })
+            }
+        })
 
         if ( options.q ){
             // var url = decodeURI(options.q)
@@ -47,34 +54,15 @@ P.run({
     formSubmit:function(e){
         var that     = this;
         var role     = e.detail.value['radio-group'];
-        var phone    = e.detail.value.phone;
-        var password = e.detail.value.password;
-        var a_pass   = e.detail.value.a_pass;
         var parent   = this.data.parent
-        var code     = e.detail.value.code
-            
-        if(phone == 0 || password == 0 || a_pass == 0 ){
-             _.toast('内容不能为空')
-            return;
-        }
-
-        if(password<6){
-            _.toast('密码不能小于6位数')
-            return;
-        }
-
-        if(password != a_pass ){
-            _.toast('两次密码不一致')
-            return;
-        }
-
+        var nickname = e.detail.value.nickname
+        var openid   = _.cache('openid')
 
         api.register({
-            phone: phone,
-            password: password,
             role: role,
             parent: parent,
-            code: code,
+            nickname: nickname,
+            openid: openid,
             referer: getApp().globalData('referer')
         }, function(){
             if(role == "driver"){

@@ -70,7 +70,7 @@ P.run({
     paySuccess: function(){
         _.toast('支付成功')
         setTimeout(function(){
-            _.redirectTo('/pages/order/confirm')
+            _.switchTab('home')
         }, 1000)
     }
 })

@@ -12,6 +12,7 @@ module.exports = {
     API: {
 
         AUTH: {
+            WEIXIN: API_URL+'/auth/weixin',
             OPENID: API_URL+'/auth/openid',
             PHONE: API_URL+'/auth/check/phone',
         },

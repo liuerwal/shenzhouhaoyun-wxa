@@ -105,7 +105,7 @@ P.run({
             'weight'        : weight.join(','),
             'expected_time' : time,
         }, function(response){
-            _.redirectTo('/pages/order/pay?order='+response.order.id)
+            _.navigateTo('/pages/order/pay?order='+response.order.id)
             _.toast('下单成功')
         })
     },

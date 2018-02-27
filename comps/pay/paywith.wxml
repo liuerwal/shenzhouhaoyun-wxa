@@ -9,14 +9,6 @@
             </view>
             <label class="radio" > <radio data-paywith="online" bindtap="_change" name='payWith' checked="{{ default=='online' ? true : false }}"/> </label>
         </view>
-        <view class="pay-info {{ withDeposit ? '' : 'disabled' }}">
-            <image src="../../asset/img/cash-pay.png" class="icon"></image>
-            <view class="pay-intro">
-                <view>余额支付</view>
-                <text>使用余额进行付款</text>
-            </view>
-            <label class="radio" > <radio data-paywith="deposit" bindtap="_change" disabled="{{ !withDeposit }}" name='payWith' checked="{{ default=='deposit' ? true : false }}"/> </label>
-        </view>
         <view class="pay-info {{ withBoss ? '' : 'disabled' }}">
             <image src="../../asset/img/boss-pay.png" class="icon boss-pay"></image>
             <view class="pay-intro">
@@ -24,6 +16,14 @@
                 <text>使用老板的余额进行付款</text>
             </view>
             <label class="radio" > <radio data-paywith="boss" bindtap="_change" disabled="{{ !withBoss }}" name='payWith' checked="{{ default=='boss' ? true : false }}"/> </label>
+        </view>
+        <view class="pay-info {{ withDeposit ? '' : 'disabled' }}">
+            <image src="../../asset/img/cash-pay.png" class="icon"></image>
+            <view class="pay-intro">
+                <view>余额支付</view>
+                <text>使用余额进行付款</text>
+            </view>
+            <label class="radio" > <radio data-paywith="deposit" bindtap="_change" disabled="{{ !withDeposit }}" name='payWith' checked="{{ default=='deposit' ? true : false }}"/> </label>
         </view>
     </radio-group>
 </view>

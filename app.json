@@ -1,7 +1,5 @@
 {
   "pages":[
-        "pages/login/login",
-        "pages/register/register",
 
         "pages/order/index",
         "pages/order/pay",
@@ -9,6 +7,9 @@
         "pages/order/confirm",
         "pages/order/detail",
         "pages/order/payticket",
+        
+        "pages/login/login",
+        "pages/register/register",
         
         "pages/my/index",
         "pages/my/bill",

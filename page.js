@@ -11,19 +11,6 @@ module.exports = P = {
         var success = args.pop()
         var context = this
 
-        if ( !_.cache('openid') ){
-            wx.login({
-                success: function(res){
-                    if (res.code) {
-                      //发起网络请求
-                        Api.saveOpenId(res.code)
-                    } else {
-                        console.log('获取用户登录态失败！' + res.errMsg)
-                    }
-                }
-            })
-        }
-
         if ( context.customData.login ){
 
             if ( Api.isRefreshTokenExpired() ){

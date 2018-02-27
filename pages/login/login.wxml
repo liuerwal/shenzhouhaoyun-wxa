@@ -1,6 +1,6 @@
 <!--index.wxml-->
 
-<view class="public-bg">
+<!-- <view class="public-bg">
 	<form bindsubmit="formSubmit">
 		<view class="form-box">
 			<view class="section">
@@ -20,3 +20,4 @@
 	</navigator>
 	
 </view>
+ -->
