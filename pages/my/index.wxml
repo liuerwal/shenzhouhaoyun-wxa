@@ -85,6 +85,10 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
+
+        <view class="notice">
+            <text>客服热线: {{ user.cs_phone }}</text>
+        </view>
         
     </view>
 </view>
