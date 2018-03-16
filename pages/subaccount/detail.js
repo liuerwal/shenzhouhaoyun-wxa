@@ -35,10 +35,11 @@ P.run({
     },
 
     close: function(e){
-        var that = this
-        var user = this.data.user
-        var limit = this.customData.limit
+        var that   = this
+        var user   = this.data.user
+        var limit  = this.customData.limit*1
         var myself = _.cache('user')
+        var fund   = myself.fund*1
 
         if ( !limit ){
             wx.navigateBack()

@@ -53,7 +53,7 @@
 
     <paywith payWithDeposit="{{ order.use_fund }}" payWithBoss="{{ order.boss_pay }}" default="{{ payWithDefault }}" bindchange="payWith"></paywith>
 
-    <toast message="{{ _toast_message }}" hide="{{ _toast_hide }}"></toast>
+    <mytoast message="{{ _toast_message }}" hide="{{ _toast_hide }}"></mytoast>
     
     <pay title="{{ pay_title }}" amount="{{ pay_amount }}" hide="{{ pay_choose_box }}" bindpay="pay"></pay>
 

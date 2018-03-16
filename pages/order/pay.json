@@ -3,6 +3,6 @@
     "usingComponents": {
         "pay": "../../comps/pay/pay",
         "paywith": "../../comps/pay/paywith",
-        "toast": "../../comps/toast/toast"
+        "mytoast": "../../comps/toast/toast"
     }
 }

@@ -12,8 +12,12 @@ P.run({
         tabBar: 'mine',
     },
     onLoad: function() {  
-        var that = this;
 
+          
+    },
+
+    onShow: function(){
+        var that = this;
         P.Api.user.myself(function(user){
             
             if ( user.checked==1 ){
@@ -27,6 +31,10 @@ P.run({
             that.setData({
                 user: user,
             })
-        });  
+        });
     },
+
+    showNotice: function(){
+        P._.mytoast('开票系统正在完善当中，目前需开发票请联系人工客服')
+    }
 });

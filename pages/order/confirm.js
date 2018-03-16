@@ -215,14 +215,14 @@ P.run({
         var addr = this.data.current_addr
 
         if ( !addr.length ){
-            _.toast('至少设置一个地址')
+            _.mytoast('至少设置一个地址')
             return false
         }
 
         for ( var x in addr ){
             var w = addr[x].weight
             if ( isNaN(w) || w<=0 ){
-                _.toast('未设置重量')
+                _.mytoast('未设置重量')
                 return false
             }
         }
@@ -324,7 +324,7 @@ P.run({
 
         if ( isNaN(i) ){
             if ( addrs.length >= 1 ){
-                _.toast('只能选择1个地址')
+                _.mytoast('只能选择1个地址')
                 return false;
             }
             addrs.push(addr)
@@ -355,7 +355,7 @@ P.run({
         var addr = this.data.current_addr
         console.log(addr)
         if (!addr.length ){
-            _.toast('还没有地址，去新增地址吧')
+            _.mytoast('还没有地址，去新增地址吧')
 
         }
         else{

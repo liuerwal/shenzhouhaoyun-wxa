@@ -1,9 +1,9 @@
-.container{float: left;position: fixed; left: 0; bottom: 100px;left: 50%;z-index:10000000;}
+.container{float: left;position: fixed; left: 0; bottom: 100px;left: 50%;z-index:10000000;width:100%; }
 .content{
     margin: 0 auto;
     padding: 8px 15px;
     min-width: 100px;
-    max-width: 60%;
+    max-width: 70%;
     width: auto;
     background: rgba(0, 0, 0, .6);
     color: #fff;

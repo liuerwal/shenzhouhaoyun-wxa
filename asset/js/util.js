@@ -257,13 +257,16 @@ module.exports = {
     },
 
     toast: function(message){
-        // this.currentPage().setData({
-        //     _toast_hide: false,
-        //     _toast_message: message
-        // })
         wx.showToast({
             title: message,
             
+        })
+    },
+
+    mytoast: function(message){
+        this.currentPage().setData({
+            _toast_hide: false,
+            _toast_message: message
         })
     },
 

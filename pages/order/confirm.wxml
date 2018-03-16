@@ -56,7 +56,7 @@
             </view>
 
             <view class="section service-time">
-                <view class='main-color'>默认从当天晚上9点开始送</view>
+                <view class='main-color'>货车禁行区域，默认从当天晚上9点开始配送</view>
                 <view class="picker">
                     <view class="section__title">送达时间</view>
                     <picker bindchange="datatime" value="{{ct}}" range="{{choosetime}}" >
@@ -128,5 +128,6 @@
 </view>
 
 
+<mytoast message="{{ _toast_message }}" hide="{{ _toast_hide }}"></mytoast>
 
 <include src="../../comps/datetimePicker/index" />

@@ -24,6 +24,11 @@ P.run({
 
         P.Api.order.show(id, function(response){
             response.pay_status_text = that.payStatusText(response)
+            if ( (response.pay_status==0 && response.order_oil.freight_pay_status==0) || response.status==1 ){
+                response.cancel = 1
+            }else{
+                response.cancel = 0
+            }
             that.setData({
                 order : response
             })
@@ -49,6 +54,18 @@ P.run({
                 }, 1500)
             });
         })
+    },
+
+    orderDelete: function(e){
+        var id = this.data.order.id
+        _.confirm("确定删除此订单吗？", function(){
+            P.Api.order.delete(id, function(response){
+                _.toast('订单已删除')
+                setTimeout(function(){
+                    wx.navigateBack()
+                }, 1500)
+            });
+        });
     },
 
     payOil: function(){

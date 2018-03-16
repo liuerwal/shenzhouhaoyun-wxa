@@ -40,6 +40,7 @@ module.exports = {
             SHOW: API_URL+'/order/%d',
             INPOUR: API_URL+'/order/inpour',
             CANCEL: API_URL+'/order/%d/cancel',
+            DELETE: API_URL+'/order/%d/delete',
             ADDRESS:{
                 DELIVER: API_URL+'/order/address/%d/deliver',
                 ARRIVE: API_URL+'/order/address/%d/arrive',

@@ -1,18 +1,42 @@
 <!--Forgot-password.wxml-->
 <view class="public-bg" >
-	<form bindsubmit="formSubmit" bindreset="formReset">
+    <form bindsubmit="formSubmit" bindreset="formReset">
 
-		<view class="form-box">
-			<view class="section">
-				<view class="section__title">登录密码</view>
-				<input placeholder="请输入登录密码" name="password"/>
-			</view>
-			<view class="section">
-				<view class="section__title">支付密码</view>
-				<input placeholder="请输入支付密码" name="pay_passwd"/>
-			</view>
-		</view>
-		
-		<button class="btn" formType="submit">确定</button>
-	</form>
+        <block wx:if="{{ !is_set_pay_passwd }}">
+            <view class="form-box">
+                <view class="section">
+                    <view class="section__title">支付密码</view>
+                    <input placeholder="请输入支付密码" name="password"/>
+                </view>
+                <view class="section">
+                    <view class="section__title">确认密码</view>
+                    <input placeholder="请再次输入支付密码" name="repassword"/>
+                </view>
+            </view>
+        </block>
+
+        <block wx:if="{{ is_set_pay_passwd }}">
+            <view class="form-box">
+                <view class="section">
+                    <view class="section__title">原密码</view>
+                    <input placeholder="请输入原支付密码" name="oldpassword"/>
+                </view>
+                <view class="section">
+                    <view class="section__title">新密码</view>
+                    <input placeholder="请输入新支付密码" name="password"/>
+                </view>
+                <view class="section">
+                    <view class="section__title">确认密码</view>
+                    <input placeholder="请再次输入新支付密码" name="repassword"/>
+                </view>
+            </view>
+        </block>
+
+        
+        
+        <button class="btn" formType="submit">确定</button>
+    </form>
 </view>
+
+
+<mytoast message="{{ _toast_message }}" hide="{{ _toast_hide }}"></mytoast>

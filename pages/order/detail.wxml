@@ -86,10 +86,14 @@
         </block>
     </view>
 
+    <block wx:if="{{ order.cancel  }}">
+        <button class="btn btn-big" bindtap="orderDelete">删除订单</button>
+    </block>
+
     <view class="public-mask" hidden="{{ pay_choose_box }}">
         <view class="paywith-box">
-            <paywith payWithDeposit="{{ order.use_fund }}" payWithBoss="{{ order.boss_pay }}" default="{{ pay_with_default }}" bindchange="choose"></paywith>
-            <button class="btn" bindtap="pay">支付</button>
+            <paywith class="paywith" payWithDeposit="{{ order.use_fund }}" payWithBoss="{{ order.boss_pay }}" default="{{ pay_with_default }}" bindchange="choose"></paywith>
+            <button class="btn pay-btn" bindtap="pay">支付</button>
         </view>
     </view>
 

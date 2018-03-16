@@ -85,8 +85,17 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
+
+
+        <view class="list spacing" bindtap="showNotice">
+            <image src="../../asset/img/account-icon.png" class="icon"></image>
+            <view class="list-title">开票</view>
+            <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
+        </view>
         
     </view>
 </view>
+
+<mytoast message="{{ _toast_message }}" hide="{{ _toast_hide }}"></mytoast>
 
 <include src="../../comps/tabBar/index.wxml" /> 

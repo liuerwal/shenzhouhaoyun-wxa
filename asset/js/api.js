@@ -87,6 +87,15 @@ module.exports = {
     },
 
     order: {
+        delete: function(order_id, success){
+            Http.post( _.sprintf(CONFIG.API.ORDER.DELETE, order_id), {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
         confirm: function(order, success){
             Http.post( CONFIG.API.ORDER.CONFIRM, order, function(response){
                 if ( response.status == 1){
@@ -360,8 +369,8 @@ module.exports = {
                 }
             })
         },
-        resetPayPasswd: function(login_password, pay_passwd, success){
-            Http.post( CONFIG.API.USER.RESET_PAY_PASSWD, {password: login_password, pay_passwd: pay_passwd}, function(response){
+        resetPayPasswd: function(old_pay_passwd, pay_passwd, success){
+            Http.post( CONFIG.API.USER.RESET_PAY_PASSWD, {password: old_pay_passwd, pay_passwd: pay_passwd}, function(response){
                 if ( response.status == 1){
                     success && success(response.data)
                 }else{

@@ -17,6 +17,10 @@
             <text class="list-right">{{ bill.pay_with }}</text>
         </view>
         <view class="list_info">
+            <text class="list-left fl-left">支付账号</text>
+            <text class="list-right">{{ bill.pay_by }}</text>
+        </view>
+        <view class="list_info">
             <text class="list-left fl-left">商品单号</text>
             <text class="list-right">{{ bill.order_no }}</text>
         </view>
