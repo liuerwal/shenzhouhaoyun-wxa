@@ -71,13 +71,6 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
-        <navigator url="../article/index" hover-class="none">
-            <view class="list spacing">
-                <image src="../../asset/img/intro-icon.png" class="icon"></image>
-                <view class="list-title">收费说明</view>
-                <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
-            </view>
-        </navigator>
         <navigator wx:if="{{ !user.parent_id }}" url="../subaccount/index" hover-class="none">
             <view class="list spacing">
                 <image src="../../asset/img/account-icon.png" class="icon"></image>
@@ -91,6 +84,19 @@
             <image src="../../asset/img/account-icon.png" class="icon"></image>
             <view class="list-title">开票</view>
             <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
+        </view>
+
+
+        <navigator url="../article/index" hover-class="none">
+            <view class="list spacing">
+                <image src="../../asset/img/intro-icon.png" class="icon"></image>
+                <view class="list-title">收费说明</view>
+                <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
+            </view>
+        </navigator>
+
+        <view class="notice">
+            <text>客服电话: {{ user.cs_phone }}</text>
         </view>
         
     </view>

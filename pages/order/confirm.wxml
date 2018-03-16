@@ -19,6 +19,7 @@
             </view>
 
             <view class="notice">
+                <text>提示：一次下单重量最少0.1吨，最多10吨；距离小于50公里</text>
                 <text>提示：一次下单重量越大，运费越便宜</text>
                 <!-- <text class="notice-addr">从地址列表中选择送货地址，最多3个</text> -->
                 <view class="link text-center" bindtap="newAddr">新增地址</view>
