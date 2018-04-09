@@ -8,7 +8,7 @@ form{margin-bottom: 100px;height: 100%;}
 .detailed-info input{width: 100%;}
 .Frozen-cash {margin-right: 15px;}
 .oiltype{position: relative;}
-.unit-price{font-size: 13px;position:absolute; right:10px; }
+.unit-price{font-size: 13px;position:absolute; right:10px;top:3px; }
 .we-left input{width:40px;}
 .we-left .section__title{width:40px;}
 .phone-right input{width:110px;}
@@ -82,3 +82,18 @@ button::after{content:none;}
 .line{  
   border-bottom: 1px solid #f8f8f8;  
 }  
+
+
+picker{position: relative;}
+picker:after{
+    content: " ";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border:#999 solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(135deg);
+    margin-bottom: 5px;
+}
+.oil-picker{}
+.select-input{width: 110px;}
