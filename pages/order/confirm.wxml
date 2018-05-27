@@ -24,7 +24,10 @@
                 <view class="link text-center" bindtap="newAddr">新增地址</view>
             </view>
 
-            <view class="choose-add" bindtap="powerDrawer" data-statu="open">选择地址</view>
+            <view class="choose-add" bindtap="powerDrawer" data-statu="open">
+                <text>收货地址</text>
+                <view class="select-arrow"></view>
+            </view>
 
             <!--mask-->  
             <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>  
