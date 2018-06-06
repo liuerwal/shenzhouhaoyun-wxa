@@ -4,7 +4,8 @@
 	<view class="index-banner">
 		<image src="../../asset/img/car.png"></image>
 	</view>
-	<view class="order-box">
+
+	<view class="order-box" wx:if="{{ user.role == 'buyer' }}">
 		<navigator url="../order/confirm" hover-class="none">
 			<view class="fl-left order">
 				<image src="../../asset/img/give.png"></image>

@@ -185,15 +185,17 @@ P.run({
         Promise.all([oil, addr, price ,time]).then(function(result){
             console.log(that.customData)
 
-            that.customData.oil   = result[0]
-            that.customData.addr  = result[1]
-            that.customData.price = result[2]
-            that.customData.time  = result[3].time
+            that.customData.oil          = result[0]
+            that.customData.addr         = result[1]
+            that.customData.price        = result[2]
+            that.customData.time         = result[3].time
+            that.customData.default_time = result[3].default_time
 
             that.setData({
                 oil_type: that.customData.oil,
                 addrs: that.customData.addr,
                 choosetime :that.customData.time,
+                ct: that.customData.default_time
             })
 
             that.setCurrentOil(that.customData.oil[0]);
