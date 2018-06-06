@@ -11,9 +11,9 @@
                         <label class="radio" >
                             <radio value="buyer" disabled="{{disabled}}" name='buyer' checked="true"/><text>采购方</text>
                         </label>
-                        <label class="radio">
-                            <radio value="driver" disabled="{{disabled}}" name='driver'/><text>运输司机</text>
-                        </label>
+                        <!-- <label class="radio"> -->
+                            <!-- <radio value="driver" disabled="{{disabled}}" name='driver'/><text>运输司机</text> -->
+                        <!-- </label> -->
                     </radio-group>
                 </view>
                 <view class="section">
