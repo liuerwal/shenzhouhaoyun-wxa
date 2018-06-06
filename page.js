@@ -79,6 +79,19 @@ module.exports = P = {
                     'complete': function(){},
                 }
             },
+
+            makePhoneCall: function(e){
+                var phone = e.currentTarget.dataset.phone
+                if ( phone.length==0 ){
+                    return 
+                }
+                wx.makePhoneCall({
+                    phoneNumber: phone,
+                    success: function(){ },
+                    fail: function(){ _.toast('拨号失败') },
+                    'complete': function(){},
+                })
+            }
         };
         var func = {};
 

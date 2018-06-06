@@ -19,14 +19,15 @@
             </view>
 
             <view class="notice">
-                <text>提示：一次下单重量最小0.1吨，最大10吨，重量越大，运费越划算</text>
+                <text>提示：一次下单重量最小0.1吨，最大10吨，重量越大运费越划算</text>
                 <!-- <text class="notice-addr">从地址列表中选择送货地址，最多3个</text> -->
-                <view class="link text-center" bindtap="newAddr">新增地址</view>
             </view>
 
             <view class="choose-add" bindtap="powerDrawer" data-statu="open">
                 <text>收货地址</text>
                 <view class="select-arrow"></view>
+
+                <view class="link text-center" catchtap="newAddr">新增地址</view>
             </view>
 
             <!--mask-->  

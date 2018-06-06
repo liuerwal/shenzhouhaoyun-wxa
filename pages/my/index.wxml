@@ -96,7 +96,7 @@
         </navigator>
 
         <view class="notice">
-            <text>客服电话: {{ user.cs_phone }}</text>
+            <text bindtap="makePhoneCall" data-phone="{{ user.cs_phone }}">客服电话: {{ user.cs_phone }}</text>
         </view>
         
     </view>

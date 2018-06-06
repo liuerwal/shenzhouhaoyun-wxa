@@ -95,7 +95,7 @@
                     </view>
                     <view class="list_info">
                         <text class="list-left fl-left">手机号码</text>
-                        <view class="fl-right delivery-addrs">{{ addr.phone }}</view>
+                        <view class="fl-right delivery-addrs phone-number" bindtap="makePhoneCall" data-phone="{{ addr.phone }}">{{ addr.phone }}</view>
                     </view>
 
                     <view>
