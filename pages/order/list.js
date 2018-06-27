@@ -18,11 +18,13 @@ P.run( {
     customData: {
         page: 1,
     },
-    onLoad: function() {  
-        var that = this;  
+    onLoad: function() {
+
+    },
+
+    onShow: function(){
 
         this.orders( this.timeRange(7) )
-
     },
 
     timeChange: function(e) {

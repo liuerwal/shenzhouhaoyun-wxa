@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "注册"
+    "navigationBarTitleText": "注册",
+    "usingComponents": {
+        "mytoast": "../../comps/toast/toast"
+    }
 }

@@ -3,20 +3,18 @@
 <view class="message-box">
     <block wx:for="{{ messages }}" wx:key="id">
         
-        <navigator url="detail?id={{item.id}}" hover-class="none">
-            <view class="inform-box">
+            <view class="inform-box" bindtap="showDetail" data-index="{{ index }}">
                 <view>
                     <view class="fl-left">
-                        <text class="inform-title">{{item.title}}</text>
+                        <text class="inform-title {{ item.is_read ? 'read' : 'unread' }}">{{item.title}}</text>
                     </view>
                     <view class="fl-right created-time">
                         <text>{{item.created_at}}</text>
                         <!-- <text class="del" bindtap="remove" data-index="{{index}}"> x </text> -->
                     </view>
                 </view>
-                <view><text class="inform-content">{{item.content}}</text></view>
+                <view><text class="inform-content">{{ item.content }}</text></view>
             </view> 
-        </navigator>
         
     </block>
 </view>

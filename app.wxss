@@ -26,6 +26,8 @@ view{font-size: 15px;}
 .icon-title{font-size: 12px;color: #999;}
 .bottom-icon{height: 26px;}
 .home-icon{width:27px !important;height: 27px !important;}
+.message-icon{position: relative;}
+.message-icon i{display: block;position: absolute;padding: 3px;background: #f00;top: 2px;left:50%; margin-left:10px; border-radius: 50%;}
 
 page{height:100%;}
 .container{min-height: 100%;}

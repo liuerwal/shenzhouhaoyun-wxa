@@ -32,8 +32,10 @@
         
         "pages/article/index",
         
-        "pages/subaccount/add",
         "pages/subaccount/index",
+        "pages/subaccount/parentaccount",
+        "pages/subaccount/subaccount",
+        "pages/subaccount/add",
         "pages/subaccount/detail",
 
         "pages/address/list",

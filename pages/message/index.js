@@ -42,6 +42,7 @@ P.run({
             response = response.map(function(v){
                 v.created_at = _.strtotime(v.created_at)
                 v.created_at = _.date('m-d', v.created_at)
+                v.content = v.content.replace(/<\/?.+?>/g, "")
                 return v
             })
 
@@ -59,6 +60,21 @@ P.run({
         }else{
             // _.toast('已经拉到底了')
         }
+    },
+
+    showDetail: function(e){
+
+        var key = e.currentTarget.dataset.index
+        var message = this.data.messages[key]
+
+        message.is_read = 1
+
+        this.setData({
+            messages: this.data.messages
+        })
+
+        _.navigateTo('detail?id='+message.id)
+
     },
 
     // remove: function(e){

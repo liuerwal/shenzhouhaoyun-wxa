@@ -83,7 +83,25 @@ module.exports = {
                     _.toast(response.msg)
                 }
             })
-        }
+        },
+        unread: function(success){
+            Http.get( CONFIG.API.MESSAGE.UNREAD, {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        read: function(id, success){
+            Http.get( _.sprintf(CONFIG.API.MESSAGE.READ, id), {}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
     },
 
     order: {
@@ -342,9 +360,18 @@ module.exports = {
 
     user: {
         myself: function(success){
-            Http.get( CONFIG.API.USER.SHOW, {}, function(response){
+            Http.get( CONFIG.API.USER.SELF, {}, function(response){
                 if ( response.status == 1){
                     _.cache('user', response.data)
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        show: function(id, success){
+            Http.get( _.sprintf(CONFIG.API.USER.SHOW, id) , {}, function(response){
+                if ( response.status == 1){
                     success && success(response.data)
                 }else{
                     _.toast(response.msg)
@@ -413,7 +440,25 @@ module.exports = {
                     _.toast(response.msg)
                 }
             })
-        }
+        },
+        removeSubaccount: function(user_id, success){
+            Http.post( CONFIG.API.USER.SUBACCOUNT_REMOVE, {'id': user_id}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
+        confirmSubaccount: function(user_id, success){
+            Http.post( CONFIG.API.USER.SUBACCOUNT_CONFIRM, {'id': user_id}, function(response){
+                if ( response.status == 1){
+                    success && success(response.data)
+                }else{
+                    _.toast(response.msg)
+                }
+            })
+        },
     },
 
     qualification: {

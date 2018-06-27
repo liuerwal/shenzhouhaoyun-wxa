@@ -9,3 +9,5 @@ navigator{display: block;}
 .msg-time{font-size: 12px;}
 .created-time{color: #555;font-size: 12px;}
 .message-box{padding-bottom: 50px;}
+
+.inform-title.unread{font-weight: bold;}

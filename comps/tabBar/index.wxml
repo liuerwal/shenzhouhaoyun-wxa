@@ -4,7 +4,7 @@
         <view class="icon-title">首页</view>
     </view>
     <view class="tabbar-info" bindtap="switchTo" data-tab="message">
-        <view class="bottom-icon"><image src="{{tabIcon[1]}}"></image></view>
+        <view class="bottom-icon message-icon"><image src="{{tabIcon[1]}}"></image><i wx:if="{{ unread }}"></i></view>
         <view class="icon-title">通知</view>
     </view>
     <view class="tabbar-info" bindtap="switchTo" data-tab="mine">

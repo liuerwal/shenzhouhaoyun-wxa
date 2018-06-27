@@ -1,8 +1,12 @@
 <!--regiter.wxml-->
 <view class="public-bg"  style="height:{{winHeight}}px">
-    <form bindsubmit="formSubmit" bindreset="formReset">
-        
 
+    <view class="authorize" wx:if="{{ model=='authorize' }}">
+        <text>注册需要获取您的昵称、头像等基本信息</text>
+        <button class="btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+    </view>
+
+    <form bindsubmit="formSubmit" bindreset="formReset" wx:if="{{ model=='form' }}">
         <view class="public-fff">
             <view class="form-box">
                 
@@ -18,7 +22,7 @@
                 </view>
                 <view class="section">
                     <view class="section__title">昵称</view>
-                    <input placeholder="请输入昵称" name="nickname" value="{{nickname}}"  />
+                    <input placeholder="请输入昵称" name="nickname" value="{{userinfo.nickName}}"  />
                 </view>
                 <!-- <view class="section">
                     <view class="section__title">密码</view>
@@ -35,6 +39,9 @@
                 </view> -->
             </view>
         </view>
-        <button class="btn" bindtap="redirect" formType="submit">注册</button>
+        <button class="btn" formType="submit">注册</button>
     </form>
 </view>
+
+
+<mytoast message="{{ _toast_message }}" hide="{{ _toast_hide }}"></mytoast>

@@ -2,7 +2,7 @@
 
 <view class="public-bg">
 	<view class="index-banner">
-		<image src="../../asset/img/car.png"></image>
+		<image src="../../asset/img/car.jpg"></image>
 	</view>
 
 	<view class="order-box" wx:if="{{ user.role == 'buyer' }}">

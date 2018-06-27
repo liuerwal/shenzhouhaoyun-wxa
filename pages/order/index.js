@@ -17,7 +17,7 @@ P.run({
         ]
     },
     onLoad: function () {
-        console.log('onLoad')
+        console.debug('onLoad')
         var that = this
 
         var user = P._.cache('user')

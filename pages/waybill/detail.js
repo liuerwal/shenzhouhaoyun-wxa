@@ -168,16 +168,20 @@ P.run({
         var that = this
         var id = e.currentTarget.dataset.addr
 
-        wx.getLocation({
-            type: 'gcj02',
-            success: function(location){
-                that.addrStatusChange('done', id, location)
-            },
-            fail: function(){
-                _.toast('坐标获取失败')
-                that.addrStatusChange('done', id)
-            }
+        _.alert('确认要已交货并完成此订单吗？', function(){
+            
+            wx.getLocation({
+                type: 'gcj02',
+                success: function(location){
+                    that.addrStatusChange('done', id, location)
+                },
+                fail: function(){
+                    _.toast('坐标获取失败')
+                    that.addrStatusChange('done', id)
+                }
+            })
         })
+
     },
 
     addrStatusChange: function(status, id, location){

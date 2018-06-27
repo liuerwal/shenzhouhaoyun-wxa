@@ -1,8 +1,10 @@
 var _ = require('../../asset/js/util');
+var Api = require('../../asset/js/api');
 
 module.exports = {
     data: {
-        
+        unread: 0,
+        tabIcon: []
     },
     customData: {
         tabBar: 'home',
@@ -14,6 +16,10 @@ module.exports = {
     },
     onLoad: function(){
         this.setTabBar();
+
+        if ( this.customData.tabBar!=='message' ){
+            this.newMessage()
+        }
     },
 
     switchTo: function(e){
@@ -34,5 +40,14 @@ module.exports = {
         this.setData({
             tabIcon: icon
         });
+    },
+
+    newMessage: function(){
+        var _this = this
+        Api.message.unread(function(response){
+            _this.setData({
+                unread: response
+            })
+        })
     }
 }

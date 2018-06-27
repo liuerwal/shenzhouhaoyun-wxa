@@ -3,7 +3,7 @@
 var P   = require('../../page')
 var api = P.Api
 var _   = P._
-
+var Auth = require('../../asset/js/login')
 
 P.run({
 
@@ -13,55 +13,81 @@ P.run({
         phone: '',
 
         countdown: false,
+
     },
 
     data: {
         parent: 0,
-        phone: '',
         disabled: false,
 
-        VerifyCode:"发送验证码"
+        VerifyCode:"发送验证码",
+        userinfo: null,
     },
 
     onLoad: function(options){
         var that = this
 
-        wx.getUserInfo({
-            withCredentials: false,
-            success: function(res) {
-                that.setData({
-                    nickname: res.userInfo.nickName
-                })
-            }
-        })
-
         if ( options.q ){
-            // var url = decodeURI(options.q)
+
+            var url = decodeURI(options.q)
             var url = decodeURIComponent(options.q)
             var params = this.parseUrl(url)
-            console.log(params)
 
-            this.customData.phone = params.phone
-
-            this.setData({
-                parent: params.parent,
-                phone: params.phone,
-                disabled: params.parent ? true : false,
-            })
+            this.customData.parent = params.parent
         }
     },
 
-    formSubmit:function(e){
+    onShow: function(){
+        if ( this.customData.parent ){
+            this.chekcRegisted()
+        }else{
+            
+            this.showAuthorize()
+        }
+    },
+
+    chekcRegisted: function(){
+        var that = this
+        Auth.login( (user) => {
+            if ( user ){
+                _.navigateTo('/pages/subaccount/parentaccount?parent='+ that.customData.parent)
+            }else{
+                this.showAuthorize()
+            }
+        })
+    },
+
+    showAuthorize: function(){
+        this.setData({
+            model: 'authorize',
+        })
+    },
+    showForm: function(userinfo){
+        this.setData({
+            model: 'form',
+            userinfo: userinfo
+        })
+    },
+
+    formSubmit: function(e){
         var that     = this;
         var role     = e.detail.value['radio-group'];
-        var parent   = this.data.parent
+        var parent   = this.customData.parent
         var nickname = e.detail.value.nickname
         var openid   = _.cache('openid')
+
+        if ( role.length==0 ){
+            _.toast('请选择角色')
+        }
+        if ( nickname.length==0 ){
+            _.toast('请填写昵称')
+        }
 
         api.register({
             role: role,
             parent: parent,
             nickname: nickname,
+            avatar: this.data.userinfo.avatarUrl,
             openid: openid,
             referer: getApp().globalData('referer')
         }, function(){
@@ -76,31 +102,44 @@ P.run({
         }); 
     },
 
-    phone: function(e){
+    // phone: function(e){
 
-        this.customData.phone = e.detail.value
+    //     this.customData.phone = e.detail.value
 
-        if ( this.customData.phone.length == 11 ){
-            P.Api.auth.phone(this.customData.phone)
-        }
+    //     if ( this.customData.phone.length == 11 ){
+    //         P.Api.auth.phone(this.customData.phone)
+    //     }
 
-    },
+    // },
     
-    getcode:function(){
-        if( this.customData.phone.length != 11){
-            return;
-        }
+    // getcode:function(){
+    //     if( this.customData.phone.length != 11){
+    //         return;
+    //     }
 
-        if ( this.customData.countdown === false ){
-            console.log('count down')
-            this.customData.countdown = true
+    //     if ( this.customData.countdown === false ){
+    //         console.log('count down')
+    //         this.customData.countdown = true
 
-            var total_micro_second = 60 * 1000;
-            //验证码倒计时
-            count_down(this, total_micro_second);
+    //         var total_micro_second = 60 * 1000;
+    //         //验证码倒计时
+    //         count_down(this, total_micro_second);
 
-            P.Api.verifyCode(this.customData.phone)
-        }
+    //         P.Api.verifyCode(this.customData.phone)
+    //     }
+    // },
+
+    getUserInfo: function(e){
+        var that = this
+        wx.getUserInfo({
+            withCredentials: false,
+            success: (res) => {
+                that.showForm(res.userInfo)
+            },
+            fail: (res) => {
+                console.log(res)
+            }
+        })
     },
 
     parseUrl: function(url){

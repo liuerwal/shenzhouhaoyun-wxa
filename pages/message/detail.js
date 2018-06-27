@@ -10,27 +10,20 @@ P.run({
         var that = this;
         var id = options.id;
 
-        wx.getSystemInfo( {  
-
-            success: function( res ) {  
-                that.setData( { 
-                    id:id, 
-                });  
-            }
-        });   
-
-        that.show();
+        that.show(id);
     },
 
-    show:function(e){
+    show:function(id){
         var that=this;
-        var id = that.data.id
 
         P.Api.message.show(id, function(response){
             that.setData({
                 informdetail : response
             })
-            console.log("成功")
+
+            if ( !response.is_read ){
+                P.Api.message.read(id)
+            }
         });
 
     }

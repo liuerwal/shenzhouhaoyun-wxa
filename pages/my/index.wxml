@@ -2,7 +2,7 @@
 <view class="public-bg">
     <view class="Head">
         <view class="Head-portrait">
-            <image src="../../asset/img/head.jpg"></image>
+            <image src="{{ user.avatar }}"></image>
         </view>
         <view class="Head-info">
             <view class="title">{{user.username}}</view>
@@ -36,7 +36,7 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator> -->
-        <navigator wx:if="{{ !user.parent_id }}" url="../address/list" hover-class="none">
+        <navigator wx:if="{{ user.role=='buyer' }}" url="../address/list" hover-class="none">
             <view class="list">
                 <image src="../../asset/img/address-icon.png" class="icon"></image>
                 <view class="list-title">常用地址</view>
@@ -57,7 +57,7 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
-        <navigator wx:if="{{ !user.parent_id }}" url="../my/coupon" hover-class="none">
+        <navigator wx:if="{{ user.role=='buyer' }}" url="../my/coupon" hover-class="none">
             <view class="list">
                 <image src="../../asset/img/coupon-icon.png" class="icon"></image>
                 <view class="list-title">优惠券</view>
@@ -71,11 +71,13 @@
                 <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
         </navigator>
-        <navigator wx:if="{{ !user.parent_id }}" url="../subaccount/index" hover-class="none">
+        <navigator wx:if="{{ user.role=='buyer' }}" url="../subaccount/index" hover-class="none">
             <view class="list spacing">
                 <image src="../../asset/img/account-icon.png" class="icon"></image>
-                <view class="list-title">子账户</view>
-                <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
+                <view class="list-title">账号关联</view>
+                <view class="Arrow">
+                    <image src="../../asset/img/right-arrow.png"></image>
+                </view>
             </view>
         </navigator>
 

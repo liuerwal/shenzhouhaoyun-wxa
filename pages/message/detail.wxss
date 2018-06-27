@@ -1,4 +1,4 @@
 .title{font-weight: bold;text-align: left;background: #fff;padding:10px}
 .content{margin-top: 10px;background: #fff;padding:10px;font-size: 14px;}
 .call{font-size: 15px;padding-bottom: 10px;}
-.call-content{color: #555;font-size: 13px;}
+rich-text{font-size: 14px;line-height: 24px;}

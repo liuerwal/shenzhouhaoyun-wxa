@@ -29,7 +29,9 @@ module.exports = {
         MESSAGE: {
             DESTROY: API_URL+'/messages/destroy/%d',
             LIST: API_URL+'/messages',
+            UNREAD: API_URL+'/messages/unread',
             SHOW: API_URL+'/message/%d',
+            READ: API_URL+'/message/read/%d',
         },
 
         ORDER: {
@@ -75,13 +77,16 @@ module.exports = {
         },
 
         USER: {
-            SHOW: API_URL+'/user',
+            SELF: API_URL+'/user',
+            SHOW: API_URL+'/user/%d',
             RESET_PASSWORD: API_URL+'/password/reset',
             BILLS: API_URL+'/mybill',
             COUPONS: API_URL+'/mycoupon',
             RESET_PHONE: API_URL+'/phone',
             RESET_PAY_PASSWD: API_URL+'/pay_passwd/reset',
             SUBACCOUNT: API_URL+'/subaccount',
+            SUBACCOUNT_REMOVE: API_URL+'/subaccount/remove',
+            SUBACCOUNT_CONFIRM: API_URL+'/subaccount/change',
             RESET_LIMIT_FUND: API_URL+'/subaccount/limit',
         },
 

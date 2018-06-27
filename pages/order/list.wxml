@@ -20,7 +20,17 @@
                     <view><text class="order-stitle">总金额</text><text class="main-color">{{item.amount}}</text></view>
                     <view class="time"><text class="order-stitle">时间</text>{{item.created_at}}</view>
                     <view class=""><text class="order-stitle">油品</text>{{item.order_oil.oil.name}}</view>
-                    <view class="address"><text class="order-stitle">订单号</text>{{item.order_no}}</view>
+                    <view><text class="order-stitle">订单号</text>{{item.order_no}}</view>
+                    <view class="address"><text class="order-stitle">订单状态</text>
+                        <text class="main-color">
+                            <block wx:for="{{ item.address }}" wx:for-item="addr" wx:key="addrs">
+                                <block wx:if="{{addr.status == 0 }}">待发货</block>
+                                <block wx:if="{{addr.status == 2 }}">正在配送</block>
+                                <block wx:if="{{addr.status == 3 }}">待收货</block>
+                                <block wx:if="{{addr.status == 4 }}">已收货</block>
+                            </block>
+                        </text>
+                    </view>
                 </view>
             </navigator>
             <view class="again main-color">

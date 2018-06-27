@@ -108,7 +108,7 @@
                             </block>
 
                             <block wx:if="{{addr.status == 3 }}">
-                                <button bindtap="addrDone" data-addr="{{addr.id}}" class="btn">完成</button>
+                                <button bindtap="addrDone" data-addr="{{addr.id}}" class="btn">交货</button>
                             </block>
 
                             <block wx:if="{{addr.status == 4 }}">

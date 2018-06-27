@@ -3,8 +3,8 @@
 	<view class="order-info">
 		<view class="title">{{informdetail.title}}</view>
 		<view class="content">
-			<view class="call">您好：</view>
-			<view class="call-content">{{informdetail.content}}</view>
+			<!-- <view class="call">您好：</view> -->
+            <rich-text  nodes="{{ informdetail.content }}"> </rich-text>
 		</view>
 	</view>
 </view>

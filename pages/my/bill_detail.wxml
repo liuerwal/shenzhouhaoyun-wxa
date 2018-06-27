@@ -25,6 +25,10 @@
             <text class="list-right">{{ bill.order_no }}</text>
         </view>
         <view class="list_info">
+            <text class="list-left fl-left">订单说明</text>
+            <text class="list-right">{{ bill.description }}</text>
+        </view>
+        <view class="list_info">
             <text class="list-left fl-left">交易时间</text>
             <text class="list-right">{{ bill.created_at }}</text>
         </view>
