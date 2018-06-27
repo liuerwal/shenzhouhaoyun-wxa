@@ -66,6 +66,21 @@ P.run({
             //     wx.navigateBack()
             // }, 3000)
         })
+    },
+
+    //解除子账号
+    remove: function(e){
+        var user = getApp().globalData('subaccount_show')
+
+        _.alert('取消关联后，子账户不能再使用您的余额支付', function(){
+            P.Api.user.removeSubaccount(user.id, function(response){
+                _.toast('已取消关联')
+                setTimeout(function(){
+                    wx.navigateBack()
+                }, 1500)
+            })
+        })
+
     }
 
     

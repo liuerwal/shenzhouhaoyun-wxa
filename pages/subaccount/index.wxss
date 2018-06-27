@@ -1,8 +1,11 @@
-/**index.wxss**/
-navigator{display: block;}
-.Arrow{float: right;margin-top:-20px;}
-.Arrow image{width:20px;height:20px;display: block;}
-.btn{position:fixed;bottom:0;margin:0;width:100%;border-radius:0;}
-.account_list{overflow:hidden;padding:10px 15px;margin-bottom: 10px;background: #fff;}
-.list_info {display: block;clear: both;padding:10px 0;}
-.list_info .list-left{width:80px;}
+.my-list{border-top: 1px solid #e5e5e5;}
+.list{padding:0 15px;overflow: hidden;border-bottom: 1px solid #e5e5e5;line-height: 44px;background: #fff;}
+.list-title{float: left;font-size:15px;}
+.spacing{margin-top:10px;border-top:1px solid #e5e5e5;}
+navigator {display: block;}
+.Arrow{float: right;text-align: right;color: #999;}
+.Arrow image{width:20px;height:20px;vertical-align:middle; }
+.oil_fund{padding-right:10px;}
+.public-bg{padding-bottom: 50px;}
+.icon{float:left;width:22px;height:22px;margin-top:11px;margin-right:15px;}
+.notice{font-size:14px;}

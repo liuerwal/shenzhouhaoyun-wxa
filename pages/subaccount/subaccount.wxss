@@ -1,0 +1,16 @@
+/**index.wxss**/
+navigator{display: block;}
+.Arrow{float: right;margin-top:-20px;}
+.Arrow image{width:20px;height:20px;display: block;}
+.btn.bottom_btn{position:fixed;bottom:0;margin:0;width:100%;border-radius:0;}
+.account_list{overflow:hidden;padding:10px 15px;margin-bottom: 10px;background: #fff;}
+.list_info {display: block;clear: both;padding:10px 0;}
+.list_info .list-left{width:80px;}
+
+.balance-box{height:100%;}
+.balance-info image{width:80px;height:80px;margin:20px auto;display: block;}
+.driver{padding:10px 0;overflow: hidden;border-bottom:1px solid #e5e5e5;margin:0 15px;}
+.driver:last-child{border:none;}
+.driver .main-color{display: block;font-size:32px;font-weight:bold;}
+.driver-info{background: #fff;overflow: hidden;}
+.driver .driver-title{display:block;padding-left: 5px;}

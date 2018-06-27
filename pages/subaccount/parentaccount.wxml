@@ -1,0 +1,53 @@
+
+<block wx:if="{{ model=='none' }}">
+    <view class="public-bg">
+        <view class="account">
+            <view><image src="{{ parent.avatar }}"></image></view>
+            <text>{{ parent.username }}</text>
+            <!-- <text class="notice"></text> -->
+        </view>
+        <button class="btn" bindtap="scanCode">扫描二维码</button>
+    </view>
+</block>
+
+<block wx:if="{{ model=='parent' }}">
+    <view class="public-bg">
+        <view class="account">
+            <view><image src="{{ parent.avatar }}"></image></view>
+            <text>{{ parent.username }}</text>
+            <!-- <text class="notice"></text> -->
+        </view>
+        <button class="btn" bindtap="removeParent">解除关联</button>
+    </view>
+</block>
+
+<block wx:if="{{ model=='set' }}">
+    <view class="public-bg">
+        <view class="account">
+            <view><image src="{{ parent.avatar }}"></image></view>
+            <text>{{ parent.username }}</text>
+            <!-- <text class="notice"></text> -->
+        </view>
+        <button class="btn" bindtap="changeParent" data-id="{{ parent.id }}">确认关联</button>
+    </view>
+</block>
+
+<block wx:if="{{ model=='change' }}">
+    <view class="public-bg">
+        <view class="display-flex">
+            <view class="account">
+                <view><image src="{{ parent.avatar }}"></image></view>
+                <text>{{ parent.username }}</text>
+                <!-- <text class="notice"></text> -->
+            </view>
+            <view class="arrow"><image src="../../asset/img/arrow499.png"></image></view>
+            <view class="account">
+                <view><image src="{{ new_parent.avatar }}"></image></view>
+                <text>{{ new_parent.username }}</text>
+                <!-- <text class="notice"></text> -->
+            </view>
+        </view>
+        <button class="btn" bindtap="changeParent" data-id="{{ new_parent.id }}">替换关联</button>
+        <button class="btn" bindtap="back">不替换</button>
+    </view>
+</block>

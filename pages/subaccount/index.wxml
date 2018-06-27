@@ -1,19 +1,20 @@
 <view class="public-bg">
-    <block wx:for="{{ users }}" wx:key="user" wx:for-item="user">
-        <view  class="account_list" data-index="{{ index }}" bindtap="showSubaccount">
-            <view class="list_info">
-                <text class="list-left fl-left">姓名</text>
-                <text class="list-right fl-left">: {{ user.username }}</text>
+
+        <view class="my-list">
+            <view class="list" bindtap="redirectToSub">
+                <image src="../../asset/img/mine-a.png" class="icon"></image>
+                <view class="list-title">子账户</view>
+                <view class="Arrow"><text>{{ user.subaccount_count }}</text><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
-            <view class="list_info">
-                <text class="list-left fl-left">电话号码</text>
-                <text class="list-right fl-left">: {{ user.phone }}</text>
-                <view class="Arrow"><image src="../../asset/img/right-arrow.png"></image></view>
+
+            <view class="list" bindtap="redirectToParent">
+                <image src="../../asset/img/mine-a.png" class="icon"></image>
+                <view class="list-title">老板账户</view>
+                <view class="Arrow"><text>{{ user.parent ? user.parent.username : '' }}</text><image src="../../asset/img/right-arrow.png"></image></view>
             </view>
-        </view>   
-    </block>
-    <navigator url="add" hover-class="none">
-        <button class="btn" bindtap="">新增账户</button>
-    </navigator>
+        </view>
 
 </view>
+
+
+<mytoast message="{{ _toast_message }}" hide="{{ _toast_hide }}"></mytoast>

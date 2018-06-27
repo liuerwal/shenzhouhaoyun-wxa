@@ -1,3 +1,5 @@
+
+
 //index.js
 
 var P = require('../../page')
@@ -6,59 +8,40 @@ var Api = P.Api
 
 P.run({
     data: {
-        users: []
+        user: null
     },
-    customData: {
-        page: 1,
-        hasMore: true,
-    },
-    onLoad: function(){
+    onLoad: function(options){
 
-        this.loadSubAccount()
     },
 
-    loadSubAccount: function(){
-        var that=this;
+    onShow: function(){
+        var user = _.cache('user')
 
-        wx.showLoading({
-            title: '加载数据...',
-            mask: true,
+        this.setData({
+            user: user
         })
-
-        Api.user.subaccount(this.customData.page, function(response){
-
-            wx.hideLoading()
-
-            if ( !response.length ){
-                that.customData.hasMore = false
-                _.toast('已经拉到底了')
-            }
-
-            that.setData({
-                users : that.data.users.concat(response)
-            })
-
-            that.customData.page += 1
-        });
     },
 
-    showSubaccount: function(e){
-        var index = e.currentTarget.dataset.index
-        var user = this.data.users[index]
+    redirectToSub: function(){
 
-        getApp().globalData('subaccount_show', user)
-
-        _.navigateTo('detail')
-    },
-
-    onReachBottom: function(){
-        if ( this.customData.hasMore ){
-            this.loadSubAccount()
-        }else{
-            _.toast('已经拉到底了')
+        if ( this.data.user.parent_id > 0 ){
+            _.mytoast('您已关联老板账号，不能添加子账号')
+            return;
         }
+
+        _.navigateTo('subaccount')
+
     },
-    
+
+    redirectToParent: function(){
+
+        if ( this.data.user.subaccount_count > 0 ){
+            _.mytoast('您已关联多个子账号，不能添加老板账号')
+        }
+
+        _.navigateTo('parentaccount')
+    },
+
     
 });
 

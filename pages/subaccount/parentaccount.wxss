@@ -1,0 +1,9 @@
+.account{text-align:center; padding-top:50px; }
+.account image{width: 120px;height: 120px;}
+.account text{margin: 10px 0;display: block;}
+.account .notice{color: #999;}
+
+.display-flex{display: flex;}
+.display-flex .account{flex: 1;}
+.display-flex .arrow{width: 50px;padding-top: 85px;text-align: center;}
+.display-flex .arrow image{width: 40px;height: 40px;vertical-align:middle;transform:rotate(90deg);}

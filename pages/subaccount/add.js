@@ -14,6 +14,8 @@ P.run({
     },
     onLoad: function(){
 
+        this.createQrcode()
+
     },
 
     phoneChange: function(e){
@@ -22,17 +24,17 @@ P.run({
 
     createQrcode: function(){
         var that  = this
-        var phone = this.customData.phone
+        // var phone = this.customData.phone
 
-        if ( ! /1[0-9]{10}/.test(phone) ){
-            _.toast('请填写有效的手机号码')
-            return false
-        }
+        // if ( ! /1[0-9]{10}/.test(phone) ){
+        //     _.toast('请填写有效的手机号码')
+        //     return false
+        // }
 
         var user = _.cache('user')
-        var query = _.sprintf('?parent=%d&phone=%d', user.id, phone)
+        var query = _.sprintf('?parent=%d&phone=%d', user.id, '0000')
 
-        P.Api.auth.phone(phone, function(){
+        P.Api.auth.phone('0000', function(){
             that.setData({
                 qrcode: CONFIG.API.WEIXIN.WXAQRCODE + query,
             })

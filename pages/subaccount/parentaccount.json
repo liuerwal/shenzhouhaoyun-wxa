@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "账户关联",
+    "navigationBarTitleText": "老板账户",
     "usingComponents": {
         "mytoast": "../../comps/toast/toast"
     }

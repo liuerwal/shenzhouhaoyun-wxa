@@ -31,5 +31,6 @@
     </view>
 
     <button class="btn" bindtap="close">确 定</button>
+    <button class="btn" bindtap="remove">解除关联</button>
 
 </view>
