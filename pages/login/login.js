@@ -9,18 +9,14 @@ P.run({
 
     onLoad: function(options) {
         var that = this
-        if ( !_.cache('user') ){
-            Auth.login(function(response){
-                if ( response ){
-                    that.switchTab('home')
-                }else{
-                    _.redirectTo('/pages/register/register')
-                }
-            })
-            
-        }else{
-            that.switchTab('home')
-        }
+
+        Auth.login(function(response){
+            if ( response ){
+                that.switchTab('home')
+            }else{
+                _.redirectTo('/pages/register/register')
+            }
+        })
 
         getApp().globalData('referer', options.referer || 0);
     }
