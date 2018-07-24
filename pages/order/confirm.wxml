@@ -19,7 +19,7 @@
             </view>
 
             <view class="notice">
-                <text>提示：一次下单重量最小0.1吨，最大10吨，重量越大运费越划算</text>
+                <text>{{ tips[0] }}</text>
                 <!-- <text class="notice-addr">从地址列表中选择送货地址，最多3个</text> -->
             </view>
 
@@ -60,7 +60,7 @@
             </view>
 
             <view class="section service-time">
-                <view class='main-color'>货车禁行区域，默认从当天晚上9点开始配送</view>
+                <view class='main-color'>{{ tips[1] }}</view>
                 <view class="picker">
                     <view class="section__title">送达时间</view>
                     <picker bindchange="datatime" value="{{ct}}" range="{{choosetime}}" >

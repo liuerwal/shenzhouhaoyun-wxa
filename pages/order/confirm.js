@@ -15,6 +15,7 @@ P.run({
         cost: '0',
         weight: 0,
         addrs: [],
+        tips: [],
 
         current_oil: {
             id: 0,
@@ -195,7 +196,8 @@ P.run({
                 oil_type: that.customData.oil,
                 addrs: that.customData.addr,
                 choosetime :that.customData.time,
-                ct: that.customData.default_time
+                ct: that.customData.default_time,
+                tips: result[3].tips,
             })
 
             that.setCurrentOil(that.customData.oil[0]);
