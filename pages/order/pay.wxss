@@ -6,6 +6,6 @@
 
 
 .pay-btn{z-index:1;width: 100%;}
-.pay-btn button{border:none;width: 50%;font-size: 14px;color: #fff;border-radius:0;line-height: 40px;}
+.pay-btn button{border:none;width: 100%;font-size: 14px;color: #fff;border-radius:0;line-height: 40px;}
 .pay-btn .payAll{background: #F13D3C;color: #fff;right: 0;position: fixed;bottom:0;}
 .pay-btn .payFreight{background: #aaaaaa;color: #fff;left:0;position: fixed;bottom:0;}

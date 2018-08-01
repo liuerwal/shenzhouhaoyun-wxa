@@ -13,10 +13,15 @@
             <text class="list-left fl-left">重量</text>
             <text class="list-right"> {{order.order_oil.weight}}吨</text>
         </view>
+        <view class="list_info">
+            <text class="list-left fl-left">出库地址</text>
+            <text class="list-right"> {{order.order_oil.oil.station.name}}</text>
+        </view>
+
 
         <block wx:for="{{ order.address }}" wx:key="addr" wx:for-item="addr">
             <view class="list_info">
-                <text class="list-left fl-left">地址</text>
+                <text class="list-left fl-left">收货地址</text>
                 <text class="list-right"> {{ addr.address }} </text>
             </view>
             <view class="list_info">
@@ -29,10 +34,10 @@
             <text class="list-right"> {{ order.note }} </text>
         </view>
         
-        <view class="list_info">
+<!--         <view class="list_info">
             <text class="list-left fl-left">油费</text>
             <text class="list-right"> {{order.order_oil.amount}}</text>
-        </view>
+        </view> -->
         <view class="list_info">
             <text class="list-left fl-left">运费</text>
             <text class="list-right"> {{order.order_oil.freight}}</text>
@@ -58,8 +63,9 @@
     <pay title="{{ pay_title }}" amount="{{ pay_amount }}" hide="{{ pay_choose_box }}" bindpay="pay"></pay>
 
     <view class="pay-btn">
-        <button class="payFreight" data-paypart="freight" bindtap="payPart">先付运费</button>
-        <button class="payAll" data-paypart="all" bindtap="payPart">一次性付款</button>
+<!--         <button class="payFreight" data-paypart="freight" bindtap="payPart">先付运费</button>
+        <button class="payAll" data-paypart="all" bindtap="payPart">一次性付款</button> -->
+        <button class="payAll" data-paypart="all" bindtap="payPart">付运费</button>
     </view>
 
 </view>

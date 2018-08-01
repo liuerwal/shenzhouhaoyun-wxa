@@ -15,10 +15,10 @@
                 <text class="list-left fl-left">重量</text>
                 <text class="list-right"> {{order.order_oil.weight}}</text>
             </view>
-            <view class="list_info">
+<!--             <view class="list_info">
                 <text class="list-left fl-left">油款</text>
                 <text class="list-right"> {{order.order_oil.amount}}</text>
-            </view>
+            </view> -->
             <view class="list_info">
                 <text class="list-left fl-left">运费</text>
                 <text class="list-right"> {{order.order_oil.freight}}</text>

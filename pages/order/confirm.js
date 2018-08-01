@@ -21,6 +21,7 @@ P.run({
             id: 0,
             name: '',
             price: 0,
+            station: null,
         },
         current_addr: [],
 
@@ -283,7 +284,8 @@ P.run({
             current_oil: {
                 id: oil.id,
                 name: oil.name,
-                price: this.getOilPrice(oil)
+                price: this.getOilPrice(oil),
+                station: oil.station,
             }
         })
     },

@@ -16,6 +16,10 @@
                     </picker>
                 </view>
                 <view class="unit-price main-color" bindtap="powerDrawer" data-statu="open">{{ current_oil.price }}元/吨</view>
+            </view>            
+            <view class="section">
+                <view class="section__title">油库</view>
+                <input readonly="readonly" disabled="disabled" value="{{ current_oil.station.name }}"/>
             </view>
 
             <view class="notice">
